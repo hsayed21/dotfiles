@@ -75,7 +75,8 @@ Show-SuccessMessage -Message "PS Modules has been installed successfully."
 Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\settings.json" -targetPath ($currentPath + "\vscode\settings.json")
 Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\keybindings.json" -targetPath ($currentPath + "\vscode\keybindings.json")
 Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\snippets" -targetPath ($currentPath + "\vscode\snippets")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\extensions.json" -targetPath ($currentPath + "\vscode\extensions.json")
+# Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\extensions.json" -targetPath ($currentPath + "\vscode\extensions.json")
+Create-SymbolicLink -linkPath "$Home\.vscode\extensions\extensions.json" -targetPath ($currentPath + "\vscode\extensions.json")
 
 # vs2022
 & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
