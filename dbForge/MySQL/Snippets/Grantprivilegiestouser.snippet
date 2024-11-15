@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Grant</Title>
+      <Shortcut>Grant</Shortcut>
+      <Description>Grant some privilegies to user.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>user_name</ID>
+          <ToolTip>user_name</ToolTip>
+          <Default>USER1@localhost</Default>
+        </Literal>
+        <Literal>
+          <ID>database_name</ID>
+          <ToolTip>database_name</ToolTip>
+          <Default>*.*</Default>
+        </Literal>
+        <Literal>
+          <ID>privilege1</ID>
+          <ToolTip>privilege1</ToolTip>
+          <Default>RELOAD</Default>
+        </Literal>
+        <Literal>
+          <ID>privilege2</ID>
+          <ToolTip>privilege2</ToolTip>
+          <Default>PROCESS</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[GRANT $privilege1$, $privilege2$ ON $database_name$ TO $user_name$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

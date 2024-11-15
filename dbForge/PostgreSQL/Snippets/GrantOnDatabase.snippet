@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GrantOnDatabase</Title>
+      <Shortcut>GrantOnDB</Shortcut>
+      <Description>Define access privileges on Database</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>dbname</ID>
+          <Default>database1 </Default>
+        </Literal>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user1</Default>
+        </Literal>
+        <Literal>
+          <ID>group_name</ID>
+          <Default>group1 </Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[GRANT CREATE 
+--  TEMPORARY 
+--  TEMP  
+--  ALL PRIVILEGES 
+  ON DATABASE $dbname$
+  TO $user_name$ 
+-- GROUP $group_name$ 
+-- PUBLIC 
+-- WITH GRANT OPTION
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

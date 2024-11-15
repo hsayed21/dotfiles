@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTrigger</Title>
+      <Shortcut>CreateTrigger</Shortcut>
+      <Description>Create trigger.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>trigger_name</ID>
+          <Default>trigger_name</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>event_type</ID>
+          <Default>AFTER</Default>
+        </Literal>
+        <Literal>
+          <ID>event</ID>
+          <Default>INSERT</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[CREATE TRIGGER $trigger_name$
+  ON $schema_name$.$table_name$
+  $event_type$ $event$
+  EXECUTE PROCEDURE $function_name$($CARET$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

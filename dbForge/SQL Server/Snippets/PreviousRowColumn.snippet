@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>PreviousRowColumn</Title>
+      <Shortcut>PreviousRowColumn</Shortcut>
+      <Description />
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>column1</ID>
+        </Literal>
+        <Literal>
+          <ID>column2</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[LAG($column1$) OVER (ORDER BY $column2$)]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

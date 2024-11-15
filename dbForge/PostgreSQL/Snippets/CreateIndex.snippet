@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateIndex</Title>
+      <Shortcut>CreateIndex</Shortcut>
+      <Description>Create unique index.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>index_name</ID>
+          <Default>index_name</Default>
+        </Literal>
+        <Literal>
+          <ID>col_name</ID>
+          <Default>col_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[CREATE UNIQUE INDEX $index_name$
+ON $schema$.$table_name$ ($col_name$ ASC$CARET$);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

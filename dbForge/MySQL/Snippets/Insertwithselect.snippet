@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Insert with Select Clause</Title>
+      <Shortcut>InsertWithSelect</Shortcut>
+      <Description>Insert rows into the table using select statement.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table1_name</ID>
+          <ToolTip>table1_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_from_table1</ID>
+          <ToolTip>column1_from_table1</ToolTip>
+          <Default>COLUMN11</Default>
+        </Literal>
+        <Literal>
+          <ID>column2_from_table1</ID>
+          <ToolTip>column2_from_table1</ToolTip>
+          <Default>COLUMN12</Default>
+        </Literal>
+        <Literal>
+          <ID>table2_name</ID>
+          <ToolTip>table2_name</ToolTip>
+          <Default>TABLE2</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_from_table2</ID>
+          <ToolTip>column1_from_table2</ToolTip>
+          <Default>COLUMN21</Default>
+        </Literal>
+        <Literal>
+          <ID>column2_from_table2</ID>
+          <ToolTip>column2_from_table2</ToolTip>
+          <Default>COLUMN22</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[INSERT LOW_PRIORITY IGNORE
+  INTO $table1_name$($column1_from_table1$, $column2_from_table1$)
+  SELECT $column1_from_table2$, $column2_from_table2$ FROM $table2_name$
+  ON DUPLICATE KEY UPDATE $column1_from_table1$ = $column1_from_table2$ * 10;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

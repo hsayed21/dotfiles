@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateFunctionSQL</Title>
+      <Shortcut>CreateFunctionSQL</Shortcut>
+      <Description>Define a new function</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>data_type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>func_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>param_name</ID>
+          <Default>prm1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE OR REPLACE FUNCTION $schema_name$.$function_name$($param_name$ $data_type$)
+  RETURNS TABLE (
+    table_id INT,
+    table_txt TEXT
+  )
+  LANGUAGE SQL
+  IMMUTABLE
+AS \$sql\$
+SELECT
+  $param_name$ AS table_id
+ ,'' AS table_txt
+;
+\$sql\$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

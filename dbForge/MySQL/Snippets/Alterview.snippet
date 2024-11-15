@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter View</Title>
+      <Shortcut>AlterView</Shortcut>
+      <Description>Alter view snippet changes the definition of a view, which must exist.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>view_name</ID>
+          <ToolTip>view_name</ToolTip>
+          <Default>VIEW1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1</ID>
+          <ToolTip>column1</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>column2</ID>
+          <ToolTip>column2</ToolTip>
+          <Default>COLUMN2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER ALGORITHM = MERGE VIEW $view_name$ ($column1$, $column2$)  
+  AS $caret$
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

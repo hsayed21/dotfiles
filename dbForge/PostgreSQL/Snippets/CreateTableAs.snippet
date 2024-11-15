@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTableAs</Title>
+      <Shortcut>CreateTableAs</Shortcut>
+      <Description>Define a new table from the results of a query</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>source_schema</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>source_tbl_name</ID>
+          <Default>source_table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE TABLE $schema_name$.$table_name$
+AS
+SELECT *
+FROM $source_schema$.$source_tbl_name$
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

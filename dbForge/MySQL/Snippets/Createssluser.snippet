@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create SSL User</Title>
+      <Shortcut>CreateUserSSL</Shortcut>
+      <Description>Create user with SSL requirement snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>user_name</ID>
+          <ToolTip>user_name</ToolTip>
+          <Default>USER1</Default>
+        </Literal>
+        <Literal>
+          <ID>password</ID>
+          <ToolTip>password</ToolTip>
+          <Default>'password'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE USER $user_name$
+  IDENTIFIED BY $password$;
+  GRANT USAGE ON *.* TO $user_name$ REQUIRE SSL;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

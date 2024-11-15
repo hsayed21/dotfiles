@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateRule</Title>
+      <Shortcut>CreateRule</Shortcut>
+      <Description>Define a new rewrite rule</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>rule_name</ID>
+          <Default>rule_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE RULE $rule_name$ AS
+  ON SELECT TO $schema_name$.$table_name$
+--   INSERT
+--   UPDATE
+--   DELETE
+  DO INSTEAD
+--   ALSO    
+      SELECT * FROM $schema_name$.$table_name$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

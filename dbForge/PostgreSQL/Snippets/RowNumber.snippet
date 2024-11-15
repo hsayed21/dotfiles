@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>RowNumber</Title>
+      <Shortcut>RowNumber</Shortcut>
+      <Description>ROW_NUMBER fragment.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>window</ID>
+          <Default>w</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>alias</ID>
+          <Default>alias</Default>
+        </Literal>
+        <Literal>
+          <ID>group_column</ID>
+          <Default>group_column</Default>
+        </Literal>
+        <Literal>
+          <ID>id_column</ID>
+          <Default>id_column</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[SELECT ROW_NUMBER() OVER $window$ AS rownum, $alias$.*$CARET$
+FROM $schema_name$.$table_name$ $alias$
+WINDOW $window$ AS (PARTITION BY $alias$.$group_column$ ORDER BY $alias$.$id_column$);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateDomain</Title>
+      <Shortcut>CreateDomain</Shortcut>
+      <Description>Define a new domain</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>domain_name</ID>
+          <Default>domain1</Default>
+        </Literal>
+        <Literal>
+          <ID>type_name</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>collation</ID>
+        </Literal>
+        <Literal>
+          <ID>check_name</ID>
+          <Default>chk_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE DOMAIN $domain_name$ AS $type_name$
+-- NOT NULL
+-- CONSTRAINT $check_name$
+-- CHECK ()
+-- COLLATE $collation$
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

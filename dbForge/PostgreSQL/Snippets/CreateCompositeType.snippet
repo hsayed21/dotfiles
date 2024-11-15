@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateCompositeType</Title>
+      <Shortcut>CreateCompositeType</Shortcut>
+      <Description>Define a composite type represents the structure of a row or record</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>composite_type_name</ID>
+          <Default>type_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>column1</ID>
+          <Default>pk</Default>
+        </Literal>
+        <Literal>
+          <ID>column2</ID>
+          <Default>txt</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type1</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type2</ID>
+          <Default>VARCHAR(50)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE TYPE $schema_name$.$composite_type_name$
+AS (
+  $column1$ $data_type1$
+ ,$column2$ $data_type2$
+);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

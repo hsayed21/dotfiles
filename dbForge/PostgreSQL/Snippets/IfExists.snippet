@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>IfExists</Title>
+      <Shortcut>IfExists</Shortcut>
+      <Description>Check if rows exists</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[IF EXISTS (SELECT 1 FROM $schema_name$.$table_name$) THEN
+  $CARET$
+END IF;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

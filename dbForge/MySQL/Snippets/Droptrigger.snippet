@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Drop Trigger</Title>
+      <Shortcut>DropTrigger</Shortcut>
+      <Description>Drop trigger snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>trigger_name</ID>
+          <ToolTip>trigger_name</ToolTip>
+          <Default>TRIGGER1</Default>
+        </Literal>
+        <Literal>
+          <ID>owner_name</ID>
+          <ToolTip>owner_name</ToolTip>
+          <Default>USER1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[DROP TRIGGER $trigger_name$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

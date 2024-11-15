@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Declare</Title>
+      <Shortcut>Declare</Shortcut>
+      <Description>Condition declaration snippet with SQLSTATE.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>condition_name</ID>
+          <ToolTip>condition_name</ToolTip>
+          <Default>CURSOR1</Default>
+        </Literal>
+        <Literal>
+          <ID>sqlstate_value</ID>
+          <ToolTip>sqlstate_value</ToolTip>
+          <Default>'23000'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[DECLARE $condition_name$ CONDITION
+  FOR SQLSTATE $sqlstate_value$$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

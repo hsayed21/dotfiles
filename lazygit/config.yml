@@ -1,0 +1,248 @@
+# lazygit -cd   => to get lazygit config path
+# For windows C:\Users\{username}\AppData\Local\lazygit
+
+# Good resource for custom commands
+# - https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium
+# - https://github.com/jesseduffield/lazygit/blob/master/pkg/gui/services/custom_commands/models.go
+# - https://github.com/jesseduffield/lazygit/blob/3af545daf7cf6458e8efd324012047ce688f08e6/docs/Custom_Command_Keybindings.md
+# - Possible keybindings https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Custom_Keybindings.md
+
+git:
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+  allBranchesLogCmd: 'git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium'
+  paging:
+    # colorArg: always
+    # pager: delta --dark --paging=never
+    # pager: diff-so-fancy
+    externalDiffCommand: difft --color=always # perfect for windows https://difftastic.wilfred.me.uk/
+gui:
+  sidePanelWidth: 0.25
+  theme:
+    selectedLineBgColor:
+      - underline
+    selectedRangeBgColor:
+      - underline
+  nerdFontsVersion: "3"
+refresher:
+  refreshInterval: 3
+os:
+  edit: "nvim"
+
+# Possible keybindings https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Custom_Keybindings.md
+customCommands:
+  # Conventional commit
+  - key: "<c-a>"
+    context: "files"
+    # context: "global"
+    description: "Create new conventional commit"
+    prompts:
+      - type: "menu"
+        key: "Type"
+        title: "Type of change"
+        options:
+          - name: "init"
+            description: "🎉 Initial commit"
+            value: "🎉 Initial commit"
+          - name: "add"
+            description: "➕ Add new files"
+            value: "➕ add: "
+          - name: "update"
+            description: "🔨 Update existing code or files"
+            value: "🔨 update: "
+          - name: "improve"
+            description: "⚡️ Improve performance or functionality"
+            value: "⚡️ improv: "
+          - name: "refactor"
+            description: "♻️ Refactor code without changing functionality"
+            value: "♻️ refactor: "
+          - name: "style"
+            description: "💄 Update code style"
+            value: "💄 style: "
+          - name: "fix"
+            description: "🐞 Fix a bug"
+            # value: "🐛 fix: "
+            value: "🐞 fix: "
+          - name: "remove"
+            description: "➖ Remove files or code"
+            value: "➖ remov: "
+          - name: "feat"
+            description: "🌟 Add a new feature"
+            value: "🌟 feat: "
+          - name: "clean"
+            description: "🧹 Clean up code"
+            value: "🧹 Clean-up code"
+          - name: "inprogress"
+            description: "🚧 Work in progress"
+            value: "🚧 Work in progress"
+          - name: "test"
+            description: "🧪 Add or update tests"
+            value: "🧪 For Testing"
+          - name: "merge"
+            description: "🔀 Merge branches"
+            value: "🔀 Merge branches"
+          - name: "bad"
+            description: "💩 Add bad code that needs improvement"
+            value: "💩 Write bad code that needs to be improved"
+          - name: "hotfix"
+            description: "🚑️ Apply a critical hotfix"
+            value: "🚑️ Critical hotfix "
+          - name: "revert"
+            description: "⏪️ Revert changes"
+            value: "⏪️ revert: "
+          - name: "review"
+            description: "👌 Apply code review changes"
+            value: "👌 Code review changes"
+          - name: "addtest"
+            description: "✅ Add or improve tests"
+            value: "✅ test: "
+          - name: "config"
+            description: "🔧 Change configuration files"
+            value: "🔧 Changing configuration files"
+          - name: "secur"
+            description: "🔒️ Fix security issues"
+            value: "🔒️ Fixing security issues"
+          - name: "doc"
+            description: "📚 Update documentation"
+            value: "📚 docs: "
+          - name: "releas"
+            description: "📦️ Release a new version"
+            value: "📦️ Releasing v "
+          - name: "tag"
+            description: "🔖 Tag a new version"
+            value: "🔖 Tag v "
+          - name: "empty"
+            description: "Empty Text"
+            value: ""
+      - type: "input"
+        title: "{{.Form.Type}}"
+        key: "Message"
+        initialValue: ""
+      - type: "confirm"
+        key: "Confirm"
+        title: "Commit"
+        body: "Are you sure you want to commit?"
+    command: "git commit --message '{{.Form.Type}}{{.Form.Message}}'"
+    loadingText: "Creating conventional commit..."
+  # Add empty commit
+  - key: 'E'
+    description: 'Add empty commit'
+    context: 'commits'
+    command: 'git commit --allow-empty -m "nothing to see here"'
+    # command: 'git commit --allow-empty -m "empty commit"'
+    loadingText: 'Committing empty commit...'
+  # Fetch a remote branch as a new local branch
+  - key: 'N'
+    description: 'fetch a remote branch as a new local branch'
+    command: "git fetch {{.SelectedRemoteBranch.RemoteName}} {{.SelectedRemoteBranch.Name}}:{{index .PromptResponses 0}}"
+    context: 'remoteBranches'
+    prompts:
+      - type: 'input'
+        title: 'New Local Branch Name'
+        initialValue: ''
+    loadingText: 'fetching and creating branch'
+  - key: '<c-n>'
+    description: 'fetch a remote branch as a new local branch'
+    command: "git fetch {{index .SelectedRemote.Name }} {{index .PromptResponses 0}}:{{index .PromptResponses 1}}"
+    context: 'remotes'
+    prompts:
+      - type: 'input'
+        title: 'Remote Branch Name'
+        initialValue: ''
+      - type: 'input'
+        title: 'New Local Branch Name'
+        initialValue: ''
+    loadingText: 'fetching and creating branch'
+  # Pushing a specific commit
+  - key: '<c-p>'
+    command: "git push {{.SelectedRemote.Name}} {{.SelectedLocalCommit.Sha}}:{{.SelectedLocalBranch.RefName}}"
+    context: "commits"
+    loadingText: "Pushing specific commit..."
+    description: "Push a specific commit (and any preceding)"
+    stream: yes
+  # Clean untracked files
+  - key: x
+    context: 'files'
+    command: "git clean -fd"
+    description: "Clean untracked files"
+    prompts:
+    - type: confirm
+      title: "Clean"
+      body: "Are you want to remove all untracked files?"
+  # Blame via tig
+  - key: b
+    command: tig blame -- {{.SelectedFile.Name}}
+    context: files
+    description: blame file at tree
+    subprocess: yes
+  - key: B
+    command: tig blame -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: blame file at tree
+    subprocess: yes
+  - key: b
+    command: tig blame {{.SelectedLocalCommit.Sha}} -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: blame file at revision
+    subprocess: yes
+  # Browse files at revision via tig
+  - key: t
+    command: tig show {{.SelectedSubCommit.Sha}}
+    context: subCommits
+    description: tig commit (`t` again to browse files at revision)
+    subprocess: yes
+  - key: t
+    command: tig show {{.SelectedLocalBranch.Name}}
+    context: localBranches
+    description: tig branch (`t` again to browse files at revision)
+    subprocess: yes
+  - key: t
+    command: tig show {{.SelectedRemoteBranch.RemoteName}}/{{.SelectedRemoteBranch.Name}}
+    context: remoteBranches
+    description: tig branch (`t` again to browse files at revision)
+    subprocess: yes
+  # File history via tig
+  - key: h
+    command: tig {{.SelectedLocalCommit.Sha}} -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: tig file (history of commits affecting file)
+    subprocess: yes
+  - key: h
+    command: tig -- {{.SelectedFile.Name}}
+    context: files
+    description: tig file (history of commits affecting file)
+    subprocess: yes
+  # Merge staff
+  - key: 'M'
+    prompts:
+      - type: 'menu'
+        title: 'Select Option'
+        options:
+          - name: 'Squash'
+            description: 'Merge Squash'
+            value: '--squash'
+          - name: 'FastForward'
+            description: 'Merge FastForward'
+            value: '--ff'
+          - name: 'No-FastForward'
+            description: 'Merge FastForward'
+            value: '--no-ff'
+    command: 'git merge {{index .PromptResponses 0}} {{.SelectedLocalBranch.Name}}'
+    context: 'localBranches'
+    description: 'Merge Squash'
+  - key: '<f1>'
+    context: 'files'
+    command: 'git checkout --ours  -- {{.SelectedPath}}'
+    description: 'Merge ours(HEAD)'
+  - key: '<f2>'
+    context: 'files'
+    command: 'git checkout --theirs -- {{.SelectedPath}}'
+    description: 'Merge theirs'
+
+
+  # Comparing a file in a previous revision with the working copy
+  # - key: 'f'
+  #   command: "git difftool -y {{.SelectedLocalCommit.Sha}} -- {{.SelectedCommitFile.Name}}"
+  #   context: 'commitFiles'
+  #   description: 'Compare (difftool) with local copy'
+
+

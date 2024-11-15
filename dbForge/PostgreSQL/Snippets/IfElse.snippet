@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>IfElse</Title>
+      <Shortcut>IfElse</Shortcut>
+      <Description>If ELSE conditions</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>if_condition</ID>
+          <Default>a &gt; b</Default>
+        </Literal>
+        <Literal>
+          <ID>elseif_condition</ID>
+          <Default>a &lt; b</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[IF ( $if_condition$ ) THEN
+  $CARET$
+ELSEIF ( $elseif_condition$ ) THEN
+
+ELSE
+
+END IF;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

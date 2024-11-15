@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Trigger</Title>
+      <Shortcut>CreateTrigger</Shortcut>
+      <Description>Create trigger snippet with AFTER INSERT.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>trigger_name</ID>
+          <ToolTip>trigger_name</ToolTip>
+          <Default>TRIGGER1</Default>
+        </Literal>
+        <Literal>
+          <ID>owner_name</ID>
+          <ToolTip>owner_name</ToolTip>
+          <Default>DATABASE1</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE TRIGGER $trigger_name$
+AFTER INSERT
+  ON $table_name$
+  FOR EACH ROW
+BEGIN
+  $caret$
+END;
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

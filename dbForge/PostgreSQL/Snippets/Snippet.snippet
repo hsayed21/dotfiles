@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CrosstabFunction</Title>
+      <Shortcut>CrosstabFunction</Shortcut>
+      <Description>Define a Crosstab Function</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+        </Literal>
+        <Literal>
+          <ID>crosstab_value1</ID>
+        </Literal>
+        <Literal>
+          <ID>crosstab_value2</ID>
+        </Literal>
+        <Literal>
+          <ID>value_type</ID>
+        </Literal>
+        <Literal>
+          <ID>$value_type1$</ID>
+        </Literal>
+        <Literal>
+          <ID>$value_type2$</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[-- CREATE EXTENSION IF NOT EXISTS tablefunc;
+SELECT * FROM crosstab
+(
+\$\$
+  SELECT * FROM $schema_name$.$table_name$
+           WHERE  
+           GROUP BY 
+           ORDER BY 
+\$\$,\$\$VALUES ($crosstab_value1$::$value_type$),$crosstab_value2$\$\$
+)  AS
+ct( $crosstab_value1$  $value_type1$,$crosstab_value2$  $value_type2$);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

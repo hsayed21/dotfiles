@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter Event</Title>
+      <Shortcut>AlterEvent</Shortcut>
+      <Description>Alter event snippet with ON SCHEDULE and STARTS CURRENT_TIMESTAMP.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>event_name</ID>
+          <ToolTip>event_name</ToolTip>
+          <Default>EVENT1</Default>
+        </Literal>
+        <Literal>
+          <ID>interval</ID>
+          <ToolTip>interval</ToolTip>
+          <Default>12 HOUR</Default>
+        </Literal>
+        <Literal>
+          <ID>timestamp</ID>
+          <ToolTip>timestamp</ToolTip>
+          <Default>'2013-01-01 08:00:00'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER EVENT $event_name$
+  ON SCHEDULE EVERY $interval$
+  STARTS CURRENT_TIMESTAMP + $timestamp$
+  ENABLE;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

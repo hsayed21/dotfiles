@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateFunction</Title>
+      <Shortcut>CreateScalarFunction</Shortcut>
+      <Description>Create scalar function.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
+        <Literal>
+          <ID>return_type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>language</ID>
+          <Default>plpgsql</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE OR REPLACE FUNCTION $schema_name$.$function_name$() RETURNS $return_type$
+LANGUAGE $language$
+AS \$$language$\$
+BEGIN
+  RETURN 0;
+END;
+\$$language$\$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Function</Title>
+      <Shortcut>CreateFunction</Shortcut>
+      <Description>Create function snippet with parameters.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>function_name</ID>
+          <ToolTip>function_name</ToolTip>
+          <Default>FUNCTION1</Default>
+        </Literal>
+        <Literal>
+          <ID>parameter_name1</ID>
+          <ToolTip>parameter_name1</ToolTip>
+          <Default>PARAM1</Default>
+        </Literal>
+        <Literal>
+          <ID>parameter_type1</ID>
+          <ToolTip>parameter_type1</ToolTip>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>parameter_name2</ID>
+          <ToolTip>parameter_name2</ToolTip>
+          <Default>PARAM2</Default>
+        </Literal>
+        <Literal>
+          <ID>parameter_type2</ID>
+          <ToolTip>parameter_type2</ToolTip>
+          <Default>VARCHAR(20)</Default>
+        </Literal>
+        <Literal>
+          <ID>return_type</ID>
+          <ToolTip>return_type</ToolTip>
+          <Default>VARCHAR(20)</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE FUNCTION $function_name$ (
+  $parameter_name1$ $parameter_type1$, $parameter_name2$ $parameter_type2$)
+  RETURNS $return_type$
+BEGIN
+  $caret$
+  RETURN ;
+END;
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter Table Add Foreign Key</Title>
+      <Shortcut>AlterTableAddForeignKey</Shortcut>
+      <Description>Alter table snippet to add a foreign key.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>TableName</ID>
+          <ToolTip>TableName</ToolTip>
+          <Default>TableName</Default>
+        </Literal>
+        <Literal>
+          <ID>ConstraintName</ID>
+          <ToolTip>ConstraintName</ToolTip>
+          <Default>ConstraintName</Default>
+        </Literal>
+        <Literal>
+          <ID>IndexName</ID>
+          <ToolTip>IndexName</ToolTip>
+          <Default>IndexName</Default>
+        </Literal>
+        <Literal>
+          <ID>IndexColName</ID>
+          <ToolTip>IndexColName</ToolTip>
+          <Default>IndexColName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER TABLE $TableName$
+  ADD CONSTRAINT FK_$TableName$_$IndexName$_$IndexColName$ FOREIGN KEY (col1)
+    REFERENCES $IndexName$($IndexColName$) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

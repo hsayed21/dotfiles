@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GrantOnSchema</Title>
+      <Shortcut>GrantOnSchema</Shortcut>
+      <Description>Define access privileges on Schema</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>schema1</Default>
+        </Literal>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user1</Default>
+        </Literal>
+        <Literal>
+          <ID>group_name</ID>
+          <Default>group1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[GRANT CREATE 
+--  USAGE 
+--  ALL  PRIVILEGES 
+  ON SCHEMA $schema_name$ 
+  TO $user_name$ 
+--  GROUP $group_name$ 
+--  PUBLIC
+--  WITH GRANT OPTION
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

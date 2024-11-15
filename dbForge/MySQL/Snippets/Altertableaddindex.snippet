@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter Table Add Index</Title>
+      <Shortcut>AlterTableAddIndex</Shortcut>
+      <Description>Alter table snippet to add an index.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_owner</ID>
+          <ToolTip>table_owner</ToolTip>
+          <Default>USER1</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>index_name</ID>
+          <ToolTip>index_name</ToolTip>
+          <Default>INDEX1</Default>
+        </Literal>
+        <Literal>
+          <ID>index_column_name</ID>
+          <ToolTip>index_column_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER TABLE $table_name$
+  ADD INDEX $index_name$ ($index_column_name$);
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

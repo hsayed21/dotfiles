@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CTE</Title>
+      <Shortcut>CTE</Shortcut>
+      <Description>Common table expression.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>query_name</ID>
+          <Default>query_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[WITH
+  $query_name$ AS (SELECT *$CARET$ FROM $schema_name$.$table_name$)
+SELECT * FROM $query_name$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

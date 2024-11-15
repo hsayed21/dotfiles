@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<KeyMapping Version="1.0" Default="True">
+  <ShortcutTable ContextName="CodeSnippets" />
+  <ShortcutTable ContextName="Comparison">
+    <Shortcut Name="NavigateNextDifference" Group="DocumentCompare" FirstKey="Control+Shift+Right" />
+    <Shortcut Name="NavigateNextDifferenceInColumn" Group="DocumentCompare" FirstKey="Control+Shift+Down" />
+    <Shortcut Name="NavigatePreviousDifference" Group="DocumentCompare" FirstKey="Control+Shift+Left" />
+    <Shortcut Name="NavigatePreviousDifferenceInColumn" Group="DocumentCompare" FirstKey="Control+Shift+Up" />
+    <Shortcut Name="ObjectsFilter" Group="DocumentCompare" FirstKey="Control+L" />
+    <Shortcut Name="Refresh" Group="DocumentCompare" FirstKey="F5" />
+    <Shortcut Name="ShowHideDetailsPanel" Group="DocumentCompare" FirstKey="Control+R" />
+    <Shortcut Name="Synchronize" Group="DocumentCompare" FirstKey="F8" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="DatabaseExplorer">
+    <Shortcut Name="Refresh" Group="Standard" FirstKey="F5" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="DataEditor">
+    <Shortcut Name="ApplyChanges" Group="DataEditor" FirstKey="Control+S" />
+    <Shortcut Name="AutoSearchMode" Group="DataEditor" FirstKey="Control+I" />
+    <Shortcut Name="CopyWithHeader" Group="DataEditor" FirstKey="Control+Shift+C" />
+    <Shortcut Name="DeleteRow" Group="DataEditor" FirstKey="Control+Delete" />
+    <Shortcut Name="FilterEqual" Group="DataEditor" FirstKey="Control+Q" />
+    <Shortcut Name="NewRow" Group="DataEditor" FirstKey="Insert" />
+    <Shortcut Name="RefreshData" Group="DataEditor" FirstKey="F5" />
+    <Shortcut Name="SelectColumn" Group="DataEditor" FirstKey="Control+Space" />
+    <Shortcut Name="SelectRow" Group="DataEditor" FirstKey="Shift+Space" />
+    <Shortcut Name="SetToNull" Group="DataEditor" FirstKey="Control+D0" />
+    <Shortcut Name="SetToNull" Group="DataEditor" FirstKey="Control+NumPad0" />
+    <Shortcut Name="ShowHideAdditionalViews" Group="Standard" FirstKey="Control+R" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="DataGeneration">
+    <Shortcut Name="CompleteWord" Group="SqlComplete" FirstKey="Control+Space" />
+    <Shortcut Name="PopulateData" Group="DataGenerator" FirstKey="F8" />
+    <Shortcut Name="Refresh" Group="DataGenerator" FirstKey="F5" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="Global">
+    <Shortcut Name="Close" Group="Standard" FirstKey="Control+F4" />
+    <Shortcut Name="Close" Group="Standard" FirstKey="Control+W" SecondKey="Control+W" />
+    <Shortcut Name="Close" Group="Standard" FirstKey="Control+W" SecondKey="W" />
+    <Shortcut Name="Copy" Group="Standard" FirstKey="Control+C" />
+    <Shortcut Name="Copy" Group="Standard" FirstKey="Control+Insert" />
+    <Shortcut Name="CopyCell" Group="Standard" FirstKey="Control+Shift+C" />
+    <Shortcut Name="Cut" Group="Standard" FirstKey="Control+X" />
+    <Shortcut Name="Cut" Group="Standard" FirstKey="Shift+Delete" />
+    <Shortcut Name="Delete" Group="Standard" FirstKey="Delete" />
+    <Shortcut Name="DiagramOverview" Group="Diagram" FirstKey="Control+W" SecondKey="V" />
+    <Shortcut Name="DiagramOverview" Group="Diagram" FirstKey="Control+W" SecondKey="Control+V" />
+    <Shortcut Name="ExecutionHistory" Group="ExecutionHistory" FirstKey="Control+Alt+H" />
+    <Shortcut Name="F1Help" Group="Standard" FirstKey="F1" />
+    <Shortcut Name="Find" Group="Standard" FirstKey="Control+F" />
+    <Shortcut Name="FindInFiles" Group="Standard" FirstKey="Control+Shift+F" />
+    <Shortcut Name="FindNext" Group="Standard" FirstKey="F3" />
+    <Shortcut Name="FindNextSelected" Group="Standard" FirstKey="Control+F3" />
+    <Shortcut Name="FindPrevious" Group="Standard" FirstKey="Shift+F3" />
+    <Shortcut Name="FindPreviousSelected" Group="Standard" FirstKey="Control+Shift+F3" />
+    <Shortcut Name="GotoLine" Group="TextEditor" FirstKey="Control+G" />
+    <Shortcut Name="HierarchyNavigationBackward" Group="Standard" FirstKey="Alt+Left" />
+    <Shortcut Name="HierarchyNavigationForward" Group="Standard" FirstKey="Alt+Right" />
+    <Shortcut Name="MakeLower" Group="TextEditor" FirstKey="Control+U" />
+    <Shortcut Name="MakeUpper" Group="TextEditor" FirstKey="Control+Shift+U" />
+    <Shortcut Name="NewConnection" Group="DbForge" FirstKey="Control+D" SecondKey="N" />
+    <Shortcut Name="NewConnection" Group="DbForge" FirstKey="Control+D" SecondKey="Control+N" />
+    <Shortcut Name="NewSqlTool" Group="Standard" FirstKey="Control+N" />
+    <Shortcut Name="NextDocView" Group="Standard" FirstKey="F7" />
+    <Shortcut Name="NextTab" Group="Standard" FirstKey="Control+Alt+PageUp" />
+    <Shortcut Name="Open" Group="Standard" FirstKey="Control+O" />
+    <Shortcut Name="Paste" Group="Standard" FirstKey="Control+V" />
+    <Shortcut Name="Paste" Group="Standard" FirstKey="Shift+Insert" />
+    <Shortcut Name="PinDocument" Group="Document" FirstKey="Control+Alt+P" />
+    <Shortcut Name="PrevDocView" Group="Standard" FirstKey="Shift+F7" />
+    <Shortcut Name="PreviousTab" Group="Standard" FirstKey="Control+Alt+Next" />
+    <Shortcut Name="Print" Group="Standard" FirstKey="Control+P" />
+    <Shortcut Name="Redo" Group="Standard" FirstKey="Control+Y" />
+    <Shortcut Name="Redo" Group="Standard" FirstKey="Control+Shift+Z" />
+    <Shortcut Name="RefreshDbObject" Group="Document" FirstKey="Shift+Alt+R" />
+    <Shortcut Name="Rename" Group="Standard" FirstKey="F2" />
+    <Shortcut Name="Replace" Group="Standard" FirstKey="Control+H" />
+    <Shortcut Name="ReplaceInFiles" Group="Standard" FirstKey="Control+Shift+H" />
+    <Shortcut Name="Save" Group="Standard" FirstKey="Control+S" />
+    <Shortcut Name="SaveAll" Group="Standard" FirstKey="Control+Shift+S" />
+    <Shortcut Name="ScriptChangesToQuery" Group="Document" FirstKey="Shift+Alt+C" />
+    <Shortcut Name="SelectAll" Group="Standard" FirstKey="Control+A" />
+    <Shortcut Name="ShowCodeSnippets" Group="CodeSnippets" FirstKey="Control+W" SecondKey="T" />
+    <Shortcut Name="ShowCodeSnippets" Group="CodeSnippets" FirstKey="Control+W" SecondKey="Control+T" />
+    <Shortcut Name="ShowContents" Group="Standard" FirstKey="F1" />
+    <Shortcut Name="ShowDataViewer" Group="DataEditor" FirstKey="Control+W" SecondKey="R" />
+    <Shortcut Name="ShowDataViewer" Group="DataEditor" FirstKey="Control+W" SecondKey="Control+R" />
+    <Shortcut Name="ShowDocOutline" Group="DbForge" FirstKey="Control+W" SecondKey="U" />
+    <Shortcut Name="ShowDocOutline" Group="DbForge" FirstKey="Control+W" SecondKey="Control+U" />
+    <Shortcut Name="ShowErrorList" Group="Standard" FirstKey="Control+W" SecondKey="E" />
+    <Shortcut Name="ShowErrorList" Group="Standard" FirstKey="Control+W" SecondKey="Control+E" />
+    <Shortcut Name="ShowExplorer" Group="ObjectExplorer" FirstKey="Control+W" SecondKey="L" />
+    <Shortcut Name="ShowExplorer" Group="ObjectExplorer" FirstKey="Control+W" SecondKey="Control+L" />
+    <Shortcut Name="ShowOutput" Group="Standard" FirstKey="Control+W" SecondKey="O" />
+    <Shortcut Name="ShowOutput" Group="Standard" FirstKey="Control+W" SecondKey="Control+O" />
+    <Shortcut Name="ShowProperties" Group="Standard" FirstKey="Control+W" SecondKey="P" />
+    <Shortcut Name="ShowProperties" Group="Standard" FirstKey="Control+W" SecondKey="Control+P" />
+    <Shortcut Name="ShowProperties" Group="Standard" FirstKey="F4" />
+    <Shortcut Name="ShowStartPage" Group="Standard" FirstKey="Control+W" SecondKey="S" />
+    <Shortcut Name="ShowStartPage" Group="Standard" FirstKey="Control+W" SecondKey="Control+S" />
+    <Shortcut Name="Undo" Group="Standard" FirstKey="Control+Z" />
+    <Shortcut Name="Undo" Group="Standard" FirstKey="Alt+Back" />
+    <Shortcut Name="UpdateDatabase" Group="Document" FirstKey="Shift+Alt+A" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="LobEditor">
+    <Shortcut Name="ClearAll" Group="LobEditor" FirstKey="Control+D0" />
+    <Shortcut Name="HexView" Group="LobEditor" FirstKey="Control+D1" />
+    <Shortcut Name="HtmlView" Group="LobEditor" FirstKey="Control+D4" />
+    <Shortcut Name="ImageView" Group="LobEditor" FirstKey="Control+D9" />
+    <Shortcut Name="JsonView" Group="LobEditor" FirstKey="Control+D8" />
+    <Shortcut Name="Open" Group="LobEditor" FirstKey="Control+O" />
+    <Shortcut Name="PdfView" Group="LobEditor" FirstKey="Control+D7" />
+    <Shortcut Name="RichTextView" Group="LobEditor" FirstKey="Control+D6" />
+    <Shortcut Name="Save" Group="LobEditor" FirstKey="Control+Shift+S" />
+    <Shortcut Name="Scale" Group="LobEditor" FirstKey="Control+B" />
+    <Shortcut Name="SpatialView" Group="LobEditor" FirstKey="Control+Alt+D0" />
+    <Shortcut Name="TextView" Group="LobEditor" FirstKey="Control+D2" />
+    <Shortcut Name="WebView" Group="LobEditor" FirstKey="Control+D5" />
+    <Shortcut Name="XmlView" Group="LobEditor" FirstKey="Control+D3" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="MasterDetail">
+    <Shortcut Name="BrowseData" Group="MasterDetail" FirstKey="F5" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="ObjectViewer">
+    <Shortcut Name="Refresh" Group="Standard" FirstKey="F5" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="PivotGrid">
+    <Shortcut Name="Refresh" Group="PivotGrid" FirstKey="F5" />
+    <Shortcut Name="ShowHideAdditionalViews" Group="Standard" FirstKey="Control+R" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="Profiler">
+    <Shortcut Name="ProfilerEditNodeLabel" Group="Document" FirstKey="F2" />
+    <Shortcut Name="ProfilerGetNewResults" Group="Document" FirstKey="F5" />
+    <Shortcut Name="ShowHideAdditionalViews" Group="Standard" FirstKey="Control+R" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="ProjectManager">
+    <Shortcut Name="GotoDefinition" Group="SqlComplete" FirstKey="F12" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="SecurityManager">
+    <Shortcut Name="Refresh" Group="Standard" FirstKey="F5" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="SessionManager">
+    <Shortcut Name="Refresh" Group="Standard" FirstKey="F5" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="TableEditor">
+    <Shortcut Name="EditColumn" Group="Document" FirstKey="Control+Return" />
+  </ShortcutTable>
+  <ShortcutTable ContextName="TextEditor">
+    <Shortcut Name="ClearBookmarks" Group="TextEditor" FirstKey="Control+B" SecondKey="C" />
+    <Shortcut Name="ClearBookmarks" Group="TextEditor" FirstKey="Control+B" SecondKey="Control+C" />
+    <Shortcut Name="ClearSuggestions" Group="SqlComplete" FirstKey="Control+Shift+R" />
+    <Shortcut Name="CommentCode" Group="Language" FirstKey="Control+K" SecondKey="C" />
+    <Shortcut Name="CommentCode" Group="Language" FirstKey="Control+K" SecondKey="Control+C" />
+    <Shortcut Name="CompleteWord" Group="SqlComplete" FirstKey="Control+K" SecondKey="W" />
+    <Shortcut Name="CompleteWord" Group="SqlComplete" FirstKey="Control+K" SecondKey="Control+W" />
+    <Shortcut Name="CompleteWord" Group="SqlComplete" FirstKey="Control+Space" />
+    <Shortcut Name="CompleteWord" Group="SqlComplete" FirstKey="Alt+Right" />
+    <Shortcut Name="DecrementFontSize" Group="TextEditor" FirstKey="Control+OemMinus" />
+    <Shortcut Name="DecrementFontSize" Group="TextEditor" FirstKey="Control+Subtract" />
+    <Shortcut Name="Execute" Group="Document" FirstKey="F5" />
+    <Shortcut Name="Execute" Group="Document" FirstKey="Control+E" />
+    <Shortcut Name="ExecuteCurrent" Group="Document" FirstKey="F8" />
+    <Shortcut Name="ExecuteToCursor" Group="Document" FirstKey="Control+Shift+F10" />
+    <Shortcut Name="FormatCurrentStatement" Group="Language" FirstKey="Control+K" SecondKey="S" />
+    <Shortcut Name="FormatCurrentStatement" Group="Language" FirstKey="Control+K" SecondKey="Control+S" />
+    <Shortcut Name="FormatDocument" Group="Language" FirstKey="Control+K" SecondKey="D" />
+    <Shortcut Name="FormatDocument" Group="Language" FirstKey="Control+K" SecondKey="Control+D" />
+    <Shortcut Name="FormatSelection" Group="Language" FirstKey="Control+K" SecondKey="F" />
+    <Shortcut Name="FormatSelection" Group="Language" FirstKey="Control+K" SecondKey="Control+F" />
+    <Shortcut Name="GotoBeginEnd" Group="SqlComplete" FirstKey="Control+F12" />
+    <Shortcut Name="GotoDeclaration" Group="SqlComplete" FirstKey="Shift+F12" />
+    <Shortcut Name="GotoDefinition" Group="SqlComplete" FirstKey="F12" />
+    <Shortcut Name="GotoLine" Group="TextEditor" FirstKey="Control+G" />
+    <Shortcut Name="IncrementFontSize" Group="TextEditor" FirstKey="Control+Oemplus" />
+    <Shortcut Name="IncrementFontSize" Group="TextEditor" FirstKey="Control+Add" />
+    <Shortcut Name="IncSearch" Group="Standard" FirstKey="Control+I" />
+    <Shortcut Name="IncSearchReverse" Group="Standard" FirstKey="Control+Shift+I" />
+    <Shortcut Name="InsertSnippet" Group="SqlComplete" FirstKey="Control+K" SecondKey="X" />
+    <Shortcut Name="InsertSnippet" Group="SqlComplete" FirstKey="Control+K" SecondKey="Control+X" />
+    <Shortcut Name="LineCut" Group="TextEditor" FirstKey="Control+L" />
+    <Shortcut Name="ListMembers" Group="SqlComplete" FirstKey="Control+K" SecondKey="L" />
+    <Shortcut Name="ListMembers" Group="SqlComplete" FirstKey="Control+K" SecondKey="Control+L" />
+    <Shortcut Name="ListMembers" Group="SqlComplete" FirstKey="Control+J" />
+    <Shortcut Name="MakeLower" Group="TextEditor" FirstKey="Control+U" />
+    <Shortcut Name="MakeUpper" Group="TextEditor" FirstKey="Control+Shift+U" />
+    <Shortcut Name="MoveToNavigationBar" Group="TextEditor" FirstKey="Control+F2" />
+    <Shortcut Name="NavigateNextDifference" Group="TextCompare" FirstKey="Alt+Down" />
+    <Shortcut Name="NavigatePreviousDifference" Group="TextCompare" FirstKey="Alt+Up" />
+    <Shortcut Name="NextBookmark" Group="TextEditor" FirstKey="Control+B" SecondKey="N" />
+    <Shortcut Name="NextBookmark" Group="TextEditor" FirstKey="Control+B" SecondKey="Control+N" />
+    <Shortcut Name="NextStatement" Group="Language" FirstKey="Alt+Next" />
+    <Shortcut Name="ParameterInfo" Group="SqlComplete" FirstKey="Control+K" SecondKey="P" />
+    <Shortcut Name="ParameterInfo" Group="SqlComplete" FirstKey="Control+K" SecondKey="Control+P" />
+    <Shortcut Name="ParameterInfo" Group="SqlComplete" FirstKey="Control+Shift+Space" />
+    <Shortcut Name="Parameters" Group="Document" FirstKey="Control+Shift+P" />
+    <Shortcut Name="PrevBookmark" Group="TextEditor" FirstKey="Control+B" SecondKey="P" />
+    <Shortcut Name="PrevBookmark" Group="TextEditor" FirstKey="Control+B" SecondKey="Control+P" />
+    <Shortcut Name="PrevStatement" Group="Language" FirstKey="Alt+PageUp" />
+    <Shortcut Name="QuickInfo" Group="SqlComplete" FirstKey="Control+K" SecondKey="I" />
+    <Shortcut Name="QuickInfo" Group="SqlComplete" FirstKey="Control+K" SecondKey="Control+I" />
+    <Shortcut Name="RefactorRename" Group="SqlComplete" FirstKey="F2" />
+    <Shortcut Name="ResultsAsGrid" Group="Document" FirstKey="Control+D" />
+    <Shortcut Name="ResultsAsText" Group="Document" FirstKey="Control+T" />
+    <Shortcut Name="SetDefaultFontSize" Group="TextEditor" FirstKey="Control+D0" />
+    <Shortcut Name="SetDefaultFontSize" Group="TextEditor" FirstKey="Control+NumPad0" />
+    <Shortcut Name="ShowHideAdditionalViews" Group="Standard" FirstKey="Control+R" />
+    <Shortcut Name="StartOutlining" Group="TextEditor" FirstKey="Control+M" SecondKey="S" />
+    <Shortcut Name="StartOutlining" Group="TextEditor" FirstKey="Control+M" SecondKey="Control+S" />
+    <Shortcut Name="StopExecution" Group="Document" FirstKey="Alt+Pause" />
+    <Shortcut Name="StopOutlining" Group="TextEditor" FirstKey="Control+M" SecondKey="P" />
+    <Shortcut Name="StopOutlining" Group="TextEditor" FirstKey="Control+M" SecondKey="Control+P" />
+    <Shortcut Name="ToggleAllOutlining" Group="TextEditor" FirstKey="Control+M" SecondKey="L" />
+    <Shortcut Name="ToggleAllOutlining" Group="TextEditor" FirstKey="Control+M" SecondKey="Control+L" />
+    <Shortcut Name="ToggleBlockComment" Group="Language" FirstKey="Control+OemQuestion" />
+    <Shortcut Name="ToggleBookmark" Group="TextEditor" FirstKey="Control+B" SecondKey="T" />
+    <Shortcut Name="ToggleBookmark" Group="TextEditor" FirstKey="Control+B" SecondKey="Control+T" />
+    <Shortcut Name="ToggleExpansion" Group="TextEditor" FirstKey="Control+M" SecondKey="M" />
+    <Shortcut Name="ToggleExpansion" Group="TextEditor" FirstKey="Control+M" SecondKey="Control+M" />
+    <Shortcut Name="UncommentCode" Group="Language" FirstKey="Control+K" SecondKey="U" />
+    <Shortcut Name="UncommentCode" Group="Language" FirstKey="Control+K" SecondKey="Control+U" />
+    <Shortcut Name="ViewSpaces" Group="TextEditor" FirstKey="Control+K" SecondKey="E" />
+    <Shortcut Name="ViewSpaces" Group="TextEditor" FirstKey="Control+K" SecondKey="Control+E" />
+    <Shortcut Name="WordWrap" Group="TextEditor" FirstKey="Control+K" SecondKey="O" />
+    <Shortcut Name="WordWrap" Group="TextEditor" FirstKey="Control+K" SecondKey="Control+O" />
+  </ShortcutTable>
+</KeyMapping>

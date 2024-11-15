@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateEnumType</Title>
+      <Shortcut>CreateEnumType</Shortcut>
+      <Description>Create  a enumerated(enum) type</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>enum_value</ID>
+          <Default>'Red','Green'</Default>
+        </Literal>
+        <Literal>
+          <ID>type_name</ID>
+          <Default>enum_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE TYPE $schema_name$.$type_name$
+AS ENUM ($enum_value$);
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

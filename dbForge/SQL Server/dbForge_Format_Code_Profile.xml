@@ -1,0 +1,1392 @@
+﻿<FormatProfile>
+  <FormatOptions>
+    <PropertyValue Name="Select_SingleLine_WhenRightMarginIsNotExceeded">true</PropertyValue>
+    <SubOptions Name="Select_SingleLine_WhenQueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">true</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_SingleLine_WhenQueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">true</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_SelectList_LineBreakBeforeFirstColumn">false</PropertyValue>
+    <SubOptions Name="Select_SelectList_IndentColumnList">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">1</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_SelectList_StackColumns">false</PropertyValue>
+    <PropertyValue Name="Select_SelectList_StackColumnsMode">8</PropertyValue>
+    <PropertyValue Name="Select_Into_LineBreakBeforeInto">true</PropertyValue>
+    <PropertyValue Name="Select_Into_LineBreakAfterInto">false</PropertyValue>
+    <SubOptions Name="Select_Into_IndentIntoKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Into_IndentTable">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_From_LineBreakBeforeFrom">true</PropertyValue>
+    <PropertyValue Name="Select_From_LineBreakAfterFrom">false</PropertyValue>
+    <SubOptions Name="Select_From_IndentFromKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_From_IndentFromList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_From_StackFromList">false</PropertyValue>
+    <PropertyValue Name="Select_From_StackFromListMode">8</PropertyValue>
+    <PropertyValue Name="Select_From_Join_LineBreakBeforeJoin">true</PropertyValue>
+    <PropertyValue Name="Select_From_Join_LineBreakAfterJoin">false</PropertyValue>
+    <PropertyValue Name="Select_From_Join_LineBreakBeforeOn">false</PropertyValue>
+    <PropertyValue Name="Select_From_Join_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Select_From_Join_IndentJoinKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Transparent">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_From_Join_IndentTableAfterJoin">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_From_Join_IndentOnKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_From_Join_IndentOnCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_From_Join_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_From_Join_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Select_From_Join_WrapBeforeOperatorMode">2</PropertyValue>
+    <PropertyValue Name="Select_From_Join_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Select_Where_LineBreakBeforeWhere">true</PropertyValue>
+    <PropertyValue Name="Select_Where_LineBreakAfterWhere">false</PropertyValue>
+    <SubOptions Name="Select_Where_IndentWhereKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Where_IndentWhereCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Where_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_Where_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Select_Where_WrapBeforeOperatorMode">2</PropertyValue>
+    <PropertyValue Name="Select_Where_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Select_GroupBy_LineBreakBeforeGroup">true</PropertyValue>
+    <PropertyValue Name="Select_GroupBy_LineBreakBeforeGroupByExpression">false</PropertyValue>
+    <SubOptions Name="Select_GroupBy_IndentGroupByPhrase">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_GroupBy_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_GroupBy_StackColumnsList">true</PropertyValue>
+    <PropertyValue Name="Select_GroupBy_StackColumnsListMode">8</PropertyValue>
+    <PropertyValue Name="Select_Having_LineBreakBeforeHaving">true</PropertyValue>
+    <PropertyValue Name="Select_Having_LineBreakAfterHaving">false</PropertyValue>
+    <SubOptions Name="Select_Having_IndentHavingKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Having_IndentHavingCondition">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Having_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_Having_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Select_Having_WrapBeforeOperatorMode">2</PropertyValue>
+    <PropertyValue Name="Select_Having_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Select_OrderBy_LineBreakBeforeOrder">true</PropertyValue>
+    <PropertyValue Name="Select_OrderBy_LineBreakAfterBy">false</PropertyValue>
+    <SubOptions Name="Select_OrderBy_IndentOrderByPhrase">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_OrderBy_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_OrderBy_StackColumnsList">true</PropertyValue>
+    <PropertyValue Name="Select_OrderBy_StackColumnsListMode">8</PropertyValue>
+    <PropertyValue Name="Select_Compute_LineBreakBeforeCompute">true</PropertyValue>
+    <PropertyValue Name="Select_Compute_LineBreakAfterCompute">false</PropertyValue>
+    <SubOptions Name="Select_Compute_IndentComputeKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Compute_IndentComputeExpression">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_ForClause_LineBreakBeforeFor">true</PropertyValue>
+    <PropertyValue Name="Select_ForClause_LineBreakAfterForXml">false</PropertyValue>
+    <SubOptions Name="Select_ForClause_IndentForKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_ForClause_IndentForXmlSpecification">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_OptionHints_LineBreakBeforeOption">true</PropertyValue>
+    <PropertyValue Name="Select_OptionHints_LineBreakAfterOption">false</PropertyValue>
+    <SubOptions Name="Select_OptionHints_IndentOptionKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_OptionHints_IndentOptionHints">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_Cte_LineBreakAfterWith">false</PropertyValue>
+    <SubOptions Name="Select_Cte_IndentCommonTableExpression">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_Cte_LineBreakBeforeAs">false</PropertyValue>
+    <PropertyValue Name="Select_Cte_LineBreakAfterAs">true</PropertyValue>
+    <SubOptions Name="Select_Cte_IndentSubqueryBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_Cte_ColumnList_LineBreakBeforeColumnListOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Select_Cte_ColumnList_LineBreakAfterColumnListOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Select_Cte_ColumnList_LineBreakBeforeColumnListClosingBrace">false</PropertyValue>
+    <SubOptions Name="Select_Cte_ColumnList_IndentColumnListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Select_Cte_ColumnList_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Select_Cte_ColumnList_StackColumnList">true</PropertyValue>
+    <PropertyValue Name="Select_Cte_ColumnList_StackColumnListMode">8</PropertyValue>
+    <PropertyValue Name="Subquery_UseSameFormattingAsInSelect">true</PropertyValue>
+    <PropertyValue Name="Subquery_LineBreakBeforeOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Subquery_LineBreakAfterOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Subquery_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <PropertyValue Name="Subquery_LineBreakAfterClosingBrace">false</PropertyValue>
+    <SubOptions Name="Subquery_IndentSubquery">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SingleLine_AllAnySomeExists_AnySubquery">false</PropertyValue>
+    <PropertyValue Name="Subquery_SingleLine_AllAnySomeExists_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Subquery_SingleLine_AllAnySomeExists_WhenSubqueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_SingleLine_AllAnySomeExists_WhenSubqueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">true</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SingleLine_InOperator_AnySubquery">false</PropertyValue>
+    <PropertyValue Name="Subquery_SingleLine_InOperator_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Subquery_SingleLine_InOperator_WhenSubqueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_SingleLine_InOperator_WhenSubqueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">true</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SingleLine_CteQueries_AnySubquery">false</PropertyValue>
+    <PropertyValue Name="Subquery_SingleLine_CteQueries_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Subquery_SingleLine_CteQueries_WhenSubqueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_SingleLine_CteQueries_WhenSubqueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SingleLine_FromListSubqueries_AnySubquery">false</PropertyValue>
+    <PropertyValue Name="Subquery_SingleLine_FromListSubqueries_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Subquery_SingleLine_FromListSubqueries_WhenSubqueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_SingleLine_FromListSubqueries_WhenSubqueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">true</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SingleLine_OtherSubqueries_AnySubquery">false</PropertyValue>
+    <PropertyValue Name="Subquery_SingleLine_OtherSubqueries_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Subquery_SingleLine_OtherSubqueries_WhenSubqueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_SingleLine_OtherSubqueries_WhenSubqueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">true</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SelectList_LineBreakBeforeFirstColumn">true</PropertyValue>
+    <SubOptions Name="Subquery_SelectList_IndentColumnList">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_SelectList_StackColumns">true</PropertyValue>
+    <PropertyValue Name="Subquery_SelectList_StackColumnsMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_From_LineBreakBeforeFrom">true</PropertyValue>
+    <PropertyValue Name="Subquery_From_LineBreakAfterFrom">false</PropertyValue>
+    <SubOptions Name="Subquery_From_IndentFromKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_From_IndentFromList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_From_StackFromList">true</PropertyValue>
+    <PropertyValue Name="Subquery_From_StackFromListMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_From_Join_LineBreakBeforeJoin">true</PropertyValue>
+    <PropertyValue Name="Subquery_From_Join_LineBreakAfterJoin">false</PropertyValue>
+    <PropertyValue Name="Subquery_From_Join_LineBreakBeforeOn">true</PropertyValue>
+    <PropertyValue Name="Subquery_From_Join_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Subquery_From_Join_IndentJoinKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Transparent">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_From_Join_IndentTableAfterJoin">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_From_Join_IndentOnKeyword">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_From_Join_IndentOnCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_From_Join_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_From_Join_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_From_Join_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_From_Join_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_Where_LineBreakBeforeWhere">true</PropertyValue>
+    <PropertyValue Name="Subquery_Where_LineBreakAfterWhere">false</PropertyValue>
+    <SubOptions Name="Subquery_Where_IndentWhereKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_Where_IndentWhereCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_Where_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_Where_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_Where_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_Where_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_GroupBy_LineBreakBeforeGroup">true</PropertyValue>
+    <PropertyValue Name="Subquery_GroupBy_LineBreakBeforeGroupByExpression">false</PropertyValue>
+    <SubOptions Name="Subquery_GroupBy_IndentGroupByPhrase">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_GroupBy_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_GroupBy_StackColumnsList">true</PropertyValue>
+    <PropertyValue Name="Subquery_GroupBy_StackColumnsListMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_Having_LineBreakBeforeHaving">true</PropertyValue>
+    <PropertyValue Name="Subquery_Having_LineBreakAfterHaving">false</PropertyValue>
+    <SubOptions Name="Subquery_Having_IndentHavingKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_Having_IndentHavingCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_Having_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_Having_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_Having_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_Having_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_OrderBy_LineBreakBeforeOrder">true</PropertyValue>
+    <PropertyValue Name="Subquery_OrderBy_LineBreakAfterBy">false</PropertyValue>
+    <SubOptions Name="Subquery_OrderBy_IndentOrderByPhrase">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_OrderBy_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_OrderBy_StackColumnsList">false</PropertyValue>
+    <PropertyValue Name="Subquery_OrderBy_StackColumnsListMode">1</PropertyValue>
+    <PropertyValue Name="Subquery_ForClause_LineBreakBeforeFor">true</PropertyValue>
+    <PropertyValue Name="Subquery_ForClause_LineBreakAfterForXml">false</PropertyValue>
+    <SubOptions Name="Subquery_ForClause_IndentForKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_ForClause_IndentForXmlSpecification">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_OptionHints_LineBreakBeforeOption">true</PropertyValue>
+    <PropertyValue Name="Subquery_OptionHints_LineBreakAfterOption">false</PropertyValue>
+    <SubOptions Name="Subquery_OptionHints_IndentOptionKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_OptionHints_IndentOptionHints">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_Cte_LineBreakAfterWith">false</PropertyValue>
+    <SubOptions Name="Subquery_Cte_IndentCommonTableExpression">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_Cte_LineBreakBeforeAs">false</PropertyValue>
+    <PropertyValue Name="Subquery_Cte_LineBreakAfterAs">false</PropertyValue>
+    <SubOptions Name="Subquery_Cte_IndentSubqueryBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_Cte_ColumnList_LineBreakBeforeColumnListOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Subquery_Cte_ColumnList_LineBreakAfterColumnListOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Subquery_Cte_ColumnList_LineBreakBeforeColumnListClosingBrace">false</PropertyValue>
+    <SubOptions Name="Subquery_Cte_ColumnList_IndentColumnListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Subquery_Cte_ColumnList_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Subquery_Cte_ColumnList_StackColumnList">false</PropertyValue>
+    <PropertyValue Name="Subquery_Cte_ColumnList_StackColumnListMode">8</PropertyValue>
+    <PropertyValue Name="Insert_Into_LineBreakBeforeInto">false</PropertyValue>
+    <PropertyValue Name="Insert_Into_LineBreakBeforeTable">false</PropertyValue>
+    <SubOptions Name="Insert_Into_IndentIntoKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Insert_Into_IndentTable">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Insert_ColumnList_LineBreakBeforeOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Insert_ColumnList_LineBreakAfterOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Insert_ColumnList_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <SubOptions Name="Insert_ColumnList_IndentColumnListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Insert_ColumnList_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Insert_ColumnList_InsertSpaceBeforeColumnsList">true</PropertyValue>
+    <PropertyValue Name="Insert_ColumnList_InsertSpacesWithinColumnsListBraces">false</PropertyValue>
+    <PropertyValue Name="Insert_ColumnList_StackColumnsList">true</PropertyValue>
+    <PropertyValue Name="Insert_ColumnList_StackColumnsListMode">8</PropertyValue>
+    <PropertyValue Name="Insert_Values_LineBreakBeforeValues">true</PropertyValue>
+    <PropertyValue Name="Insert_Values_LineBreakAfterValues">false</PropertyValue>
+    <PropertyValue Name="Insert_Values_LineBreakAfterOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Insert_Values_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <SubOptions Name="Insert_Values_IndentValuesKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Insert_Values_IndentValuesExpressionsListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Insert_Values_IndentValuesExpressionsList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Insert_Values_InsertSpaceAfterValuesKeyword">true</PropertyValue>
+    <PropertyValue Name="Insert_Values_InsertSpacesWithinValuesExpressionsListBraces">false</PropertyValue>
+    <PropertyValue Name="Insert_Values_StackValuesExpressionsList">true</PropertyValue>
+    <PropertyValue Name="Insert_Values_StackValuesExpressionsRowsList">false</PropertyValue>
+    <PropertyValue Name="Insert_Values_StackValuesExpressionsListMode">8</PropertyValue>
+    <PropertyValue Name="Insert_Values_StackValuesExpressionsRowsListMode">1</PropertyValue>
+    <PropertyValue Name="Insert_Subquery_SingleLine_AnySubquery">true</PropertyValue>
+    <PropertyValue Name="Insert_Subquery_SingleLine_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Insert_Subquery_SingleLine_WhenSubqueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Insert_Subquery_SingleLine_WhenSubqueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Insert_Subquery_LineBreakBeforeSubquery">true</PropertyValue>
+    <SubOptions Name="Insert_Subquery_IndentSubquery">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">1</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Insert_OutputClause_LineBreakBeforeOutput">true</PropertyValue>
+    <PropertyValue Name="Insert_OutputClause_LineBreakAfterOutput">false</PropertyValue>
+    <SubOptions Name="Insert_OutputClause_IndentOutputKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Insert_OutputClause_IndentOutputParameters">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Insert_OutputClause_StackDmlColumnsList">true</PropertyValue>
+    <PropertyValue Name="Insert_OutputClause_StackDmlColumnsListMode">8</PropertyValue>
+    <PropertyValue Name="Update_LineBreakBeforeTable">false</PropertyValue>
+    <SubOptions Name="Update_IndentTable">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Update_SetClause_LineBreakBeforeSet">false</PropertyValue>
+    <PropertyValue Name="Update_SetClause_LineBreakAfterSet">false</PropertyValue>
+    <SubOptions Name="Update_SetClause_IndentSetKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_SetClause_IndentColumnAssignmentsList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Update_SetClause_StackColumnAssignmentsList">true</PropertyValue>
+    <PropertyValue Name="Update_SetClause_StackColumnAssignmentsListMode">8</PropertyValue>
+    <PropertyValue Name="Update_From_UseSameFormattingAsInSelect">true</PropertyValue>
+    <PropertyValue Name="Update_From_LineBreakBeforeFrom">false</PropertyValue>
+    <PropertyValue Name="Update_From_LineBreakAfterFrom">false</PropertyValue>
+    <SubOptions Name="Update_From_IndentFromKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_From_IndentFromList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Update_From_StackFromList">false</PropertyValue>
+    <PropertyValue Name="Update_From_StackFromListMode">8</PropertyValue>
+    <PropertyValue Name="Update_From_Join_LineBreakBeforeJoin">true</PropertyValue>
+    <PropertyValue Name="Update_From_Join_LineBreakAfterJoin">false</PropertyValue>
+    <PropertyValue Name="Update_From_Join_LineBreakBeforeOn">false</PropertyValue>
+    <PropertyValue Name="Update_From_Join_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Update_From_Join_IndentJoinKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Transparent">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_From_Join_IndentTableAfterJoin">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_From_Join_IndentOnKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_From_Join_IndentOnCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_From_Join_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Update_From_Join_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Update_From_Join_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Update_From_Join_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Update_Where_LineBreakBeforeWhere">true</PropertyValue>
+    <PropertyValue Name="Update_Where_LineBreakAfterWhere">false</PropertyValue>
+    <SubOptions Name="Update_Where_IndentWhereKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_Where_IndentWhereCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_Where_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Update_Where_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Update_Where_WrapBeforeOperatorMode">2</PropertyValue>
+    <PropertyValue Name="Update_Where_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Update_OutputClause_LineBreakBeforeOutput">true</PropertyValue>
+    <PropertyValue Name="Update_OutputClause_LineBreakAfterOutput">false</PropertyValue>
+    <SubOptions Name="Update_OutputClause_IndentOutputKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_OutputClause_IndentOutputParameters">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Update_OutputClause_StackDmlColumnsList">true</PropertyValue>
+    <PropertyValue Name="Update_OutputClause_StackDmlColumnsListMode">8</PropertyValue>
+    <PropertyValue Name="Update_OptionHints_LineBreakBeforeOption">true</PropertyValue>
+    <PropertyValue Name="Update_OptionHints_LineBreakAfterOption">false</PropertyValue>
+    <SubOptions Name="Update_OptionHints_IndentOptionKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Update_OptionHints_IndentOptionHints">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_LineBreakBeforeFrom">false</PropertyValue>
+    <SubOptions Name="Delete_IndentFromKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_LineBreakBeforeMainTable">false</PropertyValue>
+    <SubOptions Name="Delete_IndentTable">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_From_UseSameFormattingAsInSelect">true</PropertyValue>
+    <PropertyValue Name="Delete_From_LineBreakBeforeFrom">false</PropertyValue>
+    <PropertyValue Name="Delete_From_LineBreakAfterFrom">false</PropertyValue>
+    <SubOptions Name="Delete_From_IndentFromKeyword">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_From_IndentFromList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_From_StackFromList">false</PropertyValue>
+    <PropertyValue Name="Delete_From_StackFromListMode">1</PropertyValue>
+    <PropertyValue Name="Delete_From_Join_LineBreakBeforeJoin">false</PropertyValue>
+    <PropertyValue Name="Delete_From_Join_LineBreakAfterJoin">false</PropertyValue>
+    <PropertyValue Name="Delete_From_Join_LineBreakBeforeOn">true</PropertyValue>
+    <PropertyValue Name="Delete_From_Join_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Delete_From_Join_IndentJoinKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Transparent">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_From_Join_IndentTableAfterJoin">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_From_Join_IndentOnKeyword">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_From_Join_IndentOnCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_From_Join_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_From_Join_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Delete_From_Join_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Delete_From_Join_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Delete_Where_LineBreakBeforeWhere">true</PropertyValue>
+    <PropertyValue Name="Delete_Where_LineBreakAfterWhere">false</PropertyValue>
+    <SubOptions Name="Delete_Where_IndentWhereKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_Where_IndentWhereCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_Where_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_Where_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Delete_Where_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Delete_Where_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Delete_OutputClause_LineBreakBeforeOutput">false</PropertyValue>
+    <PropertyValue Name="Delete_OutputClause_LineBreakAfterOutput">false</PropertyValue>
+    <SubOptions Name="Delete_OutputClause_IndentOutputKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_OutputClause_IndentOutputParameters">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Delete_OutputClause_StackDmlColumnsList">false</PropertyValue>
+    <PropertyValue Name="Delete_OutputClause_StackDmlColumnsListMode">8</PropertyValue>
+    <PropertyValue Name="Delete_OptionHints_LineBreakBeforeOption">true</PropertyValue>
+    <PropertyValue Name="Delete_OptionHints_LineBreakAfterOption">false</PropertyValue>
+    <SubOptions Name="Delete_OptionHints_IndentOptionKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Delete_OptionHints_IndentOptionHints">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Execute_LineBreakBeforeParametersList">true</PropertyValue>
+    <SubOptions Name="Execute_IndentParameters">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Execute_StackParametersList">true</PropertyValue>
+    <PropertyValue Name="Execute_StackParametersListMode">1</PropertyValue>
+    <PropertyValue Name="StackedList_PlaceCommaBeforeItemInStackedList">true</PropertyValue>
+    <PropertyValue Name="StackedList_NoSpaceBetweenCommaAndListItemInStack">false</PropertyValue>
+    <PropertyValue Name="UnionExceptIntersect_LineBreakBeforeUnion">true</PropertyValue>
+    <PropertyValue Name="UnionExceptIntersect_LineBreakAfterUnion">true</PropertyValue>
+    <SubOptions Name="UnionExceptIntersect_IndentKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="UnionExceptIntersect_IndentSubquery">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="ProcedureFunction_Parameters_LineBreakBeforeOpenBrace">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Parameters_LineBreakBeforeFirstParameter">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Parameters_LineBreakBeforeClosingBrace">true</PropertyValue>
+    <SubOptions Name="ProcedureFunction_Parameters_IndentParametersListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="ProcedureFunction_Parameters_IndentParameters">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">6</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="ProcedureFunction_Parameters_InsertSpaceBeforeOpenBrace">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Parameters_InsertSpacesWithinParametersListBraces">false</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Parameters_InsertSpaceWithinEmptyParametersListBraces">false</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Parameters_StackParametersList">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Parameters_StackParametersListStyle">1</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_With_LineBreakBeforeWith">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_With_LineBreakAfterWith">false</PropertyValue>
+    <SubOptions Name="ProcedureFunction_With_IndentWith">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="ProcedureFunction_With_IndentWithOptions">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="ProcedureFunction_With_StackWithOptions">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_With_StackWithOptionsMode">8</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Returns_LineBreakBeforeReturns">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Returns_LineBreakBeforeTableDefinition">false</PropertyValue>
+    <SubOptions Name="ProcedureFunction_Returns_IndentTableDefinition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="ProcedureFunction_Body_LineBreakBeforeAs">true</PropertyValue>
+    <PropertyValue Name="ProcedureFunction_Body_LineBreakBeforeRoutineBody">true</PropertyValue>
+    <SubOptions Name="ProcedureFunction_Body_IndentAsKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="ProcedureFunction_Body_IndentBeginEndKeywords">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="ProcedureFunction_Body_IndentCode">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Trigger_OnClause_LineBreakBeforeOn">true</PropertyValue>
+    <PropertyValue Name="Trigger_OnClause_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Trigger_OnClause_IndentOnKeyword">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Trigger_OnClause_IndentTargetObject">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Trigger_With_LineBreakBeforeWith">true</PropertyValue>
+    <PropertyValue Name="Trigger_With_LineBreakAfterWith">false</PropertyValue>
+    <SubOptions Name="Trigger_With_IndentWith">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Trigger_With_IndentWithOptions">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Trigger_With_StackWithOptions">true</PropertyValue>
+    <PropertyValue Name="Trigger_With_StackWithOptionsMode">8</PropertyValue>
+    <PropertyValue Name="Trigger_Events_LineBreakBeforeForAfterInsteadOf">true</PropertyValue>
+    <PropertyValue Name="Trigger_Events_LineBreakBeforeFirstEvent">false</PropertyValue>
+    <SubOptions Name="Trigger_Events_IndentForAfterInsteadOfKeywords">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Trigger_Events_IndentEvents">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Trigger_Events_StackEventsList">true</PropertyValue>
+    <PropertyValue Name="Trigger_Events_StackEventsListMode">8</PropertyValue>
+    <PropertyValue Name="Trigger_Body_LineBreakBeforeAs">true</PropertyValue>
+    <PropertyValue Name="Trigger_Body_LineBreakAfterAs">true</PropertyValue>
+    <SubOptions Name="Trigger_Body_IndentAsKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Trigger_Body_IndentBeginEndKeywords">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Trigger_Body_IndentCode">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="View_ColumnList_LineBreakBeforeOpenBrace">false</PropertyValue>
+    <PropertyValue Name="View_ColumnList_LineBreakAfterOpenBrace">true</PropertyValue>
+    <PropertyValue Name="View_ColumnList_LineBreakBeforeClosingBrace">true</PropertyValue>
+    <SubOptions Name="View_ColumnList_IndentColumnListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="View_ColumnList_IndentColumnList">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">6</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="View_ColumnList_InsertSpaceBeforeColumnsList">true</PropertyValue>
+    <PropertyValue Name="View_ColumnList_InsertSpacesWithinColumnsListBraces">false</PropertyValue>
+    <PropertyValue Name="View_ColumnList_StackColumnsList">true</PropertyValue>
+    <PropertyValue Name="View_ColumnList_StackColumnsListStyle">1</PropertyValue>
+    <PropertyValue Name="View_Subquery_SingleLine_AnyQuery">false</PropertyValue>
+    <PropertyValue Name="View_Subquery_SingleLine_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="View_Subquery_SingleLine_WhenQueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="View_Subquery_SingleLine_WhenQueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="View_Subquery_LineBreakBeforeAs">true</PropertyValue>
+    <PropertyValue Name="View_Subquery_LineBreakAfterAs">true</PropertyValue>
+    <SubOptions Name="View_Subquery_IndentAsKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="View_Subquery_IndentSubquery">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="CreateTable_AddEmptyLinesAroundStatement">false</PropertyValue>
+    <PropertyValue Name="CreateTable_LineBreakBeforeOpenBrace">false</PropertyValue>
+    <PropertyValue Name="CreateTable_LineBreakAfterOpenBrace">true</PropertyValue>
+    <PropertyValue Name="CreateTable_LineBreakBeforeClosingBrace">true</PropertyValue>
+    <SubOptions Name="CreateTable_IndentColumnListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="CreateTable_IndentColumnList">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">6</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="CreateTable_InsertSpaceBeforeColumnsList">true</PropertyValue>
+    <PropertyValue Name="CreateTable_InsertSpacesWithinColumnsListBraces">false</PropertyValue>
+    <PropertyValue Name="CreateTable_StackColumnsList">true</PropertyValue>
+    <PropertyValue Name="CreateTable_StackColumnsListStyle">1</PropertyValue>
+    <PropertyValue Name="CreateTable_LineBreakBeforeStorageOptions">false</PropertyValue>
+    <SubOptions Name="CreateTable_IndentStorageOptions">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="CreateTable_StackStorageOptions">true</PropertyValue>
+    <PropertyValue Name="CreateTable_StackStorageOptionsMode">1</PropertyValue>
+    <PropertyValue Name="Declare_Variables_LineBreakAfterDeclare">false</PropertyValue>
+    <SubOptions Name="Declare_Variables_IndentDeclarations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Declare_Variables_LineBreakBeforeTableKeyword">false</PropertyValue>
+    <SubOptions Name="Declare_Variables_IndentTableKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Declare_Variables_StackVariablesList">true</PropertyValue>
+    <PropertyValue Name="Declare_Variables_StackVariablesListStyle">1</PropertyValue>
+    <PropertyValue Name="Declare_Cursors_SingleLine_AnyQuery">false</PropertyValue>
+    <PropertyValue Name="Declare_Cursors_SingleLine_WhenRightMarginIsNotExceeded">false</PropertyValue>
+    <SubOptions Name="Declare_Cursors_SingleLine_WhenQueryIsShorterThanXCharacters">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">50</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Declare_Cursors_SingleLine_WhenQueryContainsLessThanXWords">
+      <PropertyValue Name="Checked">false</PropertyValue>
+      <PropertyValue Name="Value">10</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Declare_Cursors_LineBreakBeforeCursor">false</PropertyValue>
+    <SubOptions Name="Declare_Cursors_IndentCursorKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Declare_Cursors_LineBreakBeforeFor">false</PropertyValue>
+    <SubOptions Name="Declare_Cursors_IndentForKeyword">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Declare_Cursors_LineBreakBeforeSubquery">true</PropertyValue>
+    <SubOptions Name="Declare_Cursors_IndentSubquery">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Labels_AddEmptyLinesAroundLabeledBlock">true</PropertyValue>
+    <PropertyValue Name="Labels_LineBreakAfterLabel">true</PropertyValue>
+    <SubOptions Name="Labels_IndentLabel">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Style">2</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_TopClause_LineBreakBeforeTop">false</PropertyValue>
+    <SubOptions Name="Merge_TopClause_IndentTopKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_TopClause_LineBreakBeforeOpeningBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_TopClause_LineBreakAfterOpeningBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_TopClause_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_TopClause_InsertSpaceAfterTop">true</PropertyValue>
+    <PropertyValue Name="Merge_TopClause_InsertSpacesWithinExpressionBraces">false</PropertyValue>
+    <PropertyValue Name="Merge_TopClause_LineBreakBeforePercent">false</PropertyValue>
+    <SubOptions Name="Merge_TopClause_IndentPercentKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Into_LineBreakBeforeInto">false</PropertyValue>
+    <SubOptions Name="Merge_Into_IndentIntoKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Into_LineBreakBeforeTable">false</PropertyValue>
+    <SubOptions Name="Merge_Into_IndentTable">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Into_With_LineBreakBeforeWith">false</PropertyValue>
+    <SubOptions Name="Merge_Into_With_IndentWithKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Into_With_LineBreakBeforeOpeningBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_Into_With_LineBreakAfterOpeningBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_Into_With_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <SubOptions Name="Merge_Into_With_IndentMergeHintBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Into_With_IndentMergeHint">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Into_With_InsertSpaceBeforeMergeHint">true</PropertyValue>
+    <PropertyValue Name="Merge_Into_With_InsertSpacesWithinMergeHintBraces">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_LineBreakBeforeUsing">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_LineBreakAfterUsing">false</PropertyValue>
+    <SubOptions Name="Merge_Using_IndentUsingKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_IndentUsingList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Using_Join_UseSameFormattingAsInSelect">true</PropertyValue>
+    <PropertyValue Name="Merge_Using_Join_LineBreakBeforeJoin">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Join_LineBreakAfterJoin">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Join_LineBreakBeforeOn">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Join_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Merge_Using_Join_IndentJoinKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Transparent">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_Join_IndentTableAfterJoin">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_Join_IndentOnKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_Join_IndentOnCondition">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_Join_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Using_Join_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Merge_Using_Join_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Merge_Using_Join_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_LineBreakBeforeValues">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_LineBreakAfterValues">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_LineBreakAfterOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <SubOptions Name="Merge_Using_Values_IndentValuesKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_Values_IndentValuesExpressionsListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Using_Values_IndentValuesExpressionsList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Using_Values_InsertSpaceAfterValuesKeyword">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_InsertSpacesWithinValuesExpressionsListBraces">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_StackValuesExpressionsList">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_StackValuesExpressionsRowsList">false</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_StackValuesExpressionsListMode">4</PropertyValue>
+    <PropertyValue Name="Merge_Using_Values_StackValuesExpressionsRowsListMode">1</PropertyValue>
+    <PropertyValue Name="Merge_On_LineBreakBeforeOn">true</PropertyValue>
+    <PropertyValue Name="Merge_On_LineBreakAfterOn">false</PropertyValue>
+    <SubOptions Name="Merge_On_IndentOnKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_On_IndentOnConditions">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_On_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_On_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Merge_On_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Merge_On_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Merge_When_LineBreakBeforeWhen">true</PropertyValue>
+    <PropertyValue Name="Merge_When_LineBreakAfterWhen">false</PropertyValue>
+    <SubOptions Name="Merge_When_IndentWhen">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_When_IndentWhenConditions">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_When_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_When_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Merge_When_WrapBeforeOperatorMode">2</PropertyValue>
+    <PropertyValue Name="Merge_When_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Merge_Then_LineBreakBeforeThen">true</PropertyValue>
+    <PropertyValue Name="Merge_Then_LineBreakAfterThen">false</PropertyValue>
+    <SubOptions Name="Merge_Then_IndentThen">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Then_IndentThenActions">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Then_Update_UseSameFormattingAsInUpdate">true</PropertyValue>
+    <PropertyValue Name="Merge_Then_Update_SetClause_LineBreakBeforeSet">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Update_SetClause_LineBreakAfterSet">false</PropertyValue>
+    <SubOptions Name="Merge_Then_Update_SetClause_IndentSetKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Then_Update_SetClause_IndentColumnAssignmentsList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Then_Update_SetClause_StackColumnAssignmentsList">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Update_SetClause_StackColumnAssignmentsListMode">2</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_UseSameFormattingAsInInsert">true</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_LineBreakBeforeOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_LineBreakAfterOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <SubOptions Name="Merge_Then_Insert_ColumnList_IndentColumnListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Then_Insert_ColumnList_IndentColumnList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_InsertSpaceBeforeColumnsList">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_InsertSpacesWithinColumnsListBraces">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_StackColumnsList">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_ColumnList_StackColumnsListMode">1</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_LineBreakBeforeValues">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_LineBreakAfterValues">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_LineBreakAfterOpenBrace">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_LineBreakBeforeClosingBrace">false</PropertyValue>
+    <SubOptions Name="Merge_Then_Insert_Values_IndentValuesKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Then_Insert_Values_IndentValuesExpressionsListBraces">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Then_Insert_Values_IndentValuesExpressionsList">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Then_Insert_Values_InsertSpaceAfterValuesKeyword">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_InsertSpacesWithinValuesExpressionsListBraces">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_StackValuesExpressionsList">false</PropertyValue>
+    <PropertyValue Name="Merge_Then_Insert_Values_StackValuesExpressionsListMode">1</PropertyValue>
+    <PropertyValue Name="Merge_Output_LineBreakBeforeOutput">true</PropertyValue>
+    <PropertyValue Name="Merge_Output_LineBreakAfterOutput">false</PropertyValue>
+    <SubOptions Name="Merge_Output_IndentOutputKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_Output_IndentOutputParameters">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Merge_Output_StackDmlColumnsList">true</PropertyValue>
+    <PropertyValue Name="Merge_Output_StackDmlColumnsListMode">1</PropertyValue>
+    <PropertyValue Name="Merge_OptionHints_LineBreakBeforeOption">true</PropertyValue>
+    <PropertyValue Name="Merge_OptionHints_LineBreakAfterOption">false</PropertyValue>
+    <SubOptions Name="Merge_OptionHints_IndentOptionKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Merge_OptionHints_IndentOptionHints">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Case_LineBreakBeforeCase">false</PropertyValue>
+    <SubOptions Name="Case_IndentCaseOperation">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Case_LineBreakBeforeInputExpression">false</PropertyValue>
+    <SubOptions Name="Case_IndentInputExpression">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Case_LineBreakBeforeWhenElse">true</PropertyValue>
+    <SubOptions Name="Case_IndentWhenKeyword">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Case_IndentWhenExpression">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Case_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Case_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Case_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Case_WrapAfterOperatorMode">2</PropertyValue>
+    <PropertyValue Name="Case_LineBreakBeforeThen">false</PropertyValue>
+    <SubOptions Name="Case_IndentThenKeyword">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Case_LineBreakAfterThenElse">false</PropertyValue>
+    <PropertyValue Name="Case_LineBreakBeforeEnd">true</PropertyValue>
+    <SubOptions Name="Case_IndentCode">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Code_PlaceEachStatementOnASeparateLine">true</PropertyValue>
+    <PropertyValue Name="Code_LineBreakAfterBegin">true</PropertyValue>
+    <PropertyValue Name="Code_LineBreakBeforeEnd">true</PropertyValue>
+    <SubOptions Name="Code_Transaction_IndentTranBody">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Code_AnonymousBlocks_AddEmptyLinesAround">true</PropertyValue>
+    <PropertyValue Name="Code_AnonymousBlocks_LineBreakBeforeBeginCatch">true</PropertyValue>
+    <SubOptions Name="Code_AnonymousBlocks_IndentCode">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Code_If_AddEmptyLinesAroundIfStatement">true</PropertyValue>
+    <PropertyValue Name="Code_If_LineBreakAfterCondition">true</PropertyValue>
+    <PropertyValue Name="Code_If_LineBreakBeforeElse">true</PropertyValue>
+    <PropertyValue Name="Code_If_LineBreakAfterElse">false</PropertyValue>
+    <SubOptions Name="Code_If_IndentCondition">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Code_If_IndentBeginEndKeywords">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Code_If_IndentCode">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Code_If_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Code_If_WrapConditionMode">1</PropertyValue>
+    <PropertyValue Name="Code_If_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Code_If_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Code_While_AddEmptyLinesAround">true</PropertyValue>
+    <PropertyValue Name="Code_While_LineBreakAfterCondition">true</PropertyValue>
+    <SubOptions Name="Code_While_IndentCondition">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Code_While_IndentBeginEndKeywords">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Code_While_IndentCode">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <SubOptions Name="Code_While_IndentWrapConditionNestedOperations">
+      <PropertyValue Name="Indent">false</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="Code_While_WrapConditionMode">0</PropertyValue>
+    <PropertyValue Name="Code_While_WrapBeforeOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Code_While_WrapAfterOperatorMode">1</PropertyValue>
+    <PropertyValue Name="Spacing_Delimiters_InsertSpaceBeforeComma">false</PropertyValue>
+    <PropertyValue Name="Spacing_Delimiters_InsertSpaceAfterComma">true</PropertyValue>
+    <PropertyValue Name="Spacing_Delimiters_InsertSpaceBeforeDot">false</PropertyValue>
+    <PropertyValue Name="Spacing_Delimiters_InsertSpaceAfterDot">false</PropertyValue>
+    <PropertyValue Name="Spacing_Delimiters_InsertSpaceBeforeScopeResolutionOperator">false</PropertyValue>
+    <PropertyValue Name="Spacing_Delimiters_InsertSpaceAfterScopeResolutionOperator">false</PropertyValue>
+    <PropertyValue Name="Spacing_ArithmeticalOperators_SpacesAroundBinaryOperators">0</PropertyValue>
+    <PropertyValue Name="Spacing_FunctionCalls_InsertSpaceBeforeArgumentsList">false</PropertyValue>
+    <PropertyValue Name="Spacing_FunctionCalls_InsertSpacesWithinArgumentsListBraces">false</PropertyValue>
+    <PropertyValue Name="Spacing_FunctionCalls_InsertSpaceWithinEmptyArgumentsListBraces">false</PropertyValue>
+    <SubOptions Name="Indentation_IndentPackageDelimiter">
+      <PropertyValue Name="Indent">true</PropertyValue>
+      <PropertyValue Name="Size">0</PropertyValue>
+      <PropertyValue Name="OnNewLineOnly">true</PropertyValue>
+      <PropertyValue Name="Style">2</PropertyValue>
+    </SubOptions>
+    <PropertyValue Name="TextCase_Builtin">0</PropertyValue>
+    <PropertyValue Name="TextCase_DataType">0</PropertyValue>
+    <PropertyValue Name="TextCase_Identifier">3</PropertyValue>
+    <PropertyValue Name="TextCase_Keyword">0</PropertyValue>
+    <PropertyValue Name="TextCase_Variable">3</PropertyValue>
+    <PropertyValue Name="TextCase_Alias">1</PropertyValue>
+    <PropertyValue Name="TextCase_FormatQuotedIdentifier">true</PropertyValue>
+    <PropertyValue Name="Misc_AddEmptyLineAfterPackageDelimiter">true</PropertyValue>
+    <PropertyValue Name="Misc_AddEmptyLineAfterPackageDelimiterMode">1</PropertyValue>
+  </FormatOptions>
+</FormatProfile>

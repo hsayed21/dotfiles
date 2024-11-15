@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create View</Title>
+      <Shortcut>CreateView</Shortcut>
+      <Description>Create view snippet creates a new view, or replaces an existing one.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>view_name</ID>
+          <ToolTip>view_name</ToolTip>
+          <Default>VIEW1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE OR REPLACE ALGORITHM = UNDEFINED VIEW $view_name$
+  AS $caret$
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Update</Title>
+      <Shortcut>UpdateTable</Shortcut>
+      <Description>Update table snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>column_to_set</ID>
+          <ToolTip>column_to_set</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>set_value</ID>
+          <ToolTip>set_value</ToolTip>
+          <Default>VALUE1</Default>
+        </Literal>
+        <Literal>
+          <ID>conditional_column</ID>
+          <ToolTip>conditional_column</ToolTip>
+          <Default>COLUMN2</Default>
+        </Literal>
+        <Literal>
+          <ID>conditional_value</ID>
+          <ToolTip>conditional_value</ToolTip>
+          <Default>VALUE2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[UPDATE LOW_PRIORITY $table_name$
+  SET $column_to_set$ = $set_value$
+  WHERE $conditional_column$ = $conditional_value$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

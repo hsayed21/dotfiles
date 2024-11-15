@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GrantOnFunction</Title>
+      <Shortcut>GrantOnFunc</Shortcut>
+      <Description>Define access privileges on Function</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>funcname</ID>
+          <Default>func1</Default>
+        </Literal>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user1 </Default>
+        </Literal>
+        <Literal>
+          <ID>group_name</ID>
+          <Default>group1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[GRANT EXECUTE
+--  ALL PRIVILEGES 
+  ON FUNCTION $schema_name$.$funcname$ 
+  TO  $user_name$
+--  GROUP $group_name$
+--  PUBLIC 
+--  WITH GRANT OPTION
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

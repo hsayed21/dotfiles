@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTable</Title>
+      <Shortcut>CreateTable</Shortcut>
+      <Description>Create a table.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>clm_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>tbl_name</ID>
+          <Default>tbl_name1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE TABLE $schema_name$.$tbl_name$ (
+  $column_name$ $data_type$,$CARET$
+  CONSTRAINT PK_$tbl_name$_$column_name$ PRIMARY KEY ($column_name$)
+);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
