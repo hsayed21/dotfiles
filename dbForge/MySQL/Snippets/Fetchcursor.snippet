@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Fetch Cursor</Title>
+      <Shortcut>FetchCursor</Shortcut>
+      <Description>Fetch with a cursor.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>cursor_name</ID>
+          <ToolTip>cursor_name</ToolTip>
+          <Default>CURSOR1</Default>
+        </Literal>
+        <Literal>
+          <ID>variable_name_to_fetch_into</ID>
+          <ToolTip>variable_name_to_fetch_into</ToolTip>
+          <Default>VARIABLE1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[FETCH $cursor_name$ 
+  INTO $variable_name_to_fetch_into$
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

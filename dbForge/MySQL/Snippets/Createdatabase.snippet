@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Database</Title>
+      <Shortcut>CreateDatabase</Shortcut>
+      <Description>Create database snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>database_name</ID>
+          <ToolTip>database_name</ToolTip>
+          <Default>DATABASE1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE DATABASE IF NOT EXISTS $database_name$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

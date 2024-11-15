@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Merge Table</Title>
+      <Shortcut>CreateTableMerge</Shortcut>
+      <Description>Create merge table snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>merge_table_name</ID>
+          <ToolTip>merge_table_name</ToolTip>
+          <Default>MERGE_TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_name</ID>
+          <ToolTip>column1_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_type</ID>
+          <ToolTip>column1_type</ToolTip>
+          <Default>INT(4)</Default>
+        </Literal>
+        <Literal>
+          <ID>column2_name</ID>
+          <ToolTip>column2_name</ToolTip>
+          <Default>COLUMN2</Default>
+        </Literal>
+        <Literal>
+          <ID>column2_type</ID>
+          <ToolTip>column2_type</ToolTip>
+          <Default>VARCHAR(20)</Default>
+        </Literal>
+        <Literal>
+          <ID>table_to_merge1</ID>
+          <ToolTip>table_to_merge1</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>table_to_merge2</ID>
+          <ToolTip>table_to_merge2</ToolTip>
+          <Default>TABLE2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE TABLE IF NOT EXISTS $merge_table_name$(
+  $column1_name$ $column1_type$ NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  $column2_name$ $column2_type$)
+  ENGINE = MERGE UNION = ($table_to_merge1$, $table_to_merge2$) INSERT_METHOD = LAST;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

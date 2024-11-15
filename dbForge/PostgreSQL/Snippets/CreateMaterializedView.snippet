@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateMaterializedView</Title>
+      <Shortcut>CreateMaterializedView</Shortcut>
+      <Description>Define a new materialized view</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>view_name</ID>
+          <Default>mview_name1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE MATERIALIZED VIEW IF NOT EXISTS $schema_name$.$view_name$
+AS
+SELECT
+  1 AS mview_id
+ ,'Text' AS mview_txt
+-- WITH NO DATA
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

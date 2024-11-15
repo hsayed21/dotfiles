@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter Procedure</Title>
+      <Shortcut>AlterProcedure</Shortcut>
+      <Description>Alter procedure snippet with SQL SECURITY DEFINER.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>procedure_name</ID>
+          <ToolTip>procedure_name</ToolTip>
+          <Default>PROCEDURE1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER PROCEDURE $procedure_name$
+  SQL SECURITY DEFINER COMMENT 'Alter procedure characteristics';
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

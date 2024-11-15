@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateDataType</Title>
+      <Shortcut>CreateDataType</Shortcut>
+      <Description>Define a new data type</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>input_function</ID>
+          <Default>input_function_name</Default>
+        </Literal>
+        <Literal>
+          <ID>output_function</ID>
+          <Default>output_function_name</Default>
+        </Literal>
+        <Literal>
+          <ID>type_name</ID>
+          <Default>datatype_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>receive_function</ID>
+        </Literal>
+        <Literal>
+          <ID>send_function</ID>
+        </Literal>
+        <Literal>
+          <ID>analyze_function</ID>
+        </Literal>
+        <Literal>
+          <ID>internallength</ID>
+        </Literal>
+        <Literal>
+          <ID>alignment</ID>
+        </Literal>
+        <Literal>
+          <ID>storage</ID>
+        </Literal>
+        <Literal>
+          <ID>default</ID>
+        </Literal>
+        <Literal>
+          <ID>element</ID>
+        </Literal>
+        <Literal>
+          <ID>delimiter</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE TYPE $schema_name$.$type_name$ (
+    INPUT = $input_function$,
+    OUTPUT = $output_function$
+--, RECEIVE = $receive_function$
+--, SEND = $receive_function$
+--, ANALYZE = $analyze_function$
+--, INTERNALLENGTH = $internallength$ 
+--, ALIGNMENT = $alignment$
+--, STORAGE = $storage$
+--, DEFAULT = $default$
+--, ELEMENT = $element$
+--, DELIMITER = $delimiter$
+);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

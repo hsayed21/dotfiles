@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Case</Title>
+      <Shortcut>Case</Shortcut>
+      <Description>Case statement</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>expression1</ID>
+          <Default>a &lt; b</Default>
+        </Literal>
+        <Literal>
+          <ID>expression2</ID>
+          <Default>a &gt; b</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CASE
+  WHEN $expression1$ THEN a
+  WHEN $expression2$ THEN b
+  ELSE a + b
+END;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

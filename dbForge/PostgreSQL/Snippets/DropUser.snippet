@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropUser</Title>
+      <Shortcut>DropUser</Shortcut>
+      <Description>Remove a database user account</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP USER IF EXISTS $user_name$;
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

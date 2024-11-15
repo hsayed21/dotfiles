@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropView</Title>
+      <Shortcut>DropView</Shortcut>
+      <Description>Drop a view if it is already exists</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>view_name</ID>
+          <Default>view1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP VIEW IF EXISTS $schema_name$.$view_name$
+--  CASCADE
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Event with Interval</Title>
+      <Shortcut>CreateEventWithInterval</Shortcut>
+      <Description>Create event snippets with interval definition.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>event_name</ID>
+          <ToolTip>event_name</ToolTip>
+          <Default>EVENT1</Default>
+        </Literal>
+        <Literal>
+          <ID>interval</ID>
+          <ToolTip>interval</ToolTip>
+          <Default>1 DAY</Default>
+        </Literal>
+        <Literal>
+          <ID>timestamp</ID>
+          <ToolTip>timestamp</ToolTip>
+          <Default>'2013-01-01 08:00:00'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE EVENT IF NOT EXISTS $event_name$
+  ON SCHEDULE EVERY $interval$ STARTS $timestamp$
+  ON COMPLETION PRESERVE
+  ENABLE
+  COMMENT 'comment this event'
+  DO $caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

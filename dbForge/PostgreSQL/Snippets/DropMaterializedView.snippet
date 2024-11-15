@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropMaterializedView</Title>
+      <Shortcut>DropMaterializedView</Shortcut>
+      <Description>Remove a materialized view</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>view_name</ID>
+          <Default>mview1 </Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP MATERIALIZED VIEW IF EXISTS $schema_name$.$view_name$
+--  CASCADE
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

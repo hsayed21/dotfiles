@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter Table Add Column</Title>
+      <Shortcut>AlterTableAddColumn</Shortcut>
+      <Description>Alter table snippet to add a column.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <ToolTip>column_name</ToolTip>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>data_type</ID>
+          <ToolTip>data_type</ToolTip>
+          <Default>INT</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER TABLE $table_name$ 
+  ADD COLUMN $column_name$ $data_type$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

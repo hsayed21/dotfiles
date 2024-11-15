@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTableFunction</Title>
+      <Shortcut>CreateTableFunction</Shortcut>
+      <Description>Create table-valued function.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>function_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column_type</ID>
+          <Default>int</Default>
+        </Literal>
+        <Literal>
+          <ID>language</ID>
+          <Default>plpgsql</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE FUNCTION $schema$.$function_name$()
+  RETURNS TABLE ($column_name$ $column_type$)
+LANGUAGE $language$
+AS \$$language$\$
+BEGIN
+  RETURN QUERY
+    SELECT $CARET$;
+END;
+\$$language$\$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

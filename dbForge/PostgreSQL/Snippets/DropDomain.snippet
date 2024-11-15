@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropDomain</Title>
+      <Shortcut>DropDomain</Shortcut>
+      <Description>Remove a domain</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>domain_name</ID>
+          <Default>domain1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP DOMAIN IF EXISTS $domain_name$
+-- CASCADE
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

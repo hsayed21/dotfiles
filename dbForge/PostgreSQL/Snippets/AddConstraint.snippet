@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>AddConstraint</Title>
+      <Shortcut>AddConstraint</Shortcut>
+      <Description>ALTER TABLE ADD CONSTRAINT fragment.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>schema</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[ALTER TABLE $schema$.$table_name$
+	ADD CONSTRAINT CK_$table_name$_$column_name$ CHECK ($column_name$ > 0$caret$);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

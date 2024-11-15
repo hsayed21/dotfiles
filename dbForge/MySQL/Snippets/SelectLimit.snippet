@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Select Limit</Title>
+      <Shortcut>SelLimit</Shortcut>
+      <Description>SELECT * FROM ... LIMIT n.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>number</ID>
+          <ToolTip>number</ToolTip>
+          <Default>number</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[SELECT * FROM $table_name$ LIMIT $number$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

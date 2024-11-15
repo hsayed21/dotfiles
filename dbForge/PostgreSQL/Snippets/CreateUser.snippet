@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateUser</Title>
+      <Shortcut>CreateUser</Shortcut>
+      <Description>Define a new database user account</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>uid</ID>
+        </Literal>
+        <Literal>
+          <ID>group_name</ID>
+          <Default>group_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>Password</ID>
+          <Default>type_password_here</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE USER $user_name$
+  WITH PASSWORD '$Password$'
+--  SYSID $Uid$
+--  CREATEDB
+--  CREATEUSER
+--  IN GROUP $group_name$
+--  ENCRYPTED PASSWORD '$Password$'
+--  VALID UNTIL '$DATE$'
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

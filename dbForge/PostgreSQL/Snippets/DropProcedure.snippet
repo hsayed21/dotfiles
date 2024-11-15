@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropProcedure</Title>
+      <Shortcut>DropProcedure</Shortcut>
+      <Description>Drop a stored procedure if it is already exists</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>procedure_name</ID>
+          <Default>procedure1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP PROCEDURE IF EXISTS $schema_name$.$procedure_name$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

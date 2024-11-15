@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateVoidFunction</Title>
+      <Shortcut>CreateVoidFunction</Shortcut>
+      <Description>Create Void Function</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>parameter</ID>
+          <Default>param1</Default>
+        </Literal>
+        <Literal>
+          <ID>parameter_type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>variable_name</ID>
+          <Default>var1</Default>
+        </Literal>
+        <Literal>
+          <ID>variable_type</ID>
+          <Default>INT</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>func1</Default>
+        </Literal>
+        <Literal>
+          <ID>language</ID>
+          <Default>plpgsql</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE OR REPLACE FUNCTION $schema_name$.$function_name$($parameter$ $parameter_type$)
+  RETURNS void
+  LANGUAGE $language$
+AS 
+\$$language$\$
+DECLARE 
+  $variable_name$ $variable_type$;
+BEGIN
+  $variable_name$ := $parameter$;
+END;
+\$$language$\$;
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

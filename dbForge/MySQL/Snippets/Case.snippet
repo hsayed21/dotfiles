@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Case</Title>
+      <Shortcut>Case</Shortcut>
+      <Description>Insert case construction snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>case_operand</ID>
+          <ToolTip>case_operand</ToolTip>
+          <Default>case_operand</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CASE $case_operand$
+  WHEN $caret$ THEN 
+  ELSE 
+END CASE;
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

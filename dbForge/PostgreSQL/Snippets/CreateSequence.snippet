@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateSequence</Title>
+      <Shortcut>CreateSeq</Shortcut>
+      <Description>Define a new sequence generator</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>seq_name</ID>
+          <Default>seq_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public </Default>
+        </Literal>
+        <Literal>
+          <ID>increment</ID>
+          <Default>1 </Default>
+        </Literal>
+        <Literal>
+          <ID>minvalue</ID>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>maxvalue</ID>
+        </Literal>
+        <Literal>
+          <ID>start</ID>
+          <Default>1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE SEQUENCE $schema_name$.$seq_name$ 
+  INCREMENT BY $increment$
+  START WITH $start$
+  MINVALUE $minvalue$
+--  MAXVALUE $maxvalue$ 
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

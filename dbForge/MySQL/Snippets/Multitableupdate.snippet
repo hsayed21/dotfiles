@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Multi table Update</Title>
+      <Shortcut>UpdateTableMulti</Shortcut>
+      <Description>Multi table update snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table1_name</ID>
+          <ToolTip>table1_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>table2_name</ID>
+          <ToolTip>table2_name</ToolTip>
+          <Default>TABLE2</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_name</ID>
+          <ToolTip>column1_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>column2_name</ID>
+          <ToolTip>column2_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>conditional_column</ID>
+          <ToolTip>conditional_column</ToolTip>
+          <Default>COLUMN2</Default>
+        </Literal>
+        <Literal>
+          <ID>conditional_value</ID>
+          <ToolTip>conditional_value</ToolTip>
+          <Default>'String'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[UPDATE IGNORE $table1_name$, $table2_name$
+  SET $table1_name$.$column1_name$ = $table2_name$.$column2_name$
+  WHERE $table1_name$.$conditional_column$ = $conditional_value$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

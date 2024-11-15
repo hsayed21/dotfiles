@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Event</Title>
+      <Shortcut>CreateEvent</Shortcut>
+      <Description>Create event snippet creates and schedules a new event.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>event_name</ID>
+          <ToolTip>event_name</ToolTip>
+          <Default>EVENT1</Default>
+        </Literal>
+        <Literal>
+          <ID>timestamp</ID>
+          <ToolTip>timestamp</ToolTip>
+          <Default>'2013-01-01 08:00:00'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE EVENT IF NOT EXISTS $event_name$
+  ON SCHEDULE AT $timestamp$
+  ON COMPLETION NOT PRESERVE
+  COMMENT 'comment this event'
+  DO $caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

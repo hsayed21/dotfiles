@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropSequence</Title>
+      <Shortcut>DropSequence</Shortcut>
+      <Description>Remove a sequence</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>seq_name</ID>
+          <Default>sequence1 </Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP SEQUENCE IF EXISTS $schema_name$.$seq_name$
+--  CASCADE
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

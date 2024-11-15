@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropTrigger</Title>
+      <Shortcut>DropTrigger</Shortcut>
+      <Description>Drop a trigger if it is already exists</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>trigger_name</ID>
+          <Default>trigger1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP TRIGGER IF EXISTS $trigger_name$ ON $schema_name$.$table_name$
+--  CASCADE
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

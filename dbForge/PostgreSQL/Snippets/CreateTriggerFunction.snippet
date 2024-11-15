@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateTriggerFunction</Title>
+      <Shortcut>CreateTriggerFunction</Shortcut>
+      <Description>Create trigger function on data changes</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>function_name</ID>
+          <Default>func_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name1 </Default>
+        </Literal>
+        <Literal>
+          <ID>trigger_name</ID>
+          <Default>trigger_name1 </Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <Default>column_name1</Default>
+        </Literal>
+        <Literal>
+          <ID>language</ID>
+          <Default>plpgsql</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE OR REPLACE FUNCTION $schema_name$.$function_name$()
+  RETURNS trigger
+  LANGUAGE $language$
+AS 
+\$$language$\$
+BEGIN
+  IF NEW.$column_name$ IS NULL THEN
+    RAISE EXCEPTION '';$CARET$
+  END IF;
+
+  RETURN NEW;
+END;
+\$$language$\$;
+
+CREATE TRIGGER $trigger_name$
+  BEFORE INSERT OR UPDATE ON $schema_name$.$table_name$
+  FOR EACH ROW
+  EXECUTE FUNCTION $schema_name$.$function_name$();]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

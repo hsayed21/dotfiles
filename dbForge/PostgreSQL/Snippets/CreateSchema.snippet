@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateSchema</Title>
+      <Shortcut>CreateSchema</Shortcut>
+      <Description>Create a database schema </Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>schema1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE SCHEMA IF NOT EXISTS $schema_name$ 
+--  AUTHORIZATION $USER$
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

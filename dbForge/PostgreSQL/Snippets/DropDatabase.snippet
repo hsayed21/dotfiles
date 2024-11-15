@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>DropDatabase</Title>
+      <Shortcut>DropDatabase</Shortcut>
+      <Description>Drop a database if it is already exists</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>db_name</ID>
+          <Default>database1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[DROP DATABASE IF EXISTS $db_name$
+--  WITH FORCE
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

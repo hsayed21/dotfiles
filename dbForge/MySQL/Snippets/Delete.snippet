@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Delete</Title>
+      <Shortcut>Delete</Shortcut>
+      <Description>Delete snippet with LIMIT.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <ToolTip>column_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>column_value</ID>
+          <ToolTip>column_value</ToolTip>
+          <Default>VALUE1</Default>
+        </Literal>
+        <Literal>
+          <ID>row_count</ID>
+          <ToolTip>row_count</ToolTip>
+          <Default>100</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[DELETE LOW_PRIORITY QUICK
+  FROM $table_name$
+  WHERE $column_name$ = $column_value$
+  LIMIT $row_count$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

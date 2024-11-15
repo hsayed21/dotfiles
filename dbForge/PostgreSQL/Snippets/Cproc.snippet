@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateProcedure</Title>
+      <Shortcut>CreateProcedure</Shortcut>
+      <Description>Create a stored procedure.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>procedure_name</ID>
+          <Default>procedure_name</Default>
+        </Literal>
+        <Literal>
+          <ID>language</ID>
+          <Default>plpgsql</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE OR REPLACE PROCEDURE $schema$.$procedure_name$()
+LANGUAGE $language$
+AS \$$language$\$
+BEGIN
+  $CARET$;
+END;
+\$$language$\$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

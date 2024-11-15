@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>InsertInto</Title>
+      <Shortcut>InsertInto</Shortcut>
+      <Description>INSERT INTO fragment.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column1</ID>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>column2</ID>
+          <Default>column_name</Default>
+        </Literal>
+        <Literal>
+          <ID>expression1</ID>
+          <Default>1</Default>
+        </Literal>
+        <Literal>
+          <ID>expression2</ID>
+          <Default>''</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[INSERT INTO $schema_name$.$table_name$
+  ($column1$, $column2$$CARET$)
+  VALUES ($expression1$, $expression2$);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Multi table Delete</Title>
+      <Shortcut>DeleteTableMulti</Shortcut>
+      <Description>Multi table delete snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table1_name</ID>
+          <ToolTip>table1_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>table2_name</ID>
+          <ToolTip>table2_name</ToolTip>
+          <Default>TABLE2</Default>
+        </Literal>
+        <Literal>
+          <ID>column_name</ID>
+          <ToolTip>column_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[DELETE $table1_name$
+  FROM $table1_name$, $table2_name$
+  WHERE $table1_name$.$column_name$ = $table2_name$.$column_name$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

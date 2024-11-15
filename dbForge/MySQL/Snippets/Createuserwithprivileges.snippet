@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create User with Privileges</Title>
+      <Shortcut>CreateUserWithPrivileges</Shortcut>
+      <Description>Create user with privileges. Specify user password.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>user_name</ID>
+          <ToolTip>user_name</ToolTip>
+          <Default>USER1</Default>
+        </Literal>
+        <Literal>
+          <ID>password</ID>
+          <ToolTip>password</ToolTip>
+          <Default>'test'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE USER $user_name$;
+  GRANT ALL PRIVILEGES ON *.* TO $user_name$;
+  SET PASSWORD FOR $user_name$ = Password($password$);
+  FLUSH PRIVILEGES;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>IfElseIf</Title>
+      <Shortcut>IfElseIf</Shortcut>
+      <Description />
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>boolean_expression1</ID>
+        </Literal>
+        <Literal>
+          <ID>boolean_expression2</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL Server" Kind="SQL Server"><![CDATA[IF $boolean_expression1$
+BEGIN
+   $CARET$
+END 
+ELSE IF $boolean_expression2$
+BEGIN
+
+END
+ELSE
+BEGIN
+
+END
+
+]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

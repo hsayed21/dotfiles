@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateAggregate</Title>
+      <Shortcut>CreateAggregate</Shortcut>
+      <Description>Define a new aggregate function</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>agg_name</ID>
+          <Default>agg_name</Default>
+        </Literal>
+        <Literal>
+          <ID>input_data_type</ID>
+          <Default>float8</Default>
+        </Literal>
+        <Literal>
+          <ID>sfunc</ID>
+          <Default>float8_accum</Default>
+        </Literal>
+        <Literal>
+          <ID>state_data_type</ID>
+          <Default>float8[]</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>final_func</ID>
+          <Default>float8_agg_name</Default>
+        </Literal>
+        <Literal>
+          <ID>initcond</ID>
+          <Default>'{0,0,0}'</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE OR REPLACE AGGREGATE $schema_name$.$agg_name$ ($input_data_type$)( 
+  sfunc     = $sfunc$
+ ,stype     = $state_data_type$
+ ,finalfunc = $final_func$
+ ,initcond  = $initcond$
+);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

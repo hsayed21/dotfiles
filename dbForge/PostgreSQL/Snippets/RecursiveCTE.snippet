@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>RecursiveCTE</Title>
+      <Shortcut>RecursiveCTE</Shortcut>
+      <Description>Recursive common table expression.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table_name</Default>
+        </Literal>
+        <Literal>
+          <ID>query1</ID>
+          <Default>query1</Default>
+        </Literal>
+        <Literal>
+          <ID>query2</ID>
+          <Default>query2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="PostgreSQL"><![CDATA[WITH RECURSIVE
+  $query1$ AS (SELECT *$CARET$ FROM $schema_name$.$table_name$),
+  $query2$ AS (SELECT * FROM $query1$)
+SELECT * FROM $query2$;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>CreateDatabase</Title>
+      <Shortcut>CreateDatabase</Shortcut>
+      <Description>CREATE DATABASE statement</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>database_name</ID>
+          <Default>database1</Default>
+        </Literal>
+        <Literal>
+          <ID>tablespace_name</ID>
+          <Default>DEFAULT</Default>
+        </Literal>
+        <Literal>
+          <ID>template</ID>
+          <Default>DEFAULT</Default>
+        </Literal>
+        <Literal>
+          <ID>encoding</ID>
+          <Default>DEFAULT</Default>
+        </Literal>
+        <Literal>
+          <ID>strategy</ID>
+        </Literal>
+        <Literal>
+          <ID>locale</ID>
+        </Literal>
+        <Literal>
+          <ID>lc_collate</ID>
+        </Literal>
+        <Literal>
+          <ID>lc_ctype</ID>
+        </Literal>
+        <Literal>
+          <ID>icu_locale</ID>
+        </Literal>
+        <Literal>
+          <ID>locale_provider</ID>
+        </Literal>
+        <Literal>
+          <ID>collation_version</ID>
+        </Literal>
+        <Literal>
+          <ID>allow_connections</ID>
+        </Literal>
+        <Literal>
+          <ID>connection_limit</ID>
+        </Literal>
+        <Literal>
+          <ID>is_template</ID>
+          <Default>FALSE</Default>
+        </Literal>
+        <Literal>
+          <ID>oid</ID>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[CREATE DATABASE $database_name$
+--     OWNER = $USER$ 
+--     TEMPLATE = $template$
+--     ENCODING = $encoding$
+--     STRATEGY = $strategy$
+--     LOCALE = $locale$
+--     LC_COLLATE = $lc_collate$
+--     LC_CTYPE = $lc_ctype$
+--     ICU_LOCALE = $icu_locale$
+--     LOCALE_PROVIDER = $locale_provider$
+--     COLLATION_VERSION = $collation_version$
+--     TABLESPACE = $tablespace_name$ 
+--     ALLOW_CONNECTIONS = $allow_connections$
+--     CONNECTION LIMIT = $connection_limit$
+--     IS_TEMPLATE = $is_template$
+--     OID = $oid$
+;
+$CARET$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

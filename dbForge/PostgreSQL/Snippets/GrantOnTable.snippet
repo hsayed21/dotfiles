@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>GrantOnTable</Title>
+      <Shortcut>GrantOnTable</Shortcut>
+      <Description>Define access privileges on Table</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <Default>table1</Default>
+        </Literal>
+        <Literal>
+          <ID>user_name</ID>
+          <Default>user1</Default>
+        </Literal>
+        <Literal>
+          <ID>group_name</ID>
+          <Default>group1</Default>
+        </Literal>
+        <Literal>
+          <ID>schema_name</ID>
+          <Default>public</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="PostgreSql" Kind="PostgreSql"><![CDATA[GRANT SELECT  
+--  INSERT  
+--  UPDATE  
+--  DELETE  
+--  RULE  
+--  REFERENCES  
+--  TRIGGER 
+--  ALL  PRIVILEGES 
+  ON TABLE $schema_name$.$table_name$ 
+  TO $user_name$  
+--  GROUP $group_name$ 
+--  WITH GRANT OPTION
+;]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

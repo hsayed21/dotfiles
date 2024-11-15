@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Create Table with Options Definitions</Title>
+      <Shortcut>CreateTable</Shortcut>
+      <Description>Create table statement with table options definition.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_name</ID>
+          <ToolTip>column1_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_type</ID>
+          <ToolTip>column1_type</ToolTip>
+          <Default>INT(4)</Default>
+        </Literal>
+        <Literal>
+          <ID>character</ID>
+          <ToolTip>character</ToolTip>
+          <Default>latin1</Default>
+        </Literal>
+        <Literal>
+          <ID>collate</ID>
+          <ToolTip>collate</ToolTip>
+          <Default>latin1_swedish_ci</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[CREATE TABLE IF NOT EXISTS $table_name$(
+  $column1_name$ $column1_type$)
+  CHARACTER SET $character$ COLLATE $collate$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

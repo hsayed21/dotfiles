@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Insert</Title>
+      <Shortcut>Insert</Shortcut>
+      <Description>Insert rows into the table snippet.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>table_name</ID>
+          <ToolTip>table_name</ToolTip>
+          <Default>TABLE1</Default>
+        </Literal>
+        <Literal>
+          <ID>column1_name</ID>
+          <ToolTip>column1_name</ToolTip>
+          <Default>COLUMN1</Default>
+        </Literal>
+        <Literal>
+          <ID>column2_name</ID>
+          <ToolTip>column2_name</ToolTip>
+          <Default>COLUMN2</Default>
+        </Literal>
+        <Literal>
+          <ID>value_column1</ID>
+          <ToolTip>value_column1</ToolTip>
+          <Default>VALUE1</Default>
+        </Literal>
+        <Literal>
+          <ID>value_column2</ID>
+          <ToolTip>value_column2</ToolTip>
+          <Default>VALUE2</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[INSERT HIGH_PRIORITY INTO $table_name$(
+  $column1_name$, $column2_name$)
+  VALUES ($value_column1$, $value_column2$);
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

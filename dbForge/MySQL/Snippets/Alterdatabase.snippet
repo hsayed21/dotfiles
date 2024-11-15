@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Alter Database</Title>
+      <Shortcut>AlterDatabase</Shortcut>
+      <Description>Alter database snippet with DEFAULT CHARACTER SET.</Description>
+      <Author>Devart</Author>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>database_name</ID>
+          <ToolTip>database_name</ToolTip>
+          <Default>DATABASE1</Default>
+        </Literal>
+        <Literal>
+          <ID>charset_name</ID>
+          <ToolTip>charset_name</ToolTip>
+          <Default>utf8</Default>
+        </Literal>
+        <Literal>
+          <ID>collate_name</ID>
+          <ToolTip>collate_name</ToolTip>
+          <Default>UTF8_BIN</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="SQL (Devart)" Kind="MySql"><![CDATA[ALTER DATABASE $database_name$
+  DEFAULT CHARACTER SET $charset_name$ DEFAULT COLLATE $collate_name$;
+$caret$]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
