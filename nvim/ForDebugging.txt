@@ -1,0 +1,16 @@
+# print data of table variable
+:lua print(vim.inspect(varTable))
+:lua vim.print(var)
+:lua vim.pretty_print(var)
+
+
+# Appdata\Local\nvim-data => vim.fn.stdpath("data") 
+
+
+# Vim can tell you where these settings were last set: tabstop, ...etc
+:verbose setlocal ts? sts? et? sw?
+
+
+[key bindings - How to debug a mapping? - Vi and Vim Stack Exchange](https://vi.stackexchange.com/questions/7722/how-to-debug-a-mapping)
+[Debugging vim keypresses - Stack Overflow](https://stackoverflow.com/questions/9055523/debugging-vim-keypresses)
+[How to Debug Key Mappings in Vim — tech.serhatteker.com](https://tech.serhatteker.com/post/2021-03/debug-key-mappings-vim/)

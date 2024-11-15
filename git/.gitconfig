@@ -1,0 +1,91 @@
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[delta]
+	features = side-by-side line-numbers decorations
+	navigate = true
+	whitespace-error-style = 22 reverse
+
+	# line-numbers = true
+	# features = decorations
+	# navigate = true
+	# side-by-side = false
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+[interactive]
+	diffFilter = delta --color-only
+[pager]
+	blame  = delta
+	diff   = delta
+	reflog = delta
+	show   = delta
+	diff = delta
+# [delta "interactive"]
+#     keep-plus-minus-markers = false
+
+# [delta "decorations"]
+#     commit-decoration-style = blue ol
+#     commit-style = raw
+#     file-style = omit
+#     hunk-header-decoration-style = blue box
+#     hunk-header-file-style = red
+#     hunk-header-line-number-style = "#067a00"
+#     hunk-header-style = file line-number syntax
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
+[user]
+	email = hsayedhamed21@gmail.com
+	name = hsayed21
+	signingKey = 
+[init]
+	defaultBranch = main
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
+[pull]
+	rebase = false
+[fetch]
+	prune = false
+[rebase]
+	autoStash = false
+	autosquash = false
+	updateRefs = false
+[http]
+	postBuffer = 524288000
+[push]
+	default = current
+
+[includeIf "gitdir:C:/Posbank_Projects/POPs Cloud ERP Front/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/POPs Cloud ERP API/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/POPs Retail Git/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/POPs Restaurant 6.0.0.000/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/POPs Public API/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/POPs KDS/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/MenuTree-Frontend/"]
+    path = C:/Users/hsayed/.gitconfig-work
+
+[includeIf "gitdir:C:/Posbank_Projects/MenuTree-Git/"]
+    path = C:/Users/hsayed/.gitconfig-work
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
+
