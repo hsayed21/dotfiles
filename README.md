@@ -1,1 +1,2 @@
 # dotfiles
+Welcome to my Dotfiles repository! This repository contains my personal dotfiles, configurations, and scripts used to set up my development environment. The goal of this repo is to streamline and automate the setup of my environment across different machines.
