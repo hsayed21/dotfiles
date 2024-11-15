@@ -2060,6 +2060,18 @@
   "docthis.includeMemberOfOnInterfaceMembers": false,
   "gitSemanticCommit.types": [
     {
+      "type": "Some Changes",
+      "description": "Some Changes",
+      "emoji": "🔧",
+      "standalone": true
+    },
+    {
+      "type": "For Testing",
+      "description": "For Testing",
+      "emoji": "🧪",
+      "standalone": true
+    },
+    {
       "type": "Initial commit",
       "description": "Initial commit",
       "emoji": "🎉",
@@ -2143,6 +2155,10 @@
 
     "C:\\Users\\hsayed\\AppData\\Local\\nvim"
 
-  ]
+  ],
+  "diffEditor.renderSideBySide": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "window.newWindowProfile": "Default"
   // "vscode-neovim.neovimClean": true
 }
