@@ -24,7 +24,7 @@
 	<StripComp index='1' gainin='0.00' attack='10.0' release='60.0' knee='0.50' comprate='1.000' threshold='-40.00' automakeup='1' gainout='0.00' />
 	<StripGate index='1' thresin='-60.00' damping='-60.00' bpsidechain='100' attack='10.0' hold='200.0' release='1250.0' />
 	<Strip index='1' paneltype='1' Panel3Dx='0.000' Panel3Dy='0.000' ColorPanelx='-0.091' ColorPanely='0.466' ModPanelx='0.000' ModPanely='0.000' audibility_c='0.00' audibility_g='0.00' />
-	<Strip index='2' mute='0' solo='0' mono='1' muc='0' prg_c='0' prg_g='0' busa='1' busa2='1' busa3='0' busb='0' busb2='0' karaoke='0' dblevel='-22.00' dblimit='12.00' />
+	<Strip index='2' mute='0' solo='0' mono='1' muc='0' prg_c='0' prg_g='0' busa='1' busa2='1' busa3='0' busb='0' busb2='0' karaoke='0' dblevel='-34.00' dblimit='12.00' />
 	<StripComp index='2' gainin='0.00' attack='10.0' release='60.0' knee='0.50' comprate='1.000' threshold='-40.00' automakeup='1' gainout='0.00' />
 	<StripGate index='2' thresin='-60.00' damping='-60.00' bpsidechain='100' attack='10.0' hold='200.0' release='1250.0' />
 	<Strip index='2' paneltype='1' Panel3Dx='0.000' Panel3Dy='0.000' ColorPanelx='-0.178' ColorPanely='0.443' ModPanelx='0.000' ModPanely='0.000' audibility_c='0.00' audibility_g='0.00' />
@@ -298,7 +298,7 @@
 <VoiceMeeterRecorder>
 	<RecordMode RecBus='0' DontPlay='0' Loop='1' MultiTrack='0' TimerStop='0' />
 	<RecordArm ArmIn1='1' ArmIn2='1' ArmIn3='1' ArmIn4='1' ArmIn5='1' ArmBus1='1' ArmBus2='0' ArmBus3='0' ArmBus4='0' ArmBus5='0' />
-	<RecordDirectory>C:\Users\hsayed\Documents\Voicemeeter</RecordDirectory>
+	<RecordDirectory>C:\Users\hamad\OneDrive\Documents\Voicemeeter</RecordDirectory>
 	<RecordPrefix></RecordPrefix>
 	<RecordParam FileType='3' BitRes='16' TargetSR='0' nbChannel='2' kbps='192' />
 </VoiceMeeterRecorder>
