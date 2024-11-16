@@ -46,8 +46,155 @@ foreach ($pkg in $choco_packages) {
 # ================================================
 # Configuration
 # ================================================
-# nvim
-Create-SymbolicLink -linkPath "$Env:LOCALAPPDATA\nvim" -targetPath ($currentPath + "\nvim")
+$mappings = @(
+   # nvim
+  @{
+    source = "$PWD\nvim"
+    dest = "$Env:LOCALAPPDATA\nvim"
+  },
+   # vscode
+  @{
+    source = "$PWD\vscode\settings.json"
+    dest = "$Env:APPDATA\Code\User\settings.json"
+  },
+  @{
+    source = "$PWD\vscode\keybindings.json"
+    dest = "$Env:APPDATA\Code\User\keybindings.json"
+  },
+  @{
+    source = "$PWD\vscode\extensions.json"
+    dest = "$Home\.vscode\extensions\extensions.json"
+  },
+  # vs2022
+  @{
+    source = "$PWD\VS2022\CurrentSettings.vssettings"
+    dest = "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_*\Settings\CurrentSettings.vssettings"
+  },
+  # lazygit
+  @{
+    source = "$PWD\lazygit\config.yml"
+    dest = "$Env:LOCALAPPDATA\lazygit\config.yml"
+  },
+  # ShareX
+  @{
+    source = "$PWD\ShareX\ApplicationConfig.json"
+    dest = "$Home\Documents\ShareX\ApplicationConfig.json"
+  },
+  @{
+    source = "$PWD\ShareX\HotkeysConfig.json"
+    dest = "$Home\Documents\ShareX\HotkeysConfig.json"
+  },
+  # Everything
+  @{
+    source = "$PWD\Everything\Everything.ini"
+    dest = "$Env:APPDATA\Everything\Everything.ini"
+  },
+  @{
+    source = "$PWD\Everything\Filters.csv"
+    dest = "$Env:APPDATA\Everything\Filters.csv"
+  },
+  # OBS
+  @{
+    source = "$PWD\OBS\scenes\recording.json"
+    dest = "$Env:APPDATA\obs-studio\basic\scenes\recording.json"
+  },
+  @{
+    source = "$PWD\OBS\profiles\Virtual_Mic"
+    dest = "$Env:APPDATA\obs-studio\basic\profiles\Virtual_Mic"
+  },
+  # wireshark
+  @{
+    source = "$PWD\wireshark\MyProfile"
+    dest = "$Env:APPDATA\Wireshark\profiles\MyProfile"
+  },
+  # elevenclock
+  @{
+    source = "$PWD\elevenclock\CustomClockStrings"
+    dest = "$Home\.elevenclock\CustomClockStrings"
+  },
+  @{
+    source = "$PWD\elevenclock\PreferredLanguage"
+    dest = "$Home\.elevenclock\PreferredLanguage"
+  },
+  @{
+    source = "$PWD\elevenclock\CustomClockClickAction"
+    dest = "$Home\.elevenclock\CustomClockClickAction"
+  },
+  @{
+    source = "$PWD\elevenclock\CustomClockDoubleClickAction"
+    dest = "$Home\.elevenclock\CustomClockDoubleClickAction"
+  },
+  @{
+    source = "$PWD\elevenclock\ClockFixedHeight"
+    dest = "$Home\.elevenclock\ClockFixedHeight"
+  },
+  @{
+    source = "$PWD\elevenclock\ClockYOffset"
+    dest = "$Home\.elevenclock\ClockYOffset"
+  },
+  @{
+    source = "$PWD\elevenclock\ClockXOffset"
+    dest = "$Home\.elevenclock\ClockXOffset"
+  },
+  @{
+    source = "$PWD\elevenclock\UseCustomFontSize"
+    dest = "$Home\.elevenclock\UseCustomFontSize"
+  },
+  # voicemeeter
+  @{
+    source = "$PWD\VoicemeeterBanana\VoiceMeeterBananaDefault.xml"
+    dest = "$Env:APPDATA\VoiceMeeterBananaDefault.xml"
+  },
+  @{
+    source = "$PWD\VoicemeeterBanana\VoicemeeterBanana_LastSettings.xml"
+    dest = "$Home\Documents\Voicemeeter\VoicemeeterBanana_LastSettings.xml"
+  },
+  @{
+    source = "$PWD\VoicemeeterBanana\MacroButtonConfig.xml"
+    dest = "$Home\Documents\Voicemeeter\MacroButtonConfig.xml"
+  },
+  # dbForge
+  @{
+    source = "$PWD\dbForge\SQL Server\Snippets"
+    dest = "$Env:ProgramData\Devart\dbForge Studio for SQL Server\Snippets"
+  },
+  @{
+    source = "$PWD\dbForge\PostgreSQL\Snippets"
+    dest = "$Env:ProgramData\Devart\dbForge Studio for PostgreSQL\Snippets"
+  },
+  @{
+    source = "$PWD\dbForge\MySQL\Snippets"
+    dest = "$Env:ProgramData\Devart\dbForge Studio for MySQL\Snippets"
+  },
+  @{
+    source = "$PWD\dbForge\SQL Server\Keybinding_Default.xml"
+    dest = "$Env:APPDATA\Devart\dbForge Studio for SQL Server\ShortcutSchemes\Default.xml"
+  },
+  @{
+    source = "$PWD\dbForge\PostgreSQL\Keybinding_Default.xml"
+    dest = "$Env:APPDATA\Devart\dbForge Studio for PostgreSQL\ShortcutSchemes\Default.xml"
+  },
+  @{
+    source = "$PWD\dbForge\MySQL\Keybinding_Default.xml"
+    dest = "$Env:APPDATA\Devart\dbForge Studio for MySQL\ShortcutSchemes\Default.xml"
+  },
+  # git
+  @{
+    source = "$PWD\git\.gitconfig-work"
+    dest = "$Home\git\.gitconfig-work"
+  },
+  @{
+    source = "$PWD\git\.gitconfig"
+    dest = "$Home\git\.gitconfig"
+  }
+  # WindowsTerminal
+  @{
+    source = "$PWD\WindowsTerminal\settings.json"
+    dest = "$Env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+  }
+)
+
+
 
 # powershell
 # PS Modules
@@ -71,68 +218,18 @@ foreach ($psModule in $psModules) {
 
 Show-SuccessMessage -Message "PS Modules has been installed successfully."
 
-# vscode
-Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\settings.json" -targetPath ($currentPath + "\vscode\settings.json")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\keybindings.json" -targetPath ($currentPath + "\vscode\keybindings.json")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\snippets" -targetPath ($currentPath + "\vscode\snippets")
-# Create-SymbolicLink -linkPath "$Env:APPDATA\Code\User\extensions.json" -targetPath ($currentPath + "\vscode\extensions.json")
-Create-SymbolicLink -linkPath "$Home\.vscode\extensions\extensions.json" -targetPath ($currentPath + "\vscode\extensions.json")
-
 # vs2022
 & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
 Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
 
-# lazygit
-Create-SymbolicLink -linkPath "$Env:LOCALAPPDATA\lazygit\config.yml" -targetPath ($currentPath + "\lazygit\config.yml")
-
-# ShareX
-Create-SymbolicLink -linkPath "$Home\Documents\ShareX\ApplicationConfig.json" -targetPath ($currentPath + "\ShareX\ApplicationConfig.json")
-Create-SymbolicLink -linkPath "$Home\Documents\ShareX\HotkeysConfig.json" -targetPath ($currentPath + "\ShareX\HotkeysConfig.json")
-
-# Everything
-Create-SymbolicLink -linkPath "$Env:APPDATA\Everything\Everything.ini" -targetPath ($currentPath + "\Everything\Everything.ini")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Everything\Filters.csv" -targetPath ($currentPath + "\Everything\Filters.csv")
-
-# OBS
-Create-SymbolicLink -linkPath "$Env:APPDATA\obs-studio\basic\scenes\recording.json" -targetPath ($currentPath + "\OBS\scenes\recording.json")
-Create-SymbolicLink -linkPath "$Env:APPDATA\obs-studio\basic\profiles\Virtual_Mic" -targetPath ($currentPath + "\OBS\profiles\Virtual_Mic")
-
-# wireshark
-Create-SymbolicLink -linkPath "$Env:APPDATA\Wireshark\profiles\MyProfile" -targetPath ($currentPath + "\wireshark\MyProfile")
-
-# elevenclock
-Create-SymbolicLink -linkPath "$Home\.elevenclock\CustomClockStrings" -targetPath ($currentPath + "\elevenclock\CustomClockStrings")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\PreferredLanguage" -targetPath ($currentPath + "\elevenclock\PreferredLanguage")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\CustomClockClickAction" -targetPath ($currentPath + "\elevenclock\CustomClockClickAction")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\CustomClockDoubleClickAction" -targetPath ($currentPath + "\elevenclock\CustomClockDoubleClickAction")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\ClockFixedHeight" -targetPath ($currentPath + "\elevenclock\ClockFixedHeight")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\ClockYOffset" -targetPath ($currentPath + "\elevenclock\ClockYOffset")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\ClockXOffset" -targetPath ($currentPath + "\elevenclock\ClockXOffset")
-Create-SymbolicLink -linkPath "$Home\.elevenclock\UseCustomFontSize" -targetPath ($currentPath + "\elevenclock\UseCustomFontSize")
-
-# voicemeeter
-Create-SymbolicLink -linkPath "$Env:APPDATA\VoiceMeeterBananaDefault.xml" -targetPath ($currentPath + "\VoicemeeterBanana\VoiceMeeterBananaDefault.xml")
-Create-SymbolicLink -linkPath "$Home\Documents\Voicemeeter\VoicemeeterBanana_LastSettings.xml" -targetPath ($currentPath + "\VoicemeeterBanana\VoicemeeterBanana_LastSettings.xml")
-Create-SymbolicLink -linkPath "$Home\Documents\Voicemeeter\MacroButtonConfig.xml" -targetPath ($currentPath + "\VoicemeeterBanana\MacroButtonConfig.xml")
+foreach ($mapping in $mappings) {
+  Create-SymbolicLink -destPath "$($mapping.dest)" -sourcePath "$($mapping.source)"
+}
 
 # ExplorerPatcher
 reg import ($currentPath + "\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg") *>&1 | Out-Null
 Show-SuccessMessage -Message "ExplorerPatcher Settings has been Restored successfully."
 
-# dbForge
-Create-SymbolicLink -linkPath "$Env:ProgramData\Devart\dbForge Studio for SQL Server\Snippets" -targetPath ($currentPath + "\dbForge\SQL Server\Snippets")
-Create-SymbolicLink -linkPath "$Env:ProgramData\Devart\dbForge Studio for PostgreSQL\Snippets" -targetPath ($currentPath + "\dbForge\PostgreSQL\Snippets")
-Create-SymbolicLink -linkPath "$Env:ProgramData\Devart\dbForge Studio for MySQL\Snippets" -targetPath ($currentPath + "\dbForge\MySQL\Snippets")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Devart\dbForge Studio for SQL Server\ShortcutSchemes\Default.xml" -targetPath ($currentPath + "\dbForge\SQL Server\Keybinding_Default.xml")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Devart\dbForge Studio for PostgreSQL\ShortcutSchemes\Default.xml" -targetPath ($currentPath + "\dbForge\PostgreSQL\Keybinding_Default.xml")
-Create-SymbolicLink -linkPath "$Env:APPDATA\Devart\dbForge Studio for MySQL\ShortcutSchemes\Default.xml" -targetPath ($currentPath + "\dbForge\MySQL\Keybinding_Default.xml")
-
-# git
-Create-SymbolicLink -linkPath "$Home\git\.gitconfig-work" -targetPath ($currentPath + "\git\.gitconfig-work")
-Create-SymbolicLink -linkPath "$Home\git\.gitconfig" -targetPath ($currentPath + "\git\.gitconfig")
-
-# WindowsTerminal
-Create-SymbolicLink -linkPath "$Env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" -targetPath ($currentPath + "\WindowsTerminal\settings.json")
 concfg import ($currentPath + "\WindowsTerminal\concfg.json")
 Copy-Item -Path ($currentPath + "\WindowsTerminal\kali.theme.json") -Destination $Env:LOCALAPPDATA\kali.theme.json -Force
 $profileContent = @"

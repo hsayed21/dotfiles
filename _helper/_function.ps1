@@ -63,26 +63,27 @@ function Install-ChocoPackage {
 
 # Function to create a symbolic link
 function Create-SymbolicLink {
-    param([string]$linkPath, [string]$targetPath)
+    param([string]$destPath, [string]$sourcePath)
 
     try {
         # Check if the linkPath exists and if it's already a symbolic link
-        if (Test-Path $linkPath) {
-            $item = Get-Item $linkPath
-            if ($item.LinkType -eq "SymbolicLink") {
-                Write-Host "`e[32mSymbolic link $linkPath already exists.`e[0m"  # Green text
-                return
-            }
-            else
-            {
+        if (Test-Path $destPath) {
+            $item = Get-Item $destPath
+            $destPath = $item.FullName
+            # if ($item.LinkType -eq "SymbolicLink") {
+            #     Write-Host "`e[32mSymbolic link $destPath already exists.`e[0m"  # Green text
+            #     return
+            # }
+            # else
+            # {
                 # If it's a file or directory, remove it
-                Write-Host "`e[31m$($linkPath) already exists. Removing it...`e[0m"  # Red text
-                Remove-Item -Path $linkPath -Force -Recurse
-            }
+                Write-Host "`e[31m$($destPath) already exists. Removing it...`e[0m"  # Red text
+                Remove-Item -Path $destPath -Force -Recurse
+            # }
         }
         # Create the symbolic link again after removing any existing file/folder
-        Write-Host "`e[33mCreating symbolic link from $linkPath to $targetPath...`e[0m"  # Yellow text
-        New-Item -Path $linkPath -Target $targetPath -ItemType SymbolicLink -Force *>&1 | Out-Null
+        Write-Host "`e[33mCreating symbolic link from $sourcePath to $destPath...`e[0m"  # Yellow text
+        New-Item -Path $destPath -Target $sourcePath -ItemType SymbolicLink -Force *>&1 | Out-Null
         Write-Host "`e[32mSymbolic link created successfully.`e[0m"  # Green text
     }
     catch {
