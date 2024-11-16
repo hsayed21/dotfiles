@@ -219,8 +219,8 @@ foreach ($psModule in $psModules) {
 Show-SuccessMessage -Message "PS Modules has been installed successfully."
 
 # vs2022
-& "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
-Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
+# & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
+# Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
 
 foreach ($mapping in $mappings) {
   Create-SymbolicLink -destPath "$($mapping.dest)" -sourcePath "$($mapping.source)"
