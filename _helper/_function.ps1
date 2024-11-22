@@ -70,16 +70,16 @@ function Create-SymbolicLink {
         if (Test-Path $destPath) {
             $item = Get-Item $destPath
             $destPath = $item.FullName
-            # if ($item.LinkType -eq "SymbolicLink") {
-            #     Write-Host "`e[32mSymbolic link $destPath already exists.`e[0m"  # Green text
-            #     return
-            # }
-            # else
-            # {
+            if ($item.LinkType -eq "SymbolicLink") {
+                Write-Host "`e[32mSymbolic link $destPath already exists.`e[0m"  # Green text
+                return
+            }
+            else
+            {
                 # If it's a file or directory, remove it
                 Write-Host "`e[31m$($destPath) already exists. Removing it...`e[0m"  # Red text
                 Remove-Item -Path $destPath -Force -Recurse
-            # }
+            }
         }
         # Create the symbolic link again after removing any existing file/folder
         Write-Host "`e[33mCreating symbolic link from $sourcePath to $destPath...`e[0m"  # Yellow text
