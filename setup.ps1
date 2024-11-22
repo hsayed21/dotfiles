@@ -191,6 +191,10 @@ $mappings = @(
   @{
     source = "$PWD\WindowsTerminal\settings.json"
     dest = "$Env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+  },
+  @{
+    source = "$PWD\WindowsTerminal\Microsoft.PowerShell_profile.ps1"
+    dest = "$Profile"
   }
 )
 
@@ -218,6 +222,10 @@ foreach ($psModule in $psModules) {
 
 Show-SuccessMessage -Message "PS Modules has been installed successfully."
 
+# install font nerd-font
+choco install -y "nerdfont-hack";
+choco install -y "nerd-fonts-firacode"
+
 # vs2022
 # & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
 # Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
@@ -232,10 +240,10 @@ Show-SuccessMessage -Message "ExplorerPatcher Settings has been Restored success
 
 concfg import ($currentPath + "\WindowsTerminal\concfg.json")
 Copy-Item -Path ($currentPath + "\WindowsTerminal\kali.theme.json") -Destination $Env:LOCALAPPDATA\kali.theme.json -Force
-$profileContent = @"
-oh-my-posh init pwsh --config '$Env:LOCALAPPDATA\kali.theme.json' | Invoke-Expression
-`$PSStyle.FileInfo.Directory = "`e[33m"
-"@
-Set-Content -Path $Profile -Value $profileContent
+# $profileContent = @"
+# oh-my-posh init pwsh --config '$Env:LOCALAPPDATA\kali.theme.json' | Invoke-Expression
+# `$PSStyle.FileInfo.Directory = "`e[33m"
+# "@
+# Set-Content -Path $Profile -Value $profileContent
 
 & ($currentPath + "\WindowsTerminal\fix warning screen reader for powershell.ps1")
