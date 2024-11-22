@@ -335,3 +335,24 @@ Map("n", "z4", function() VSCodeNotify("editor.foldLevel4") end)
 Map("n", "z5", function() VSCodeNotify("editor.foldLevel5") end)
 Map("n", "z6", function() VSCodeNotify("editor.foldLevel6") end)
 Map("n", "z7", function() VSCodeNotify("editor.foldLevel7") end)
+
+
+-- Jumplist
+-- register a jump after insert mode is left
+vim.keymap.set({ 'i' }, '<escape>',
+  function()
+    nvim_feedkeys('<escape>')
+    register_jump()
+  end
+)
+
+-- register a jump whenever a forward search is started
+vim.keymap.set({ 'n' }, '/',
+  function()
+    register_jump()
+    nvim_feedkeys('/')
+  end
+)
+
+Map("n", "<C-o>", jump_back, { desc = "Jump back" })
+Map("n", "<C-i>", jump_forw, { desc = "Jump forward" })
