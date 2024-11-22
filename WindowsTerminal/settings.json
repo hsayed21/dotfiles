@@ -98,7 +98,7 @@
                 "hidden": false,
                 "icon": "ms-appx:///ProfileIcons/pwsh.png",
                 "name": "PowerShell",
-                "opacity": 90,
+                "opacity": 95,
                 "startingDirectory": "%USERPROFILE%",
                 "useAcrylic": false
             }

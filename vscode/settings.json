@@ -2072,6 +2072,12 @@
       "standalone": true
     },
     {
+      "type": "New Staff",
+      "description": "New Staff",
+      "emoji": "🆕",
+      "standalone": true
+    },
+    {
       "type": "Initial commit",
       "description": "Initial commit",
       "emoji": "🎉",
@@ -2159,6 +2165,19 @@
   "diffEditor.renderSideBySide": false,
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
-  "window.newWindowProfile": "Default"
+  "window.newWindowProfile": "Default",
+  "gitlens.views.scm.grouped.views": {
+    "commits": false,
+    "branches": false,
+    "remotes": false,
+    "stashes": false,
+    "tags": false,
+    "worktrees": false,
+    "contributors": false,
+    "repositories": false,
+    "searchAndCompare": false,
+    "launchpad": false
+  },
+  "autoHide.autoHidePanel": false
   // "vscode-neovim.neovimClean": true
 }
