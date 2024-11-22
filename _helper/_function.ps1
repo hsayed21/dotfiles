@@ -31,7 +31,7 @@ function Install-WingetPackage {
             Write-Host "`e[32m$packageName is already installed.`e[0m"  # Green text
         } else {
             Write-Host "`e[33mInstalling $packageName using Winget...`e[0m"  # Yellow text
-            winget install $packageName
+            winget install $packageName --silent --accept-package-agreements --accept-source-agreements
             Write-Host "`e[32m$packageName installation complete.`e[0m"  # Green text
         }
     }
