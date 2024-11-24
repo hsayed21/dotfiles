@@ -199,7 +199,6 @@ $mappings = @(
 )
 
 
-
 # powershell
 # PS Modules
 # Set the PSGallery repository to trusted
@@ -233,6 +232,9 @@ choco install -y "nerd-fonts-firacode"
 foreach ($mapping in $mappings) {
   Create-SymbolicLink -destPath "$($mapping.dest)" -sourcePath "$($mapping.source)"
 }
+
+# vscode
+reg import ($currentPath + "\vscode\vscode contextmenu with profile.reg") *>&1 | Out-Null
 
 # ExplorerPatcher
 reg import ($currentPath + "\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg") *>&1 | Out-Null

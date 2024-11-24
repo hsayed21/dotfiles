@@ -2178,6 +2178,7 @@
     "searchAndCompare": false,
     "launchpad": false
   },
-  "autoHide.autoHidePanel": false
+  "autoHide.autoHidePanel": false,
+  "profileSelector.defaultProfile": "Default"
   // "vscode-neovim.neovimClean": true
 }
