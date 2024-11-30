@@ -27,7 +27,8 @@ function Trim_trailing_whitespace() VSCodeCall("editor.action.trimTrailingWhites
 
 function Trim__save__format()
   Trim_trailing_whitespace()
-  Format()
+  -- Format()
+  FormatPrettier()
   Save()
 end
 
@@ -157,6 +158,11 @@ end
 
 function Format()
   VSCodeCall("editor.action.formatDocument")
+  print("formatted!")
+end
+
+function FormatPrettier()
+  VSCodeCall("prettier.forceFormatDocument")
   print("formatted!")
 end
 
@@ -339,20 +345,20 @@ Map("n", "z7", function() VSCodeNotify("editor.foldLevel7") end)
 
 -- Jumplist
 -- register a jump after insert mode is left
-vim.keymap.set({ 'i' }, '<escape>',
-  function()
-    nvim_feedkeys('<escape>')
-    register_jump()
-  end
-)
+-- vim.keymap.set({ 'i' }, '<escape>',
+--   function()
+--     nvim_feedkeys('<escape>')
+--     register_jump()
+--   end
+-- )
 
 -- register a jump whenever a forward search is started
-vim.keymap.set({ 'n' }, '/',
-  function()
-    register_jump()
-    nvim_feedkeys('/')
-  end
-)
+-- vim.keymap.set({ 'n' }, '/',
+--   function()
+--     register_jump()
+--     nvim_feedkeys('/')
+--   end
+-- )
 
-Map("n", "<C-o>", jump_back, { desc = "Jump back" })
-Map("n", "<C-i>", jump_forw, { desc = "Jump forward" })
+-- Map("n", "<C-o>", jump_back, { desc = "Jump back" })
+-- Map("n", "<C-i>", jump_forw, { desc = "Jump forward" })
