@@ -21,9 +21,6 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
     Show-SuccessMessage -Message "Chocolatey is already installed."
 }
 
-# Current Directory Path
-$currentPath = (Get-Location).Path
-
 # ================================================
 # Install Necessary Packages
 # ================================================
@@ -234,18 +231,18 @@ foreach ($mapping in $mappings) {
 }
 
 # vscode
-reg import ($currentPath + "\vscode\vscode contextmenu with profile.reg") *>&1 | Out-Null
+reg import "$PWD\vscode\vscode contextmenu with profile.reg" *>&1 | Out-Null
 
 # ExplorerPatcher
-reg import ($currentPath + "\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg") *>&1 | Out-Null
+reg import "$PWD\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg" *>&1 | Out-Null
 Show-SuccessMessage -Message "ExplorerPatcher Settings has been Restored successfully."
 
-concfg import ($currentPath + "\WindowsTerminal\concfg.json")
-Copy-Item -Path ($currentPath + "\WindowsTerminal\kali.theme.json") -Destination $Env:LOCALAPPDATA\kali.theme.json -Force
+concfg import "$PWD\WindowsTerminal\concfg.json"
+Copy-Item -Path "$PWD\WindowsTerminal\kali.theme.json" -Destination $Env:LOCALAPPDATA\kali.theme.json -Force
 # $profileContent = @"
 # oh-my-posh init pwsh --config '$Env:LOCALAPPDATA\kali.theme.json' | Invoke-Expression
 # `$PSStyle.FileInfo.Directory = "`e[33m"
 # "@
 # Set-Content -Path $Profile -Value $profileContent
 
-& ($currentPath + "\WindowsTerminal\fix warning screen reader for powershell.ps1")
+& "$PWD\WindowsTerminal\fix warning screen reader for powershell.ps1"

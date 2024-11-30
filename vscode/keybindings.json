@@ -1355,10 +1355,6 @@
     "key": "ctrl+alt+,"
   },
   {
-    "command": "workbench.action.moveEditorRightInGroup",
-    "key": "ctrl+alt+."
-  },
-  {
     "command": "-jupyter.gotoPrevCellInFile",
     "key": "ctrl+alt+[",
     "when": "editorTextFocus && jupyter.hascodecells && !notebookEditorFocused"
@@ -3257,10 +3253,6 @@
   {
     "command": "-workbench.action.showCommands",
     "key": "ctrl+shift+p"
-  },
-  {
-    "command": "-workbench.action.moveEditorRightInGroup",
-    "key": "ctrl+shift+pagedown"
   },
   {
     "command": "-workbench.action.moveEditorLeftInGroup",
@@ -5559,5 +5551,9 @@
   {
     "key": "ctrl+k right",
     "command": "-workbench.action.moveActiveEditorGroupRight"
+  },
+  {
+    "key": "ctrl+alt+.",
+    "command": "autoHide.toggleHidePanel"
   },
 ]

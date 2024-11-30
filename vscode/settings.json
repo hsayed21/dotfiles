@@ -763,9 +763,6 @@
   "omnisharp.enableAsyncCompletion": true,
   "omnisharp.enableRoslynAnalyzers": true,
   "omnisharp.organizeImportsOnFormat": true,
-  "prettier.printWidth": 96,
-  "prettier.tabWidth": 4,
-  "prettier.useTabs": true,
   "redhat.telemetry.enabled": false,
   "resmon.show.battery": false,
   "resmon.show.cpufreq": false,
@@ -1917,7 +1914,7 @@
   // "workbench.editor.splitInGroupLayout": "horizontal", // left/right (default)
   // "workbench.editor.splitInGroupLayout": "vertical",   // up/down
   // "workbench.editor.openSideBySideDirection": "right", // left/right (default)
-  "workbench.editor.openSideBySideDirection": "down",  // up/down
+  "workbench.editor.openSideBySideDirection": "down", // up/down
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.wrapTabs": true,
@@ -2179,6 +2176,19 @@
     "launchpad": false
   },
   "autoHide.autoHidePanel": false,
-  "profileSelector.defaultProfile": "Default"
+  "profileSelector.defaultProfile": "Default",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "breadcrumbs.enabled": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // Prettier configuration
+  "prettier.semi": true,
+  "prettier.bracketSpacing": true,
+  "prettier.printWidth": 96,
+  "prettier.singleAttributePerLine": true,
+  "prettier.tabWidth": 4,
+  "prettier.useTabs": true,
+  "prettier.proseWrap": "preserve",
+  "prettier.trailingComma": "es5",
+  "prettier.bracketSameLine": true
   // "vscode-neovim.neovimClean": true
 }
