@@ -1471,11 +1471,6 @@
     "key": "ctrl+alt+o"
   },
   {
-    "command": "workbench.action.showCommands",
-    "key": "ctrl+alt+o",
-    "when": "!suggestWidgetVisible && neovim.mode != 'insert'"
-  },
-  {
     "command": "-workbench.action.terminal.scrollDown",
     "key": "ctrl+alt+pagedown",
     "when": "terminalFocus && terminalHasBeenCreated && !terminalAltBufferActive || terminalFocus && terminalProcessSupported && !terminalAltBufferActive"
@@ -3251,10 +3246,6 @@
     "when": "inFilesPicker && inQuickOpen"
   },
   {
-    "command": "-workbench.action.showCommands",
-    "key": "ctrl+shift+p"
-  },
-  {
     "command": "-workbench.action.moveEditorLeftInGroup",
     "key": "ctrl+shift+pageup"
   },
@@ -3855,10 +3846,6 @@
     "command": "ahk2.help",
     "key": "f1",
     "when": "editorLangId == 'ahk2'"
-  },
-  {
-    "command": "-workbench.action.showCommands",
-    "key": "f1"
   },
   {
     "command": "-extension.node-debug.startWithStopOnEntry",
@@ -5556,4 +5543,21 @@
     "key": "ctrl+alt+.",
     "command": "autoHide.toggleHidePanel"
   },
+  {
+    "key": "ctrl+shift+v",
+    "command": "-frontMatter.insertSnippet",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.openQuickChat"
+  },
+  {
+    "key": "ctrl+alt+o",
+    "command": "workbench.action.chat.open"
+  },
+  {
+    "key": "ctrl+alt+i",
+    "command": "-workbench.action.chat.open"
+  }
 ]

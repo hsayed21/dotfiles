@@ -175,7 +175,6 @@
   "debug.inlineValues": "off",
   "debug.toolBarLocation": "docked",
   "diffEditor.codeLens": true,
-  "diffEditor.experimental.showMoves": true,
   "diffEditor.experimental.useVersion2": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.renderIndicators": false,
@@ -220,7 +219,6 @@
   // Font size
   "editor.fontSize": 14,
   "editor.fontWeight": "normal",
-  "editor.formatOnPaste": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.guides.bracketPairs": true,
   "editor.guides.bracketPairsHorizontal": false,
@@ -1872,7 +1870,6 @@
   "window.customMenuBarAltFocus": false,
   "window.enableMenuBarMnemonics": false,
   "window.menuBarVisibility": "hidden",
-  "window.openFoldersInNewWindow": "on",
   "window.openWithoutArgumentsInNewWindow": "off",
   "window.restoreFullscreen": true,
   "window.title": "${rootNameShort}${separator}vscode",
@@ -2184,11 +2181,12 @@
   "prettier.semi": true,
   "prettier.bracketSpacing": true,
   "prettier.printWidth": 96,
-  "prettier.singleAttributePerLine": true,
   "prettier.tabWidth": 4,
   "prettier.useTabs": true,
   "prettier.proseWrap": "preserve",
   "prettier.trailingComma": "es5",
-  "prettier.bracketSameLine": true
   // "vscode-neovim.neovimClean": true
+  "window.openFoldersInNewWindow": "on",
+  "json-i18n-key.preserveFormating": true,
+  "diffEditor.experimental.showMoves": true,
 }
