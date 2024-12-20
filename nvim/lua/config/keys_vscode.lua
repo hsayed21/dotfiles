@@ -205,8 +205,8 @@ Map("n", "gR", function() VSCodeNotify("editor.action.goToReferences") end, { de
 Map("n", "gI", function() VSCodeNotify("editor.action.goToImplementation") end, { desc = "Go to implementation" })
 Map("n", "gt", function() VSCodeNotify("editor.action.goToTypeDefinition") end, { desc = "Go to type definition" })
 Map("n", "gD", function() VSCodeNotify("editor.action.revealDeclaration") end, { desc = "Go to declaration" })
-Map("n", "<leader>ds", function() VSCodeNotify("workbench.action.gotoSymbol") end, { desc = "Go to document symbol" })
-Map("n", "<leader>ws", function() VSCodeNotify("workbench.action.showAllSymbols") end,
+Map("n", "<leader>sd", function() VSCodeNotify("workbench.action.gotoSymbol") end, { desc = "Go to document symbol" })
+Map("n", "<leader>sw", function() VSCodeNotify("workbench.action.showAllSymbols") end,
   { desc = "Show all workspace symbols" })
 Map("n", "<leader>rn", function() VSCodeNotify("editor.action.rename") end, { desc = "Rename code" })
 Map("n", ",r", function() VSCodeNotify("editor.action.rename") end, { desc = "Rename symbol" })
@@ -291,7 +291,7 @@ Map("n", "<leader>sb", function() VSCodeNotify("workbench.action.showAllEditorsB
 
 Map("n","<leader>pf", FindFiles, { desc = "Find files" })
 Map("n","<leader>pt", FindFilesWithType, { desc = "Find files with type" })
-Map("n","<leader>sw", FindInsideFiles, { desc = "Find inside files" })
+-- Map("n","<leader>sw", FindInsideFiles, { desc = "Find inside files" })
 Map("n","<leader>sg", FindInsideFilesWithType, { desc = "Find inside files with type" })
 -- Map("n","<leader>pr", ResumeSearch, { desc = "Resume search" }) -- not implemented with windows
 
