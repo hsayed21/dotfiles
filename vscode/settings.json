@@ -2003,7 +2003,6 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "lazygit-vscode.autoHideSideBar": true,
   "lazygit-vscode.autoMaximizeWindow": true,
-  "workbench.sideBar.location": "right",
   "terminal.integrated.mouseWheelZoom": true,
   "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.sendKeybindingsToShell": true,
@@ -2175,7 +2174,6 @@
   "autoHide.autoHidePanel": false,
   "profileSelector.defaultProfile": "Default",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "breadcrumbs.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // Prettier configuration
   "prettier.semi": true,
@@ -2187,6 +2185,9 @@
   "prettier.trailingComma": "es5",
   // "vscode-neovim.neovimClean": true
   "window.openFoldersInNewWindow": "on",
-  "json-i18n-key.preserveFormating": true,
   "diffEditor.experimental.showMoves": true,
+  "github.copilot.chat.temporalContext.enabled": true,
+  "json-i18n-key.suggestExistingKeys": false,
+  "workbench.sideBar.location": "right",
+  "breadcrumbs.enabled": false,
 }
