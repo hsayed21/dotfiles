@@ -5559,5 +5559,10 @@
   {
     "key": "ctrl+alt+i",
     "command": "-workbench.action.chat.open"
+  },
+  {
+    "key": "ctrl+alt+e",
+    "command": "workbench.action.chat.openEditSession",
+    "when": "chatEditingParticipantRegistered && chatIsEnabled"
   }
 ]

@@ -24,18 +24,22 @@ if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
 # ================================================
 # Install Necessary Packages
 # ================================================
-$scoop_packages = @("git", "python", "concfg", "sudo", "curl", "lazygit", "fzf", "ripgrep", "zig", "pwsh")
+scoop bucket add extras
+$scoop_packages = @("git", "python", "concfg", "sudo", "curl", "lazygit", "fzf", "ripgrep", "zig", "pwsh",
+"extras/altsnap", "alacritty", "extras/unigetui")
 foreach ($pkg in $scoop_packages) {
     Install-ScoopPackage -packageName $pkg
 }
 
-$winget_packages = @("JanDeDobbeleer.OhMyPosh","Microsoft.PowerToys", "Microsoft.WindowsTerminal", "Microsoft.VisualStudioCode", "Google.Chrome", "Mozilla.Firefox")
+$winget_packages = @("JanDeDobbeleer.OhMyPosh","Microsoft.PowerToys", "Microsoft.WindowsTerminal", "Microsoft.VisualStudioCode",
+ "Google.Chrome", "Mozilla.Firefox", "GlazeWM", "Zebar")
 foreach ($pkg in $winget_packages) {
     Install-WingetPackage -packageName $pkg
 }
 
 # $choco_packages = @("dotnet-sdk")
-$choco_packages = @()
+$choco_packages = @("flow-launcher", "winspy", "wingetui", "nircmd", "7zip", "notepadplusplus", "everything")
+
 foreach ($pkg in $choco_packages) {
     Install-ChocoPackage -packageName $pkg
 }
@@ -192,7 +196,17 @@ $mappings = @(
   @{
     source = "$PWD\WindowsTerminal\Microsoft.PowerShell_profile.ps1"
     dest = "$Profile"
-  }
+  },
+  # glazewm (tiling window manager for Windows inspired by i3wm)
+  @{
+    source = "$PWD\.glzr"
+    dest = "$Home\.glzr"
+  },
+  # AltSnap
+  @{
+    source = "$PWD\AltSnap\AltSnap.ini"
+    dest = "$env:UserProfile\scoop\apps\altsnap\1.64\AltSnap.ini"
+  },
 )
 
 
