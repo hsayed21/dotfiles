@@ -81,10 +81,10 @@ window_behavior:
   state_defaults:
     floating:
       # Whether to center floating windows by default.
-      centered: false
+      centered: true
 
       # Whether to show floating windows as always on top.
-      shown_on_top: true
+      shown_on_top: false
 
     fullscreen:
       # Maximize the window if possible. If the window doesn"t have a
@@ -98,8 +98,9 @@ workspaces:
   - name: "1"
     display_name: "1: HOME"
     bind_to_monitor: 0
+    keep_alive: true
   - name: "2"
-    display_name: "2: CODE"
+    display_name: "2: DEV"
     bind_to_monitor: 1
   - name: "3"
     display_name: "3: FILES"
@@ -123,36 +124,49 @@ workspaces:
 
 # My Configuration: 2 physical displays/monitors
 window_rules:
-  - commands: ["move --workspace 1"]
+
+  # Default rule to ensure windows open on focused workspace/monitor
+  # - commands: ["focus --newest"]
+  #   match:
+  #     - window_class: { regex: ".*" }
+
+  # - commands: ['shell-exec --hide-window node "G:\My Drive\dotfiles\.glzr\scripts\moveToFocusedMonitor.js"']
+  #   match:
+  #     - window_process: { regex: ".*" }
+
+  - commands: ["move --workspace 1", "focus --workspace 1"]
     match:
       # Move ms-teams to workspace 1.
-      - window_process: { regex: "ms-teams|slack|Mailbird" }
-      # Move microsoft office applications to workspace 7.
+      - window_process: { regex: "ms-teams|slack|discord|Mailbird|telegram|whatsapp" }
+      # Move microsoft office applications
       - window_process: { regex: "WINWORD|EXCEL|MSPUB|MSACCESS|soffice|wordpad" }
+      # move youtube to workspace 1
+      - window_process: { equals: "chrome" }
+        window_title: { regex: ".*YouTube.*" }
 
-  - commands: ["move --workspace 2"]
+  - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
       # Move autocad to workspace 2.
-      - window_process: { regex: "Code - Insiders|Code|" }
-      
-  - commands: ["move --workspace 3"]
+      - window_process: { regex: "Code - Insiders|Code" }
+
+  - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
       # Move outlook to workspace 3.
       - window_process: { regex: "dopus|explorer" }
-    
-  - commands: ["move --workspace 4"]
+
+  - commands: ["move --workspace 4", "focus --workspace 4"]
     match:
       # Move directory-opus to workspace 4.
-      - window_process: { regex: "chrome|brave|firefox" }
+      - window_process: { regex: "chrome|firefox|brave|msedge|opera|vivaldi" }
 
+  # - commands: ["move --workspace 5", "focus --workspace 5"]
+  #   match:
+  #     - window_process: { regex: ".*" }
       
   - commands: ["ignore"]
     match:
       # Operating System apps
-      - window_process: { equals: "zebar" }
-      - window_process: { equals: 'Flow.Launcher' }
-      - window_process: { equals: "AltSnap" }
-      - window_process: { equals: "flameshot" }
+      - window_process: { regex: "zebar|Flow.Launche|AltSnap" }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
@@ -167,25 +181,16 @@ window_rules:
 
   - commands: ["set-floating"]
     match:
-      # Set Task Manager to float
-      - window_process: { equals: "Taskmgr" }
-      - window_process: { equals: "ProcessHacker" }
-
-      # Set winspy window to float
-      - window_process: { equals: "winspy" }
-
-      # Set several windows applications to float
-      - window_process: { equals: "ApplicationFrameHost" }
-
-      - window_process: { equals: "WindowsTerminal" }
-      - window_process: { equals: "ShareX" }
+      - window_role: { regex: "dialog|alert" }  # Regex match
+      - window_type: { equals: "dialog" }
+      - window_process: { regex: "sublime_text|TreeSize" }
       
-  # - commands: ["set-floating --centered"]
-  #   match:
-  #     # Set EarTrumpets "Volume Mixer" window to float and center it
-  #     - window_title: { regex: "Volume Mixer" }
-  #     - window_process: { equals: "EarTrumpet" }
-      
+  - commands: ["set-floating --centered"]
+    match:
+      - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint|WindowsTerminal|ShareX|ApplicationFrameHost" }
+      - window_title: { regex: "Volume Mixer|Settings|Task Manager" }
+      # - window_class: { regex: "#32770" }
+
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
   - name: "resize"
@@ -335,25 +340,25 @@ keybindings:
     bindings: ["alt+ctrl+shift+down"]
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ["move --workspace 1"]
+  - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["alt+shift+1"]
-  - commands: ["move --workspace 2"]
+  - commands: ["move --workspace 2", "focus --workspace 2"]
     bindings: ["alt+shift+2"]
-  - commands: ["move --workspace 3"]
+  - commands: ["move --workspace 3", "focus --workspace 3"]
     bindings: ["alt+shift+3"]
-  - commands: ["move --workspace 4"]
+  - commands: ["move --workspace 4", "focus --workspace 4"]
     bindings: ["alt+shift+4"]
-  - commands: ["move --workspace 5"]
+  - commands: ["move --workspace 5", "focus --workspace 5"]
     bindings: ["alt+shift+5"]
-  - commands: ["move --workspace 6"]
+  - commands: ["move --workspace 6", "focus --workspace 6"]
     bindings: ["alt+shift+6"]
-  - commands: ["move --workspace 7"]
+  - commands: ["move --workspace 7", "focus --workspace 7"]
     bindings: ["alt+shift+7"]
-  - commands: ["move --workspace 8"]
+  - commands: ["move --workspace 8", "focus --workspace 8"]
     bindings: ["alt+shift+8"]
-  - commands: ["move --workspace 9"]
+  - commands: ["move --workspace 9", "focus --workspace 9"]
     bindings: ["alt+shift+9"]
-  - commands: ["move --workspace 10"]
+  - commands: ["move --workspace 10", "focus --workspace 10"]
     bindings: ["alt+shift+0"]
 
   # Launch Alacritty and open the user’s scripts menu

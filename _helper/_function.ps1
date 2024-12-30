@@ -21,7 +21,7 @@ function Install-ScoopPackage {
 
 # Function to install a package using Winget
 function Install-WingetPackage {
-    param([string]$packageName)
+    param([string]$packageName, [bool]$usePackageId = $false)
 
     try {
         # Check if the package is already installed
@@ -31,7 +31,11 @@ function Install-WingetPackage {
             Write-Host "`e[32m$packageName is already installed.`e[0m"  # Green text
         } else {
             Write-Host "`e[33mInstalling $packageName using Winget...`e[0m"  # Yellow text
-            winget install $packageName --silent --accept-package-agreements --accept-source-agreements
+            if ($usePackageId) {
+                winget install --id $packageName --silent --accept-package-agreements --accept-source-agreements
+            } else {
+                winget install $packageName --silent --accept-package-agreements --accept-source-agreements
+            }
             Write-Host "`e[32m$packageName installation complete.`e[0m"  # Green text
         }
     }
