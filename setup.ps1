@@ -36,6 +36,11 @@ $winget_packages = @("JanDeDobbeleer.OhMyPosh","Microsoft.PowerToys", "Microsoft
 foreach ($pkg in $winget_packages) {
     Install-WingetPackage -packageName $pkg
 }
+$winget_packages_ids = @("stnkl.EverythingToolbar")
+foreach ($pkg in $winget_packages_ids) {
+    Install-WingetPackage -packageName $pkg -usePackageId $true
+}
+
 
 # $choco_packages = @("dotnet-sdk")
 $choco_packages = @("flow-launcher", "winspy", "wingetui", "nircmd", "7zip", "notepadplusplus", "everything")
@@ -206,7 +211,7 @@ $mappings = @(
   @{
     source = "$PWD\AltSnap\AltSnap.ini"
     dest = "$env:UserProfile\scoop\apps\altsnap\1.64\AltSnap.ini"
-  },
+  }
 )
 
 
