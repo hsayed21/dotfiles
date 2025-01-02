@@ -225,7 +225,7 @@ Map("n", "zy", function() VSCodeNotify("editor.debug.action.toggleBreakpoint") e
 Map("", "L", Move_to_bottom_screen, { desc = "Move to bottom screen" })
 Map("", "H", Move_to_top_screen, { desc = "Move to top screen" })
 -- Map("", "<Space>", Trim__save__no_highlight)
-Map("", "U", Trim__save__format)
+Map("n", "U", Trim__save__format)
 Map("n", "<<", Outdent)
 Map("n", ">>", Indent)
 Map("v", "<", function() VSCodeNotify("editor.action.outdentLines", false) end, { desc = "Outdent selected lines" })

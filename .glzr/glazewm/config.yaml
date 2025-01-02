@@ -102,6 +102,7 @@ workspaces:
   - name: "2"
     display_name: "2: DEV"
     bind_to_monitor: 1
+    keep_alive: true
   - name: "3"
     display_name: "3: BROWSERS"
     bind_to_monitor: 1
@@ -215,13 +216,13 @@ binding_modes:
 keybindings:
   # Shift focus in a given direction.
   - commands: ["focus --direction left"]
-    bindings: ["alt+h", "alt+left"]
+    bindings: ["alt+ctrl+h", "alt+ctrl+left"]
   - commands: ["focus --direction right"]
-    bindings: ["alt+l", "alt+right"]
+    bindings: ["alt+ctrl+l", "alt+ctrl+right"]
   - commands: ["focus --direction up"]
-    bindings: ["alt+k", "alt+up"]
+    bindings: ["alt+ctrl+k", "alt+ctrl+up"]
   - commands: ["focus --direction down"]
-    bindings: ["alt+j", "alt+down"]
+    bindings: ["alt+ctrl+j", "alt+ctrl+down"]
 
   # Move focused window in a given direction.
   - commands: ["move --direction left"]
@@ -235,13 +236,13 @@ keybindings:
 
   # Resize focused window by a percentage or pixel amount.
   - commands: ["resize --width -2%"]
-    bindings: ["alt+y", "alt+ctrl+right"]
+    bindings: ["alt+ctrl+y", "alt+ctrl+right"]
   - commands: ["resize --width +2%"]
-    bindings: ["alt+o", "alt+ctrl+left"]
+    bindings: ["alt+ctrl+o", "alt+ctrl+left"]
   - commands: ["resize --height +2%"]
-    bindings: ["alt+i", "alt+ctrl+up"]
+    bindings: ["alt+ctrl+i", "alt+ctrl+up"]
   - commands: ["resize --height -2%"]
-    bindings: ["alt+u", "alt+ctrl+down"]
+    bindings: ["alt+ctrl+u", "alt+ctrl+down"]
 
   # As an alternative to the resize keybindings above, resize mode enables
   # resizing via arrow keys or HJKL. The binding mode is defined above with
@@ -260,11 +261,11 @@ keybindings:
 
   # Change the focused window to be floating.
   - commands: ["toggle-floating --centered"]
-    bindings: ["alt+f"]
+    bindings: ["alt+ctrl+f"]
 
   # Change the focused window to be tiling.
   - commands: ["toggle-tiling"]
-    bindings: ["alt+t"]
+    bindings: ["alt+ctrl+t"]
 
   # Change the focused window to be fullscreen.
   - commands: ["toggle-fullscreen"]
@@ -272,7 +273,7 @@ keybindings:
 
   # Minimize focused window.
   - commands: ["toggle-minimized"]
-    bindings: ["alt+m"]
+    bindings: ["alt+ctrl+m"]
 
   # Close focused window.
   - commands: ["close"]

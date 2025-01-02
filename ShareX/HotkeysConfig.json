@@ -97,7 +97,7 @@
         "Description": "",
         "Job": "RectangleRegion",
         "UseDefaultAfterCaptureJob": true,
-        "AfterCaptureJob": "ShowQuickTaskMenu, CopyImageToClipboard",
+        "AfterCaptureJob": "ShowQuickTaskMenu, BeautifyImage, CopyImageToClipboard",
         "UseDefaultAfterUploadJob": true,
         "AfterUploadJob": "CopyURLToClipboard",
         "UseDefaultDestinations": true,
@@ -134,7 +134,7 @@
     },
     {
       "HotkeyInfo": {
-        "Hotkey": "D1, Control",
+        "Hotkey": "D1, Shift, Control, Alt",
         "Win": false
       },
       "TaskSettings": {
@@ -178,125 +178,7 @@
     },
     {
       "HotkeyInfo": {
-        "Hotkey": "D2, Control",
-        "Win": false
-      },
-      "TaskSettings": {
-        "Description": "",
-        "Job": "ScrollingCapture",
-        "UseDefaultAfterCaptureJob": true,
-        "AfterCaptureJob": "ShowQuickTaskMenu, BeautifyImage, CopyImageToClipboard",
-        "UseDefaultAfterUploadJob": true,
-        "AfterUploadJob": "CopyURLToClipboard",
-        "UseDefaultDestinations": true,
-        "ImageDestination": "Imgur",
-        "ImageFileDestination": "Dropbox",
-        "TextDestination": "Pastebin",
-        "TextFileDestination": "Dropbox",
-        "FileDestination": "Dropbox",
-        "URLShortenerDestination": "BITLY",
-        "URLSharingServiceDestination": "Twitter",
-        "OverrideFTP": false,
-        "FTPIndex": 0,
-        "OverrideCustomUploader": false,
-        "CustomUploaderIndex": 0,
-        "OverrideScreenshotsFolder": false,
-        "ScreenshotsFolder": "",
-        "UseDefaultGeneralSettings": true,
-        "GeneralSettings": null,
-        "UseDefaultImageSettings": false,
-        "ImageSettings": {
-          "ImageFormat": "PNG",
-          "ImagePNGBitDepth": "Default",
-          "ImageJPEGQuality": 99,
-          "ImageGIFQuality": "Default",
-          "ImageAutoUseJPEG": true,
-          "ImageAutoUseJPEGSize": 2048,
-          "ImageAutoJPEGQuality": false,
-          "FileExistAction": "Ask",
-          "ImageEffectPresets": [
-            {
-              "Name": "",
-              "Effects": [
-                {
-                  "$type": "ShareX.ImageEffectsLib.Canvas, ShareX.ImageEffectsLib",
-                  "Margin": "0, 0, 0, 30",
-                  "MarginMode": "AbsoluteSize",
-                  "Color": "Transparent",
-                  "Enabled": true
-                },
-                {
-                  "$type": "ShareX.ImageEffectsLib.DrawText, ShareX.ImageEffectsLib",
-                  "Text": "Text watermark",
-                  "Placement": "BottomRight",
-                  "Offset": "0, 0",
-                  "AutoHide": false,
-                  "TextFont": "Arial, 11.25pt",
-                  "TextRenderingMode": "SystemDefault",
-                  "TextColor": "235, 235, 235",
-                  "DrawTextShadow": true,
-                  "TextShadowColor": "Black",
-                  "TextShadowOffset": "-1, -1",
-                  "CornerRadius": 4,
-                  "Padding": "5, 5, 5, 5",
-                  "DrawBorder": true,
-                  "BorderColor": "Black",
-                  "BorderSize": 1,
-                  "DrawBackground": true,
-                  "BackgroundColor": "42, 47, 56",
-                  "UseGradient": true,
-                  "Gradient": {
-                    "Type": "Vertical",
-                    "Colors": [
-                      {
-                        "Color": "68, 120, 194",
-                        "Location": 0.0
-                      },
-                      {
-                        "Color": "13, 58, 122",
-                        "Location": 50.0
-                      },
-                      {
-                        "Color": "6, 36, 78",
-                        "Location": 50.0
-                      },
-                      {
-                        "Color": "23, 89, 174",
-                        "Location": 100.0
-                      }
-                    ]
-                  },
-                  "Enabled": true
-                }
-              ]
-            }
-          ],
-          "SelectedImageEffectPreset": 0,
-          "ShowImageEffectsWindowAfterCapture": false,
-          "ImageEffectOnlyRegionCapture": false,
-          "UseRandomImageEffect": false,
-          "ThumbnailWidth": 200,
-          "ThumbnailHeight": 0,
-          "ThumbnailName": "-thumbnail",
-          "ThumbnailCheckSize": false
-        },
-        "UseDefaultCaptureSettings": true,
-        "CaptureSettings": null,
-        "UseDefaultUploadSettings": true,
-        "UploadSettings": null,
-        "UseDefaultActions": true,
-        "ExternalPrograms": null,
-        "UseDefaultToolsSettings": true,
-        "ToolsSettings": null,
-        "UseDefaultAdvancedSettings": true,
-        "AdvancedSettings": null,
-        "WatchFolderEnabled": false,
-        "WatchFolderList": []
-      }
-    },
-    {
-      "HotkeyInfo": {
-        "Hotkey": "D3, Control",
+        "Hotkey": "None",
         "Win": false
       },
       "TaskSettings": {
@@ -340,7 +222,7 @@
     },
     {
       "HotkeyInfo": {
-        "Hotkey": "D4, Control",
+        "Hotkey": "D2, Shift, Control, Alt",
         "Win": false
       },
       "TaskSettings": {
@@ -384,7 +266,7 @@
     },
     {
       "HotkeyInfo": {
-        "Hotkey": "None",
+        "Hotkey": "PrintScreen, Control",
         "Win": false
       },
       "TaskSettings": {
@@ -648,100 +530,12 @@
     },
     {
       "HotkeyInfo": {
-        "Hotkey": "PrintScreen",
-        "Win": false
+        "Hotkey": "Oemtilde, Shift",
+        "Win": true
       },
       "TaskSettings": {
         "Description": "",
-        "Job": "PinToScreenFromScreen",
-        "UseDefaultAfterCaptureJob": true,
-        "AfterCaptureJob": "ShowQuickTaskMenu, CopyImageToClipboard",
-        "UseDefaultAfterUploadJob": true,
-        "AfterUploadJob": "CopyURLToClipboard",
-        "UseDefaultDestinations": true,
-        "ImageDestination": "Imgur",
-        "ImageFileDestination": "Dropbox",
-        "TextDestination": "Pastebin",
-        "TextFileDestination": "Dropbox",
-        "FileDestination": "Dropbox",
-        "URLShortenerDestination": "BITLY",
-        "URLSharingServiceDestination": "Twitter",
-        "OverrideFTP": false,
-        "FTPIndex": 0,
-        "OverrideCustomUploader": false,
-        "CustomUploaderIndex": 0,
-        "OverrideScreenshotsFolder": false,
-        "ScreenshotsFolder": "",
-        "UseDefaultGeneralSettings": true,
-        "GeneralSettings": null,
-        "UseDefaultImageSettings": true,
-        "ImageSettings": null,
-        "UseDefaultCaptureSettings": true,
-        "CaptureSettings": null,
-        "UseDefaultUploadSettings": true,
-        "UploadSettings": null,
-        "UseDefaultActions": true,
-        "ExternalPrograms": null,
-        "UseDefaultToolsSettings": true,
-        "ToolsSettings": null,
-        "UseDefaultAdvancedSettings": true,
-        "AdvancedSettings": null,
-        "WatchFolderEnabled": false,
-        "WatchFolderList": []
-      }
-    },
-    {
-      "HotkeyInfo": {
-        "Hotkey": "D5, Control",
-        "Win": false
-      },
-      "TaskSettings": {
-        "Description": "",
-        "Job": "ScreenRecorderGIF",
-        "UseDefaultAfterCaptureJob": true,
-        "AfterCaptureJob": "ShowQuickTaskMenu, BeautifyImage, CopyImageToClipboard",
-        "UseDefaultAfterUploadJob": true,
-        "AfterUploadJob": "CopyURLToClipboard",
-        "UseDefaultDestinations": true,
-        "ImageDestination": "Imgur",
-        "ImageFileDestination": "Dropbox",
-        "TextDestination": "Pastebin",
-        "TextFileDestination": "Dropbox",
-        "FileDestination": "Dropbox",
-        "URLShortenerDestination": "BITLY",
-        "URLSharingServiceDestination": "Twitter",
-        "OverrideFTP": false,
-        "FTPIndex": 0,
-        "OverrideCustomUploader": false,
-        "CustomUploaderIndex": 0,
-        "OverrideScreenshotsFolder": false,
-        "ScreenshotsFolder": "",
-        "UseDefaultGeneralSettings": true,
-        "GeneralSettings": null,
-        "UseDefaultImageSettings": true,
-        "ImageSettings": null,
-        "UseDefaultCaptureSettings": true,
-        "CaptureSettings": null,
-        "UseDefaultUploadSettings": true,
-        "UploadSettings": null,
-        "UseDefaultActions": true,
-        "ExternalPrograms": null,
-        "UseDefaultToolsSettings": true,
-        "ToolsSettings": null,
-        "UseDefaultAdvancedSettings": true,
-        "AdvancedSettings": null,
-        "WatchFolderEnabled": false,
-        "WatchFolderList": []
-      }
-    },
-    {
-      "HotkeyInfo": {
-        "Hotkey": "D6, Control",
-        "Win": false
-      },
-      "TaskSettings": {
-        "Description": "",
-        "Job": "StartScreenRecorderGIF",
+        "Job": "PinToScreen",
         "UseDefaultAfterCaptureJob": true,
         "AfterCaptureJob": "ShowQuickTaskMenu, BeautifyImage, CopyImageToClipboard",
         "UseDefaultAfterUploadJob": true,
@@ -779,5 +573,5 @@
       }
     }
   ],
-  "ApplicationVersion": "16.1.3"
+  "ApplicationVersion": "16.1.4"
 }
