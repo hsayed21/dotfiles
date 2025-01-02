@@ -212,6 +212,11 @@ $mappings = @(
     source = "$PWD\AltSnap\AltSnap.ini"
     dest = "$env:UserProfile\scoop\apps\altsnap\1.64\AltSnap.ini"
   }
+  # wezterm
+  @{
+    source = "$PWD\wezterm\.wezterm.lua"
+    dest = "$Home\.wezterm.lua"
+  }
 )
 
 

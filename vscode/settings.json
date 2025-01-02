@@ -1984,18 +1984,6 @@
   "workbench.editor.showTabs": "single",
   "fold.enableAutoFold": false,
   "githd.blameView.enabled": false,
-  "json-i18n-key.translationFiles": [
-    {
-      "lang": "en",
-      "filePath": "C:\\Posbank_Projects\\POPs Cloud ERP Front\\ClientApp\\src\\assets\\i18n\\en.json",
-      "isDefault": true
-    },
-    {
-      "lang": "ar",
-      "filePath": "C:\\Posbank_Projects\\POPs Cloud ERP Front\\ClientApp\\src\\assets\\i18n\\ar.json",
-      "isDefault": false
-    }
-  ],
   "editor.formatOnType": false,
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
@@ -2189,5 +2177,4 @@
   "github.copilot.chat.temporalContext.enabled": true,
   "json-i18n-key.suggestExistingKeys": false,
   "workbench.sideBar.location": "right",
-  "breadcrumbs.enabled": false,
 }

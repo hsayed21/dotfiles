@@ -1,6 +1,6 @@
 general:
   # Commands to run when the WM has started.
-  startup_commands: ["shell-exec zebar"]
+  startup_commands: [ "shell-exec zebar" ]
 
   # Commands to run just before the WM is shutdown.
   shutdown_commands: ["shell-exec taskkill /IM zebar.exe /F"]
@@ -22,7 +22,7 @@ general:
     # Trigger for cursor jump:
     # - "monitor_focus": Jump when focus changes between monitors.
     # - "window_focus": Jump when focus changes between windows.
-    trigger: "monitor_focus"
+    trigger: "window_focus"
 
 gaps:
   # Whether to scale the gaps with the DPI of the monitor.
@@ -34,9 +34,9 @@ gaps:
   # Gap between windows and the screen edge.
   outer_gap:
     top: "40px"
-    right: "12px"
-    bottom: "12px"
-    left: "12px"
+    right: "10px"
+    bottom: "10px"
+    left: "10px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -89,7 +89,7 @@ window_behavior:
     fullscreen:
       # Maximize the window if possible. If the window doesn"t have a
       # maximize button, then it"ll be fullscreen"ed normally instead.
-      maximized: true
+      maximized: false
 
       # Whether to show fullscreen windows as always on top.
       shown_on_top: false
@@ -103,16 +103,15 @@ workspaces:
     display_name: "2: DEV"
     bind_to_monitor: 1
   - name: "3"
-    display_name: "3: FILES"
-    bind_to_monitor: 0
-  - name: "4"
-    display_name: "4: BROWSERS"
+    display_name: "3: BROWSERS"
     bind_to_monitor: 1
+  - name: "4"
+    display_name: "4: OTHERS"
+    # bind_to_monitor: 0
   - name: "5"
-    display_name: "5: OTHERS"
-    bind_to_monitor: 0
+    display_name: "5: TEST"
   - name: "6"
-    display_name: "6: TEST"
+    display_name: "6:      "
   - name: "7"
     display_name: "7:      "
   - name: "8"
@@ -140,9 +139,10 @@ window_rules:
       - window_process: { regex: "ms-teams|slack|discord|Mailbird|telegram|whatsapp" }
       # Move microsoft office applications
       - window_process: { regex: "WINWORD|EXCEL|MSPUB|MSACCESS|soffice|wordpad" }
+      - window_process: { regex: "dopus|explorer" }
       # move youtube to workspace 1
-      - window_process: { equals: "chrome" }
-        window_title: { regex: ".*YouTube.*" }
+      # - window_process: { equals: "chrome" }
+      #   window_title: { regex: ".*YouTube.*" }
 
   - commands: ["move --workspace 2", "focus --workspace 2"]
     match:
@@ -151,18 +151,13 @@ window_rules:
 
   - commands: ["move --workspace 3", "focus --workspace 3"]
     match:
-      # Move outlook to workspace 3.
-      - window_process: { regex: "dopus|explorer" }
-
-  - commands: ["move --workspace 4", "focus --workspace 4"]
-    match:
       # Move directory-opus to workspace 4.
       - window_process: { regex: "chrome|firefox|brave|msedge|opera|vivaldi" }
 
   # - commands: ["move --workspace 5", "focus --workspace 5"]
   #   match:
   #     - window_process: { regex: ".*" }
-      
+
   - commands: ["ignore"]
     match:
       # Operating System apps
@@ -178,13 +173,16 @@ window_rules:
       - window_process: { equals: "PowerToys" }
         window_title: { regex: ".*? - Peek" }
         window_class: { regex: "HwndWrapper" }
+      - window_title: { equals: "TODO Tasks" }
+      - window_process: { regex: "AutoHotkey.*?" }
+
 
   - commands: ["set-floating"]
     match:
       - window_role: { regex: "dialog|alert" }  # Regex match
       - window_type: { equals: "dialog" }
       - window_process: { regex: "sublime_text|TreeSize" }
-      
+
   - commands: ["set-floating --centered"]
     match:
       - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint|WindowsTerminal|ShareX|ApplicationFrameHost" }
@@ -297,14 +295,22 @@ keybindings:
     bindings: ["alt+shift+enter"]
 
   # Focus the next/previous workspace defined in `workspaces` config.
-  - commands: ["focus --next-workspace"]
-    bindings: ["alt+ctrl+d"]
-  - commands: ["focus --prev-workspace"]
-    bindings: ["alt+ctrl+a"]
+  # - commands: ["focus --next-workspace"]
+  #   bindings: ["alt+ctrl+d"]
+  # - commands: ["focus --prev-workspace"]
+  #   bindings: ["alt+ctrl+a"]
+  # - commands: ["focus --recent-workspace"]
+  #   bindings: ["alt+ctrl+z"]
 
-  # Focus the workspace that last had focus.
+  - commands: ["focus --next-workspace"]
+    bindings: ["alt+s"]
+
+  - commands: ["focus --prev-workspace"]
+    bindings: ["alt+a"]
+
   - commands: ["focus --recent-workspace"]
-    bindings: ["alt+ctrl+z"]
+    bindings: ["alt+d"]
+
 
   # Change focus to a workspace defined in `workspaces` config.
   - commands: ["focus --workspace 1"]
@@ -360,6 +366,14 @@ keybindings:
     bindings: ["alt+shift+9"]
   - commands: ["move --workspace 10", "focus --workspace 10"]
     bindings: ["alt+shift+0"]
+
+  - commands: ["shell-exec wezterm-gui"]
+    # Launch CMD terminal. Alternatively, use `shell-exec wt` or
+
+    # Terminal and Git Bash respectively.
+    # `shell-exec %ProgramFiles%/Git/git-bash.exe` to start Windows
+    bindings: ["alt+enter"]
+
 
   # Launch Alacritty and open the user’s scripts menu
   # - commands: ["shell-exec alacritty --working-directory %USERPROFILE%\\scripts -e cmd /k menu.bat"]
