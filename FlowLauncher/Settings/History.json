@@ -1,0 +1,52 @@
+{
+  "Items": [
+    {
+      "Query": "pm install AnyVideo Downloader",
+      "ExecutedDateTime": "2025-01-02T06:03:17.8799285+02:00"
+    },
+    {
+      "Query": "pm install Emoji\u002B",
+      "ExecutedDateTime": "2025-01-02T06:10:10.1193026+02:00"
+    },
+    {
+      "Query": "pm install Open Window Search",
+      "ExecutedDateTime": "2025-01-02T06:13:12.7353656+02:00"
+    },
+    {
+      "Query": "pm install PowerToys",
+      "ExecutedDateTime": "2025-01-02T06:14:09.1021573+02:00"
+    },
+    {
+      "Query": "pm install ShareX_Flow_Plugin",
+      "ExecutedDateTime": "2025-01-02T06:15:34.65371+02:00"
+    },
+    {
+      "Query": "pm install Timer",
+      "ExecutedDateTime": "2025-01-02T06:22:26.7885792+02:00"
+    },
+    {
+      "Query": "w pc",
+      "ExecutedDateTime": "2025-01-02T06:26:49.7725873+02:00"
+    },
+    {
+      "Query": "w v",
+      "ExecutedDateTime": "2025-01-02T06:27:30.6007054+02:00"
+    },
+    {
+      "Query": ": happ",
+      "ExecutedDateTime": "2025-01-02T06:27:52.3543315+02:00"
+    },
+    {
+      "Query": "flow launc",
+      "ExecutedDateTime": "2025-01-02T06:33:48.862557+02:00"
+    },
+    {
+      "Query": "w",
+      "ExecutedDateTime": "2025-01-02T19:33:45.6380934+02:00"
+    },
+    {
+      "Query": "shx im",
+      "ExecutedDateTime": "2025-01-02T20:18:27.426894+02:00"
+    }
+  ]
+}

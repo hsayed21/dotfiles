@@ -46,7 +46,7 @@ Map("v", ">", ">gv")
 
 --##### [Modification] #####
 -- Undo
-Map("v", "u", "<Esc>u") -- Map 'u' in visual mode to '<Esc>u'
+-- Map("v", "u", "<Esc>u") -- Map 'u' in visual mode to '<Esc>u'
 
 -- Copy & Paste & Delete
 Map("n", "yp", "yyp")                        -- copy line down

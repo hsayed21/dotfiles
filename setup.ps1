@@ -216,6 +216,11 @@ $mappings = @(
   @{
     source = "$PWD\wezterm\.wezterm.lua"
     dest = "$Home\.wezterm.lua"
+  },
+  # FlowLauncher
+  {
+    source = "$PWD\FlowLauncher\Settings"
+    dest = "$Env:APPDATA\FlowLauncher\Settings"
   }
 )
 

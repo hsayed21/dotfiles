@@ -169,7 +169,7 @@
         "ShowInfo": false,
         "ShowMagnifier": true,
         "UseSquareMagnifier": false,
-        "MagnifierPixelCount": 31,
+        "MagnifierPixelCount": 27,
         "MagnifierPixelSize": 10,
         "ShowCrosshair": false,
         "UseLightResizeNodes": false,
@@ -198,7 +198,7 @@
           "SelectedStickerPack": 0,
           "RegionCornerRadius": 0,
           "BorderColor": "Red",
-          "BorderSize": 4,
+          "BorderSize": 3,
           "BorderStyle": "Solid",
           "FillColor": "0, 0, 0, 0",
           "DrawingCornerRadius": 3,
@@ -209,7 +209,7 @@
           "ArrowHeadDirection": "End",
           "TextOutlineOptions": {
             "Font": "Arial",
-            "Size": 20,
+            "Size": 17,
             "Color": "254, 85, 19",
             "Bold": true,
             "Italic": false,
@@ -258,7 +258,7 @@
         },
         "LastRegionTool": "RegionRectangle",
         "LastAnnotationTool": "ToolSelect",
-        "LastEditorTool": "DrawingRectangle",
+        "LastEditorTool": "ToolCutOut",
         "ImageEditorStartMode": "AutoSize",
         "ImageEditorWindowState": {
           "Location": "0, 0",
@@ -665,9 +665,9 @@
   "TaskbarProgressEnabled": true,
   "UseWhiteShareXIcon": false,
   "RememberMainFormPosition": false,
-  "MainFormPosition": "316, 140",
+  "MainFormPosition": "2198, 182",
   "RememberMainFormSize": false,
-  "MainFormSize": "1762, 1043",
+  "MainFormSize": "964, 910",
   "TrayLeftClickAction": "OpenMainWindow",
   "TrayLeftDoubleClickAction": "OpenMainWindow",
   "TrayMiddleClickAction": "ClipboardUploadWithContentViewer",
@@ -837,7 +837,6 @@
     "ImageShack",
     "Flickr",
     "Photobucket",
-    "Picasa",
     "Twitter",
     "Chevereto",
     "Vgyme",
@@ -894,84 +893,84 @@
   "HistoryCheckURL": false,
   "RecentTasks": [
     {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-10\\POPsRestaurant_qY71kktc0i.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\pops_enterprise_GY9nKPziad.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-10-24T13:34:24.9093502Z"
+      "Time": "2024-12-23T13:02:05.2639255Z"
     },
     {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-10\\POPsRestaurant_GGQkGEi2ff.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\PowerToys_0Stapp0QAK.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-10-27T07:24:27.6572132Z"
+      "Time": "2024-12-23T13:02:35.846479Z"
     },
     {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-10\\msedge_ITjdQsHdCd.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\pops_enterprise_teLTRwXqci.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-10-27T12:17:11.1625922Z"
+      "Time": "2024-12-23T13:03:22.3058936Z"
     },
     {
-      "FilePath": null,
-      "URL": "https://i.imgur.com/J0fQzwu.png",
-      "ThumbnailURL": "https://i.imgur.com/J0fQzwum.jpg",
-      "DeletionURL": "https://imgur.com/delete/RnyatcuXKl54QKP",
-      "ShortenedURL": null,
-      "Time": "2024-10-30T06:05:07.4619117Z"
-    },
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-10\\msedge_4OFaig9phg.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\EXCEL_awjDrICk6n.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-10-31T07:34:20.3245911Z"
+      "Time": "2024-12-25T10:19:26.5177894Z"
     },
     {
-      "FilePath": null,
-      "URL": "https://i.imgur.com/ttbHgHp.png",
-      "ThumbnailURL": "https://i.imgur.com/ttbHgHpm.jpg",
-      "DeletionURL": "https://imgur.com/delete/fHROGJqZc3s1nc2",
-      "ShortenedURL": null,
-      "Time": "2024-11-06T17:26:15.9284333Z"
-    },
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-11\\AnyDesk_58DAmWq8Jx.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\POPsRestaurant_B6GllGTYgN.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-11-07T10:11:32.9129413Z"
+      "Time": "2024-12-25T10:21:38.7730936Z"
     },
     {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-11\\AnyDesk_XDgs2zFEeu.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\ElevenClock_UQvQzBOLgH.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-11-07T10:39:27.179261Z"
+      "Time": "2024-12-25T11:03:28.90167Z"
     },
     {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-11\\pops_enterprise_qnH606gKdl.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\chrome_wALZL7HHua.mp4",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-11-07T12:54:16.2295517Z"
+      "Time": "2024-12-30T18:34:19.2629865Z"
     },
     {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-11\\chrome_nbqPkJY2zS.mp4",
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\chrome_2YWJidOoKj.gif",
       "URL": null,
       "ThumbnailURL": null,
       "DeletionURL": null,
       "ShortenedURL": null,
-      "Time": "2024-11-10T18:42:01.6946675Z"
+      "Time": "2024-12-30T18:36:50.6751146Z"
+    },
+    {
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\BP3kpbqXam.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2024-12-30T18:51:58.1840261Z"
+    },
+    {
+      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\QjTfyNZ0TK.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2024-12-30T18:52:19.4321744Z"
     }
   ],
   "RecentTasksSave": true,
@@ -1023,7 +1022,7 @@
   "AutoCaptureRepeatTime": 60.0,
   "AutoCaptureMinimizeToTray": true,
   "AutoCaptureWaitUpload": true,
-  "ScreenRecordRegion": "0, 0, 1744, 1200",
+  "ScreenRecordRegion": "1476, 405, 48, 36",
   "ActionsToolbarList": [
     "RectangleRegion",
     "PrintScreen",
@@ -1037,6 +1036,7 @@
   "ActionsToolbarLockPosition": false,
   "ActionsToolbarStayTopMost": true,
   "RecentColors": [
+    "Red",
     "240, 255, 0",
     "10, 240, 255, 0",
     "Black",
@@ -1089,5 +1089,5 @@
   "DropAlignment": "BottomRight",
   "DropOpacity": 100,
   "DropHoverOpacity": 255,
-  "ApplicationVersion": "16.1.3"
+  "ApplicationVersion": "16.1.4"
 }
