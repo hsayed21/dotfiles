@@ -34,7 +34,7 @@
     },
     {
       "Title": "Facebook",
-      "ActionKeyword": "facebook",
+      "ActionKeyword": "fb",
       "Icon": "facebook.png",
       "CustomIcon": false,
       "Url": "https://www.facebook.com/search/?q={q}",
@@ -42,7 +42,7 @@
     },
     {
       "Title": "Twitter",
-      "ActionKeyword": "twitter",
+      "ActionKeyword": "tw",
       "Icon": "twitter.png",
       "CustomIcon": false,
       "Url": "https://twitter.com/search?q={q}",
@@ -74,7 +74,7 @@
     },
     {
       "Title": "GitHub",
-      "ActionKeyword": "github",
+      "ActionKeyword": "gh",
       "Icon": "github.png",
       "CustomIcon": false,
       "Url": "https://github.com/search?q={q}",
@@ -90,7 +90,7 @@
     },
     {
       "Title": "Gmail",
-      "ActionKeyword": "gmail",
+      "ActionKeyword": "gm",
       "Icon": "gmail.png",
       "CustomIcon": false,
       "Url": "https://mail.google.com/mail/ca/u/0/#apps/{q}",
@@ -138,7 +138,7 @@
     },
     {
       "Title": "YouTube",
-      "ActionKeyword": "youtube",
+      "ActionKeyword": "yt",
       "Icon": "youtube.png",
       "CustomIcon": false,
       "Url": "https://www.youtube.com/results?search_query={q}",

@@ -183,7 +183,7 @@ config.window_frame = {
 
 -- config.window_decorations = "INTEGRATED_BUTTONS | RESIZE"
 config.window_decorations = "NONE | RESIZE"
-config.default_prog = { "powershell.exe", "-NoLogo" }
+config.default_prog = { "pwsh.exe", "-NoLogo" }
 config.initial_cols = 80
 -- config.window_background_image = "C:/dev/misc/berk.png"
 -- config.window_background_image_hsb = {

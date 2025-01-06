@@ -30,10 +30,10 @@
   "IndexSearchEngine": 0,
   "PathEnumerationEngine": 0,
   "ContentSearchEngine": 0,
-  "EverythingInstalledPath": null,
+  "EverythingInstalledPath": "C:\\Program Files\\Everything\\Everything.exe",
   "SortOption": 1,
   "EnableEverythingContentSearch": false,
   "EverythingEnabled": false,
-  "EverythingSearchFullPath": false,
+  "EverythingSearchFullPath": true,
   "EverythingEnableRunCount": true
 }
