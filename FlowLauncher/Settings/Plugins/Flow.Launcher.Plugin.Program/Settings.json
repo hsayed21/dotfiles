@@ -1,5 +1,5 @@
 {
-  "LastIndexTime": "2025-01-02T05:57:56.3229837+02:00",
+  "LastIndexTime": "2025-01-05T09:36:40.9599339+02:00",
   "ProgramSources": [],
   "DisabledProgramSources": [],
   "CustomSuffixes": [],
@@ -17,10 +17,10 @@
   "UseCustomSuffixes": false,
   "UseCustomProtocols": false,
   "EnableStartMenuSource": true,
-  "EnableDescription": false,
+  "EnableDescription": true,
   "HideAppsPath": true,
   "HideUninstallers": false,
   "EnableRegistrySource": true,
-  "EnablePathSource": false,
+  "EnablePathSource": true,
   "EnableUWP": true
 }

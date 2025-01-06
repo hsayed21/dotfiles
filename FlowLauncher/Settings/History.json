@@ -47,6 +47,42 @@
     {
       "Query": "shx im",
       "ExecutedDateTime": "2025-01-02T20:18:27.426894+02:00"
+    },
+    {
+      "Query": "quran",
+      "ExecutedDateTime": "2025-01-02T21:17:09.9615878+02:00"
+    },
+    {
+      "Query": "w",
+      "ExecutedDateTime": "2025-01-03T02:20:09.753149+02:00"
+    },
+    {
+      "Query": "potp",
+      "ExecutedDateTime": "2025-01-03T02:22:52.5268052+02:00"
+    },
+    {
+      "Query": "su",
+      "ExecutedDateTime": "2025-01-03T03:13:12.9011067+02:00"
+    },
+    {
+      "Query": "w su",
+      "ExecutedDateTime": "2025-01-03T03:41:20.7652039+02:00"
+    },
+    {
+      "Query": "sum",
+      "ExecutedDateTime": "2025-01-03T04:18:27.0715774+02:00"
+    },
+    {
+      "Query": "w",
+      "ExecutedDateTime": "2025-01-03T06:01:53.9234096+02:00"
+    },
+    {
+      "Query": "flow",
+      "ExecutedDateTime": "2025-01-03T06:03:10.7447935+02:00"
+    },
+    {
+      "Query": "ret",
+      "ExecutedDateTime": "2025-01-05T09:20:35.0266757+02:00"
     }
   ]
 }

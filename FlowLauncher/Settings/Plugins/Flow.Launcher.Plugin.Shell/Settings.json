@@ -1,6 +1,6 @@
 {
-  "Shell": 0,
-  "ReplaceWinR": false,
+  "Shell": 3,
+  "ReplaceWinR": true,
   "CloseShellAfterPress": false,
   "LeaveShellOpen": false,
   "RunAsAdministrator": true,

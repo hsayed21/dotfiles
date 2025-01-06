@@ -176,19 +176,26 @@ window_rules:
         window_class: { regex: "HwndWrapper" }
       - window_title: { equals: "TODO Tasks" }
       - window_process: { regex: "AutoHotkey.*?" }
+      - window_process: { equals: "POPsRestaurant" }
+      #   window_class: { equals: "PotPlayer64" }
 
 
   - commands: ["set-floating"]
     match:
       - window_role: { regex: "dialog|alert" }  # Regex match
       - window_type: { equals: "dialog" }
-      - window_process: { regex: "sublime_text|TreeSize" }
+      - window_process: { regex: "sublime_text|TreeSize|PotPlayerMini64|QuranWindows|quran-companion" }
 
   - commands: ["set-floating --centered"]
     match:
-      - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint|WindowsTerminal|ShareX|ApplicationFrameHost" }
+      - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint|WindowsTerminal|ApplicationFrameHost" }
       - window_title: { regex: "Volume Mixer|Settings|Task Manager" }
+      - window_process: { equals: "DeepL" }
       # - window_class: { regex: "#32770" }
+
+  - commands: ["set-fullscreen"]
+    match:
+      - window_title: { regex: "ShareX - Image editor.*?" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
