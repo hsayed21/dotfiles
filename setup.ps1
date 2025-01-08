@@ -1,57 +1,150 @@
 . .\_helper\_function.ps1
 #Requires -RunAsAdministrator
 
-# ================================================
+# Initialize logging
+Initialize-Log
+
+Write-Log "Starting setup process..." -Level Info
+
+# Group packages by categories
+$packages = @{
+    Development = @{
+        Scoop = @(
+            @{ name = "git" },
+            @{ name = "python" }
+        )
+        Winget = @(
+            @{ name = "Microsoft.VisualStudioCode" },
+            @{ name = "Microsoft.WindowsTerminal" }
+        )
+        Choco = @(
+            @{ name = "dotnet-sdk" }
+        )
+    }
+    Utilities = @{
+        Scoop = @(
+            @{ name = "sudo" },
+            @{ name = "curl" },
+            @{ name = "pwsh" },
+            @{ name = "concfg" },
+            @{ name = "extras/altsnap" },
+            @{ name = "alacritty" }
+            @{ name = "extras/unigetui" }
+            @{ name = "zig" },
+            @{ name = "lazygit" },
+            @{ name = "fzf" },
+            @{ name = "ripgrep" }
+        )
+        Winget = @(
+            @{ name = "Microsoft.PowerToys" },
+            @{ name = "JanDeDobbeleer.OhMyPosh" },
+            @{ name = "GlazeWM" },
+            @{ name = "Zebar" },
+            @{ id = "stnkl.EverythingToolbar" }
+        )
+        Choco = @(
+            @{ name = "flow-launcher" },
+            @{ name = "winspy" },
+            @{ name = "wingetui" },
+            @{ name = "nircmd" },
+            @{ name = "7zip" },
+            @{ name = "notepadplusplus" },
+            @{ name = "everything" }
+        )
+    }
+    Browsers = @{
+        Winget = @(
+            @{ name = "Google.Chrome" },
+            @{ name = "Mozilla.Firefox" }
+        )
+    }
+    Fonts = @{
+        Choco = @(
+            @{ name = "nerdfont-hack" },
+            @{ name = "nerd-fonts-firacode" }
+        )
+    }
+}
+
+# Track installation statistics
+$stats = @{
+    Successful = 0
+    Failed = 0
+    Skipped = 0
+    Total = 0
+}
+
 # Setup Environment
-# ================================================
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-# Check and install Scoop
-if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
-    iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
-    Show-SuccessMessage -Message "Scoop has been installed successfully."
-} else {
-    Show-SuccessMessage -Message "Scoop is already installed."
+Write-Log "Setting up environment..." -Level Info
+
+# Package Manager Installation
+$packageManagers = @(
+    @{
+        Name = "Scoop"
+        Condition = { -not (Get-Command scoop -ErrorAction SilentlyContinue) }
+        Install = { iex "& {$(irm get.scoop.sh)} -RunAsAdmin" }
+    },
+    @{
+        Name = "Chocolatey"
+        Condition = { -not (Get-Command choco -ErrorAction SilentlyContinue) }
+        Install = { Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1")) }
+    },
+    @{
+        Name = "Winget"
+        Condition = { -not (Get-Command winget -ErrorAction SilentlyContinue) }
+        Install = { irm asheroto.com/winget | iex }
+    }
+)
+
+foreach ($pm in $packageManagers) {
+    if (& $pm.Condition) {
+        try {
+            Write-Log "Installing $($pm.Name)..." -Level Info
+            & $pm.Install
+            Show-SuccessMessage -Message "$($pm.Name) has been installed successfully."
+        }
+        catch {
+            Write-Log "Failed to install $($pm.Name): $($_.Exception.Message)" -Level Error
+            exit 1
+        }
+    }
+    else {
+        Show-SuccessMessage -Message "$($pm.Name) is already installed."
+    }
 }
 
-# Check and install Chocolatey
-if (-not (Get-Command choco -ErrorAction SilentlyContinue)) {
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1"))
-    Show-SuccessMessage -Message "Chocolatey has been installed successfully."
-} else {
-    Show-SuccessMessage -Message "Chocolatey is already installed."
+# Install packages by category
+foreach ($category in $packages.Keys) {
+    Write-Log "Installing $category packages..." -Level Info
+
+    if ($packages[$category].Scoop) {
+        foreach ($pkg in $packages[$category].Scoop) {
+            $stats.Total++
+            $result = Install-ScoopPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+        }
+    }
+
+    if ($packages[$category].Winget) {
+        foreach ($pkg in $packages[$category].Winget) {
+            $stats.Total++
+            $result = Install-WingetPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+        }
+    }
+
+    if ($packages[$category].Choco) {
+        foreach ($pkg in $packages[$category].Choco) {
+            $stats.Total++
+            $result = Install-ChocoPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+        }
+    }
 }
 
-# ================================================
-# Install Necessary Packages
-# ================================================
-scoop bucket add extras
-$scoop_packages = @("git", "python", "concfg", "sudo", "curl", "lazygit", "fzf", "ripgrep", "zig", "pwsh",
-"extras/altsnap", "alacritty", "extras/unigetui")
-foreach ($pkg in $scoop_packages) {
-    Install-ScoopPackage -packageName $pkg
-}
-
-$winget_packages = @("JanDeDobbeleer.OhMyPosh","Microsoft.PowerToys", "Microsoft.WindowsTerminal", "Microsoft.VisualStudioCode",
- "Google.Chrome", "Mozilla.Firefox", "GlazeWM", "Zebar")
-foreach ($pkg in $winget_packages) {
-    Install-WingetPackage -packageName $pkg
-}
-$winget_packages_ids = @("stnkl.EverythingToolbar")
-foreach ($pkg in $winget_packages_ids) {
-    Install-WingetPackage -packageName $pkg -usePackageId $true
-}
-
-
-# $choco_packages = @("dotnet-sdk")
-$choco_packages = @("flow-launcher", "winspy", "wingetui", "nircmd", "7zip", "notepadplusplus", "everything")
-
-foreach ($pkg in $choco_packages) {
-    Install-ChocoPackage -packageName $pkg
-}
-
-# ================================================
 # Configuration
-# ================================================
+Write-Log "Starting configuration..." -Level Info
+
 $mappings = @(
    # nvim
   @{
@@ -224,40 +317,44 @@ $mappings = @(
   }
 )
 
+# Process symlinks with progress and force
+$total = $mappings.Count
+$current = 0
+foreach ($mapping in $mappings) {
+    $current++
+    $progress = [math]::Round(($current / $total) * 100)
+    Write-Progress -Activity "Creating symlinks" -Status "$progress% Complete" -PercentComplete $progress
 
-# powershell
-# PS Modules
-# Set the PSGallery repository to trusted
+    Create-SymbolicLink -destPath $mapping.dest -sourcePath $mapping.source -Force
+}
+Write-Progress -Activity "Creating symlinks" -Completed
+
+# Configure PowerShell environment
+Write-Log "Configuring PowerShell environment..." -Level Info
+
+# Install PowerShell modules
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 $psModules = @(
-    "CompletionPredictor"
-    "PSScriptAnalyzer"
-    "ps-color-scripts"
+    "CompletionPredictor",
+    "PSScriptAnalyzer",
+    "ps-color-scripts",
+    "Get-ChildItemColor",
+    "oh-my-posh",
+    "pscolor",
+    "posh-ssh",
+    "posh-git"
 )
-install-module Get-ChildItemColor -scope CurrentUser -Force -AllowClobber -Confirm:$false
-install-module oh-my-posh -scope CurrentUser -Force -AllowClobber -Confirm:$false
-install-module pscolor -scope CurrentUser -Force -AllowClobber -Confirm:$false
-install-module posh-ssh -scope CurrentUser -Force -AllowClobber -Confirm:$false
-install-module posh-git -scope CurrentUser -Force -AllowClobber -Confirm:$false
-foreach ($psModule in $psModules) {
-    if (!(Get-Module -ListAvailable -Name $psModule)) {
-        Install-Module -Name $psModule -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+
+foreach ($module in $psModules) {
+    if (!(Get-Module -ListAvailable -Name $module)) {
+        Write-Log "Installing PowerShell module: $module" -Level Info
+        Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
     }
 }
-
-Show-SuccessMessage -Message "PS Modules has been installed successfully."
-
-# install font nerd-font
-choco install -y "nerdfont-hack";
-choco install -y "nerd-fonts-firacode"
 
 # vs2022
 # & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
 # Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
-
-foreach ($mapping in $mappings) {
-  Create-SymbolicLink -destPath "$($mapping.dest)" -sourcePath "$($mapping.source)"
-}
 
 # vscode
 reg import "$PWD\vscode\vscode contextmenu with profile.reg" *>&1 | Out-Null
@@ -275,3 +372,12 @@ Copy-Item -Path "$PWD\WindowsTerminal\kali.theme.json" -Destination $Env:LOCALAP
 # Set-Content -Path $Profile -Value $profileContent
 
 & "$PWD\WindowsTerminal\fix warning screen reader for powershell.ps1"
+
+# Display installation summary
+Write-Log "Installation Summary:" -Level Info
+Write-Log "Total packages: $($stats.Total)" -Level Info
+Write-Log "Successfully installed: $($stats.Successful)" -Level Success
+Write-Log "Failed installations: $($stats.Failed)" -Level Error
+Write-Log "Skipped installations: $($stats.Skipped)" -Level Warning
+
+Write-Log "Setup completed successfully!" -Level Success
