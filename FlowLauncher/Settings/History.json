@@ -83,6 +83,10 @@
     {
       "Query": "ret",
       "ExecutedDateTime": "2025-01-05T09:20:35.0266757+02:00"
+    },
+    {
+      "Query": "pm install Add2Path",
+      "ExecutedDateTime": "2025-01-06T03:16:25.2114456+02:00"
     }
   ]
 }
