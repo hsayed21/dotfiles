@@ -176,7 +176,6 @@
   "debug.toolBarLocation": "docked",
   "diffEditor.codeLens": true,
   "diffEditor.experimental.useVersion2": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "diffEditor.renderIndicators": false,
   "dotnet.codeLens.enableTestsCodeLens": false,
   "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
@@ -2177,4 +2176,6 @@
   "github.copilot.chat.temporalContext.enabled": true,
   "json-i18n-key.suggestExistingKeys": false,
   "workbench.sideBar.location": "right",
+  "json-i18n-key.suggestSimilarKeysIfTheSameExist": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
 }

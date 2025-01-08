@@ -122,13 +122,13 @@
   "AlwaysStartEn": true,
   "QuerySearchPrecision": "Regular",
   "AutoUpdates": false,
-  "WindowLeft": 680,
-  "WindowTop": 189.5,
+  "WindowLeft": 622,
+  "WindowTop": 170,
   "CustomWindowLeft": 0,
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 42,
+  "ActivateTimes": 49,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -356,6 +356,16 @@
         "Version": "1.1.0",
         "ActionKeywords": [
           "timer"
+        ],
+        "Priority": 0,
+        "Disabled": false
+      },
+      "79BB35BC5B504F04B210D1C41DF14A02": {
+        "ID": "79BB35BC5B504F04B210D1C41DF14A02",
+        "Name": "Add2Path",
+        "Version": "2.0.1",
+        "ActionKeywords": [
+          "path"
         ],
         "Priority": 0,
         "Disabled": false

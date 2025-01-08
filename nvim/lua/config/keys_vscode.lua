@@ -192,8 +192,8 @@ Map({ "n", "v" }, "<leader>jc", function() VSCodeNotify("json-i18n-key.checkExis
 Map({ "n", "v" }, "<leader>jr", function() VSCodeNotify("json-i18n-key.renameKey") end, { desc = "Rename json i18n key" })
 Map({ "n", "v" }, "<leader>ja", function() VSCodeNotify("json-i18n-key.addKey") end, { desc = "Add json i18n key" })
 Map({ "n", "v" }, "<leader>jd", function() VSCodeNotify("json-i18n-key.removeKey") end, { desc = "Remove json i18n key" })
-Map({ "n", "v" }, "<leader>ju", function() VSCodeNotify("json-i18n-key.updateKey") end,
-  { desc = "Update json i18n key value" })
+Map({ "n", "v" }, "<leader>ju", function() VSCodeNotify("json-i18n-key.updateKey") end, { desc = "Update json i18n key value" })
+Map({ "n", "v" }, "<leader>jc", function() VSCodeNotify("json-i18n-key.copyKey") end, { desc = "Copy json i18n key value" })
 Map({ "n", "v" }, "<leader>ct", function() VSCodeNotify("converter.pasteAsCs2Ts") end, { desc = "C# to TypeScript" })
 
 
