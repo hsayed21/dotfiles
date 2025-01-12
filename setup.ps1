@@ -51,6 +51,13 @@ $packages = @{
             @{ name = "notepadplusplus" },
             @{ name = "everything" }
         )
+        SourceForge = @(
+            @{
+                project = "globonote/files/globonote"
+                file = "globonote-setup.exe"
+                # args = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART"
+            }
+        )
     }
     Browsers = @{
         Winget = @(
@@ -137,6 +144,14 @@ foreach ($category in $packages.Keys) {
         foreach ($pkg in $packages[$category].Choco) {
             $stats.Total++
             $result = Install-ChocoPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+        }
+    }
+
+    if ($packages[$category].SourceForge) {
+        foreach ($pkg in $packages[$category].SourceForge) {
+            $stats.Total++
+            $result = Install-SourceForgePackage -Package $pkg
             if ($result) { $stats.Successful++ } else { $stats.Failed++ }
         }
     }

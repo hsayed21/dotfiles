@@ -24,7 +24,7 @@ function Install-ScoopPackage {
         return $false
     }
 
-    $packageName = $Package.ContainsKey('name') ? $Package.name : $Package.id
+    $packageName = if ($Package.ContainsKey('name')) { $Package.name } else { $Package.id }
 
     for ($i = 1; $i -le $maxRetries; $i++) {
         try {
@@ -65,10 +65,10 @@ function Install-WingetPackage {
 
     try {
         $useId = $Package.ContainsKey('id')
-        $displayName = $useId ? $Package.id : $Package.name
+        $displayName = if ($useId) { $Package.id } else { $Package.name }
         
         # Check if package is already installed
-        $searchArg = $useId ? "--id $($Package.id)" : "--query $($Package.name)"
+        $searchArg = if ($useId) { "--id $($Package.id)" } else { "--query $($Package.name)" }
         $installedPackages = winget list $searchArg --accept-source-agreements
 
         if ($installedPackages -match $displayName) {
@@ -101,7 +101,7 @@ function Install-WingetPackage {
         return $success
     }
     catch {
-        Write-Log "Error installing $displayName: $($_.Exception.Message)" -Level Error
+        Write-Log ("Error installing {0}: {1}" -f $displayName, $_.Exception.Message) -Level Error
         return $false
     }
 }
@@ -118,7 +118,7 @@ function Install-ChocoPackage {
         return $false
     }
 
-    $packageName = $Package.ContainsKey('name') ? $Package.name : $Package.id
+    $packageName = if ($Package.ContainsKey('name')) { $Package.name } else { $Package.id }
 
     try {
         # Check if package is already installed
@@ -140,7 +140,7 @@ function Install-ChocoPackage {
         return $success
     }
     catch {
-        Write-Log "Error installing $packageName: $($_.Exception.Message)" -Level Error
+        Write-Log ("Error installing {0}: {1}" -f $packageName, $_.Exception.Message) -Level Error
         return $false
     }
 }
@@ -211,9 +211,17 @@ function Show-SuccessMessage {
 function Initialize-Log {
     param([string]$LogPath = "$PWD\setup.log")
     
+    # Create log directory if it doesn't exist
+    $logDir = Split-Path -Parent $LogPath
+    if (-not (Test-Path $logDir)) {
+        New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+    }
+
     $Global:LogFile = $LogPath
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    "$timestamp - Setup started" | Out-File -FilePath $LogFile
+    "$timestamp - Setup started" | Out-File -FilePath $LogFile -Force
+    
+    Write-Host "Logging initialized at $LogFile"
 }
 
 # Function to write to log
@@ -223,6 +231,11 @@ function Write-Log {
         [ValidateSet('Info', 'Warning', 'Error', 'Success')]
         [string]$Level = 'Info'
     )
+    
+    # Ensure log file exists
+    if (-not $Global:LogFile) {
+        Initialize-Log
+    }
     
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logMessage = "$timestamp - [$Level] $Message"
@@ -253,7 +266,7 @@ function Backup-ExistingConfig {
             return $true
         }
         catch {
-            Write-Log "Failed to backup $Path: $($_.Exception.Message)" -Level Error
+            Write-Log ("Failed to backup {0}: {1}" -f $Path, $_.Exception.Message) -Level Error
             return $false
         }
     }
@@ -313,4 +326,140 @@ function New-BackupDirectory {
         New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
     }
     return $backupDir
+}
+
+# Function to install a package from SourceForge
+function Get-LatestExeFromSourceForge {
+    param (
+        [string]$projectUrl,
+        [System.Collections.Queue]$folderQueue = $null
+    )
+    try {
+        if ($null -eq $folderQueue) {
+            $folderQueue = New-Object System.Collections.Queue
+        }
+
+        $response = Invoke-WebRequest -Uri $projectUrl -UseBasicParsing
+        $html = $response.Content
+        $downloadUrl = $null
+
+        if ($html -match '(?s)<table[^>]*id="files_list"[^>]*>(.*?)</table>') {
+            $tableContent = $Matches[1]
+            $rows = [regex]::Matches($tableContent, '(?s)<tr[^>]*>.*?<th[^>]*headers="files_name_h"[^>]*>(.*?)</tr>')
+            
+            Write-Log "Found $($rows.Count) files in table" -Level Info
+            
+            # First pass: look for exe files
+            foreach ($row in $rows) {
+                $rowContent = $row.Groups[1].Value
+
+                if ($rowContent -match 'href="([^"]*\.exe\/download)"') {
+                    $downloadUrl = $Matches[1]
+                    Write-Log "Found .exe file" -Level Info
+                    return $downloadUrl
+                }
+                # Store folders for later processing
+                elseif ($rowContent -match 'href="([^"]*)"[^>]*class="folder') {
+                    $folderUrl = "https://sourceforge.net" + ($Matches[1] -replace '/stats/timeline', '')
+                    $folderQueue.Enqueue($folderUrl)
+                    Write-Log "Added folder to queue: $folderUrl" -Level Info
+                }
+            }
+
+            # Second pass: look for zip/rar files if no exe found
+            if (-not $downloadUrl) {
+                foreach ($row in $rows) {
+                    $rowContent = $row.Groups[1].Value
+                    if ($rowContent -match 'href="([^"]*\.zip\/download)"') {
+                        $downloadUrl = $Matches[1]
+                        Write-Log "Found .zip file" -Level Info
+                        break
+                    }
+                    elseif ($rowContent -match 'href="([^"]*\.rar\/download)"') {
+                        $downloadUrl = $Matches[1]
+                        Write-Log "Found .rar file" -Level Info
+                        break
+                    }
+                }
+            }
+
+            # If no files found and we have folders in queue, process next folder
+            if (-not $downloadUrl -and $folderQueue.Count -gt 0) {
+                $nextFolder = $folderQueue.Dequeue()
+                Write-Log "No installation files found, checking folder: $nextFolder" -Level Info
+                return Get-LatestExeFromSourceForge -projectUrl $nextFolder -folderQueue $folderQueue
+            }
+        }
+
+        return $downloadUrl
+    }
+    catch {
+        Write-Log "Error parsing SourceForge page: $($_.Exception.Message)" -Level Warning
+    }
+    return $null
+}
+
+function Install-SourceForgePackage {
+    param (
+        [Parameter(Mandatory = $true)]
+        [hashtable]$Package
+    )
+
+    try {
+        $projectName = $Package.project
+        $fileName = $Package.file
+        
+        Write-Log "Installing SourceForge package: $projectName" -Level Info
+        
+        # Create temp directory if it doesn't exist
+        $tempDir = Join-Path $env:TEMP "sf_downloads"
+        if (-not (Test-Path $tempDir)) {
+            New-Item -ItemType Directory -Path $tempDir | Out-Null
+        }
+
+        $outputPath = Join-Path $tempDir $fileName
+
+        # Get the download URL by recursively checking files and folders
+        $projectUrl = "https://sourceforge.net/projects/$projectName"
+        Write-Log "Checking for latest version..." -Level Info
+        
+        $directUrl = Get-LatestExeFromSourceForge -projectUrl $projectUrl
+        if (-not $directUrl) {
+            Write-Log "No .exe file found, using default latest download" -Level Warning
+            $directUrl = "https://sourceforge.net/projects/$projectName/files/latest/download"
+        }
+
+        # Download using curl with progress tracking
+        Write-Log "Downloading from: $directUrl" -Level Info
+        $curlArgs = @(
+            '-L',
+            '-o', $outputPath,
+            '--progress-bar',
+            $directUrl
+        )
+        $result = curl.exe @curlArgs
+
+        if (Test-Path $outputPath) {
+            # Install the package
+            Write-Log "Installing $fileName..." -Level Info
+            # $processArgs = if ($Package.args) { $Package.args } else { "/SILENT" }
+            # $process = Start-Process -FilePath $outputPath -ArgumentList $processArgs -Wait -PassThru
+            $process = Start-Process -FilePath $outputPath -Wait -Verb RunAs
+            # Start-Process $output -Wait -Verb RunAs
+            
+            if ($process.ExitCode -eq 0) {
+                Write-Log "Installation completed successfully" -Level Success
+                Remove-Item $outputPath -Force
+                return $true
+            } else {
+                Write-Log "Installation failed with exit code: $($process.ExitCode)" -Level Error
+                return $false
+            }
+        }
+        return $false
+    }
+    catch {
+        Write-Log "Failed to install SourceForge package $($Package.project): $($_.Exception.Message)" -Level Error
+        return $false
+    }
 }
