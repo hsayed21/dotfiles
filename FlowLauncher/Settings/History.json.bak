@@ -87,6 +87,14 @@
     {
       "Query": "pm install Add2Path",
       "ExecutedDateTime": "2025-01-06T03:16:25.2114456+02:00"
+    },
+    {
+      "Query": "voice",
+      "ExecutedDateTime": "2025-01-08T23:31:26.160208+02:00"
+    },
+    {
+      "Query": "\u003E %LOCALAPPDATA%\\Microsoft\\WindowsApps",
+      "ExecutedDateTime": "2025-01-08T23:37:03.2186925+02:00"
     }
   ]
 }

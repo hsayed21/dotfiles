@@ -5194,12 +5194,6 @@
     "when": "viewContainer.workbench.view.explorer.enabled"
   },
   {
-    "key": "ctrl+alt+r",
-    "command": "workbench.action.tasks.runTask",
-    "args": "Run Advanced Add Key Script",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "alt+j",
     "command": "editor.action.marker.next",
     "when": "problemsVisibility && problemFocus",
@@ -5564,5 +5558,10 @@
     "key": "ctrl+alt+e",
     "command": "workbench.action.chat.openEditSession",
     "when": "chatEditingParticipantRegistered && chatIsEnabled"
+  },
+  {
+    "key": "ctrl+alt+r",
+    "command": "workbench.action.chat.open",
+    "when": "chatPanelParticipantRegistered || chatSetupInstalled"
   }
 ]

@@ -1,6 +1,6 @@
 {
-  "sorting_order": "Resolution",
-  "download_path": "%USERPROFILE%\\Downloads",
   "preferred_audio_format": "mp3",
-  "preferred_video_format": "mp4"
+  "preferred_video_format": "mp4",
+  "sorting_order": "Resolution",
+  "download_path": "%USERPROFILE%\\Downloads"
 }
