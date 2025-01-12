@@ -6,5 +6,7 @@
   "RunAsAdministrator": true,
   "ShowOnlyMostUsedCMDs": false,
   "ShowOnlyMostUsedCMDsNumber": 5,
-  "CommandHistory": {}
+  "CommandHistory": {
+    "C:\\Users\\hsayed\\AppData\\Local\\Microsoft\\WindowsApps": 1
+  }
 }
