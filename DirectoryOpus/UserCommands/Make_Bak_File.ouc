@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Make_Bak_File</label>
+	<user_label>Make Bak File</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>// Button / User Command script that creates &apos;.bak&apos; backups for any number of selected files or folders. If a .bak already exists for an item, it will create .bak2, .bak3 and so on. Also has an argument option to restore a file.</instruction>
+		<instruction>// By ThioJoe</instruction>
+		<instruction>// Updated: 9/3/24</instruction>
+		<instruction />
+		<instruction>//    Argument Template:    </instruction>
+		<instruction>//    RESTORE/S,RENAME/S,BACKUP_EXTENSION/K</instruction>
+		<instruction />
+		<instruction>//    Example usages of arguments:</instruction>
+		<instruction>//       Make_bak BACKUP_EXTENSION=&quot;.bak&quot;</instruction>
+		<instruction>//       Make_bak RESTORE</instruction>
+		<instruction>//       Make_bak BACKUP_EXTENSION=&quot;.backup&quot; RESTORE</instruction>
+		<instruction />
+		<instruction>function OnClick(clickData) {</instruction>
+		<instruction>    // You can change the backup extension base string to be whatever you want here. Must include period.</instruction>
+		<instruction>    // Default = &apos;.bak&apos;</instruction>
+		<instruction>    // &gt;  Optional Argument Name: BACKUP_EXTENSION (string value)</instruction>
+		<instruction>    var backupExtension = &apos;.bak&apos;;</instruction>
+		<instruction>    ////////////////////////////////////////////////////////////////////////</instruction>
+		<instruction>    </instruction>
+		<instruction>    // With this set to true (or if argument is used), the highest numbered .bak for the selected file will replace the main file</instruction>
+		<instruction>    // Note: Selected backup file to restore from must match the base backupExtension variable. (It&apos;s ok if it&apos;s numbered, for example if backupExtension is &apos;.bak&apos; you can still restore a &apos;.bak4&apos; file.</instruction>
+		<instruction>    // &gt;  Optional Argument Name: RESTORE (Switch, no value needed)</instruction>
+		<instruction>    var doRestore = false;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // With this set to true (or if argument is used), the original file/folder will be renamed with the backup extension, instead of a copy being made</instruction>
+		<instruction>    // &gt;  Optional Argument Name: RENAME (Switch, no value needed)</instruction>
+		<instruction>    var doRename = false;</instruction>
+		<instruction />
+		<instruction>    // -----------------------------------------------------------------------</instruction>
+		<instruction />
+		<instruction>    // Parse optional arguments if they&apos;re there</instruction>
+		<instruction>    if (clickData.func.args.got_arg.RESTORE) {</instruction>
+		<instruction>        doRestore = true;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received RESTORE switch argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    if (clickData.func.args.got_arg.RENAME) {</instruction>
+		<instruction>        doRename = true;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received RENAME switch argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction>    if (clickData.func.args.got_arg.BACKUP_EXTENSION) {</instruction>
+		<instruction>        //Validate argument value</instruction>
+		<instruction>        argString = String(clickData.func.args.BACKUP_EXTENSION);</instruction>
+		<instruction>        if (argString.charAt(0) == &quot;.&quot;) {</instruction>
+		<instruction>            backupExtension = argString;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            backupExtension = &quot;.&quot; + argString;</instruction>
+		<instruction>            DOpus.Output(&quot;WARNING: BACKUP_EXTENSION argument did not include a period so one was added. Got argument: &quot; + argString);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Received BACKUP_EXTENSION argument: &quot; + String(clickData.func.args.BACKUP_EXTENSION));</instruction>
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction />
+		<instruction>    function createBak(item) {</instruction>
+		<instruction>        // Create item object of selected file or folder</instruction>
+		<instruction>        var selectedItem = item;</instruction>
+		<instruction>        // Get name of selected file or folder</instruction>
+		<instruction>        //var selectedItemExt = String(selectedItem.ext);</instruction>
+		<instruction>        //var selectedItemNameStem = String(selectedItem.name_stem);</instruction>
+		<instruction />
+		<instruction>        //DOpus.Output(&quot;Processing: &quot; + selectedItem.name);</instruction>
+		<instruction>        var lastBakNum = getLastBakNum(item);</instruction>
+		<instruction>        //DOpus.Output(&quot;LastBakNum: &quot; + lastBakNum);</instruction>
+		<instruction />
+		<instruction>        // Determine string to append with number if necessary</instruction>
+		<instruction>        var bakNumString = &quot;&quot;</instruction>
+		<instruction>        if (lastBakNum == 0) {</instruction>
+		<instruction>            bakNumString = &quot;&quot;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            bakNumString = String(lastBakNum + 1)</instruction>
+		<instruction>        }</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Construct command string depending on arguments</instruction>
+		<instruction>        var commandString;</instruction>
+		<instruction>        if (doRename == true) {</instruction>
+		<instruction>            // Renames to the new name. Added autonumber just in case</instruction>
+		<instruction>            commandString = &apos;Rename FROM &quot;&apos; + selectedItem + &apos;&quot; TO *&apos; + backupExtension + bakNumString + &quot; AUTONUMBER&quot;;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            commandString = &apos;Copy DUPLICATE &quot;&apos; + selectedItem + &apos;&quot; AS *&apos; + backupExtension + bakNumString;</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Running command: &quot; + commandString);</instruction>
+		<instruction>        clickData.func.command.RunCommand(commandString);</instruction>
+		<instruction />
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction>    function restoreBak(item) {</instruction>
+		<instruction>        // Create a FileSystemObject</instruction>
+		<instruction>        var fso = new ActiveXObject(&quot;Scripting.FileSystemObject&quot;);</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Get the full name of the selected .bak file</instruction>
+		<instruction>        var selectedBakFullName = String(item.name);</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Determine the base name of the original file by removing the .bak or .bak# extension</instruction>
+		<instruction>        var originalFileName;</instruction>
+		<instruction>        var baseNameRegex = new RegExp(&apos;^(.+)&apos; + backupExtension.replace(&apos;.&apos;, &apos;\\.&apos;) + &apos;(\\d*)$&apos;);</instruction>
+		<instruction>        //DOpus.Output(&quot;baseNameRegex:  &quot; + baseNameRegex);</instruction>
+		<instruction>        var match = selectedBakFullName.match(baseNameRegex);</instruction>
+		<instruction>        if (match) {</instruction>
+		<instruction>            originalFileName = match[1];</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            // Show error dialogue if the selected file is not a valid .bak file</instruction>
+		<instruction>            DOpus.Dlg.Request(&quot;Error: The selected file (&quot; + selectedBakFullName + &quot;) doesn&apos;t appear to match the selected backup extension: &quot; + backupExtension, &quot;OK&quot;);</instruction>
+		<instruction>            return;</instruction>
+		<instruction>        }</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Determine the paths for the selected .bak file and the original file</instruction>
+		<instruction>        var bakFilePath = String(clickData.func.sourcetab.path) + &apos;\\&apos; + selectedBakFullName;</instruction>
+		<instruction>        var originalFilePath = String(clickData.func.sourcetab.path) + &apos;\\&apos; + originalFileName;</instruction>
+		<instruction>        // Ensure expected selected file path works</instruction>
+		<instruction>        if (fso.FileExists(bakFilePath) || fso.FolderExists(bakFilePath)) {</instruction>
+		<instruction>            // If original file already exists then delete it first</instruction>
+		<instruction>            if (fso.FileExists(originalFilePath) || fso.FolderExists(bakFilePath)) {</instruction>
+		<instruction>                var commandString = &apos;Delete QUIET &quot;&apos; + originalFilePath + &apos;&quot;&apos;;</instruction>
+		<instruction>                //DOpus.Output(&quot;Running command: &quot; + commandString);</instruction>
+		<instruction>                clickData.func.command.RunCommand(commandString);</instruction>
+		<instruction>            }</instruction>
+		<instruction>            </instruction>
+		<instruction>            // Rename the .bak file to the original file name</instruction>
+		<instruction>            commandString = &apos;Copy DUPLICATE &quot;&apos; + bakFilePath + &apos;&quot; AS &quot;&apos; + originalFileName + &apos;&quot;&apos;;</instruction>
+		<instruction>            //DOpus.Output(&quot;Running command: &quot; + commandString);</instruction>
+		<instruction>            clickData.func.command.RunCommand(commandString);</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            DOpus.Output(&quot;Backup file does not exist: &quot; + bakFilePath);</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction>    function getLastBakNum (item) {</instruction>
+		<instruction>        // Create a FileSystemObject</instruction>
+		<instruction>        var lastBakNum = 0;</instruction>
+		<instruction>        var selectedItemFullName = String(item.name);</instruction>
+		<instruction>        </instruction>
+		<instruction>        var fso = new ActiveXObject(&quot;Scripting.FileSystemObject&quot;);</instruction>
+		<instruction>        // Get the parent folder of the selected item</instruction>
+		<instruction>        var parentFolder = fso.GetFolder(clickData.func.sourcetab.path);</instruction>
+		<instruction>        var files = new Enumerator(parentFolder.Files);</instruction>
+		<instruction>        var subfolders = new Enumerator(parentFolder.SubFolders);</instruction>
+		<instruction />
+		<instruction>        // Combine files and folders into a single array</instruction>
+		<instruction>        var items = [];</instruction>
+		<instruction>        while (!files.atEnd()) {</instruction>
+		<instruction>            items.push(files.item());</instruction>
+		<instruction>            files.moveNext();</instruction>
+		<instruction>        }</instruction>
+		<instruction>        while (!subfolders.atEnd()) {</instruction>
+		<instruction>            items.push(subfolders.item());</instruction>
+		<instruction>            subfolders.moveNext();</instruction>
+		<instruction>        }</instruction>
+		<instruction />
+		<instruction>        // Go through filenames in folder, if any contains itemFullName.bak, check if # at end is larger than current, if so record into lastBakNum</instruction>
+		<instruction>        for (var i = 0; i &lt; items.length; i++) {</instruction>
+		<instruction>            var currentItem = items[i];</instruction>
+		<instruction>            var currentItemName = String(currentItem.Name);</instruction>
+		<instruction />
+		<instruction>            //DOpus.Output(&quot;Checking existing item: &quot; + currentItemName);</instruction>
+		<instruction />
+		<instruction>            // Checks if stem of currently scanned item is same as selected item with .bak added</instruction>
+		<instruction>            var theoreticalBakName = selectedItemFullName + backupExtension;</instruction>
+		<instruction>            var theoreticalBakNameLength = theoreticalBakName.length;</instruction>
+		<instruction />
+		<instruction>            // Checking if the currently scanned item is already a .bak item of the selected item or folder</instruction>
+		<instruction>            // By checking if scanned item contains selected item name + bak, from beginning</instruction>
+		<instruction>            if (currentItemName.substr(0, theoreticalBakNameLength) == theoreticalBakName) {</instruction>
+		<instruction>                //DOpus.Output(&quot;Found backup match: &quot; + currentItemName);</instruction>
+		<instruction />
+		<instruction>                // Checks if extension is .bak or .bak*</instruction>
+		<instruction>                if (currentItemName.length == theoreticalBakNameLength) {</instruction>
+		<instruction>                    if (lastBakNum == 0) {</instruction>
+		<instruction>                        lastBakNum = 1;</instruction>
+		<instruction>                    }</instruction>
+		<instruction>                    //DOpus.Output(&quot;Setting lastBakNum to 1&quot;);</instruction>
+		<instruction>                } else {</instruction>
+		<instruction>                    // Gets text or number after &quot;.bak&quot;, which should be a number</instruction>
+		<instruction>                    var extEnding = currentItemName.substr(theoreticalBakNameLength);</instruction>
+		<instruction>                    // Checks if anything after .bak is not a number</instruction>
+		<instruction>                    if (!isNaN(extEnding)) {</instruction>
+		<instruction>                        // Parse the ending number into an integer in base 10</instruction>
+		<instruction>                        var extEndingNum = parseInt(extEnding, 10);</instruction>
+		<instruction>                        // Only update lastBakNum if it is the largest .bak # found so far</instruction>
+		<instruction>                        if (extEndingNum &gt; lastBakNum) {</instruction>
+		<instruction>                            lastBakNum = extEndingNum;</instruction>
+		<instruction>                            //DOpus.Output(&quot;Updating lastBakNum to: &quot; + lastBakNum);</instruction>
+		<instruction>                        }</instruction>
+		<instruction>                    }</instruction>
+		<instruction>                }</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>        return lastBakNum;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Get data about selected items</instruction>
+		<instruction>    var allSelectedItems = clickData.func.sourcetab.selected;</instruction>
+		<instruction>    var enumSelectedItems = new Enumerator(allSelectedItems);</instruction>
+		<instruction />
+		<instruction>    // Runs the main function for each selected item</instruction>
+		<instruction>    enumSelectedItems.moveFirst();</instruction>
+		<instruction>    while (!enumSelectedItems.atEnd()) {</instruction>
+		<instruction>        var currentItem = enumSelectedItems.item();</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Whether to restore files or create backup based on argument switch</instruction>
+		<instruction>        if (doRestore === true) {</instruction>
+		<instruction>            restoreBak(currentItem);</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            createBak(currentItem);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        enumSelectedItems.moveNext();</instruction>
+		<instruction>    }</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

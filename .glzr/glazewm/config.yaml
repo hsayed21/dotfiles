@@ -178,13 +178,13 @@ window_rules:
       - window_process: { regex: "AutoHotkey.*?" }
       - window_process: { regex: "POPsRestaurant|pops_enterprise" }
       - window_title: { regex: "Swagger UI.*?" }
+      - window_role: { regex: "dialog|alert" }  # Regex match
+      - window_type: { equals: "dialog" }
       #   window_class: { equals: "PotPlayer64" }
 
 
   - commands: ["set-floating"]
     match:
-      - window_role: { regex: "dialog|alert" }  # Regex match
-      - window_type: { equals: "dialog" }
       - window_process: { regex: "sublime_text|TreeSize|PotPlayerMini64|QuranWindows|quran-companion" }
 
   - commands: ["set-floating --centered"]
