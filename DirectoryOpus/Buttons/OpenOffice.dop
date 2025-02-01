@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar version="12.0">
+	<wallpaper enabled="yes" inheritable="yes" type="share">
+		<std_type>toolbar</std_type>
+	</wallpaper>
+	<buttons display="icon" type="menu">
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org Writer</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,2</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe -writer &quot;%1&quot;</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org Calc</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,3</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe -calc &quot;%1&quot;</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org Impress</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,7</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe -impress &quot;%1&quot;</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org Draw</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,6</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe -draw &quot;%1&quot;</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org HTML Document</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,11</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe -web &quot;%1&quot;</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org Open Document</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,18</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe .uno:Open</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>OpenOffice.org From Template</label>
+			<icon1>{apppath|soffice.exe}program\soffice.exe,15</icon1>
+			<function type="normal">
+				<instruction>{apppath|soffice.exe}program\soffice.exe .uno:NewDoc</instruction>
+			</function>
+		</button>
+	</buttons>
+</toolbar>

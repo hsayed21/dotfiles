@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<hotkeys done_def="expand_all,expand_current,collapse_current,toggle_pin">
+	<key defkey="collapse_current">
+		<label>Collapse selected</label>
+		<tip>Collapse selected branch or (on second use) all second-level branches below it</tip>
+		<hotkeys>
+			<key>189,0</key>
+			<key>num-</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>Go TREECOLLAPSE=focus,second</instruction>
+		</function>
+	</key>
+	<key defkey="expand_all">
+		<label>Expand all</label>
+		<tip>Expand all branches below selected branch</tip>
+		<hotkeys>
+			<key>shift+8</key>
+			<key>num*</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>Go TREEEXPAND=focus,all</instruction>
+		</function>
+	</key>
+	<key defkey="expand_current">
+		<label>Expand selected</label>
+		<tip>Expand selected branch or (on second use) all second-level branches below it</tip>
+		<hotkeys>
+			<key>187,1</key>
+			<key>num+</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>Go TREEEXPAND=focus,second</instruction>
+		</function>
+	</key>
+	<key defkey="toggle_pin" hotkey="ctrl+space">
+		<label>Toggle pin</label>
+		<tip>Toggle expansion pin of selected branch</tip>
+		<function type="normal">
+			<instruction>Go TREESETPINSTATE</instruction>
+		</function>
+	</key>
+</hotkeys>

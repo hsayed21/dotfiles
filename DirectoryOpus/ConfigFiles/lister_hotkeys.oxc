@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<hotkeys done_def="pathentry,rename,autosize,refreshthumbs,nexttab,prevtab,nexttabdest,prevtabdest,appcmd_back,appcmd_forward,prevfilter,zoom_in,zoom_out,zoom_reset,expanddir,collapsedir,repeatfind">
+	<key defkey="appcmd_back" hotkey="app+0x1">
+		<label>Back</label>
+		<tip>Go back to the previous folder in the history</tip>
+		<function type="normal">
+			<instruction>go back whendual=checkmouse,deffocus</instruction>
+		</function>
+	</key>
+	<key defkey="appcmd_forward" hotkey="app+0x2">
+		<label>Forward</label>
+		<tip>Go forward to the next folder in the history</tip>
+		<function type="normal">
+			<instruction>go forward whendual=checkmouse,deffocus</instruction>
+		</function>
+	</key>
+	<key defkey="autosize" hotkey="ctrl+num+">
+		<label>Autosize Columns</label>
+		<tip>Autosize Details/Power-mode Lister columns</tip>
+		<function type="normal">
+			<instruction>set autosizecolumns</instruction>
+		</function>
+	</key>
+	<key defkey="collapsedir" hotkey="alt+up">
+		<label>Collapse Folder</label>
+		<tip>Collapse the currently selected folder</tip>
+		<function type="normal">
+			<instruction>go expandbranch=collapse</instruction>
+		</function>
+	</key>
+	<key defkey="expanddir" hotkey="alt+down">
+		<label>Expand Folder</label>
+		<tip>Expand the currently selected folder</tip>
+		<function type="normal">
+			<instruction>go expandbranch</instruction>
+		</function>
+	</key>
+	<key defkey="nexttab">
+		<label>Next Tab</label>
+		<tip>Select the next Tab in the current file display</tip>
+		<hotkeys>
+			<key>ctrl+pagedown</key>
+			<key>ctrl+shift+app+0x2</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>go tabselect +1</instruction>
+		</function>
+	</key>
+	<key defkey="nexttabdest" hotkey="ctrl+shift+pagedown">
+		<label>Next Tab (Dest)</label>
+		<tip>Select the next Tab in the destination file display</tip>
+		<function type="normal">
+			<instruction>go tabselect +1 openindual</instruction>
+		</function>
+	</key>
+	<key defkey="pathentry" hotkey="shift+enter">
+		<label>Path Entry</label>
+		<tip>Active direct path entry field</tip>
+		<function type="normal">
+			<instruction>go pathentry</instruction>
+		</function>
+	</key>
+	<key defkey="prevfilter">
+		<label>Restore Filter</label>
+		<tip>Restore the previous Quick filter applied in the current file display</tip>
+		<hotkeys>
+			<key>ctrl+shift+8</key>
+			<key>ctrl+num*</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>set quickfilter=!prev</instruction>
+		</function>
+	</key>
+	<key defkey="prevtab">
+		<label>Previous Tab</label>
+		<tip>Select the previous Tab in the current file display</tip>
+		<hotkeys>
+			<key>ctrl+pageup</key>
+			<key>ctrl+shift+app+0x1</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>go tabselect -1</instruction>
+		</function>
+	</key>
+	<key defkey="prevtabdest" hotkey="ctrl+shift+pageup">
+		<label>Previous Tab (Dest)</label>
+		<tip>Select the previous Tab in the destination file display</tip>
+		<function type="normal">
+			<instruction>go tabselect -1 openindual</instruction>
+		</function>
+	</key>
+	<key defkey="refreshthumbs">
+		<label>Refresh Thumbnails</label>
+		<tip>Delete the thumbnail cache and regenerate thumbnails for the current folder</tip>
+		<hotkeys>
+			<key>shift+f5</key>
+			<key>ctrl+f5</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>go refreshthumbs</instruction>
+		</function>
+	</key>
+	<key defkey="rename" hotkey="f2">
+		<label>Inline Rename</label>
+		<tip>Begin inline rename of selected item</tip>
+		<function type="normal">
+			<instruction>rename inline</instruction>
+		</function>
+	</key>
+	<key defkey="repeatfind" hotkey="shift+f3">
+		<label>Repeat Last Find</label>
+		<tip>Repeat the last FAYT find operation in the current file display</tip>
+		<function type="normal">
+			<instruction>cli quickfindrepeat</instruction>
+		</function>
+	</key>
+	<key defkey="zoom_in" hotkey="187,2">
+		<label>Zoom In</label>
+		<tip>Increase the font or thumbnail size</tip>
+		<function type="normal">
+			<instruction>@if:Set view=thumbnails</instruction>
+			<instruction>Show THUMBNAILSIZE=+32</instruction>
+			<instruction>@if:else</instruction>
+			<instruction>Set FONTSCALE=+10</instruction>
+		</function>
+	</key>
+	<key defkey="zoom_out" hotkey="189,2">
+		<label>Zoom Out</label>
+		<tip>Decrease the font or thumbnail size</tip>
+		<function type="normal">
+			<instruction>@if:Set view=thumbnails</instruction>
+			<instruction>Show THUMBNAILSIZE=-32</instruction>
+			<instruction>@if:else</instruction>
+			<instruction>Set FONTSCALE=-10</instruction>
+		</function>
+	</key>
+	<key defkey="zoom_reset" hotkey="ctrl+0">
+		<label>Zoom Reset</label>
+		<tip>Reset the font or thumbnail size</tip>
+		<function type="normal">
+			<instruction>@if:Set view=thumbnails</instruction>
+			<instruction>Show THUMBNAILSIZE=reset</instruction>
+			<instruction>@if:else</instruction>
+			<instruction>Set FONTSCALE=100</instruction>
+		</function>
+	</key>
+</hotkeys>

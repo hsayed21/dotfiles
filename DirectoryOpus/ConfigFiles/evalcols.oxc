@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<prefs version="6">
+	<evalcolumns>
+		<column align="1" attrrefresh="no" autorefresh="yes" category="dims" customgrouping="no" foldertype="shell" id="0" keyword="imagebytes" maxstars="5" namerefresh="no" reversesort="no" title="Image Bytes" type="4">if (!IsSet(picdepth, picwidth, picheight)) { return; }
+if (picdepth == 1) { bpr = (picwidth + 7) / 8 }
+elseif (picdepth == 4) { bpr = (picwidth + 1) / 2 }
+else { bpr = picwidth * picdepth / 8 }
+bpr = (bpr + 3) &amp; ~3;
+return bpr * picheight</column>
+		<column align="1" attrrefresh="yes" autorefresh="yes" category="date" customgrouping="no" foldertype="all" header="Modified" id="1" keyword="modifiedsimple" maxstars="5" namerefresh="no" reversesort="yes" title="Modified (simple)" type="0">// sort by modified date	if (operation == &quot;sort&quot;)
+	return modified;
+
+// today?
+today = Now();
+mod_date = DatePart(modified, &quot;date&quot;);
+if (mod_date == DatePart(today, &quot;date&quot;))
+{
+	if (operation == &quot;group&quot;)
+		return LanguageStr(2195); // today
+	return DatePart(modified, &quot;time&quot;);
+}
+
+// if grouping, work out how old
+if (operation == &quot;group&quot;)
+{
+	if (modified &gt; today)
+		return LanguageStr(5793); // future
+	mod_year = DatePart(modified, &quot;yyyy&quot;);
+	today_year = DatePart(today, &quot;yyyy&quot;);
+	if (mod_year == today_year)
+		return LanguageStr(5800); // earlier this year
+	if (mod_year == today_year - 1)
+		return LanguageStr(5801); // last year
+	return LanguageStr(5802); // a long time ago
+}
+
+return mod_date;</column>
+	</evalcolumns>
+</prefs>

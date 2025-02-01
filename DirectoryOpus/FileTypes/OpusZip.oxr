@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR">
+	<key name="OpusZip">
+		<key name="Background">
+			<key name="opus">
+				<key name="checkout">
+					<key name="command">
+						<value name="@default" type="sz">copy extract=checkout</value>
+					</key>
+					<key name="opusflags">
+						<value name="Position" type="sz">0</value>
+					</key>
+					<value name="@default" type="sz">C&amp;heck Out...</value>
+				</key>
+				<key name="comment">
+					<key name="command">
+						<value name="@default" type="sz">setattr zipcomment</value>
+					</key>
+					<key name="opusflags">
+						<value name="Position" type="sz">1</value>
+					</key>
+					<value name="@default" type="sz">ZIP Co&amp;mment...</value>
+				</key>
+				<value name="donedef" type="sz">2</value>
+			</key>
+		</key>
+	</key>
+</xml_registry_redirect>

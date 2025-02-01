@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR">
+	<key name="AllFilesystemObjects">
+		<key name="opus">
+			<key name="copy">
+				<key name="command">
+					<value name="@default" type="sz">clipboard copy nofromfocus</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">1</value>
+				</key>
+				<value name="@default" type="sz">&amp;Copy</value>
+			</key>
+			<key name="copyname">
+				<key name="command">
+					<value name="@default" type="sz">clipboard copynames=nopaths</value>
+				</key>
+				<key name="opusflags">
+					<value name="BeginGroup" type="sz">1</value>
+					<value name="Position" type="sz">3</value>
+				</key>
+				<value name="@default" type="sz">Copy File Names</value>
+			</key>
+			<key name="copypath">
+				<key name="command">
+					<value name="@default" type="sz">clipboard copynames=unc</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">4</value>
+				</key>
+				<value name="@default" type="sz">Copy Full Pathnames</value>
+			</key>
+			<key name="cut">
+				<key name="command">
+					<value name="@default" type="sz">clipboard cut nofromfocus</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">0</value>
+				</key>
+				<value name="@default" type="sz">Cu&amp;t</value>
+			</key>
+			<key name="dblclkctrl">
+				<key name="command">
+					<value name="@default" type="sz">properties nofromfocus</value>
+				</key>
+			</key>
+			<key name="delete">
+				<key name="command">
+					<value name="@default" type="sz">delete shift nofromfocus</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">8</value>
+				</key>
+				<value name="@default" type="sz">&amp;Delete</value>
+			</key>
+			<key name="drop">
+				<key name="command">
+					<value name="@default" type="sz">copy movewhensame</value>
+				</key>
+			</key>
+			<key name="dropalt">
+				<key name="command">
+					<value name="@default" type="sz">copy makeshortcut</value>
+				</key>
+			</key>
+			<key name="dropctrl">
+				<key name="command">
+					<value name="@default" type="sz">copy renamewhensame</value>
+				</key>
+			</key>
+			<key name="dropshift">
+				<key name="command">
+					<value name="@default" type="sz">copy move</value>
+				</key>
+			</key>
+			<key name="paste">
+				<key name="command">
+					<value name="@default" type="sz">clipboard paste usesel</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">2</value>
+				</key>
+				<value name="@default" type="sz">&amp;Paste</value>
+			</key>
+			<key name="properties">
+				<key name="command">
+					<value name="@default" type="sz">properties nofromfocus</value>
+				</key>
+				<key name="opusflags">
+					<value name="BeginGroup" type="sz">1</value>
+					<value name="Position" type="sz">10</value>
+				</key>
+				<value name="@default" type="sz">P&amp;roperties</value>
+			</key>
+			<key name="rename">
+				<key name="command">
+					<value name="@default" type="sz">rename inline</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">9</value>
+				</key>
+				<value name="@default" type="sz">Rena&amp;me</value>
+			</key>
+			<key name="setlabel">
+				<key name="command">
+					<value name="@default" type="sz">Properties SETLABEL !menu LABELCATEGORY raw:~(Status)</value>
+				</key>
+				<key name="opusflags">
+					<value name="BeginGroup" type="sz">1</value>
+					<value name="Position" type="sz">5</value>
+				</key>
+				<value name="@default" type="sz">Set Label</value>
+			</key>
+			<key name="setstatus">
+				<key name="command">
+					<value name="@default" type="sz_multi">Properties SETLABEL !menu LABELCATEGORY raw:Status ADDLABEL SETLABELTOGGLE
+[
+Set COLUMNSADD=Status(!1+Name)
+]</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">6</value>
+				</key>
+				<value name="@default" type="sz">Set Status</value>
+			</key>
+			<key name="shortcut">
+				<key name="command">
+					<value name="@default" type="sz">copy makeshortcut here</value>
+				</key>
+				<key name="opusflags">
+					<value name="BeginGroup" type="sz">1</value>
+					<value name="Position" type="sz">7</value>
+				</key>
+				<value name="@default" type="sz">Create &amp;Shortcut</value>
+			</key>
+		</key>
+		<key name="opusdrop">
+			<key name="copy_here">
+				<key name="command">
+					<value name="@default" type="sz">copy here</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">0</value>
+				</key>
+				<value name="@default" type="sz">&amp;Copy Here</value>
+			</key>
+			<key name="move_here">
+				<key name="command">
+					<value name="@default" type="sz">copy move</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">1</value>
+				</key>
+				<value name="@default" type="sz">&amp;Move Here</value>
+			</key>
+			<key name="shortcut_here">
+				<key name="command">
+					<value name="@default" type="sz">copy makeshortcut</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">2</value>
+				</key>
+				<value name="@default" type="sz">Create &amp;Shortcut(s) Here</value>
+			</key>
+		</key>
+	</key>
+</xml_registry_redirect>

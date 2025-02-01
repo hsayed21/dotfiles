@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<folder_formats>
+	<path>
+		<format folderssortalpha="yes" getsizes="default" group="11" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field collapse="yes" id="name" manual_resize="yes" size="451" size_dpi="100" sort="1" />
+			<field auto_size="yes" id="modified" size="133" size_dpi="100" />
+			<field id="type" size="80" size_dpi="100" />
+			<field auto_size="yes" id="sizerel" />
+			<field auto_size="yes" id="sizeauto" size="65" size_dpi="100" />
+		</format>
+		<dir>
+			<pathstring>C:\Users\hsayed\Downloads</pathstring>
+		</dir>
+	</path>
+	<path>
+		<format autosize="yes" getsizes="default" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field collapse="yes" id="name" size="238" size_dpi="100" />
+			<field auto_size="yes" id="sizeauto" size="59" size_dpi="100" />
+			<field id="type" size="165" size_dpi="100" sort="1" />
+			<field auto_size="yes" id="modified" size="136" size_dpi="100" />
+			<field id="attr" size="50" size_dpi="100" />
+			<hide>
+				<files>unins000.exe
+AutoMailSenderApp.exe
+POPsRetail*.exe
+OnScreenKeyboard*.exe</files>
+			</hide>
+			<show>
+				<files>*.exe
+Update Manager_Retail_Lifetime.zip</files>
+				<folders>Database
+Config
+LayOut
+log
+logs
+Reports</folders>
+			</show>
+		</format>
+		<dir>
+			<pathstring>C:\Program Files (x86)\POPs Retail</pathstring>
+		</dir>
+	</path>
+	<path>
+		<format autosize="yes" combine_groups="yes" getsizes="default" group="14" groupmembercount="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field collapse="yes" id="name" size="353" size_dpi="100" sort="1" />
+			<field auto_size="yes" id="sizeauto" size="68" size_dpi="100" />
+			<field id="type" size="245" size_dpi="100" />
+			<field auto_size="yes" id="modified" size="136" size_dpi="100" />
+			<field id="attr" size="50" size_dpi="100" />
+			<hide>
+				<files>unins000.exe</files>
+			</hide>
+			<show>
+				<files>*.exe
+POPs_DB.DAT
+POSGlobal.ini</files>
+				<folders>Database
+DotMatrix
+Template
+log</folders>
+			</show>
+		</format>
+		<dir>
+			<pathstring>C:\Program Files (x86)\POPs Restaurant</pathstring>
+		</dir>
+	</path>
+	<path>
+		<format autosize="yes" folderssortalpha="yes" getsizes="default" group="11" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" size="285" size_dpi="100" />
+			<field id="sizeauto" size="59" size_dpi="100" />
+			<field id="type" size="151" size_dpi="100" />
+			<field id="modified" size="136" size_dpi="100" sort="1" />
+			<field id="attr" size="50" size_dpi="100" />
+			<field id="pathrel" size="61" size_dpi="100" />
+		</format>
+		<dir>
+			<pathstring>C:\Users\hsayed\Documents\ShareX\Screenshots</pathstring>
+		</dir>
+	</path>
+</folder_formats>

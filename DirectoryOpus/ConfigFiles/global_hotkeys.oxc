@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<hotkeys done_def="newlister">
+	<key defkey="newlister" hotkey="win+shift+E">
+		<label>New Lister</label>
+		<tip>Open a new Lister</tip>
+		<function type="normal">
+			<instruction>go new</instruction>
+		</function>
+	</key>
+</hotkeys>

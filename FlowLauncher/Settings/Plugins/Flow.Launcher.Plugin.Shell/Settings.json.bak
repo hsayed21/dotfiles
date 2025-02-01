@@ -1,12 +1,13 @@
 {
   "Shell": 3,
-  "ReplaceWinR": true,
+  "ReplaceWinR": false,
   "CloseShellAfterPress": false,
   "LeaveShellOpen": false,
   "RunAsAdministrator": true,
   "ShowOnlyMostUsedCMDs": false,
   "ShowOnlyMostUsedCMDsNumber": 5,
   "CommandHistory": {
-    "C:\\Users\\hsayed\\AppData\\Local\\Microsoft\\WindowsApps": 1
+    "C:\\Users\\hsayed\\AppData\\Local\\Microsoft\\WindowsApps": 1,
+    "C:\\Users\\hsayed\\AppData\\Roaming\\popsenterprise_cloud": 1
   }
 }

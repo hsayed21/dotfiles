@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+			<label>Open New Lister</label>
+			<tip>Open a new Lister</tip>
+			<icon1>#newlister</icon1>
+			<function type="normal">
+				<instruction>Go NEW</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Preferences...</label>
+			<tip>Opens the Directory Opus Preferences editor</tip>
+			<icon1>#prefs</icon1>
+			<function type="normal">
+				<instruction>Prefs</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Customize Toolbars and Keys...</label>
+			<tip>Lets you customize toolbars, menus and keys</tip>
+			<icon1>#customize</icon1>
+			<function type="normal">
+				<instruction>Prefs CUSTOMIZE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>File Types...</label>
+			<tip>Opens the file types editor</tip>
+			<icon1>#filetype</icon1>
+			<function type="normal">
+				<instruction>Prefs FILETYPES</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;Lister Layouts</label>
+			<icon1>#layoutlist</icon1>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Edit Layouts...</label>
+				<tip>Displays the Lister Layout editor</tip>
+				<function type="normal">
+					<instruction>Prefs LAYOUTEDIT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Save All Listers...</label>
+				<tip>Save all open Listers as a Lister Layout</tip>
+				<function type="normal">
+					<instruction>Prefs LAYOUTSAVE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>S&amp;aved Layouts</label>
+				<tip>Displays a list of your saved Lister Layouts</tip>
+				<function type="normal">
+					<instruction>Prefs LAYOUTLIST</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>About Directory Opus...</label>
+			<tip>Displays Directory Opus copyright and version information</tip>
+			<icon1>#about</icon1>
+			<function type="normal">
+				<instruction>Help ABOUT</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Exit Directory Opus</label>
+			<tip>Exit Directory Opus (without confirmation)</tip>
+			<icon1>#exit</icon1>
+			<function type="normal">
+				<instruction>Close PROGRAM</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0x6ac70907,0xaee5ee79,0xd035b4e1,0xb21ca,0xb8ea72d6" type="TrayMenu" version="13.0" />
+</toolbar>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar version="12.0">
+	<wallpaper enabled="yes" inheritable="yes" type="share">
+		<std_type>toolbar</std_type>
+	</wallpaper>
+	<buttons display="icon" type="menu">
+		<button backcol="none" display="label" label_pos="left" separate="yes" textcol="none">
+			<label>A Sample Toolbar using direct paths</label>
+			<tip>Sample</tip>
+			<icon1>C:\Temp\DOpus9\Buttons\OpenOffice.dop,0</icon1>
+		</button>
+		<button backcol="none" display="both" label_pos="bottom" separate="yes" textcol="none">
+			<label>My Documents</label>
+			<tip>Go to My Documents</tip>
+			<icon1>C:\WINDOWS\system32\shell32.dll,3</icon1>
+			<function type="normal">
+				<instruction>Go /mydocuments</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="bottom" textcol="none">
+			<label>Calculator</label>
+			<icon1>C:\WINDOWS\system32\calc.exe,0</icon1>
+			<function type="normal">
+				<instruction>cd C:\WINDOWS\system32</instruction>
+				<instruction>C:\WINDOWS\system32\calc.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Internet Explorer</label>
+			<icon1>C:\Program Files\Internet Explorer\iexplore.exe,0</icon1>
+			<function type="normal">
+				<instruction>C:\Program Files\Internet Explorer\iexplore.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom" separate="yes">
+			<label>Notepad</label>
+			<icon1>C:\Windows\System32\notepad.exe,0</icon1>
+			<function type="normal">
+				<instruction>@async:C:\Windows\System32\notepad.exe %1</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Outlook</label>
+			<icon1>C:\Program Files\Microsoft Office\Office\OUTLOOK.EXE,0</icon1>
+			<function type="normal">
+				<instruction>C:\Program Files\Microsoft Office\Office\OUTLOOK.EXE</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Excel</label>
+			<icon1>C:\Program Files\Microsoft Office\Office\EXCEL.EXE,0</icon1>
+			<function type="normal">
+				<instruction>C:\Program Files\Microsoft Office\Office\EXCEL.EXE</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom" separate="yes">
+			<label>Word</label>
+			<icon1>C:\Program Files\Microsoft Office\Office\WINWORD.EXE,0</icon1>
+			<function type="normal">
+				<instruction>C:\Program Files\Microsoft Office\Office\WINWORD.EXE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>&lt;- Edit as required</label>
+			<tip>Edit this toolbar</tip>
+			<icon1>C:\WINDOWS\system32\cmdl32.exe,0</icon1>
+		</button>
+	</buttons>
+</toolbar>

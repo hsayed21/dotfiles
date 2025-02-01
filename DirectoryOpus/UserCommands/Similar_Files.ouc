@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Similar_Files</label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>function OnClick(clickData) {</instruction>
+		<instruction>    var cmd = clickData.func.command;</instruction>
+		<instruction>    cmd.ClearFiles();</instruction>
+		<instruction />
+		<instruction>    if (clickData.func.sourcetab.selected_files.count == 0) {</instruction>
+		<instruction>        DOpus.Output(&quot;No files selected. Please select files to compare.&quot;);</instruction>
+		<instruction>        return;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    var fileEnum = clickData.func.sourcetab.selected_files;</instruction>
+		<instruction>    var filenames = [];</instruction>
+		<instruction>    var fileObjects = [];</instruction>
+		<instruction>    var threshold = 0.7; // Similarity threshold</instruction>
+		<instruction />
+		<instruction>    // Collect selected filenames and file objects</instruction>
+		<instruction>    for (var e = new Enumerator(fileEnum); !e.atEnd(); e.moveNext()) {</instruction>
+		<instruction>        var item = e.item();</instruction>
+		<instruction>        if (!item.is_dir) {</instruction>
+		<instruction>            filenames.push(item.name);</instruction>
+		<instruction>            fileObjects.push(item);</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    if (filenames.length &lt; 2) {</instruction>
+		<instruction>        DOpus.Output(&quot;Select at least two files to compare.&quot;);</instruction>
+		<instruction>        return;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    var similarFiles = [];</instruction>
+		<instruction>    var selectedFiles = [];</instruction>
+		<instruction />
+		<instruction>    // Compare filenames</instruction>
+		<instruction>    for (var i = 0; i &lt; filenames.length; i++) {</instruction>
+		<instruction>        var group = [fileObjects[i]];</instruction>
+		<instruction>        for (var j = i + 1; j &lt; filenames.length; j++) {</instruction>
+		<instruction>            if (stringSimilarity(filenames[i], filenames[j]) &gt;= threshold) {</instruction>
+		<instruction>                group.push(fileObjects[j]);</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>        if (group.length &gt; 1) {</instruction>
+		<instruction>            similarFiles.push(group);</instruction>
+		<instruction>            selectedFiles = selectedFiles.concat(group);</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Select similar files in Directory Opus</instruction>
+		<instruction>    if (selectedFiles.length &gt; 0) {</instruction>
+		<instruction>        cmd.SetFiles(selectedFiles);</instruction>
+		<instruction>        cmd.RunCommand(&quot;Select MAKEVISIBLE=immediate&quot;);</instruction>
+		<instruction>    } else {</instruction>
+		<instruction>        DOpus.Output(&quot;No similar files found.&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>// Function to calculate similarity between two strings</instruction>
+		<instruction>function stringSimilarity(str1, str2) {</instruction>
+		<instruction>    var longer = str1.length &gt; str2.length ? str1 : str2;</instruction>
+		<instruction>    var shorter = str1.length &gt; str2.length ? str2 : str1;</instruction>
+		<instruction>    if (longer.length == 0) return 1.0;</instruction>
+		<instruction>    return (longer.length - editDistance(longer, shorter)) / parseFloat(longer.length);</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>// Edit distance algorithm (Levenshtein Distance)</instruction>
+		<instruction>function editDistance(s1, s2) {</instruction>
+		<instruction>    var costs = new Array();</instruction>
+		<instruction>    for (var i = 0; i &lt;= s1.length; i++) {</instruction>
+		<instruction>        var lastValue = i;</instruction>
+		<instruction>        for (var j = 0; j &lt;= s2.length; j++) {</instruction>
+		<instruction>            if (i == 0)</instruction>
+		<instruction>                costs[j] = j;</instruction>
+		<instruction>            else {</instruction>
+		<instruction>                if (j &gt; 0) {</instruction>
+		<instruction>                    var newValue = costs[j - 1];</instruction>
+		<instruction>                    if (s1.charAt(i - 1) != s2.charAt(j - 1))</instruction>
+		<instruction>                        newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;</instruction>
+		<instruction>                    costs[j - 1] = lastValue;</instruction>
+		<instruction>                    lastValue = newValue;</instruction>
+		<instruction>                }</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>        if (i &gt; 0) costs[s2.length] = lastValue;</instruction>
+		<instruction>    }</instruction>
+		<instruction>    return costs[s2.length];</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

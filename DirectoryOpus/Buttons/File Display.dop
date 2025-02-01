@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="icon" hotkey="alt+left" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none" timed="yes" type="menu_button">
+			<label>&amp;Back</label>
+			<tip>Go back to %1</tip>
+			<icon1>#goback</icon1>
+			<function type="normal">
+				<instruction>Go BACK USEQUALKEYS</instruction>
+			</function>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>Back list</label>
+				<tip>Displays a list of previously visited folders you can go back to</tip>
+				<function type="normal">
+					<instruction>Go BACKLIST</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+				<label>&amp;Recent Locations</label>
+				<icon1>#recentlist</icon1>
+				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Clear Recent List</label>
+					<tip>Clears the list of the most recently visited folders</tip>
+					<function type="normal">
+						<instruction>Recent CLEAR</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Recent Locations</label>
+					<tip>Shows your most recently visited folders</tip>
+					<function type="normal">
+						<instruction>Recent SHOWICONS USEQUALKEYS</instruction>
+					</function>
+				</button>
+			</button>
+		</button>
+		<button backcol="none" display="icon" hotkey="alt+right" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none" timed="yes" type="menu_button">
+			<label>Forward</label>
+			<tip>Go forward to %1</tip>
+			<icon1>#goforward</icon1>
+			<function type="normal">
+				<instruction>Go FORWARD USEQUALKEYS</instruction>
+			</function>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Forward list</label>
+				<tip>Displays a list of previously visited folders you can go forward to</tip>
+				<function type="normal">
+					<instruction>Go FORWARDLIST</instruction>
+				</function>
+			</button>
+		</button>
+		<button always_enable="yes" backcol="none" display="icon" hotkey="backspace" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none" timed="yes" type="menu_button">
+			<label>&amp;Go Up</label>
+			<tip>Go up to %1</tip>
+			<icon1>#goup</icon1>
+			<function type="normal">
+				<instruction>Go UP BACK USEQUALKEYS</instruction>
+			</function>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Parent in New Lister</label>
+				<tip>Parent to %1 (new lister)</tip>
+				<icon1>#goupnewlister</icon1>
+				<function type="normal">
+					<instruction>Go UP NEW</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>P&amp;arent in New Tab</label>
+				<tip>Parent to %1 (new tab)</tip>
+				<icon1>#goupnewtab</icon1>
+				<function type="normal">
+					<instruction>Go UP NEWTAB</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+backspace" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Go To Root</label>
+				<tip>Load the root folder of the current folder</tip>
+				<icon1>#goroot</icon1>
+				<function type="normal">
+					<instruction>Go ROOT USEQUALKEYS</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Refresh</label>
+			<tip>Refresh the contents of the current folder</tip>
+			<hotkeys>
+				<key>f5</key>
+				<key>app+0x3</key>
+			</hotkeys>
+			<icon1>#refresh</icon1>
+			<function type="normal">
+				<instruction>Go REFRESH=source</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey="alt+home" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Home</label>
+			<tip>Go home to %1</tip>
+			<icon1>#home</icon1>
+			<function type="normal">
+				<instruction>Go HOMEDIR USEQUALKEYS</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Begin Hide</label>
+			<function type="normal">
+				<instruction>@hideblock:begin</instruction>
+				<instruction>@hideif:Toolbar NAME=&quot;Favorites Bar&quot; TOGGLE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" dropdown_glyph_slim="yes" label_pos="right" no_label="yes" textcol="none" type="menu">
+			<label>F&amp;avorites</label>
+			<icon1>#favorites</icon1>
+			<button backcol="none" display="both" hotkey="ctrl+D" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Add To Favorites</label>
+				<tip>Adds the current folder to your list of favorite folders</tip>
+				<icon1>#favoritesadd</icon1>
+				<function type="normal">
+					<instruction>Favorites ADDDIALOG</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Edit Favorites</label>
+				<tip>Edit your list of favorite folders</tip>
+				<icon1>#favoritesedit</icon1>
+				<function type="normal">
+					<instruction>Favorites EDIT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Favorite Locations</label>
+				<tip>Shows a list of your favorite folders</tip>
+				<icon1>#favoriteslist</icon1>
+				<function type="normal">
+					<instruction>Favorites SHOWICONS USEQUALKEYS NOOPENINTABS HEADING</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>SmartFavorites</label>
+				<tip>Shows any SmartFavorites™ that have been added</tip>
+				<icon1>#smartfavorites</icon1>
+				<function type="normal">
+					<instruction>Favorites SMART SHOWICONS USEQUALKEYS NOOPENINTABS HEADING</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>End Hide</label>
+			<function type="normal">
+				<instruction>@hideblock:end</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" field_type="path_treepath" hotkey_label="yes" label_pos="right" no_label="yes" size="full" textcol="none">
+			<label>Location</label>
+			<tip>Displays the current folder path, and lets you move to a new folder by typing the path in (with individually selectable tree branches)</tip>
+			<hotkeys>
+				<key>f4</key>
+				<key>alt+D</key>
+				<key>ctrl+L</key>
+			</hotkeys>
+			<icon1>#pathfield</icon1>
+			<function type="normal">
+				<instruction>Go PATHFIELDPATHTREE</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0xcb18de66,0x853b4c7,0x75eea91,0x596c8f09,0x6f5ba170" type="File Display" version="13.0" />
+</toolbar>

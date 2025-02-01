@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<viewerplugins version="1">
+	<plugin enabled="yes" initialized="yes" name="audiotags.dll" />
+	<plugin enabled="yes" initialized="yes" name="dcrawrap.dll" />
+	<plugin enabled="yes" initialized="yes" name="gifanim.dll" />
+	<plugin enabled="no" initialized="yes" name="j2k.dll" />
+	<plugin enabled="yes" initialized="yes" name="movie.dll" />
+	<plugin enabled="yes" initialized="yes" name="opuswic.dll" />
+	<plugin enabled="yes" initialized="yes" name="pcx.dll" />
+	<plugin enabled="yes" initialized="yes" name="targa.dll" />
+	<plugin enabled="yes" initialized="yes" name="wav.dll" />
+	<plugin enabled="yes" initialized="yes" name="WebP.dll" />
+	<plugin enabled="yes" initialized="yes" name="wma.dll" />
+	<plugin enabled="yes" initialized="yes" name="docs.dll" />
+	<plugin enabled="no" initialized="yes" name="multiview.dll" />
+	<plugin enabled="yes" initialized="yes" name="textthumb.dll" />
+	<plugin enabled="yes" initialized="yes" name="text.dll" />
+</viewerplugins>

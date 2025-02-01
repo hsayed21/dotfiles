@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<colorgroups>
+	<categories>
+		<category display="Colors" name="colors" />
+		<category display="Status" name="status" />
+	</categories>
+	<groups donedef="2">
+		<group bg="none" category="colors" fg="#0000ff" flags="0" icon="none" id="{A3B60A15-3008-40C5-B96B-615CF0005B25}" name="Blue" sel_bg="none" sel_fg="none" />
+		<group bg="none" category="status" fg="none" flags="0" icon="none" id="{C866FA3D-5199-49B9-9B68-68436795DC9B}" name="Checked" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-460" />
+		<group bg="none" category="status" fg="none" flags="0" icon="none" id="{04C7CEE6-F91F-49A4-A007-3E7BC82B06FE}" name="Flagged" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-461" />
+		<group bg="none" category="colors" fg="#139b36" flags="0" icon="none" id="{DEA7AD56-705E-46E7-96EB-66FC16625A1C}" name="Green" sel_bg="none" sel_fg="none" />
+		<group bg="none" category="status" fg="none" flags="0" icon="none" id="{284E4FD5-DFCE-4403-95A9-52A86E827927}" name="Important" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-459" />
+		<group bg="none" category="colors" fg="#ff8000" flags="0" icon="none" id="{FEDC8A0B-6F3B-4113-A733-17A008C87ADB}" name="Orange" sel_bg="none" sel_fg="none" />
+		<group bg="none" category="status" fg="none" flags="0x8000" icon="none" id="{E4532FE1-7347-4E47-804A-16A5DBF5BE43}" name="Pinned" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-563" />
+		<group bg="none" category="colors" fg="#8000ff" flags="0" icon="none" id="{53B6C3BF-C513-4E2D-BE6C-71F6C7177492}" name="Purple" sel_bg="none" sel_fg="none" />
+		<group bg="none" category="colors" fg="#da2929" flags="0" icon="none" id="{2F499E2B-8B6E-4B80-8E3B-C73E032E801F}" name="Red" sel_bg="none" sel_fg="none" />
+	</groups>
+</colorgroups>

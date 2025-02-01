@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Favorites Bar</label>
+			<tip>Lists the Favorites Bar branch of the Favorites tree</tip>
+			<function type="normal">
+				<instruction>@ctx:=&quot;Favorites SHOWICONS USEQUALKEYS NOOPENINTABS AUTOCREATE BRANCH=&quot;&quot;&quot; + LanguageStr(&quot;FavoritesBar&quot;) + &quot;&quot;&quot;</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" field_type="spacer" label_pos="right" size="full" textcol="none">
+			<label>Spacer</label>
+			<function type="normal">
+				<instruction>Set SPACER</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" dropdown_glyph="yes" label_pos="right" textcol="none" type="menu">
+			<label>Other Favor&amp;ites</label>
+			<icon1>#favorites</icon1>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Add To Favorites</label>
+				<tip>Adds the current folder to your list of favorite folders</tip>
+				<icon1>#favoritesadd</icon1>
+				<function type="normal">
+					<instruction>Favorites ADDDIALOG</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Edit Favorites</label>
+				<tip>Edit your list of favorite folders</tip>
+				<icon1>#favoritesedit</icon1>
+				<function type="normal">
+					<instruction>Favorites EDIT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Favorite Locations</label>
+				<tip>Lists your favorite folders, excluding the Favorites Bar branch</tip>
+				<icon1>#favoriteslist</icon1>
+				<function type="normal">
+					<instruction>@ctx:=&quot;Favorites SHOWICONS USEQUALKEYS NOOPENINTABS HEADING EXCLUDEBRANCH=&quot;&quot;&quot; + LanguageStr(&quot;FavoritesBar&quot;) + &quot;&quot;&quot;</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>SmartFavorites</label>
+				<tip>Shows any SmartFavorites™ that have been added</tip>
+				<icon1>#smartfavorites</icon1>
+				<function type="normal">
+					<instruction>Favorites SMART SHOWICONS USEQUALKEYS NOOPENINTABS HEADING</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" dropdown_glyph="yes" label_pos="right" textcol="none" type="menu">
+			<label>&amp;Quick Access</label>
+			<icon1>#folder</icon1>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Quick Access</label>
+				<tip>Adds the Quick Access folder to a toolbar or menu</tip>
+				<icon1>#favoriteslist</icon1>
+				<function type="normal">
+					<instruction>Go /quickaccess FOLDERCONTENT=norecurse,nofiles,sortnone HEADING</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Drives</label>
+				<tip>Automatically adds a button for each of the drives in your system to the toolbar/menu</tip>
+				<icon1>#drivebuttons</icon1>
+				<function type="normal">
+					<instruction>Go DRIVEBUTTONS=lettersbeforelabels HEADING</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" field_type="label" label_pos="right" size="full" textcol="none">
+				<label>Special Folders</label>
+				<function type="normal">
+					<instruction>Set LABEL</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>D&amp;esktop</label>
+				<tip>Go to Desktop folder</tip>
+				<icon1>#godesktop</icon1>
+				<function type="normal">
+					<instruction>Go /desktop USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>D&amp;ownloads</label>
+				<tip>Go to Downloads folder</tip>
+				<icon1>#downloads</icon1>
+				<function type="normal">
+					<instruction>Go /downloads USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Do&amp;cuments</label>
+				<icon1>#gomydocuments</icon1>
+				<function type="normal">
+					<instruction>Go /mydocuments USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Libraries</label>
+				<icon1>#golibraries</icon1>
+				<function type="normal">
+					<instruction>Go lib:// USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;This PC</label>
+				<tip>Go to This PC folder</tip>
+				<icon1>#gomycomputer</icon1>
+				<function type="normal">
+					<instruction>Go /mycomputer USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Network</label>
+				<icon1>#gonetwork</icon1>
+				<function type="normal">
+					<instruction>Go /network USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;FTP</label>
+				<tip>Lists your FTP Address Book entries in the file display</tip>
+				<icon1>#ftpconnect</icon1>
+				<function type="normal">
+					<instruction>Go ftp:// USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>F&amp;ile Collections</label>
+				<icon1>#gocollection</icon1>
+				<function type="normal">
+					<instruction>Go coll:// USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Recycle Bin</label>
+				<icon1>#gotrash</icon1>
+				<function type="normal">
+					<instruction>Go /trash USEQUALKEYS</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Add To Favorites</label>
+			<tip>Adds the current folder to your list of favorite folders</tip>
+			<icon1>#favoritesadd</icon1>
+			<function type="normal">
+				<instruction>Favorites ADDDIALOG</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0xd7db7056,0xa9a6d7e6,0xcaac551a,0xb227cef9,0x1136671d" type="Favorites Bar" version="13.0" />
+</toolbar>

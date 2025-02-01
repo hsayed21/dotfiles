@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<scriptaddins>
+	<disabled />
+	<idmap>
+		<script id="{EADEDED2-6F59-42DB-8D28-27DF401CA897}" path="MaxViewerPane.js" />
+	</idmap>
+</scriptaddins>

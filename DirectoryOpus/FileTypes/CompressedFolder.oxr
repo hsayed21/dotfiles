@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR">
+	<key name="CompressedFolder">
+		<key name="opus">
+			<key name="dblclk">
+				<key name="command">
+					<value name="@default" type="sz">go</value>
+				</key>
+			</key>
+			<key name="dblclkshift">
+				<key name="command">
+					<value name="@default" type="sz">go new</value>
+				</key>
+			</key>
+		</key>
+	</key>
+</xml_registry_redirect>

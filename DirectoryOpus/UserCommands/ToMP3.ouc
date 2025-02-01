@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>ToMP3</label>
+	<user_label>To MP3</user_label>
+	<icon1>/downloads/mp3.png,0</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>function OnClick(clickData) {</instruction>
+		<instruction>    var cmd = clickData.func.command;</instruction>
+		<instruction>    cmd.ClearFiles();</instruction>
+		<instruction />
+		<instruction>    // Check for file selection</instruction>
+		<instruction>    if (!clickData.func.sourcetab || clickData.func.sourcetab.selected_files.count == 0) {</instruction>
+		<instruction>        DOpus.Output(&quot;Please select a file to convert!&quot;);</instruction>
+		<instruction>        return;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Get the selected file</instruction>
+		<instruction>    var selectedFile = clickData.func.sourcetab.selected_files(0);</instruction>
+		<instruction>    if (!selectedFile) {</instruction>
+		<instruction>        DOpus.Output(&quot;Error accessing selected file!&quot;);</instruction>
+		<instruction>        return;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Validate input path</instruction>
+		<instruction>    var inputPath = selectedFile.realpath;</instruction>
+		<instruction>    if (!inputPath) {</instruction>
+		<instruction>        DOpus.Output(&quot;Error getting file path!&quot;);</instruction>
+		<instruction>        return;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    var exePath = &quot;C:\\Program Files\\File Converter\\FileConverter.exe&quot;;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // Generate output path - simply replace the extension</instruction>
+		<instruction>    var outputPath = String(inputPath).split(&quot;.&quot;)[0] + &quot;.mp3&quot;;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // Build and execute conversion command</instruction>
+		<instruction>    var preset = &apos;&quot;To Mp3&quot;&apos;;</instruction>
+		<instruction>    var command = &apos;&quot;&apos; + exePath + &apos;&quot;&apos; + &apos; --conversion-preset &apos; + preset + &apos; &quot;&apos; + inputPath + &apos;&quot;&apos;;</instruction>
+		<instruction>    </instruction>
+		<instruction>    try {</instruction>
+		<instruction>        // Run conversion using cmd.RunCommand</instruction>
+		<instruction>        cmd.RunCommand(command);</instruction>
+		<instruction>        DOpus.Output(&quot;Conversion started: &quot; + command);</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Wait a bit for the conversion to complete</instruction>
+		<instruction>        DOpus.Delay(3000); // 3 seconds delay</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Try to copy to clipboard</instruction>
+		<instruction>        cmd.ClearFiles();</instruction>
+		<instruction>        cmd.AddFile(outputPath);</instruction>
+		<instruction>        //cmd.Copy(&quot;clipboard&quot;);</instruction>
+		<instruction>		//cmd.RunCommand(&quot;Clipboard COPY&quot;);</instruction>
+		<instruction>		cmd.RunCommand(&quot;Clipboard COPY FROMSCRIPT&quot;);</instruction>
+		<instruction>        DOpus.Output(&quot;Attempted to copy to clipboard: &quot; + outputPath);</instruction>
+		<instruction>        </instruction>
+		<instruction>    } catch (e) {</instruction>
+		<instruction>        DOpus.Output(&quot;Error during conversion: &quot; + e.toString());</instruction>
+		<instruction>    }</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

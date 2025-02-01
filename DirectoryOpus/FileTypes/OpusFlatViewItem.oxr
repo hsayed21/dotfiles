@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR" regkey="OpusFlatViewItem">
+	<key name="opus">
+		<key name="opencontainer">
+			<key name="command">
+				<value name="@default" type="sz">go opencontainer</value>
+			</key>
+			<key name="opusflags">
+				<value name="Position" type="sz">0</value>
+			</key>
+			<value name="@default" type="sz">Open Conta&amp;ining Folder</value>
+		</key>
+		<key name="opencontainertab">
+			<key name="command">
+				<value name="@default" type="sz">go opencontainer newtab</value>
+			</key>
+			<key name="opusflags">
+				<value name="Position" type="sz">1</value>
+			</key>
+			<value name="@default" type="sz">Open Containing Folder in Ne&amp;w Tab</value>
+		</key>
+		<value name="donedef" type="sz">1</value>
+	</key>
+</xml_registry_redirect>

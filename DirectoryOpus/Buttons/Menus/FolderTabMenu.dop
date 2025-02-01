@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;Groups</label>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Manage Tab Groups</label>
+				<tip>Open an interactive list of your Folder Tab Groups</tip>
+				<icon1>#prefs</icon1>
+				<function type="normal">
+					<instruction>Prefs PAGE=tabgroups</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Save Tabs...</label>
+				<tip>Save the current tabs as a new Tab Group</tip>
+				<icon1>#newtab</icon1>
+				<function type="normal">
+					<instruction>Go TABGROUPSAVE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>S&amp;ave Tabs (Both Sides)...</label>
+				<tip>Save the tabs in both file displays as a new dual display Tab Group</tip>
+				<icon1>#newtab</icon1>
+				<function type="normal">
+					<instruction>Go TABGROUPSAVE !both</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Saved Tab Groups</label>
+				<tip>Displays a list of your Folder Tab Groups</tip>
+				<icon1>#foldertabgrouplist</icon1>
+				<function type="normal">
+					<instruction>Go TABGROUPLIST=icons USEQUALKEYS HEADING</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Open New Tab</label>
+			<tip>Open a new Folder Tab</tip>
+			<function type="normal">
+				<instruction>Go NEWTAB=default</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Duplicate Tab</label>
+			<tip>Duplicate this tab</tip>
+			<function type="normal">
+				<instruction>Go TABDUPLICATE PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Duplicate Tab Dual</label>
+			<tip>Duplicate this tab in a dual display</tip>
+			<function type="normal">
+				<instruction>Go TABDUPLICATE=dual PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Move Tab To Other Side</label>
+			<tip>Move this tab to the other file display</tip>
+			<function type="normal">
+				<instruction>Go TABMOVE PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Open Parent As Tab</label>
+			<tip>Open this tab&apos;s parent folder in a new tab</tip>
+			<function type="normal">
+				<instruction>Go UP NEWTAB</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Open In New Lister</label>
+			<tip>Open this tab in a new Lister (hold shift to close the old tab)</tip>
+			<function type="normal">
+				<instruction>Go CURRENT NEW</instruction>
+				<instruction>@keydown:shift</instruction>
+				<instruction>Go TABCLOSE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Split To Dual Display</label>
+			<tip>Split tabs to the right to dual display</tip>
+			<function type="normal">
+				<instruction>Go TABMOVE split PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Split To New Lister</label>
+			<tip>Split tabs to the right to a new Lister</tip>
+			<function type="normal">
+				<instruction>Go TABMOVE splitlister PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Undo Close Tab</label>
+			<tip>Re-open the previously closed tab</tip>
+			<function type="normal">
+				<instruction>Go TABUNDOCLOSE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Undo Close Window</label>
+			<tip>Reopen the last closed Lister</tip>
+			<function type="normal">
+				<instruction>Go UNDOCLOSELISTER</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Rename Tab</label>
+			<tip>Rename this tab</tip>
+			<function type="normal">
+				<instruction>Go TABNAME !edit PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Set Tab Color...</label>
+			<tip>Assign a color to this tab</tip>
+			<function type="normal">
+				<instruction>Go TABCOLOR edit PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Lock Tab</label>
+			<tip>A sub-menu with options to lock a tab from closing or changing folders</tip>
+			<function type="normal">
+				<instruction>Go TABLOCK menu</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Link Tab</label>
+			<tip>A sub-menu for linking two tabs on opposite sides; both are then displayed when either is clicked</tip>
+			<function type="normal">
+				<instruction>Go TABLINK menu</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Expand All Tabs To Listers</label>
+			<tip>Open all tabs as new Listers</tip>
+			<function type="normal">
+				<instruction>Go TABCLOSEALL expand</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Close Tabs To Left</label>
+			<tip>Close tabs to the left (or above)</tip>
+			<function type="normal">
+				<instruction>Go TABCLOSEALL left PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Close Tabs To Right</label>
+			<tip>Close tabs to the right (or below)</tip>
+			<function type="normal">
+				<instruction>Go TABCLOSEALL right PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Close All Other Tabs</label>
+			<tip>Close all tabs except this one</tip>
+			<function type="normal">
+				<instruction>Go TABCLOSEALL PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Close Tab</label>
+			<tip>Close this tab</tip>
+			<function type="normal">
+				<instruction>Go TABCLOSE PATH %tab_id%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+			<label>&amp;Position</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Above</label>
+				<tip>Place the folder tab bar above the file display</tip>
+				<function type="normal">
+					<instruction>Set TABPOSITION=above,save</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Below</label>
+				<tip>Place the folder tab bar below the file display</tip>
+				<function type="normal">
+					<instruction>Set TABPOSITION=below,save</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Left</label>
+				<tip>Place the folder tab bar left of the file display</tip>
+				<function type="normal">
+					<instruction>Set TABPOSITION=left,save</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Right</label>
+				<tip>Place the folder tab bar right of the file display</tip>
+				<function type="normal">
+					<instruction>Set TABPOSITION=right,save</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Settings...</label>
+			<tip>Open the Preferences page for configuring folder tabs</tip>
+			<function type="normal">
+				<instruction>Prefs PAGE=foldertabbars</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0xb3fac514,0xba18e600,0x7f5fa9fd,0xf4ab759a,0x92da8eb8" type="FolderTabMenu" version="13.0" />
+</toolbar>

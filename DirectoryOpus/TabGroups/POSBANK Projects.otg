@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tabgroup active="0" active2="0" closeexisting="yes" hidden="no" overrideauto="no" specificsides="no">
+	<tab flags="0" name="">
+		<pathstring>C:\POSBANK\Projects\POPs Restaurant 6.0.0.000</pathstring>
+		<format getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0" v="3" view_mode="details">
+			<field auto_size="yes" id="name" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+		<curdir />
+	</tab>
+	<tab flags="0" name="">
+		<pathstring>C:\POSBANK\Projects\MenuTree-Frontend</pathstring>
+		<format getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0" v="3" view_mode="details">
+			<field auto_size="yes" id="name" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+		<curdir />
+	</tab>
+	<tab flags="0" name="">
+		<pathstring>C:\POSBANK\Projects\MenuTree-Git</pathstring>
+		<format getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0" v="3" view_mode="details">
+			<field auto_size="yes" id="name" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+		<curdir />
+	</tab>
+	<tab flags="0" name="">
+		<pathstring>C:\POSBANK\Projects\POPs Cloud ERP API</pathstring>
+		<format getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0" v="3" view_mode="details">
+			<field auto_size="yes" id="name" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+		<curdir />
+	</tab>
+	<tab flags="0" name="">
+		<pathstring>C:\POSBANK\Projects\POPs Cloud ERP Front</pathstring>
+		<format getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0" v="3" view_mode="details">
+			<field auto_size="yes" id="name" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+		<curdir />
+	</tab>
+	<tab flags="0" name="">
+		<pathstring>C:\POSBANK\Projects\POPs Retail Git</pathstring>
+		<format getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0" v="3" view_mode="details">
+			<field auto_size="yes" id="name" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+		<curdir />
+	</tab>
+</tabgroup>

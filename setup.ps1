@@ -49,7 +49,10 @@ $packages = @{
             @{ name = "nircmd" },
             @{ name = "7zip" },
             @{ name = "notepadplusplus" },
-            @{ name = "everything" }
+            @{ name = "everything" },
+            @{ name = "wget" },
+            @{ name = "smartsystemmenu" },
+            @{ name = "ffmpeg" }
         )
         SourceForge = @(
             @{
@@ -326,9 +329,19 @@ $mappings = @(
     dest = "$Home\.wezterm.lua"
   },
   # FlowLauncher
-  {
+  @{
     source = "$PWD\FlowLauncher\Settings"
     dest = "$Env:APPDATA\FlowLauncher\Settings"
+  },
+  # globonote
+  @{
+    source = "$PWD\.globonote"
+    dest = "$Home\.globonote"
+  },
+  # Directory Opus
+  @{
+    source = "$PWD\DirectoryOpus"
+    dest = "$Env:APPDATA\GPSoftware\Directory Opus"
   }
 )
 
