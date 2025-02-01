@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Copy_Tree_Structure</label>
+	<user_label>Copy Tree Structure</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>// Copy a tree view of selected files/folders</instruction>
+		<instruction>// By ThioJoe</instruction>
+		<instruction>// Updated: 7/3/24 (1.0.2)</instruction>
+		<instruction />
+		<instruction>//   Argument Template:</instruction>
+		<instruction>//   UP_ONE_CONTEXT/O/S,FILES_FIRST/O/S,EXPAND_DEPTH/O/N,CONTEXT_LINE/O</instruction>
+		<instruction />
+		<instruction>function OnClick(clickData)</instruction>
+		<instruction>{</instruction>
+		<instruction>    // ------- Options (These values will be used if no corresponding argument is specified when calling script --------</instruction>
+		<instruction>    // True/False - Whether to list files before folders</instruction>
+		<instruction>    // &gt;  Optional Argument Name: FILES_FIRST (Switch, no value needed)</instruction>
+		<instruction>    var filesFirst = false;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // Integer - Depth to expand folders. 0 for no expansion, -1 for unlimited depth</instruction>
+		<instruction>    // &gt;  Optional Argument Name: EXPAND_DEPTH (Integer value)</instruction>
+		<instruction>    var expandDepth = -1;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // String - What to show as the top line. Nothing, name of the source folder, or path of the source folder</instruction>
+		<instruction>    // Possible Values: &quot;none&quot;, &quot;folder&quot;, &quot;path&quot;</instruction>
+		<instruction>    // &gt;  Optional Argument Name: CONTEXT_LINE (String value)</instruction>
+		<instruction>    var contextLine = &quot;folder&quot;;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // True/False - If true (or argument included), the context line will be moved up by one folder.</instruction>
+		<instruction>    // &gt;  Optional Argument Name: UP_ONE_CONTEXT (Switch, no value needed)</instruction>
+		<instruction>    var showSourceOneUpContext = false;</instruction>
+		<instruction />
+		<instruction>    // -----------------------------------------------------------------------------------------------------------------</instruction>
+		<instruction>    // Example usage of arguments:</instruction>
+		<instruction>    // Copy_Tree_View UP_ONE_CONTEXT FILES_FIRST EXPAND_DEPTH=1 CONTEXT_LINE=&quot;path&quot;</instruction>
+		<instruction>    // -----------------------------------------------------------------------------------------------------------------</instruction>
+		<instruction />
+		<instruction>    // ------------------------ APPEARANCE SETTINGS ------------------------</instruction>
+		<instruction>    // The character(s) to use for files at a middle branch of the tree</instruction>
+		<instruction>    var middleFileBranch = &quot;├───&quot;;</instruction>
+		<instruction>    // The character(s) to use for files at an end branch of the tree</instruction>
+		<instruction>    var endFileBranch = &quot;└───&quot;;</instruction>
+		<instruction>    // The character(s) to use for folders at a middle branch of the tree</instruction>
+		<instruction>    var middleFolderBranch = &quot;├───&quot;;</instruction>
+		<instruction>    // The character(s) to use for folders at an end branch of the tree</instruction>
+		<instruction>    var endFolderBranch = &quot;└───&quot;;</instruction>
+		<instruction>    // The character(s) to use as a spacer and directory layers not connected to a file/folder</instruction>
+		<instruction>    var verticalBranch = &quot;│&quot;;</instruction>
+		<instruction />
+		<instruction>    // Folder name settings, such as to add brackets surrounding folder names like this or something: [Folder Name]</instruction>
+		<instruction>    // The string to prefix folder names with (default is empty string)</instruction>
+		<instruction>    var folderPrefix = &quot;&quot;;</instruction>
+		<instruction>    // The string to suffix folder names with (default is empty string)</instruction>
+		<instruction>    var folderSuffix = &quot;&quot;;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // In files first mode, this sets whether to show the endFileBranch string above for the last file in the folder, even if there are folders below it</instruction>
+		<instruction>    var discontinuousBranchForLastFile = true;</instruction>
+		<instruction>    </instruction>
+		<instruction>    // ---------------------------------------------------------------------</instruction>
+		<instruction />
+		<instruction>    // Parse optional arguments if they&apos;re there</instruction>
+		<instruction>    if (clickData.func.args.got_arg.UP_ONE_CONTEXT) {</instruction>
+		<instruction>        showSourceOneUpContext = true;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received UP_ONE_CONTEXT argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction>    if (clickData.func.args.got_arg.FILES_FIRST) {</instruction>
+		<instruction>        filesFirst = true;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received FILES_FIRST argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction>    if (clickData.func.args.got_arg.EXPAND_DEPTH) {</instruction>
+		<instruction>        // Validate argument value</instruction>
+		<instruction>        var argExpandDepth = parseInt(clickData.func.args.EXPAND_DEPTH, 10);</instruction>
+		<instruction>        if (!isNaN(argExpandDepth) &amp;&amp; (argExpandDepth &gt;= -1)) {</instruction>
+		<instruction>            expandDepth = argExpandDepth;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            expandDepth = -1;</instruction>
+		<instruction>            DOpus.Output(&quot;ERROR: Invalid EXPAND_DEPTH argument. Must be an integer &gt;= -1. Got: &quot; + clickData.func.args.EXPAND_DEPTH);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Received EXPAND_DEPTH argument: &quot; + expandDepth);</instruction>
+		<instruction>    }</instruction>
+		<instruction>    </instruction>
+		<instruction>    if (clickData.func.args.got_arg.CONTEXT_LINE) {</instruction>
+		<instruction>        // Validate argument value</instruction>
+		<instruction>        var argContextLine = clickData.func.args.CONTEXT_LINE.toLowerCase();</instruction>
+		<instruction>        if (argContextLine === &quot;none&quot; || argContextLine === &quot;folder&quot; || argContextLine === &quot;path&quot;) {</instruction>
+		<instruction>            contextLine = argContextLine;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            contextLine = &quot;folder&quot;;</instruction>
+		<instruction>            DOpus.Output(&quot;ERROR: Invalid CONTEXT_LINE argument. Must be either &apos;none&apos;, &apos;folder&apos;, or &apos;path&apos;. Got: &quot; + clickData.func.args.CONTEXT_LINE);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Received CONTEXT_LINE argument: &quot; + contextLine);</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Further variable setup</instruction>
+		<instruction>    contextLine = contextLine.toLowerCase()</instruction>
+		<instruction>    if (discontinuousBranchForLastFile === false) {</instruction>
+		<instruction>        var lastFileBranch = middleFileBranch;</instruction>
+		<instruction>    } else {</instruction>
+		<instruction>        var lastFileBranch = endFileBranch;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    var tab = clickData.func.sourcetab;</instruction>
+		<instruction>    var selectedItems = tab.selected;</instruction>
+		<instruction>    var sourcePathDepth = tab.path.Split.count;</instruction>
+		<instruction />
+		<instruction>    // Adjust initial depth based on the context</instruction>
+		<instruction>    var initialDepth = showSourceOneUpContext ? sourcePathDepth - 1 : sourcePathDepth;</instruction>
+		<instruction />
+		<instruction>    var expandedItems = expandSelectedItems(selectedItems, expandDepth);</instruction>
+		<instruction />
+		<instruction>    // Decide top level line to print. Whether current folder name, current full path name, or up-one context</instruction>
+		<instruction>    var topLine = &quot;&quot;;</instruction>
+		<instruction>    if (contextLine !== &quot;none&quot;) {</instruction>
+		<instruction />
+		<instruction>        if (showSourceOneUpContext === true) {</instruction>
+		<instruction />
+		<instruction>            var parentPath = DOpus.FSUtil.NewPath(tab.path);</instruction>
+		<instruction>            parentPath.Parent();</instruction>
+		<instruction />
+		<instruction>            if (contextLine === &quot;folder&quot;) {</instruction>
+		<instruction>                topLine = parentPath.filepart + &quot;\n&quot;;</instruction>
+		<instruction>            } else if (contextLine === &quot;path&quot;) {</instruction>
+		<instruction>                topLine = parentPath + &quot;\n&quot;;</instruction>
+		<instruction>            }</instruction>
+		<instruction />
+		<instruction>        } else if (showSourceOneUpContext === false) {</instruction>
+		<instruction />
+		<instruction>            if (contextLine === &quot;folder&quot;) {</instruction>
+		<instruction>                topLine = tab.path.filepart + &quot;\n&quot;;</instruction>
+		<instruction>            } else if (contextLine === &quot;path&quot;) {</instruction>
+		<instruction>                topLine = tab.path + &quot;\n&quot;;</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Create the tree output</instruction>
+		<instruction>    var treeOutput = topLine;</instruction>
+		<instruction>    treeOutput += generateTree(expandedItems, initialDepth, filesFirst, middleFileBranch, endFileBranch, middleFolderBranch, endFolderBranch, verticalBranch, folderPrefix, folderSuffix, lastFileBranch);</instruction>
+		<instruction />
+		<instruction>    DOpus.SetClip(treeOutput);</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>function expandSelectedItems(items, expandDepth) {</instruction>
+		<instruction>    var expandedItems = DOpus.Create().Vector();</instruction>
+		<instruction />
+		<instruction>    function expand(item, depth) {</instruction>
+		<instruction>        expandedItems.push_back(item);</instruction>
+		<instruction>        if (item.is_dir &amp;&amp; (expandDepth === -1 || depth &lt; expandDepth)) {</instruction>
+		<instruction>            var folderEnum = DOpus.FSUtil.ReadDir(item, false);</instruction>
+		<instruction>            while (!folderEnum.complete) {</instruction>
+		<instruction>                var subItem = folderEnum.Next();</instruction>
+		<instruction>                if (subItem) {</instruction>
+		<instruction>                    expand(subItem, depth + 1);</instruction>
+		<instruction>                }</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    for (var i = 0; i &lt; items.count; i++) {</instruction>
+		<instruction>        expand(items(i), 0);</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    return expandedItems;</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>function generateTree(items, baseDepth, filesFirst, middleFileBranch, endFileBranch, middleFolderBranch, endFolderBranch, verticalBranch, folderPrefix, folderSuffix, lastFileBranch) {</instruction>
+		<instruction>    var treeText = &quot;&quot;;</instruction>
+		<instruction>    var pathTree = {};</instruction>
+		<instruction />
+		<instruction>    // Build the tree structure</instruction>
+		<instruction>    for (var i = 0; i &lt; items.count; i++) {</instruction>
+		<instruction>        var item = items(i);</instruction>
+		<instruction>        var relativePathParts = item.realpath.Split(baseDepth);</instruction>
+		<instruction />
+		<instruction>        // Navigate through the tree structure</instruction>
+		<instruction>        var currentLevel = pathTree;</instruction>
+		<instruction>        for (var j = 0; j &lt; relativePathParts.count; j++) {</instruction>
+		<instruction>            var part = relativePathParts(j);</instruction>
+		<instruction>            if (!currentLevel[part]) {</instruction>
+		<instruction>                currentLevel[part] = { &quot;_isDir&quot;: (j &lt; relativePathParts.count - 1 || item.is_dir) };</instruction>
+		<instruction>            }</instruction>
+		<instruction>            currentLevel = currentLevel[part];</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Convert the tree structure to text</instruction>
+		<instruction>    treeText = convertTreeToText(pathTree, &quot;&quot;, &quot;&quot;, filesFirst, middleFileBranch, endFileBranch, middleFolderBranch, endFolderBranch, verticalBranch, folderPrefix, folderSuffix, lastFileBranch, true);</instruction>
+		<instruction />
+		<instruction>    return treeText;</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>function convertTreeToText(tree, folderTerminator, indent, filesFirst, middleFileBranch, endFileBranch, middleFolderBranch, endFolderBranch, verticalBranch, folderPrefix, folderSuffix, lastFileBranch, isRoot) {</instruction>
+		<instruction>    var treeText = &quot;&quot;;</instruction>
+		<instruction>    var entries = [];</instruction>
+		<instruction>    var dirs = [];</instruction>
+		<instruction>    var files = [];</instruction>
+		<instruction />
+		<instruction>    for (var key in tree) {</instruction>
+		<instruction>        if (tree.hasOwnProperty(key) &amp;&amp; key !== &quot;_isDir&quot;) {</instruction>
+		<instruction>            if (tree[key][&quot;_isDir&quot;]) {</instruction>
+		<instruction>                dirs.push(key);</instruction>
+		<instruction>            } else {</instruction>
+		<instruction>                files.push(key);</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // Sort files and directories as needed</instruction>
+		<instruction>    if (filesFirst) {</instruction>
+		<instruction>        entries = files.concat(dirs);</instruction>
+		<instruction>    } else {</instruction>
+		<instruction>        entries = dirs.concat(files);</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    for (var i = 0; i &lt; entries.length; i++) {</instruction>
+		<instruction>        var key = entries[i];</instruction>
+		<instruction>        var isDir = tree[key][&quot;_isDir&quot;];</instruction>
+		<instruction>        var isLastEntry = (i === entries.length - 1);</instruction>
+		<instruction>        var isLastFile = (i === files.length - 1 &amp;&amp; filesFirst &amp;&amp; i &lt; files.length);</instruction>
+		<instruction />
+		<instruction>        var line = indent + (isDir ? (isLastEntry ? endFolderBranch : middleFolderBranch) : (isLastEntry ? endFileBranch : (isLastFile ? lastFileBranch : middleFileBranch))) + (isDir ? folderPrefix + key + folderSuffix : key) + &quot;\n&quot;;</instruction>
+		<instruction>        treeText += line;</instruction>
+		<instruction />
+		<instruction>        if (isDir) {</instruction>
+		<instruction>            var subTreeText = convertTreeToText(tree[key], folderTerminator, indent + (isLastEntry ? &quot;    &quot; : verticalBranch + &quot;   &quot;), filesFirst, middleFileBranch, endFileBranch, middleFolderBranch, endFolderBranch, verticalBranch, folderPrefix, folderSuffix, lastFileBranch, false);</instruction>
+		<instruction>            treeText += subTreeText;</instruction>
+		<instruction />
+		<instruction>            // Check if current directory is empty</instruction>
+		<instruction>            var isCurrentDirEmpty = subTreeText.replace(/^\s+|\s+$/g, &apos;&apos;).length === 0;</instruction>
+		<instruction />
+		<instruction>            // Only add spacing if it&apos;s not the last entry</instruction>
+		<instruction>            if (!isLastEntry) {</instruction>
+		<instruction>                // Get the next entry</instruction>
+		<instruction>                var nextEntry = entries[i + 1];</instruction>
+		<instruction>                </instruction>
+		<instruction>                // Check if the next entry is a directory</instruction>
+		<instruction>                if (tree[nextEntry] &amp;&amp; tree[nextEntry][&quot;_isDir&quot;]) {</instruction>
+		<instruction>                    var nextSubTreeText = convertTreeToText(tree[nextEntry], folderTerminator, &quot;&quot;, filesFirst, middleFileBranch, endFileBranch, middleFolderBranch, endFolderBranch, verticalBranch, folderPrefix, folderSuffix, lastFileBranch, false);</instruction>
+		<instruction>                    var isNextDirEmpty = nextSubTreeText.replace(/^\s+|\s+$/g, &apos;&apos;).length === 0;</instruction>
+		<instruction />
+		<instruction>                    // Add spacer line if:</instruction>
+		<instruction>                    // 1. Current directory is not empty, OR</instruction>
+		<instruction>                    // 2. Current directory is empty but the next one is not</instruction>
+		<instruction>                    if (!isCurrentDirEmpty || (isCurrentDirEmpty &amp;&amp; !isNextDirEmpty)) {</instruction>
+		<instruction>                        treeText += indent + verticalBranch + &quot;\n&quot;;</instruction>
+		<instruction>                    }</instruction>
+		<instruction>                } else {</instruction>
+		<instruction>                    // If next entry is not a directory, always add a spacer</instruction>
+		<instruction>                    treeText += indent + verticalBranch + &quot;\n&quot;;</instruction>
+		<instruction>                }</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction />
+		<instruction>        // Add a vertical line after the last file and before the first folder</instruction>
+		<instruction>        if (isLastFile &amp;&amp; filesFirst &amp;&amp; dirs.length &gt; 0) {</instruction>
+		<instruction>            treeText += indent + verticalBranch + &quot;\n&quot;;</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    return treeText;</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

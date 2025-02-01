@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Copy_Path_With_Auto_Qoute</label>
+	<user_label>Copy Path With Auto Qoute</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>// Copies files or folders full paths to clipboard with quotes around it if it has spaces. Various optional behavior for multiple selected items</instruction>
+		<instruction>// By ThioJoe</instruction>
+		<instruction>// Updated: 9/1/24</instruction>
+		<instruction />
+		<instruction>// Discussion Thread / Latest Version: https://resource.dopus.com/t/scripts-to-copy-file-folder-name-s-or-path-s-with-automatic-surrounding-quotes-based-on-spaces/51122</instruction>
+		<instruction>// Updates also available on my GitHub repo: https://github.com/ThioJoe/D-Opus-Scripts</instruction>
+		<instruction />
+		<instruction>//   Arguments Template (Must put this in the &apos;Template&apos; box in the command editor to use arguments):</instruction>
+		<instruction>//   MULTILINE_QUOTE_MODE/O,SINGLE_ITEM_QUOTE_MODE/O,FOLDER_TERMINATOR/O,RESOLVE_SYMLINKS/O</instruction>
+		<instruction />
+		<instruction>//   Example usage of arguments:</instruction>
+		<instruction>//   Copy_File_Paths_Auto_Quoted MULTILINE_QUOTE_MODE=&quot;never&quot; SINGLE_ITEM_QUOTE_MODE=&quot;auto&quot; FOLDER_TERMINATOR=&quot;\&quot; RESOLVE_SYMLINKS=&quot;both&quot;</instruction>
+		<instruction />
+		<instruction>function OnClick(clickData) {</instruction>
+		<instruction>    //------------ Options (Note: If arguments are used when calling the script, these values will be overrided by the arguments) ------------</instruction>
+		<instruction>    // multiLineQuoteMode: Affects how quotes are added around each file path when multiple are selected</instruction>
+		<instruction>    // Set to &apos;never&apos; to never add quotes when multiple selected. &apos;always&apos; to add to all lines. &apos;auto&apos; to add for lines with spaces in file path</instruction>
+		<instruction>    // &gt;  Optional Argument Name: MULTILINE_QUOTE_MODE (string value)</instruction>
+		<instruction>    var multiLineQuoteMode = &quot;never&quot;;</instruction>
+		<instruction>    // Which trailing path terminator to add (if any) to the end of full paths of folders (basically like the &apos;noterm&apos; modifier)</instruction>
+		<instruction>    // Just set to empty string if none wanted. Don&apos;t forget to escape as necessary (to add a backslash would be like: &quot;\\&quot;)</instruction>
+		<instruction>    // &gt;  Optional Argument Name: FOLDER_TERMINATOR (string value)</instruction>
+		<instruction>    var includeTrailingTerminator = &quot;&quot;;</instruction>
+		<instruction>    // singleItemQuoteMode: Affects how quotes are added to each file name when a single file/folder is selected</instruction>
+		<instruction>    // &gt;  Optional Argument Name: SINGLE_ITEM_QUOTE_MODE (string value)</instruction>
+		<instruction>    var singleItemQuoteMode = &quot;auto&quot;;</instruction>
+		<instruction>    // resolveSymlinksAndJunctions: Whether to copy the resulting linked target path instead of the &apos;virtual&apos; file/folder for symbolic links (can be either files/folders) and junctions (folders).</instruction>
+		<instruction>    // Note: Doesn&apos;t apply to shortcuts (.lnk files)</instruction>
+		<instruction>    // Possible values: none, symlinkedFiles, symlinkedFolders, both</instruction>
+		<instruction>    // &gt;  Optional Argument Name: RESOLVE_SYMLINKS (string value)</instruction>
+		<instruction>    var resolveSymlinks = &quot;none&quot;;</instruction>
+		<instruction>    //---------------------------------</instruction>
+		<instruction>    </instruction>
+		<instruction>    var tab = clickData.func.sourcetab;</instruction>
+		<instruction>    var selectedItems = tab.selected;</instruction>
+		<instruction>    clickData.func.command.deselect = false</instruction>
+		<instruction />
+		<instruction>    if (selectedItems.count == 0) {</instruction>
+		<instruction>        return; // No files selected, nothing to do.</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    if (clickData.func.args.got_arg.SINGLE_ITEM_QUOTE_MODE) {</instruction>
+		<instruction>        //Validate argument value</instruction>
+		<instruction>        argString = clickData.func.args.SINGLE_ITEM_QUOTE_MODE.toLowerCase();</instruction>
+		<instruction>        if (argString == &quot;never&quot; || argString == &quot;always&quot; || argString == &quot;auto&quot;) {</instruction>
+		<instruction>            singleItemQuoteMode = argString;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            singleItemQuoteMode = &quot;auto&quot;;</instruction>
+		<instruction>            DOpus.Output(&quot;ERROR: Invalid SINGLE_ITEM_QUOTE_MODE argument. Must be either &apos;never&apos;, &apos;always&apos;, or &apos;auto&apos;. Got: &quot; + argString);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Received SINGLE_ITEM_QUOTE_MODE argument: &quot; + String(clickData.func.args.SINGLE_ITEM_QUOTE_MODE));</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    if (clickData.func.args.got_arg.MULTILINE_QUOTE_MODE) {</instruction>
+		<instruction>        //Validate argument value</instruction>
+		<instruction>        argString = clickData.func.args.MULTILINE_QUOTE_MODE.toLowerCase();</instruction>
+		<instruction>        if (argString == &quot;never&quot; || argString == &quot;always&quot; || argString == &quot;auto&quot;) {</instruction>
+		<instruction>            multiLineQuoteMode = argString;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            multiLineQuoteMode = &quot;never&quot;;</instruction>
+		<instruction>            DOpus.Output(&quot;ERROR: Invalid MULTILINE_QUOTE_MODE argument. Must be either &apos;never&apos;, &apos;always&apos;, or &apos;auto&apos;. Got: &quot; + argString);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Received MULTILINE_QUOTE_MODE argument: &quot; + String(clickData.func.args.MULTILINE_QUOTE_MODE));</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    if (clickData.func.args.got_arg.RESOLVE_SYMLINKS) {</instruction>
+		<instruction>        //Validate argument value</instruction>
+		<instruction>        argString = clickData.func.args.RESOLVE_SYMLINKS.toLowerCase();</instruction>
+		<instruction>        if (argString == &quot;none&quot; || argString == &quot;symlinkedfiles&quot; || argString == &quot;symlinkedfolders&quot; || argString == &quot;both&quot;) {</instruction>
+		<instruction>            resolveSymlinks = argString;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            resolveSymlinks = &quot;none&quot;;</instruction>
+		<instruction>            DOpus.Output(&quot;ERROR: Invalid RESOLVE_SYMLINKS argument. Must be either &apos;none&apos;, &apos;symlinkedFiles&apos;, &apos;symlinkedFolders&apos;, or &apos;both&apos;. Got: &quot; + argString);</instruction>
+		<instruction>        }</instruction>
+		<instruction>        //DOpus.Output(&quot;Received RESOLVE_SYMLINKS argument: &quot; + String(clickData.func.args.RESOLVE_SYMLINKS));</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    if (clickData.func.args.got_arg.FOLDER_TERMINATOR) {</instruction>
+		<instruction>        includeTrailingTerminator = clickData.func.args.FOLDER_TERMINATOR;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received FOLDER_TERMINATOR argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    var clipboardText = &quot;&quot;;</instruction>
+		<instruction>    // If single item is selected</instruction>
+		<instruction>    if (selectedItems.count == 1) {</instruction>
+		<instruction>        var singleItem = selectedItems(0);</instruction>
+		<instruction>        var filePath = String(singleItem.realpath);</instruction>
+		<instruction>        </instruction>
+		<instruction>        // Resolve symlink/junction if needed</instruction>
+		<instruction>        if (resolveSymlinks == &quot;both&quot; || (resolveSymlinks == &quot;symlinkedfiles&quot; &amp;&amp; !singleItem.is_dir) || (resolveSymlinks == &quot;symlinkedfolders&quot; &amp;&amp; singleItem.is_dir)) {</instruction>
+		<instruction>            var resolvedPath = DOpus.FSUtil.Resolve(String(singleItem.realpath), &quot;j&quot;);</instruction>
+		<instruction>            filePath = String(resolvedPath);</instruction>
+		<instruction>        }</instruction>
+		<instruction>       </instruction>
+		<instruction>        if (singleItem.is_dir) {</instruction>
+		<instruction>            filePath += includeTrailingTerminator;</instruction>
+		<instruction>        }</instruction>
+		<instruction>        // If no spaces in the file path or option set to not use quotes</instruction>
+		<instruction>        if (singleItemQuoteMode != &quot;always&quot; &amp;&amp; (filePath.indexOf(&quot; &quot;) == -1 || singleItemQuoteMode == &quot;never&quot;)) {</instruction>
+		<instruction>            clipboardText = filePath;</instruction>
+		<instruction>        } else {</instruction>
+		<instruction>            // File path contains spaces or option set to always use quotes</instruction>
+		<instruction>            clipboardText = &apos;&quot;&apos; + filePath + &apos;&quot;&apos;;</instruction>
+		<instruction>        }</instruction>
+		<instruction>    } else {</instruction>
+		<instruction>        // Multiple items selected</instruction>
+		<instruction>        for (var i = 0; i &lt; selectedItems.count; i++) {</instruction>
+		<instruction>            var filePath = String(selectedItems(i).realpath);</instruction>
+		<instruction />
+		<instruction>            // Resolve symlink/junction if needed</instruction>
+		<instruction>            if (resolveSymlinks == &quot;both&quot; || (resolveSymlinks == &quot;symlinkedfiles&quot; &amp;&amp; !selectedItems(i).is_dir) || (resolveSymlinks == &quot;symlinkedfolders&quot; &amp;&amp; selectedItems(i).is_dir)) {</instruction>
+		<instruction>                var resolvedPath = DOpus.FSUtil.Resolve(String(selectedItems(i).realpath), &quot;j&quot;);</instruction>
+		<instruction>                filePath = String(resolvedPath);</instruction>
+		<instruction>            }</instruction>
+		<instruction>            </instruction>
+		<instruction>            if (selectedItems(i).is_dir) {</instruction>
+		<instruction>                filePath += includeTrailingTerminator;</instruction>
+		<instruction>            }</instruction>
+		<instruction>            //Add a newline character to the beginning starting after the first line</instruction>
+		<instruction>            if (i &gt; 0) {</instruction>
+		<instruction>                clipboardText += &quot;\n&quot;;</instruction>
+		<instruction>            }</instruction>
+		<instruction>            if (multiLineQuoteMode === &quot;always&quot;) {</instruction>
+		<instruction>                clipboardText += &apos;&quot;&apos; + filePath + &apos;&quot;&apos;;</instruction>
+		<instruction>            } else if (multiLineQuoteMode === &quot;auto&quot; &amp;&amp; filePath.indexOf(&quot; &quot;) !== -1) {</instruction>
+		<instruction>                clipboardText += &apos;&quot;&apos; + filePath + &apos;&quot;&apos;;</instruction>
+		<instruction>            } else {</instruction>
+		<instruction>                clipboardText += filePath;</instruction>
+		<instruction>            }</instruction>
+		<instruction>        }</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    DOpus.SetClip(clipboardText);</instruction>
+		<instruction>    // For debugging:</instruction>
+		<instruction>    //DOpus.Output(&quot;--- Copied to clipboard: ---\n&quot; + clipboardText);</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

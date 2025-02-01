@@ -33,5 +33,26 @@
 				<instruction>MaxViewerPane</instruction>
 			</function>
 		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Copy Tree Structure</label>
+			<icon1>#usercommand</icon1>
+			<function type="normal">
+				<instruction>Copy_Tree_Structure</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Copy Path With Auto Qoute</label>
+			<icon1>#usercommand</icon1>
+			<function type="normal">
+				<instruction>Copy_Path_With_Auto_Qoute</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Make Bak File</label>
+			<icon1>#usercommand</icon1>
+			<function type="normal">
+				<instruction>Make_Bak_File</instruction>
+			</function>
+		</button>
 	</buttons>
 </toolbar>

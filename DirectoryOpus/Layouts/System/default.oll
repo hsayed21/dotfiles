@@ -1,169 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <lister_layout flags="1">
 	<lister virtual_desktop="{F48770A5-1C9B-40F2-98C6-925AD9D72C86}">
-		<wp flags="2" ptmin="-32000,-32000,150" rc="2126,117,3845,989,150" showcmd="3" />
-		<layout flags="0x103000025" meta_split="500000" view_mode="details,details" viewer_size="334700" well_width="192,0" well_width_dpi="150" />
+		<wp flags="2" ptmin="0,0,150" rc="1913,38,3632,910,150" showcmd="3" />
+		<layout flags="0x103000021" meta_split="500000" tree_size="480,0" tree_size_dpi="150" view_mode="details,details" viewer_size="334700" well_width="192,0" well_width_dpi="150" />
 		<filedisplay>
-			<left buf_flags="0xc0022000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\Downloads</pathstring>
-				<format folderssortalpha="yes" getsizes="default" group="11" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x4000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" manual_resize="yes" size="697" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+			<left buf_flags="0xc0020000" flags="0" name="">
+				<pathstring>C:\Users\hsayed</pathstring>
+				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+					<field collapse="yes" id="name" size="497" size_dpi="150" sort="1" />
 					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizerel" size="120" size_dpi="150" />
 					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
+					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
 				</format>
 				<curdir>
 					<3>
-						<pathstring>C:\Users\hsayed\Downloads</pathstring>
+						<pathstring>C:\Users\hsayed</pathstring>
 					</3>
 				</curdir>
 				<vars />
 			</left>
 		</filedisplay>
 		<initial_layout>Explorer</initial_layout>
-		<tabs1 active="3">
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>C:\Program Files\File Converter</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Programs" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="547" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="89" size_dpi="150" />
-					<field id="type" size="231" size_dpi="150" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-					<field id="attr" size="75" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Program Files\File Converter</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>G:\My Drive\POSBANK</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Archives" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="652" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="92" size_dpi="150" />
-					<field id="type" size="248" size_dpi="150" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-					<field id="attr" size="73" size_dpi="150" />
-				</format>
-				<curdir>
-					<7>
-						<pathstring>G:\My Drive\POSBANK</pathstring>
-					</7>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\Downloads\PBBK_M_20250201163903</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Archives" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="322" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="89" size_dpi="150" />
-					<field id="type" size="87" size_dpi="150" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-					<field id="attr" size="75" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\Downloads\PBBK_M_20250201163903</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0022000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\Downloads</pathstring>
-				<format folderssortalpha="yes" getsizes="default" group="11" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x4000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" manual_resize="yes" size="697" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizerel" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\Downloads</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\AppData\Roaming\GPSoftware\Directory Opus</pathstring>
-				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" reverse="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="241" size_dpi="150" />
-					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\AppData\Roaming\GPSoftware\Directory Opus</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
-				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="1" size_dpi="150" sort="1" />
-					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-				</format>
-				<curdir>
-					<7>
-						<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
-					</7>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\Downloads\Backups</pathstring>
-				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="1" size_dpi="150" sort="1" />
-					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="85" size_dpi="150" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\Downloads\Backups</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\Downloads\MaxViewerPane.v0.1\MaxViewerPane</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Programs" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="426" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
-					<field id="type" size="204" size_dpi="150" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-					<field id="attr" size="75" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\Downloads\MaxViewerPane.v0.1\MaxViewerPane</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" custom_flags="0,0,4,3" flags="0" name="" nsid="{B52C30E0-7FF9-47CC-B112-A3D9374CD79E}">
-				<pathstring>C:\Users\hsayed\AppData\Roaming\GPSoftware\Directory Opus\Scripts</pathstring>
-				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" reverse="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="426" size_dpi="150" />
-					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\AppData\Roaming\GPSoftware\Directory Opus\Scripts</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-		</tabs1>
 		<tabgroup1>New Tab Group</tabgroup1>
+		<tree_expand>
+			<tree1>
+				<item id="{B52C30E0-7FF9-47CC-B112-A3D9374CD79E}" />
+				<item id="{20D04FE0-3AEA-1069-A2D8-08002B30309D}" />
+			</tree1>
+		</tree_expand>
 	</lister>
 </lister_layout>

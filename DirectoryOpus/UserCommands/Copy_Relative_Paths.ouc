@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Copy_Relative_Paths</label>
+	<user_label>Copy_Relative_Paths</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>// Copy the list of paths to selected files/folders, relative to current path (such as when using flat view)</instruction>
+		<instruction>// By ThioJoe</instruction>
+		<instruction>// Updated: 6/5/24 (First Version)</instruction>
+		<instruction />
+		<instruction>//   Argument Template:</instruction>
+		<instruction>//   INCLUDE_CURRENT_DIR/O/S,PREFIX/O,FOLDER_TERMINATOR/O</instruction>
+		<instruction />
+		<instruction>function OnClick(clickData)</instruction>
+		<instruction>{</instruction>
+		<instruction>    // ------- Options (These values will be used if no corresponding argument is specified when calling script --------</instruction>
+		<instruction>    // True/False - Whether or not to include the name of the current-level folder name as the first part of the relative path</instruction>
+		<instruction>    // &gt;  Optional Argument Name: INCLUDE_CURRENT_DIR (Switch, no value needed)</instruction>
+		<instruction>    var includeCurrentFolderName = false;</instruction>
+		<instruction>    // This lets you prefix the relative paths with a string or character (such as a backslash) if you want. Or you can set it to a blank string.</instruction>
+		<instruction>    // Remember to escape if necessary (for backslash do two of them like &quot;\\&quot;)</instruction>
+		<instruction>    // &gt;  Optional Argument Name: PREFIX (string value)</instruction>
+		<instruction>    var prefix = &quot;\\&quot;;</instruction>
+		<instruction>    // Sets which trailing path terminator to add (if any) to the end of full paths of folders (like the &apos;noterm&apos; modifier). Doesn&apos;t apply to files.</instruction>
+		<instruction>    // Just set to empty string if none wanted. Don&apos;t forget to escape as necessary (to add a backslash would be like: &quot;\\&quot;)</instruction>
+		<instruction>    // &gt;  Optional Argument Name: FOLDER_TERMINATOR (string value)</instruction>
+		<instruction>    var trailingFolderTerminator = &quot;\\&quot;;</instruction>
+		<instruction>    // -----------------------------------------------------------------------------------------------------------------</instruction>
+		<instruction>    // Example usage of arguments:</instruction>
+		<instruction>    // Copy_Relative_Paths INCLUDE_CURRENT_DIR PREFIX=&quot;\&quot; FOLDER_TERM=&quot;\&quot; </instruction>
+		<instruction>    // -----------------------------------------------------------------------------------------------------------------</instruction>
+		<instruction />
+		<instruction>    // Parse optional arguments if they&apos;re there</instruction>
+		<instruction>    if (clickData.func.args.got_arg.INCLUDE_CURRENT_DIR) {</instruction>
+		<instruction>        includeCurrentFolderName = true;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received INCLUDE_CURRENT_DIR argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction>    if (clickData.func.args.got_arg.PREFIX) {</instruction>
+		<instruction>        prefix = clickData.func.args.PREFIX;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received PREFIX argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction>    if (clickData.func.args.got_arg.FOLDER_TERMINATOR) {</instruction>
+		<instruction>        trailingFolderTerminator = clickData.func.args.FOLDER_TERMINATOR;</instruction>
+		<instruction>        //DOpus.Output(&quot;Received FOLDER_TERMINATOR argument&quot;);</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // For debugging</instruction>
+		<instruction>    //DOpus.Output(&quot;\n&quot;);</instruction>
+		<instruction>    //DOpus.Output(&quot;Include Current Dir: &quot; + String(clickData.func.args.include_current_dir));</instruction>
+		<instruction>    //DOpus.Output(&quot;Prefix: &quot; + String(clickData.func.args.prefix));</instruction>
+		<instruction>    //DOpus.Output(&quot;Folder Terminator: &quot; + String(clickData.func.args.folder_terminator));</instruction>
+		<instruction>    //DOpus.Output(&quot;\n&quot;);</instruction>
+		<instruction>    </instruction>
+		<instruction>    var tab = clickData.func.sourcetab;</instruction>
+		<instruction>    var selectedItems = tab.selected;</instruction>
+		<instruction>    var sourcePathDepth = tab.path.Split.count;</instruction>
+		<instruction />
+		<instruction>    var initialDepth = 0;</instruction>
+		<instruction>    if (includeCurrentFolderName == true) {</instruction>
+		<instruction>        initialDepth = sourcePathDepth-1;</instruction>
+		<instruction>    } else {</instruction>
+		<instruction>        initialDepth = sourcePathDepth;</instruction>
+		<instruction>    }</instruction>
+		<instruction />
+		<instruction>    // For Debugging</instruction>
+		<instruction>    //DOpus.Output(&quot;Source Path: &quot; + tab.path);</instruction>
+		<instruction>    //DOpus.Output(&quot;Source Path Depth: &quot; + sourcePathDepth);</instruction>
+		<instruction />
+		<instruction>    var clipboardText = &quot;&quot;;</instruction>
+		<instruction>    for (var i = 0; i &lt; selectedItems.count; i++) {</instruction>
+		<instruction>        var relativePath = DOpus.FSUtil.NewPath();</instruction>
+		<instruction>        relativePath.set(selectedItems(i).realpath.Split(initialDepth));</instruction>
+		<instruction>        finalRelativePathString = prefix + String(relativePath);</instruction>
+		<instruction />
+		<instruction>        if (selectedItems(i).is_dir) {</instruction>
+		<instruction>            finalRelativePathString += trailingFolderTerminator;</instruction>
+		<instruction>        }</instruction>
+		<instruction>        </instruction>
+		<instruction>        // For Debugging</instruction>
+		<instruction>        //DOpus.Output(&quot;Original Path: &quot; + String(selectedItems(i).realpath));</instruction>
+		<instruction>        //DOpus.Output(&quot;Relative Path: &quot; + finalRelativePathString);</instruction>
+		<instruction>        </instruction>
+		<instruction>        //Add a newline character to the beginning starting after the first line</instruction>
+		<instruction>        if (i &gt; 0) {</instruction>
+		<instruction>            clipboardText += &quot;\n&quot;;</instruction>
+		<instruction>        }</instruction>
+		<instruction>        clipboardText += finalRelativePathString;</instruction>
+		<instruction>    }</instruction>
+		<instruction>    DOpus.SetClip(clipboardText);</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Copy_Shortcut_Target_With_Arguments</label>
+	<user_label>Copy_Shortcut_Target_With_Arguments</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script VBScript</instruction>
+		<instruction>&apos; Version: 2.3.0 - 9/7/24</instruction>
+		<instruction>&apos; IMPORTANT PERFORMANCE TIP: Use the &quot;@runonce:&quot; command modifier if using this with a context menu button</instruction>
+		<instruction>&apos; Just put it before whatever name you set for the user command. So for example:    @runonce:Copy_Shortcut_Target_With_Arguments</instruction>
+		<instruction />
+		<instruction>&apos;   Arguments Template (Must put this in the &apos;Template&apos; box in the command editor to use arguments):</instruction>
+		<instruction>&apos;   PARSE_SHELL_ID/S,DONT_CROP_SHELL/S</instruction>
+		<instruction>Option Explicit</instruction>
+		<instruction />
+		<instruction>Function OnClick(ByRef clickData)</instruction>
+		<instruction>    &apos; ------------------------ Options ------------------------</instruction>
+		<instruction>    &apos; Argument: PARSE_SHELL_ID (switch, no value given)</instruction>
+		<instruction>    &apos;    Instead of copying the entire string, if the path contains &quot;shell:&quot;, &quot;shell:::&quot;, or starts with &quot;::&quot;, it will only copy what comes after those points</instruction>
+		<instruction>    &apos; Argument: DONT_CROP_SHELL (switch, no value given)</instruction>
+		<instruction>    &apos;    When using PARSE_SHELL_ID arg, this will keep the &quot;shell:::&quot;, &quot;shell:&quot;, and &quot;::&quot; part of the parsed shell ID instead of cutting it off</instruction>
+		<instruction>    &apos;----------------------------------------------------------</instruction>
+		<instruction>    </instruction>
+		<instruction>    Dim GetCLSID, DontCropShell</instruction>
+		<instruction>    GetCLSID = False &apos;Default to false unless switch argument is given. Tries to parse CLSID.</instruction>
+		<instruction>    DontCropShell = False</instruction>
+		<instruction />
+		<instruction>    &apos; Check for arguments</instruction>
+		<instruction>    If clickData.func.args.got_arg.PARSE_SHELL_ID Then</instruction>
+		<instruction>        GetCLSID = True</instruction>
+		<instruction>    End If</instruction>
+		<instruction>    </instruction>
+		<instruction>    If clickData.func.args.got_arg.DONT_CROP_SHELL Then</instruction>
+		<instruction>        DontCropShell = True</instruction>
+		<instruction>    End If</instruction>
+		<instruction />
+		<instruction>    &apos; Create necessary objects and variables</instruction>
+		<instruction>    Dim fs, selectedItems, item, path, fExt, resolvedPaths, itemIndex</instruction>
+		<instruction>    Set fs = CreateObject(&quot;Scripting.FileSystemObject&quot;)</instruction>
+		<instruction>    Dim shellLink, shellLinkAlt</instruction>
+		<instruction>    Set shellLink = CreateObject(&quot;Shell.Application&quot;)</instruction>
+		<instruction>    Set shellLinkAlt = CreateObject(&quot;WScript.Shell&quot;)</instruction>
+		<instruction>    resolvedPaths = &quot;&quot;</instruction>
+		<instruction>    Set selectedItems = clickData.func.sourcetab.selected</instruction>
+		<instruction>    clickData.func.command.deselect = False</instruction>
+		<instruction>    </instruction>
+		<instruction>    If selectedItems.count = 0 Then</instruction>
+		<instruction>        &apos;DOpus.Output &quot;No files selected.&quot;</instruction>
+		<instruction>        Exit Function</instruction>
+		<instruction>    End If</instruction>
+		<instruction />
+		<instruction>    &apos; Begin main logic</instruction>
+		<instruction>    itemIndex = 0</instruction>
+		<instruction>    For Each item In selectedItems</instruction>
+		<instruction>        If itemIndex &gt; 0 Then</instruction>
+		<instruction>            resolvedPaths = resolvedPaths &amp; vbCrLf</instruction>
+		<instruction>        End If</instruction>
+		<instruction>        path = item.realpath</instruction>
+		<instruction>        fExt = LCase(fs.GetExtensionName(path))</instruction>
+		<instruction>        Dim resolvedPath</instruction>
+		<instruction>        Select Case fExt</instruction>
+		<instruction>            Case &quot;lnk&quot;</instruction>
+		<instruction>                resolvedPath = GetLnkFullPath(shellLink, shellLinkAlt, fs, path)</instruction>
+		<instruction>            Case &quot;url&quot;</instruction>
+		<instruction>                resolvedPath = GetUrlFullPath(fs, path)</instruction>
+		<instruction>            Case Else</instruction>
+		<instruction>                resolvedPath = path</instruction>
+		<instruction>        End Select</instruction>
+		<instruction>        </instruction>
+		<instruction>        If GetCLSID Then</instruction>
+		<instruction>            resolvedPath = parseCLSID(resolvedPath, DontCropShell)</instruction>
+		<instruction>        End If</instruction>
+		<instruction>        </instruction>
+		<instruction>        resolvedPaths = resolvedPaths &amp; resolvedPath</instruction>
+		<instruction>        itemIndex = itemIndex + 1</instruction>
+		<instruction>    Next</instruction>
+		<instruction>    Set shellLink = Nothing</instruction>
+		<instruction>    Set shellLinkAlt = Nothing</instruction>
+		<instruction>    Set fs = Nothing</instruction>
+		<instruction>    </instruction>
+		<instruction>    DOpus.SetClip Trim(resolvedPaths)</instruction>
+		<instruction>    &apos;DOpus.Output &quot;Resolved paths: &quot; &amp; resolvedPaths</instruction>
+		<instruction>End Function</instruction>
+		<instruction />
+		<instruction>Function parseCLSID(path, DontCropShell)</instruction>
+		<instruction>    If Left(path, 2) = &quot;::&quot; Then</instruction>
+		<instruction>        &apos; Case 1 and 2: Starts with &quot;::&quot;</instruction>
+		<instruction>        If DontCropShell Then</instruction>
+		<instruction>            parseCLSID = path</instruction>
+		<instruction>        Else</instruction>
+		<instruction>            parseCLSID = Mid(path, 3)</instruction>
+		<instruction>        End If</instruction>
+		<instruction>    ElseIf InStr(path, &quot;shell:::&quot;) &gt; 0 Then</instruction>
+		<instruction>        &apos; Case 3: Contains &quot;shell:::&quot;</instruction>
+		<instruction>        If DontCropShell Then</instruction>
+		<instruction>            parseCLSID = Mid(path, InStr(path, &quot;shell:::&quot;))</instruction>
+		<instruction>        Else</instruction>
+		<instruction>            parseCLSID = Mid(path, InStr(path, &quot;shell:::&quot;) + 8)</instruction>
+		<instruction>        End If</instruction>
+		<instruction>    ElseIf InStr(path, &quot;shell:&quot;) &gt; 0 Then</instruction>
+		<instruction>        &apos; Case 4: Contains &quot;shell:&quot;</instruction>
+		<instruction>        If DontCropShell Then</instruction>
+		<instruction>            parseCLSID = Mid(path, InStr(path, &quot;shell:&quot;))</instruction>
+		<instruction>        Else</instruction>
+		<instruction>            parseCLSID = Mid(path, InStr(path, &quot;shell:&quot;) + 6)</instruction>
+		<instruction>        End If</instruction>
+		<instruction>    Else</instruction>
+		<instruction>        &apos; No CLSID found, keep the original path</instruction>
+		<instruction>        parseCLSID = path</instruction>
+		<instruction>    End If</instruction>
+		<instruction>End Function</instruction>
+		<instruction />
+		<instruction>&apos; Function to return the full path and arguments of a .lnk shortcut file</instruction>
+		<instruction>&apos; Where ShellLinkObj is created via:   CreateObject(&quot;Shell.Application&quot;)</instruction>
+		<instruction>&apos; ShellLinkObjAlt is created via:       CreateObject(&quot;WScript.Shell&quot;)</instruction>
+		<instruction>&apos;    and &apos;fs&apos; is created via: CreateObject(&quot;Scripting.FileSystemObject&quot;)</instruction>
+		<instruction>Function GetLnkFullPath(shellLinkObj, shellLinkObjAlt, fs, path)</instruction>
+		<instruction>    Dim linkData, targetPath, arguments</instruction>
+		<instruction>    </instruction>
+		<instruction>    On Error Resume Next</instruction>
+		<instruction>    </instruction>
+		<instruction>    &apos; Try using Shell.Application first</instruction>
+		<instruction>    Set linkData = shellLinkObj.Namespace(fs.GetParentFolderName(path)).ParseName(fs.GetFileName(path)).GetLink</instruction>
+		<instruction>    </instruction>
+		<instruction>    If Err Then</instruction>
+		<instruction>        &apos; Fall back to WScript.Shell if any error occurs</instruction>
+		<instruction>        Err.Clear</instruction>
+		<instruction>        Set linkData = shellLinkObjAlt.CreateShortcut(path)</instruction>
+		<instruction>        targetPath = linkData.TargetPath</instruction>
+		<instruction>        arguments = linkData.Arguments</instruction>
+		<instruction>    Else</instruction>
+		<instruction>        targetPath = linkData.Target.Path</instruction>
+		<instruction>        arguments = linkData.Arguments</instruction>
+		<instruction>    End If</instruction>
+		<instruction />
+		<instruction>    &apos; Return to normal error handling behavior</instruction>
+		<instruction>    On Error Goto 0</instruction>
+		<instruction>    </instruction>
+		<instruction>    If Err.Number &lt;&gt; 0 Then</instruction>
+		<instruction>        &apos; If both methods fail, return the original path</instruction>
+		<instruction>        GetLnkFullPath = Trim(path)</instruction>
+		<instruction>    ElseIf targetPath &lt;&gt; &quot;&quot; Then</instruction>
+		<instruction>        GetLnkFullPath = Trim(targetPath &amp; &quot; &quot; &amp; arguments)</instruction>
+		<instruction>    Else</instruction>
+		<instruction>        GetLnkFullPath = &quot;[Error]&quot; &apos; Fallback to original path</instruction>
+		<instruction>    End If</instruction>
+		<instruction>End Function</instruction>
+		<instruction />
+		<instruction>&apos; Function to read text from .url file to get URL target.</instruction>
+		<instruction>&apos; Where &apos;path&apos; is the .url file path and &apos;fs&apos; is created via: CreateObject(&quot;Scripting.FileSystemObject&quot;)</instruction>
+		<instruction>Function GetUrlFullPath(fs, path)</instruction>
+		<instruction>    Dim urlFile, url</instruction>
+		<instruction>    Set urlFile = fs.OpenTextFile(path, 1) &apos; 1 = ForReading</instruction>
+		<instruction>    Do Until urlFile.AtEndOfStream</instruction>
+		<instruction>        url = urlFile.ReadLine</instruction>
+		<instruction>        If Left(LCase(url), 4) = &quot;url=&quot; Then</instruction>
+		<instruction>            GetUrlFullPath = Mid(url, 5)</instruction>
+		<instruction>            Exit Do</instruction>
+		<instruction>        End If</instruction>
+		<instruction>    Loop</instruction>
+		<instruction>    urlFile.Close</instruction>
+		<instruction>End Function</instruction>
+	</function>
+</usercommand>
