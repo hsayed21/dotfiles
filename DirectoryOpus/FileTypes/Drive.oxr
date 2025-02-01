@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR">
+	<key name="Drive">
+		<key name="opusflags">
+			<value name="OpusDoneDefTiles" type="sz" />
+			<value name="OpusDoneDefTooltip" type="sz" />
+			<value name="OpusTilesDef" type="sz">{sh:usedpercent}
+{sh:freespace} free of {sizeauto}</value>
+			<value name="OpusTooltipDPI" type="sz">150</value>
+			<value name="OpusTooltipDef" type="sz">&lt;b&gt;Space used:&lt;/b&gt;\	{sh:usedspace}
+&lt;b&gt;Space free:&lt;/b&gt;\	{sh:freespace}
+&lt;b&gt;Total size:&lt;/b&gt;\	{sizeauto}</value>
+		</key>
+	</key>
+</xml_registry_redirect>

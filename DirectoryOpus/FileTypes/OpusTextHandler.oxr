@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR" regkey="OpusTextHandler">
+	<key name="opus">
+		<key name="dblclk">
+			<key name="command">
+				<value name="@default" type="sz">show text</value>
+			</key>
+		</key>
+	</key>
+</xml_registry_redirect>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR">
+	<key name="Directory">
+		<key name="opus">
+			<key name="dblclk">
+				<key name="command">
+					<value name="@default" type="sz">go</value>
+				</key>
+			</key>
+			<key name="dblclkalt">
+				<key name="command">
+					<value name="@default" type="sz">go newtab</value>
+				</key>
+			</key>
+			<key name="dblclkctrl">
+				<key name="command">
+					<value name="@default" type="sz">go openindual</value>
+				</key>
+			</key>
+			<key name="dblclkshift">
+				<key name="command">
+					<value name="@default" type="sz">go new</value>
+				</key>
+			</key>
+			<key name="newtab">
+				<key name="command">
+					<value name="@default" type="sz">go newtab fromsel</value>
+				</key>
+				<key name="opusflags">
+					<value name="Position" type="sz">0</value>
+				</key>
+				<value name="@default" type="sz">Open in new Folder Tab</value>
+			</key>
+		</key>
+		<key name="opusflags">
+			<value name="OpusDoneDefTooltip" type="sz" />
+			<value name="OpusTooltipDPI" type="sz">150</value>
+			<value name="OpusTooltipDef" type="sz">{name}
+{foldersize}
+{foldercontents}
+{thumbnail}</value>
+		</key>
+	</key>
+</xml_registry_redirect>

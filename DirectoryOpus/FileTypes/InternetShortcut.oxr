@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR">
+	<key name="InternetShortcut">
+		<key name="opusflags">
+			<value name="OpusDoneDefTiles" type="sz" />
+			<value name="OpusDoneDefTooltip" type="sz" />
+			<value name="OpusTilesDef" type="sz">{target}
+{type}</value>
+			<value name="OpusTooltipDPI" type="sz">150</value>
+			<value name="OpusTooltipDef" type="sz">{name}
+&lt;b&gt;Target:&lt;/b&gt;\	{target}
+&lt;b&gt;Type:&lt;/b&gt;\	{type}
+&lt;b&gt;Modified:&lt;/b&gt;\	{modified}</value>
+		</key>
+	</key>
+</xml_registry_redirect>

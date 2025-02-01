@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar version="12.0">
+	<wallpaper enabled="yes" inheritable="yes" type="share">
+		<std_type>toolbar</std_type>
+	</wallpaper>
+	<buttons display="icon" type="menu">
+		<button display="both" label_pos="bottom">
+			<label>Microsoft Office Word</label>
+			<tip>Create and edit text and graphics in letters, reports, Web pages, or e-mail messages by using Microsoft Office Word.</tip>
+			<icon1>{apppath|Winword.exe}Winword.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|Winword.exe}Winword.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Microsoft Office Excel</label>
+			<tip>Perform calculations, analyze information, and manage lists in spreadsheets or Web pages by using Microsoft Office Excel.</tip>
+			<icon1>{apppath|excel.exe}excel.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|excel.exe}excel.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Power Point</label>
+			<tip>Create and edit text and graphics in letters, reports, Web pages, or e-mail messages by using Microsoft Office Word.</tip>
+			<icon1>{apppath|powerpnt.exe}powerpnt.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|powerpnt.exe}powerpnt.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Microsoft Office Outlook</label>
+			<tip>Send and receive e-mail; manage your schedule, contacts, and tasks; and record your activities by using Microsoft Office Outlook.</tip>
+			<icon1>{apppath|Outlook.exe}Outlook.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|Outlook.exe}Outlook.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Microsoft OneNote</label>
+			<icon1>{apppath|OneNote.exe}OneNote.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|OneNote.exe}OneNote.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Microsoft Office Publisher</label>
+			<icon1>{apppath|mspub.exe}mspub.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|mspub.exe}mspub.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Microsoft Office Access</label>
+			<tip>Create databases and programs to track and manage your information by using Microsoft Office Access.</tip>
+			<icon1>{apppath|msaccess.exe}msaccess.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|MSACCESS.EXE}MSACCESS.EXE</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Internet Explorer</label>
+			<icon1>{apppath|iexplore.exe}iexplore.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|iexplore.exe}iexplore.exe</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Notepad</label>
+			<icon1>%SystemRoot%\System32\notepad.exe,0</icon1>
+			<function type="normal">
+				<instruction>cd %SystemRoot%\System32</instruction>
+				<instruction>@async:%SystemRoot%\System32\notepad.exe %1</instruction>
+			</function>
+		</button>
+		<button display="both" label_pos="bottom">
+			<label>Chrome</label>
+			<icon1>{apppath|chrome.exe}chrome.exe,0</icon1>
+			<function type="normal">
+				<instruction>{apppath|chrome.exe}chrome.exe</instruction>
+			</function>
+		</button>
+	</buttons>
+</toolbar>

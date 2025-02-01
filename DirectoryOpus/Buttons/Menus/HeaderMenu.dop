@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Remove %1</label>
+			<function type="normal">
+				<instruction>@label:=format(original_label, %headername%)</instruction>
+				<instruction>@hideif:=%headerindex% == -1</instruction>
+				<instruction>SET COLUMNSREMOVE=%header%</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Group by %1</label>
+			<function type="normal">
+				<instruction>@label:=format(original_label, %headername%)</instruction>
+				<instruction>@hideif:=%headerindex% == -1</instruction>
+				<instruction>SET GROUPBY=%header%,toggle GROUPSCHEME</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Stop grouping</label>
+			<function type="normal">
+				<instruction>@hideif:=(%group% == -1)</instruction>
+				<instruction>SET GROUPBY=off</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Freeze columns to here</label>
+			<function type="normal">
+				<instruction>@hideif:=%headerindex% == -1 || (viewmode != &quot;details&quot; &amp;&amp; viewmode != &quot;power&quot;) </instruction>
+				<instruction>@toggle:=ischecked(&quot;Set COLUMNSFREEZE=&quot; + (%headerindex% + 1))</instruction>
+				<instruction>SET COLUMNSFREEZE={=return %headerindex% + 1;=}</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Un-freeze columns</label>
+			<function type="normal">
+				<instruction>@hideif:=(%frozenfields% == 0) || (%frozenfields% == (%headerindex% + 1)) || (viewmode != &quot;details&quot; &amp;&amp; viewmode != &quot;power&quot;)</instruction>
+				<instruction>SET COLUMNSFREEZE=off</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Name</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=name(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Size</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=any,sizeauto(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Type</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=type(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Attr</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=attr(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Modified</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=modified(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Created</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=created(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Description</label>
+			<function type="normal">
+				<instruction>SET COLUMNSTOGGLE=desc(%headerinsert%)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>Columns</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Columns</label>
+				<function type="normal">
+					<instruction>Set COLUMNSTOGGLE=columnlist,insert</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+			<label>&amp;Sort By</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Sortable Columns</label>
+				<tip>Displays a list of the current columns allowing you to change the sort order</tip>
+				<function type="normal">
+					<instruction>Set SORTBY=sortlist</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;Group By</label>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>Groupable Columns</label>
+				<tip>Displays a list of the current columns allowing you to change the grouping</tip>
+				<function type="normal">
+					<instruction>Set GROUPBY=grouplist</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Expand all groups</label>
+				<tip>Expand all file groups</tip>
+				<function type="normal">
+					<instruction>Go GROUPEXPAND=*</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Collapse all groups</label>
+				<tip>Collapse all file groups</tip>
+				<function type="normal">
+					<instruction>Go GROUPCOLLAPSE=*</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Edit folder format...</label>
+			<tip>Edit the appearance and settings of the current folder</tip>
+			<function type="normal">
+				<instruction>Properties FOLDERFORMAT</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0x250de7c2,0x501c3602,0x6e47ba94,0x6ddc6877,0x44dd9f19" type="HeaderMenu" version="13.0" />
+</toolbar>

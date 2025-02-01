@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<favorites>
+	<folder label="Favorites Bar">
+		<folder label="POSBANK">
+			<path label="C:\POSBANK\Backups">
+				<dir>
+					<pathstring>C:\POSBANK\Backups</pathstring>
+				</dir>
+			</path>
+			<path label="C:\POSBANK\Projects\POPs Cloud ERP API">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP API</pathstring>
+				</dir>
+			</path>
+			<path label="C:\POSBANK\Projects\POPs Cloud ERP Front">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP Front</pathstring>
+				</dir>
+			</path>
+			<path label="C:\POSBANK\Projects\MenuTree-Frontend">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\MenuTree-Frontend</pathstring>
+				</dir>
+			</path>
+			<path label="C:\POSBANK\Projects\MenuTree-Git">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\MenuTree-Git</pathstring>
+				</dir>
+			</path>
+			<path label="C:\POSBANK\Projects\POPs Restaurant 6.0.0.000">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\POPs Restaurant 6.0.0.000</pathstring>
+				</dir>
+			</path>
+			<path label="C:\POSBANK\Projects\POPs Retail Git">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\POPs Retail Git</pathstring>
+				</dir>
+			</path>
+			<path label="POSBANK Tools">
+				<dir>
+					<pathstring>G:\My Drive\POSBANK</pathstring>
+				</dir>
+			</path>
+			<path label="C:\Program Files (x86)\POPs Retail">
+				<dir>
+					<pathstring>C:\Program Files (x86)\POPs Retail</pathstring>
+				</dir>
+			</path>
+			<path label="C:\Program Files (x86)\POPs Restaurant">
+				<dir>
+					<pathstring>C:\Program Files (x86)\POPs Restaurant</pathstring>
+				</dir>
+			</path>
+		</folder>
+		<folder label="MyStaff">
+			<path label="C:\MyRepo\vscode_dev">
+				<dir>
+					<pathstring>C:\MyRepo\vscode_dev</pathstring>
+				</dir>
+			</path>
+			<path label="C:\MyRepo\my_workspace">
+				<dir>
+					<pathstring>C:\MyRepo\my_workspace</pathstring>
+				</dir>
+			</path>
+			<path label="C:\MyRepo">
+				<dir>
+					<pathstring>C:\MyRepo</pathstring>
+				</dir>
+			</path>
+			<path label="C:\MyRepo\hugo_theme\hsayed21.github.io">
+				<dir>
+					<pathstring>C:\MyRepo\hugo_theme\hsayed21.github.io</pathstring>
+				</dir>
+			</path>
+			<path label="G:\My Drive\dotfiles">
+				<dir>
+					<pathstring>G:\My Drive\dotfiles</pathstring>
+				</dir>
+			</path>
+			<path label="G:\My Drive\_MyAutohotkey">
+				<dir>
+					<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
+				</dir>
+			</path>
+		</folder>
+		<path label="Desktop">
+			<dir>
+				<pathstring>C:\Users\hsayed\Desktop</pathstring>
+			</dir>
+		</path>
+		<path label="Downloads">
+			<dir>
+				<pathstring>C:\Users\hsayed\Downloads</pathstring>
+			</dir>
+		</path>
+		<path label="Videos">
+			<dir>
+				<pathstring>C:\Users\hsayed\Videos</pathstring>
+			</dir>
+		</path>
+		<path label="Snagit_Capture">
+			<dir>
+				<pathstring>C:\Users\hsayed\Documents\Snagit\Capture</pathstring>
+			</dir>
+		</path>
+		<path label="ShareX_Screenshots">
+			<dir>
+				<pathstring>C:\Users\hsayed\Documents\ShareX\Screenshots</pathstring>
+			</dir>
+		</path>
+	</folder>
+</favorites>

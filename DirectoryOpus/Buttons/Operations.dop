@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button always_enable="yes" backcol="none" display="both" hotkey="ctrl+1" hotkey_label="yes" label_pos="right" textcol="none" type="menu_button">
+			<label>&amp;Copy Files</label>
+			<tip>Copy all selected files and folders to the destination Lister</tip>
+			<icon1>#copy</icon1>
+			<function type="normal">
+				<instruction>@icon:recursivefilter,Set COPYFILTER=Toggle</instruction>
+				<instruction>@keydown:none</instruction>
+				<instruction>Copy</instruction>
+				<instruction>@keydown:shift</instruction>
+				<instruction>Copy AS</instruction>
+			</function>
+			<button always_enable="yes" backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Copy Files</label>
+				<tip>Copy all selected files and folders to the destination Lister</tip>
+				<icon1>#copy</icon1>
+				<function type="normal">
+					<instruction>@icon:recursivefilter,Set COPYFILTER=Toggle</instruction>
+					<instruction>@keydown:none</instruction>
+					<instruction>Copy</instruction>
+					<instruction>@keydown:shift</instruction>
+					<instruction>Copy AS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+shift+1" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>C&amp;opy As</label>
+				<tip>Copy all selected files and folders to the destination Lister, giving them new names</tip>
+				<icon1>#copyas</icon1>
+				<function type="normal">
+					<instruction>Copy AS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Copy File Names</label>
+				<tip>Copies the names of all selected files to the clipboard</tip>
+				<icon1>#copyfilenames</icon1>
+				<function type="normal">
+					<instruction>Clipboard COPYNAMES=nopaths</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Copy Full Pathnames</label>
+				<tip>Copies the full pathnames of all selected files to the clipboard</tip>
+				<icon1>#copyfilenames</icon1>
+				<function type="normal">
+					<instruction>Clipboard COPYNAMES=unc</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Duplicate</label>
+				<tip>Duplicate all selected files and folders in the source Lister</tip>
+				<icon1>#duplicate</icon1>
+				<function type="normal">
+					<instruction>Copy DUPLICATE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>D&amp;uplicate to Dated Names</label>
+				<tip>Duplicate all selected files and folders, appending the current date and time to their names</tip>
+				<icon1>#duplicate</icon1>
+				<function type="normal">
+					<instruction>Copy DUPLICATE PATTERN * AS &quot;* - {date|D#yyyy-MM-dd} {time|T#HH-mm-ss}&quot; IGNOREEXT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>U&amp;pdate All</label>
+				<tip>Updates (copies) from source to destination all files that have changed (have more recent timestamps) or don&apos;t exist at all</tip>
+				<icon1>#updateall</icon1>
+				<function type="normal">
+					<instruction>Copy UPDATEALL</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>Upd&amp;ate Existing</label>
+				<tip>Updates (copies) from source to destination all existing files that have changed (have more recent timestamps)</tip>
+				<icon1>#updateexisting</icon1>
+				<function type="normal">
+					<instruction>Copy UPDATEEXISTING</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>C&amp;reate Shortcuts</label>
+				<tip>Create shortcuts in the destination pointing to the selected items in the source</tip>
+				<icon1>#shortcut</icon1>
+				<function type="normal">
+					<instruction>Copy MAKELINK</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+				<label>Cr&amp;eate Advanced Links</label>
+				<icon1>#shortcut</icon1>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Create Auto</label>
+					<tip>Automatically select the type of soft links, junctions, hard links or shortcuts to create in the destination pointing to the selected items in the source</tip>
+					<function type="normal">
+						<instruction>Copy MAKELINK=auto</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>C&amp;reate Auto (Avoid Soft Links)</label>
+					<tip>Create junctions or shortcuts for folders, and hard links or shortcuts for files, in the destination pointing to the selected items in the source</tip>
+					<function type="normal">
+						<instruction>Copy MAKELINK=autonosoft</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>Cr&amp;eate Junctions</label>
+					<tip>Create junctions in the destination pointing to the selected folders in the source</tip>
+					<function type="normal">
+						<instruction>Copy MAKELINK=junction</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>Cre&amp;ate Relative Soft Links</label>
+					<tip>Create soft links in the destination pointing to the selected items in the source, making them relative to a common parent if possible</tip>
+					<function type="normal">
+						<instruction>Copy MAKELINK=relsoftlink</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>Crea&amp;te Soft Links</label>
+					<tip>Create soft links in the destination pointing to the selected items in the source, using absolute paths</tip>
+					<function type="normal">
+						<instruction>Copy MAKELINK=softlink</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>Create &amp;Hard Links</label>
+					<tip>Create hard links in the destination pointing to the selected files in the source</tip>
+					<function type="normal">
+						<instruction>Copy MAKELINK=hardlink</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Send To</label>
+				<tip>Displays the system Send To menu</tip>
+				<icon1>#copy</icon1>
+				<function type="normal">
+					<instruction>FileType SENDTOMENU</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>E&amp;nable Copy Filter</label>
+				<tip>Turns the filter on or off for copy operations</tip>
+				<icon1>#recursivefilter</icon1>
+				<function type="normal">
+					<instruction>Set COPYFILTER=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Cop&amp;y Settings...</label>
+				<tip>Shortcut to the Copy settings page in Preferences</tip>
+				<icon1>#prefs</icon1>
+				<function type="normal">
+					<instruction>Prefs PAGE=copyopts</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" hotkey="ctrl+2" hotkey_label="yes" label_pos="right" textcol="none" type="menu_button">
+			<label>&amp;Move</label>
+			<tip>Move selected files and folders to the destination Lister</tip>
+			<icon1>#move</icon1>
+			<function type="normal">
+				<instruction>@keydown:none</instruction>
+				<instruction>Copy MOVE</instruction>
+				<instruction>@keydown:shift</instruction>
+				<instruction>Copy MOVE AS</instruction>
+			</function>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Move</label>
+				<tip>Move selected files and folders to the destination Lister</tip>
+				<icon1>#move</icon1>
+				<function type="normal">
+					<instruction>@keydown:none</instruction>
+					<instruction>Copy MOVE</instruction>
+					<instruction>@keydown:shift</instruction>
+					<instruction>Copy MOVE AS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+shift+2" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>M&amp;ove As</label>
+				<tip>Move selected files and folders to the destination Lister, giving them new names</tip>
+				<icon1>#moveas</icon1>
+				<function type="normal">
+					<instruction>Copy MOVE AS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Mo&amp;ve into Dated Folder</label>
+				<tip>Move the selected items into a new folder which is automatically named using the current date and time</tip>
+				<icon1>#move</icon1>
+				<function type="normal">
+					<instruction>Copy MOVE HERE CREATEFOLDER=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" hotkey="ctrl+3" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
+			<label>Re&amp;name</label>
+			<tip>Change the names of selected files and folders</tip>
+			<icon1>#rename</icon1>
+			<function type="normal">
+				<instruction>@disablenosel</instruction>
+				<instruction>@nodeselect</instruction>
+				<instruction>=return(&quot;Rename &quot; + ($glob:dopus_Rename_Simple ? &quot;SIMPLE&quot; : &quot;ADVANCED&quot;))</instruction>
+			</function>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Rename</label>
+				<tip>Change the names of selected files and folders</tip>
+				<icon1>#rename</icon1>
+				<function type="normal">
+					<instruction>@disablenosel</instruction>
+					<instruction>@nodeselect</instruction>
+					<instruction>=return(&quot;Rename &quot; + ($glob:dopus_Rename_Simple ? &quot;SIMPLE&quot; : &quot;ADVANCED&quot;))</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Use Simple Rename</label>
+				<tip>When turned on, the default Rename command will use the Simple rename dialog</tip>
+				<icon1>#rename</icon1>
+				<function type="normal">
+					<instruction>@toggle:=$glob:dopus_Rename_Simple</instruction>
+					<instruction>=$glob!:dopus_Rename_Simple = !$glob:dopus_Rename_Simple</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>R&amp;ename Presets (Favorites)</label>
+				<tip>Displays a list of your Rename Presets</tip>
+				<icon1>#rename2</icon1>
+				<function type="normal">
+					<instruction>Rename PRESET=!list,favesonly HEADING</instruction>
+					<instruction>@nodeselect</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Re&amp;name Presets (Non-Favorites)</label>
+				<tip>Displays a list of your Rename Presets</tip>
+				<icon1>#rename2</icon1>
+				<function type="normal">
+					<instruction>Rename PRESET=!list,nofaves HEADING</instruction>
+					<instruction>@nodeselect</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" hotkey="ctrl+N" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
+			<label>Ne&amp;w Folder</label>
+			<tip>Create a new folder</tip>
+			<icon1>#makedir</icon1>
+			<function type="normal">
+				<instruction>CreateFolder</instruction>
+			</function>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>N&amp;ew Folder</label>
+				<tip>Create a new folder</tip>
+				<icon1>#makedir</icon1>
+				<function type="normal">
+					<instruction>CreateFolder</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+H" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Ne&amp;w Archive...</label>
+				<tip>Create a new compressed archive</tip>
+				<icon1>#newzipfile</icon1>
+				<function type="normal">
+					<instruction>CreateFolder ARCHIVE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Move to New Folder</label>
+				<tip>Move the selected items into a new sub-folder, prompting first for the name</tip>
+				<icon1>#move</icon1>
+				<function type="normal">
+					<instruction>Copy MOVE HERE CREATEFOLDER</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+O" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>New &amp;Text Document</label>
+				<tip>Create a new, empty text document</tip>
+				<icon1>#newtextfile</icon1>
+				<function type="normal">
+					<instruction>FileType NEW=.txt</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;New</label>
+				<tip>Create a new file or folder</tip>
+				<icon1>#newfile</icon1>
+				<function type="normal">
+					<instruction>FileType NEWMENU</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>New &amp;Dated Folder</label>
+				<tip>Create a new folder and automatically name it using the current date and time</tip>
+				<icon1>#makedir</icon1>
+				<function type="normal">
+					<instruction>CreateFolder NAME=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>M&amp;ove to Dated Folder</label>
+				<tip>Move the selected items into a new sub-folder named with the current date and time</tip>
+				<icon1>#move</icon1>
+				<function type="normal">
+					<instruction>Copy MOVE HERE CREATEFOLDER=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
+				</function>
+			</button>
+		</button>
+		<button always_enable="yes" backcol="none" display="both" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
+			<label>&amp;Delete</label>
+			<tip>Delete selected files and folders</tip>
+			<hotkeys>
+				<key>delete</key>
+				<key>shift+delete</key>
+			</hotkeys>
+			<icon1>#delete</icon1>
+			<function type="normal">
+				<instruction>@icon:deletefilter,Set DELFILTER=Toggle</instruction>
+				<instruction>Delete SHIFT</instruction>
+			</function>
+			<button always_enable="yes" backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Delete</label>
+				<tip>Delete selected files and folders</tip>
+				<icon1>#delete</icon1>
+				<function type="normal">
+					<instruction>@icon:deletefilter,Set DELFILTER=Toggle</instruction>
+					<instruction>Delete SHIFT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Secure Wipe</label>
+				<tip>Overwrites selected files up to 32 times using an NSA-approved algorithm to prevent data recovery</tip>
+				<icon1>#deletesecure</icon1>
+				<function type="normal">
+					<instruction>Delete SECURE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Remove From Collection</label>
+				<tip>Remove file or folder from a collection</tip>
+				<icon1>#removecollection</icon1>
+				<function type="normal">
+					<instruction>Delete REMOVECOLLECTION</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Go to Recycle Bin</label>
+				<icon1>#gotrash</icon1>
+				<function type="normal">
+					<instruction>Go /trash USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Empty Recycle Bin</label>
+				<tip>Empty the Recycle Bin, permanently deleting anything in it</tip>
+				<icon1>#deletepermanent</icon1>
+				<function type="normal">
+					<instruction>Delete EMPTYRECYCLE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>Se&amp;cure Empty Recycle Bin</label>
+				<tip>Securely wipe the contents of the Recycle Bin and then empty it</tip>
+				<icon1>#deletesecure</icon1>
+				<function type="normal">
+					<instruction>Delete EMPTYRECYCLE SECURE=1</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>E&amp;nable Recycle Bin</label>
+				<tip>Choose whether Opus sends files to the the Recycle Bin or permanently deletes them</tip>
+				<icon1>#recycleenable</icon1>
+				<function type="normal">
+					<instruction>Set DELRECYCLEBIN=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>En&amp;able Recycle Confirmation</label>
+				<tip>Show confirmation messages when deleting to the recycle bin</tip>
+				<icon1>#recycleconfirm</icon1>
+				<function type="normal">
+					<instruction>Set DELRECYCLECONFIRM=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>Ena&amp;ble Delete Filter</label>
+				<tip>Turns the filter on or off for delete operations</tip>
+				<icon1>#deletefilter</icon1>
+				<function type="normal">
+					<instruction>Set DELFILTER=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>De&amp;lete Settings...</label>
+				<tip>Shortcut to the Delete settings page in Preferences</tip>
+				<icon1>#prefs</icon1>
+				<function type="normal">
+					<instruction>Prefs PAGE=deleting</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" hotkey="ctrl+shift+A" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+			<label>Admin</label>
+			<tip>Temporarily elevate the permissions of the current Lister, which lets you perform multiple protected file operations without UAC prompting</tip>
+			<icon1>#adminmode</icon1>
+			<function type="normal">
+				<instruction>Set ADMIN=Toggle</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" hotkey="ctrl+4" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
+			<label>Arch&amp;ive Files</label>
+			<tip>Add the selected files and folders to an archive in the current folder</tip>
+			<icon1>#addtozip</icon1>
+			<function type="normal">
+				<instruction>Copy ADDTOARCHIVE HERE</instruction>
+			</function>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Archive Files</label>
+				<tip>Add the selected files and folders to an archive in the current folder</tip>
+				<icon1>#addtozip</icon1>
+				<function type="normal">
+					<instruction>Copy ADDTOARCHIVE HERE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+shift+4" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Files to Separate Archives</label>
+				<tip>Create a separate archive in the current folder for each selected file and folder</tip>
+				<icon1>#addtozip</icon1>
+				<function type="normal">
+					<instruction>Copy ARCHIVE=single HERE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>F&amp;iles to Destination Archive</label>
+				<tip>Add the selected files and folders to an archive in the destination folder</tip>
+				<icon1>#addtozip</icon1>
+				<function type="normal">
+					<instruction>Copy ADDTOARCHIVE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;ZIP And Email Files</label>
+				<tip>ZIP selected files and send as email attachments</tip>
+				<icon1>#zipandmail</icon1>
+				<function type="normal">
+					<instruction>Copy ARCHIVE SENDMAIL</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Extract to Folders</label>
+				<tip>Extract each selected archive to a separate folder with the same name below the current location</tip>
+				<icon1>#extract</icon1>
+				<function type="normal">
+					<instruction>Copy EXTRACT=sub HERE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>E&amp;xtract to Destination</label>
+				<tip>Extract all selected archives directly into the destination folder</tip>
+				<icon1>#extract</icon1>
+				<function type="normal">
+					<instruction>Copy EXTRACT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Ex&amp;tract to Destination Folders</label>
+				<tip>Extract each selected archive to a separate folder with the same name below the destination folder</tip>
+				<icon1>#extract</icon1>
+				<function type="normal">
+					<instruction>Copy EXTRACT=sub</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" hotkey="alt+enter" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
+			<label>P&amp;roperties</label>
+			<tip>View properties for selected files and folders</tip>
+			<icon1>#properties</icon1>
+			<function type="normal">
+				<instruction>Properties</instruction>
+			</function>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Properties</label>
+				<tip>View properties for selected files and folders</tip>
+				<icon1>#properties</icon1>
+				<function type="normal">
+					<instruction>Properties</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+B" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Attributes and Times</label>
+				<tip>Change the attributes and timestamps of selected files</tip>
+				<icon1>#setattr</icon1>
+				<function type="normal">
+					<instruction>SetAttr</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+P" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Description</label>
+				<tip>Enter your own description for selected files</tip>
+				<icon1>#setcomment</icon1>
+				<function type="normal">
+					<instruction>SetAttr DESCRIPTION</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" hotkey="ctrl+M" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Edit Metadata</label>
+				<tip>Edit the metadata of selected files</tip>
+				<icon1>#editmeta</icon1>
+				<function type="normal">
+					<instruction>SetAttr META</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Touch Modified Date</label>
+				<tip>Set last modified timestamp of selected files to the current date and time</tip>
+				<icon1>#setdate</icon1>
+				<function type="normal">
+					<instruction>SetAttr MODIFIED=now</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Set Label</label>
+				<tip>Assign a label to a file or folder</tip>
+				<icon1>#setcolor</icon1>
+				<function type="normal">
+					<instruction>Properties SETLABEL !menu LABELCATEGORY raw:~(Status)</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Set Stat&amp;us</label>
+				<tip>Assign icons that can be seen in the Status column</tip>
+				<icon1>#status</icon1>
+				<function type="normal">
+					<instruction>Properties SETLABEL !menu LABELCATEGORY raw:Status ADDLABEL SETLABELTOGGLE</instruction>
+					<instruction>[</instruction>
+					<instruction>Set COLUMNSADD=Status(!1+Name)</instruction>
+					<instruction>]</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none" type="menu_button">
+			<label>Slideshow</label>
+			<tip>Shows selected pictures as a slideshow</tip>
+			<icon1>#slideshow</icon1>
+			<function type="normal">
+				<instruction>Show SLIDESHOW AUTOFILELIST FULLSCREEN</instruction>
+			</function>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Slideshow</label>
+				<tip>Shows selected pictures as a slideshow</tip>
+				<icon1>#slideshow</icon1>
+				<function type="normal">
+					<instruction>Show SLIDESHOW AUTOFILELIST FULLSCREEN</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>S&amp;how Pictures</label>
+				<tip>Shows currently selected pictures</tip>
+				<icon1>#show</icon1>
+				<function type="normal">
+					<instruction>Show AUTOFILELIST</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Open Linked Viewer</label>
+				<tip>Opens a standalone viewer which acts like a detached viewer pane</tip>
+				<icon1>#viewerlink</icon1>
+				<function type="normal">
+					<instruction>Show LISTERLINK USEEXISTING=yes,avoid</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Play Sounds</label>
+				<tip>Plays currently selected sound files</tip>
+				<icon1>#play</icon1>
+				<function type="normal">
+					<instruction>Play</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Similar_Files</label>
+			<icon1>#usercommand</icon1>
+			<function type="normal">
+				<instruction>Similar_Files</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" field_type="spacer" label_pos="right" size="full" textcol="none">
+			<label>Spacer</label>
+			<function type="normal">
+				<instruction>Set SPACER</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" dropdown_glyph="yes" label_pos="left" textcol="none" type="menu">
+			<label>&amp;Help</label>
+			<icon1>#help</icon1>
+			<button backcol="none" display="both" hotkey="f1" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Help</label>
+				<tip>Displays the Directory Opus online help</tip>
+				<icon1>#help</icon1>
+				<function type="normal">
+					<instruction>Help</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Release Notes</label>
+				<tip>Display the release notes for the current version.</tip>
+				<icon1>#releasenotes</icon1>
+				<function type="normal">
+					<instruction>Help RELEASENOTES</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+				<label>&amp;Logs</label>
+				<icon1>#logs</icon1>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;FTP Logs</label>
+					<tip>Displays the logs of FTP activity</tip>
+					<function type="normal">
+						<instruction>Set UTILITY=FTPLog,Toggle</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>F&amp;ile Log</label>
+					<tip>Displays a log of file and folder operations</tip>
+					<function type="normal">
+						<instruction>Set UTILITY=FileLog,Toggle</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Undo Log</label>
+					<tip>Undo the previous file action (copy, delete, rename, move, etc.)</tip>
+					<function type="normal">
+						<instruction>Set UTILITY=Undo,Toggle</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Email Log</label>
+					<tip>Displays a log of sent and pending emails</tip>
+					<function type="normal">
+						<instruction>Set UTILITY=Email,Toggle</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Script Log</label>
+					<tip>Displays a log of script and evaluator output</tip>
+					<function type="normal">
+						<instruction>Set UTILITY=ScriptLog,Toggle</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+				<label>&amp;Directory Opus on the Web</label>
+				<icon1>#weblinks</icon1>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Directory Opus Home</label>
+					<tip>Access the main GP Software web site</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=home</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Technical Support</label>
+					<tip>Directory Opus Technical Support Forum</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=resource</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Product News</label>
+					<tip>Access the latest Directory Opus news</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=news</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Frequently Asked Questions</label>
+					<tip>Browse the Frequently Asked Questions</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=faq</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Online Support</label>
+					<tip>Online Directory Opus support page</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=support</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Video Tutorials</label>
+					<tip>Opens the Directory Opus YouTube channel</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=youtube</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Written Tutorials</label>
+					<tip>Opens the Tutorials area of the Directory Opus forum</tip>
+					<function type="normal">
+						<instruction>https://{gps-redirect}?page=intro</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Check For Program Updates...</label>
+				<tip>Check for updated versions of Directory Opus</tip>
+				<icon1>#checkforupdates</icon1>
+				<function type="normal">
+					<instruction>Help CHECKUPDATE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Submit Crash Logs...</label>
+				<tip>Lets you view and submit any log files created due to a program crash</tip>
+				<icon1>#crashlogs</icon1>
+				<function type="normal">
+					<instruction>Help CRASHLOGS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+				<label>S&amp;ecure Screenshot</label>
+				<icon1>#screenshot</icon1>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;This Lister</label>
+					<tip>Copy a secure screenshot of this Lister to the clipboard</tip>
+					<function type="normal">
+						<instruction>Clipboard SCREENSHOT=secure</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Whole Screen</label>
+					<tip>Copy a secure screenshot of the whole screen to the clipboard</tip>
+					<function type="normal">
+						<instruction>Clipboard SCREENSHOT=secure,all</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>L&amp;icence Manager...</label>
+				<tip>Displays the Directory Opus Licence Manager</tip>
+				<icon1>#licencemanager</icon1>
+				<function type="normal">
+					<instruction>Help LICENCEMANAGER</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;About Directory Opus...</label>
+				<tip>Displays Directory Opus copyright and version information</tip>
+				<icon1>#about</icon1>
+				<function type="normal">
+					<instruction>Help ABOUT</instruction>
+				</function>
+			</button>
+		</button>
+	</buttons>
+	<default_info hash="0xee08eca6,0xd9fe9315,0x97257e32,0x599a29cc,0x4dfad0c9" type="Operations" version="13.0" />
+</toolbar>

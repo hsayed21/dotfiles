@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<foldertoolbars>
+	<entry disabled="yes" fmt="1" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="2" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="3" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="4" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="5" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="6" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="7" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="10" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="14" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="15" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="16" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="17" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" fmt="18" pos="0" set="no" toolbar="" type="default" />
+	<entry disabled="yes" folder="0" pos="0" set="yes" toolbar="" type="system" />
+	<entry disabled="yes" folder="1" pos="0" set="yes" toolbar="" type="system" />
+	<entry content="Archives" disabled="yes" pos="0" set="no" toolbar="" type="content" />
+	<entry content="Documents" disabled="yes" pos="0" set="no" toolbar="" type="content" />
+	<entry content="Images" disabled="yes" pos="0" set="no" toolbar="" type="content" />
+	<entry content="Movies" disabled="yes" pos="0" set="no" toolbar="" type="content" />
+	<entry content="Music" disabled="yes" pos="0" set="yes" toolbar="" type="content" />
+	<entry content="Programs" disabled="yes" pos="0" set="no" toolbar="" type="content" />
+</foldertoolbars>

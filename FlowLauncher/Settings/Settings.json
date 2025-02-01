@@ -46,11 +46,11 @@
   "TimeFormat": "hh:mm tt",
   "DateFormat": "MM\u0027/\u0027dd ddd",
   "FirstLaunch": false,
-  "SettingWindowWidth": 1134,
-  "SettingWindowHeight": 602.6666666666666,
-  "SettingWindowTop": 73.33333333333333,
-  "SettingWindowLeft": 1353.3333333333333,
-  "SettingWindowState": 0,
+  "SettingWindowWidth": 1294.6666666666665,
+  "SettingWindowHeight": 704,
+  "SettingWindowTop": 72,
+  "SettingWindowLeft": 1406,
+  "SettingWindowState": 2,
   "CustomExplorerIndex": 0,
   "CustomExplorerList": [
     {
@@ -122,13 +122,13 @@
   "AlwaysStartEn": true,
   "QuerySearchPrecision": "Regular",
   "AutoUpdates": false,
-  "WindowLeft": 622,
-  "WindowTop": 162,
+  "WindowLeft": 581.3333333333333,
+  "WindowTop": 190,
   "CustomWindowLeft": 0,
   "CustomWindowTop": 0,
   "KeepMaxResults": false,
   "MaxResultsToShow": 5,
-  "ActivateTimes": 62,
+  "ActivateTimes": 90,
   "CustomPluginHotkeys": [],
   "CustomShortcuts": [],
   "DontPromptUpdateMsg": false,
@@ -248,7 +248,7 @@
           "*"
         ],
         "Priority": 0,
-        "Disabled": false
+        "Disabled": true
       },
       "0308FD86DE0A4DEE8D62B9B535370992": {
         "ID": "0308FD86DE0A4DEE8D62B9B535370992",

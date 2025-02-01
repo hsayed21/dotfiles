@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<hotkeys done_def="prev_picture,next_picture,first_picture,last_picture">
+	<key defkey="first_picture" hotkey="home">
+		<label>First Picture</label>
+		<function type="normal">
+			<instruction>Show VIEWERCMD=first</instruction>
+		</function>
+	</key>
+	<key defkey="last_picture" hotkey="end">
+		<label>Last Picture</label>
+		<function type="normal">
+			<instruction>Show VIEWERCMD=last</instruction>
+		</function>
+	</key>
+	<key defkey="next_picture">
+		<label>Next Picture</label>
+		<hotkeys>
+			<key>space</key>
+			<key>pagedown</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>Show VIEWERCMD=next</instruction>
+		</function>
+	</key>
+	<key defkey="prev_picture">
+		<label>Previous Picture</label>
+		<hotkeys>
+			<key>backspace</key>
+			<key>pageup</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>Show VIEWERCMD=prev</instruction>
+		</function>
+	</key>
+</hotkeys>

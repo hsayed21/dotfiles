@@ -1,0 +1,923 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+			<label>&amp;File</label>
+			<button backcol="none" display="label" hotkey="ctrl+O" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Open...</label>
+				<tip>Browse for a new file to load into the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=open</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Next Picture</label>
+				<tip>Display the next picture in the folder or image list</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=next</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Pr&amp;evious Picture</label>
+				<tip>Display the previous picture in the folder or image list</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=prev</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>L&amp;ink to Lister Selection</label>
+				<tip>Track and display the currently selected file in the Lister which opened the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=listerlink</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Open Con&amp;taining Folder</label>
+				<tip>Open the folder containing the current file</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=selectfile</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="f5" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>Refresh</label>
+				<tip>Reload the current file, in case it has changed</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=refresh</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+S" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Save</label>
+				<tip>Save changes over the existing file</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=save</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+shift+S" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>S&amp;ave As...</label>
+				<tip>Save the current image to a new file</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=saveas</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+P" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>P&amp;rint...</label>
+				<tip>Print the current file</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=print</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+I" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Con&amp;vert Image...</label>
+				<tip>Open the Image Converter for the current picture</tip>
+				<function type="normal">
+					<instruction>@useimagedata</instruction>
+					<instruction>Image CONVERT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Locate Image</label>
+				<tip>A sub-menu of online mapping services which can look up an image&apos;s GPS coordinates</tip>
+				<function type="normal">
+					<instruction>Image LOCATE=menu,nohide</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>Pl&amp;ugin Commands</label>
+				<tip>Inserts any additional commands provided by a viewer plugin</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=plugincmds</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+				<label>&amp;Plugin</label>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Configure...</label>
+					<tip>Configures the active viewer plugin, if applicable</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=plugincfg</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;About...</label>
+					<tip>Displays information about the active viewer plugin, if applicable</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=pluginabout</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+				<label>Set As &amp;Desktop Wallpaper</label>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Center</label>
+					<tip>Set the desktop wallpaper, centering the image on each monitor</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=wallpaper,center</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Tile</label>
+					<tip>Set the desktop wallpaper, tiling the image to fill all monitors</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=wallpaper,tile</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Stretch</label>
+					<tip>Set the desktop wallpaper, distorting the image to fill each monitor</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=wallpaper,stretch</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Fit</label>
+					<tip>Set the desktop wallpaper, making the image as large as possible without cropping</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=wallpaper,fit</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>F&amp;ill</label>
+					<tip>Set the desktop wallpaper, resizing and cropping the image to fill the screen</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=wallpaper,fill</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>S&amp;pan</label>
+					<tip>Set the desktop wallpaper, similar to &quot;fit&quot; except across multiple monitors</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=wallpaper,span</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Close</label>
+				<tip>Close the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=close</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+			<label>&amp;Edit</label>
+			<button backcol="none" display="label" hotkey="ctrl+Y" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Copy To...</label>
+				<tip>Create a copy of the current file</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=copyto</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Move To...</label>
+				<tip>Move the current file to another folder</tip>
+				<hotkeys>
+					<key>ctrl+V</key>
+					<key>shift+insert</key>
+				</hotkeys>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=moveto</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Rename</label>
+				<tip>Rename the current file</tip>
+				<function type="normal">
+					<instruction>Rename SIMPLE</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+X" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>C&amp;ut File</label>
+				<tip>Place the current file in the clipboard, moving it if it is then pasted</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=cut</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Delete</label>
+				<tip>Delete the current file</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=delete</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+A" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Select All</label>
+				<tip>Select all of the current image (or text)</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=selectall</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="shift+R" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>R&amp;eselect</label>
+				<tip>Select the same area of the image as was last selected</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=reselect</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>C&amp;opy</label>
+				<tip>=selimage ? &quot;Copy selection to the clipboard&quot; : &quot;Copy the image (or text) data to the clipboard&quot;</tip>
+				<hotkeys>
+					<key>ctrl+C</key>
+					<key>ctrl+insert</key>
+				</hotkeys>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=copy</instruction>
+					<instruction>@label:LanguageStr(selimage ? &quot;CopySelection&quot; : &quot;CopyAll&quot;)</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+R" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Cro&amp;p</label>
+				<tip>Crop the image to the selected area</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=crop</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+Z" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>U&amp;ndo</label>
+				<tip>Undo the previous crop or other destructive edit</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=restore</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="f9" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>Ed&amp;it Metadata</label>
+				<tip>Open a metadata editing panel in the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=meta</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Pre&amp;ferences...</label>
+				<tip>Open the Preferences page for the viewer</tip>
+				<function type="normal">
+					<instruction>Prefs PAGE=viewer</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Cus&amp;tomize Toolbars and Keys...</label>
+				<tip>Lets you customize toolbars, menus and keys</tip>
+				<function type="normal">
+					<instruction>Prefs CUSTOMIZE</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;View</label>
+			<button backcol="none" display="label" hotkey="ctrl+N" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Menu Bar</label>
+				<tip>Toggle the configurable toolbar/menu at the top of the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=toolbar</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+B" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Status Bar</label>
+				<tip>Toggle the status bar at the bottom of the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=statusbar</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="ctrl+L" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Control Bar</label>
+				<tip>Toggle a simple, fixed toolbar at the bottom of the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=shortcutbar</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+				<label>&amp;View Size</label>
+				<button backcol="none" display="label" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Original Size</label>
+					<tip>Display the image at its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,reset</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+1" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;25% </label>
+					<tip>Display the image at 25% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,25</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+2" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;50% </label>
+					<tip>Display the image at 50% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,50</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+3" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;75% </label>
+					<tip>Display the image at 75% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,75</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+4" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;150% </label>
+					<tip>Display the image at 150% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,150</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+5" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>2&amp;00% </label>
+					<tip>Display the image at 200% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,200</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>250% </label>
+					<tip>Display the image at 250% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,250</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+6" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;300% </label>
+					<tip>Display the image at 300% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,300</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>350% </label>
+					<tip>Display the image at 350% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,350</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+7" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;400% </label>
+					<tip>Display the image at 400% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,400</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;600% </label>
+					<tip>Display the image at 600% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,600</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+8" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;800% </label>
+					<tip>Display the image at 800% of its original size</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,800</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Fit To Window</label>
+					<tip>Display the whole image, reducing if needed, but never enlarging</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,fit</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Grow To Window</label>
+					<tip>Display the whole image, as large as possible</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,grow</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Tiled</label>
+					<tip>Display the image at its original size, repeated to fill the window</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=zoom,tile</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+				<label>&amp;Rotate View</label>
+				<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Rotate Left</label>
+					<tip>Rotate the image 90 degrees counterclockwise</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=rotate,-90</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>R&amp;otate Right</label>
+					<tip>Rotate the image 90 degrees clockwise</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=rotate,+90</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="0" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;0°</label>
+					<tip>Restore the image&apos;s original orientation</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=rotate,reset</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="1" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;90°</label>
+					<tip>Rotate the image 90 degrees clockwise from its original orientation</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=rotate,90</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="2" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;180°</label>
+					<tip>Rotate the image 180 degrees from its original orientation</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=rotate,180</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="3" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;270°</label>
+					<tip>Rotate the image 90 degrees counterclockwise from its original orientation</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=rotate,270</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="H" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Flip Horizontally</label>
+					<tip>Flip the image left to right</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=flip,horiz</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="V" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>F&amp;lip Vertically</label>
+					<tip>Flip the image top to bottom</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=flip,vert</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+				<label>&amp;Gamma Correction</label>
+				<button backcol="none" display="label" hotkey="shift+num+" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Increase</label>
+					<tip>Increase gamma correction of the displayed the image</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=gamma,+10</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="shift+num-" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Decrease</label>
+					<tip>Decrease gamma correction of the displayed image</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=gamma,-10</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="shift+num*" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Reset</label>
+					<tip>Reset gamma correction of the displayed image</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=gamma,reset</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+				<label>&amp;Background Color</label>
+				<button backcol="none" display="label" hotkey="f3" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Cycle</label>
+					<tip>Cycle background between black and white (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>@enableif:enabled Show VIEWERCMD=backcol</instruction>
+						<instruction>@toggle:disable</instruction>
+						<instruction>// If we are in Dark Mode, jump to white first, then black, then white...</instruction>
+						<instruction>// If we are in Light Mode, jump to black first, then white, then black...</instruction>
+						<instruction>=if (!Elapsed(&quot;DarkModeViewerToggle&quot;, 500, true) &amp;&amp; key_repeat) AbortFunc();</instruction>
+						<instruction>=col1=&quot;#000000&quot;; col2=&quot;#FFFFFF&quot;</instruction>
+						<instruction>=if (SysInfo(&quot;DarkMode&quot;)) { swap(col1,col2) }</instruction>
+						<instruction>=return &quot;Show VIEWERCMD=backcol,&quot; + (ischecked(&quot;Show VIEWERCMD=backcol,&quot; + col1) ? col2 : col1)</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="shift+B" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Black</label>
+					<tip>Set the background color to black (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>@enableif:enabled Show VIEWERCMD=backcol</instruction>
+						<instruction>@toggle:if Show VIEWERCMD=backcol,#000000</instruction>
+						<instruction>@if:Show VIEWERCMD=backcol,#000000</instruction>
+						<instruction>Show VIEWERCMD=backcol</instruction>
+						<instruction>@if:else</instruction>
+						<instruction>Show VIEWERCMD=backcol,#000000</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="shift+W" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;White</label>
+					<tip>Set the background color to white (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>@enableif:enabled Show VIEWERCMD=backcol</instruction>
+						<instruction>@toggle:if Show VIEWERCMD=backcol,#ffffff</instruction>
+						<instruction>@if:Show VIEWERCMD=backcol,#ffffff</instruction>
+						<instruction>Show VIEWERCMD=backcol</instruction>
+						<instruction>@if:else</instruction>
+						<instruction>Show VIEWERCMD=backcol,#ffffff</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;Reset</label>
+					<tip>Reset the background color to the one specified in Preferences</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=backcol</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Picture Frame</label>
+				<tip>Toggle a frame around the displayed image</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=frame</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+				<label>S&amp;elect Channel</label>
+				<button backcol="none" display="label" hotkey="ctrl+shift+1" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;All</label>
+					<tip>Show all color channels</tip>
+					<function type="normal">
+						<instruction>SHOW VIEWERCMD=channelall</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+shift+2" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Red</label>
+					<tip>Show only the red channel (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>SHOW VIEWERCMD=channelred</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+shift+3" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Green</label>
+					<tip>Show only the green channel (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>SHOW VIEWERCMD=channelgreen</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+shift+4" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Blue</label>
+					<tip>Show only the blue channel (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>SHOW VIEWERCMD=channelblue</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+shift+5" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>A&amp;lpha</label>
+					<tip>Show only the alpha channel (if supported by viewer)</tip>
+					<function type="normal">
+						<instruction>SHOW VIEWERCMD=channelalpha</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" hotkey="shift+A" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Hide Alpha Channel</label>
+				<tip>Toggle the displayed image&apos;s alpha channel</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=alpha</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="shift+X" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>V&amp;iew As Hex</label>
+				<tip>Display the current file&apos;s raw bytes as hexadecimal data</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=hex</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="f10" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Sh&amp;ow Information</label>
+				<tip>Overlay an Info Tip displaying metadata</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=info</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>S&amp;ave Minimum Width</label>
+				<tip>Save the current width as the minimum for new viewer windows</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=minwidth</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="S" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>S&amp;lideshow</label>
+				<tip>Toggle slideshow mode; subsequent images display automatically after a delay</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=slideshow</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="alt+left" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>Previo&amp;us Monitor</label>
+				<tip>Move the viewer to the previous monitor</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=monitorprev</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="alt+right" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Next Monitor</label>
+				<tip>Move the viewer to the next monitor</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=monitornext</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey="alt+enter" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Full Screen</label>
+				<tip>Toggle the viewer&apos;s fullscreen mode</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=fullscreen</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none" timed="yes" type="menu_button">
+			<label>Pr&amp;evious Picture</label>
+			<tip>&lt;%bullet&gt; Hold &lt;kbd&gt;Ctrl&lt;/kbd&gt; to mark the current image first
+&lt;%bullet&gt; Drop down to select from a list</tip>
+			<icon1>#viewerprev</icon1>
+			<function type="normal">
+				<instruction>@keydown:ctrl</instruction>
+				<instruction>Show VIEWERCMD=prev,markfirst</instruction>
+				<instruction>@keydown:else</instruction>
+				<instruction>Show VIEWERCMD=prev</instruction>
+			</function>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Previous Pictures List</label>
+				<tip>A list of pictures before the current one</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=prevlist</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none" timed="yes" type="menu_button">
+			<label>&amp;Next Picture</label>
+			<tip>&lt;%bullet&gt; Hold &lt;kbd&gt;Ctrl&lt;/kbd&gt; to mark the current image first
+&lt;%bullet&gt; Drop down to select from a list</tip>
+			<icon1>#viewernext</icon1>
+			<function type="normal">
+				<instruction>@keydown:ctrl</instruction>
+				<instruction>Show VIEWERCMD=next,markfirst</instruction>
+				<instruction>@keydown:else</instruction>
+				<instruction>Show VIEWERCMD=next</instruction>
+			</function>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Next Pictures List</label>
+				<tip>A list of pictures after the current one</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=nextlist</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="icon" hotkey="L" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Rotate Left</label>
+			<tip>Rotate the image 90 degrees counterclockwise</tip>
+			<icon1>#viewerrotateleft</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=rotate,-90</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey="R" hotkey_label="yes" label_pos="right" no_label="yes" separate="yes" textcol="none">
+			<label>Rotate Right</label>
+			<tip>Rotate the image 90 degrees clockwise</tip>
+			<icon1>#viewerrotateright</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=rotate,+90</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Zoom In</label>
+			<tip>Display the image at a higher magnification</tip>
+			<hotkeys>
+				<key>187,0</key>
+				<key>num+</key>
+			</hotkeys>
+			<icon1>#viewerzoomin</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=zoom,+</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Zoom Out</label>
+			<tip>Display the image at a lower magnification</tip>
+			<hotkeys>
+				<key>189,0</key>
+				<key>num-</key>
+			</hotkeys>
+			<icon1>#viewerzoomout</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=zoom,-</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Original Size</label>
+			<tip>Display the image at its original size</tip>
+			<hotkeys>
+				<key>O</key>
+				<key>num*</key>
+			</hotkeys>
+			<icon1>#viewerzoomorig</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=zoom,reset</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey="F" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Fit To Window</label>
+			<tip>Display the whole image, reducing if needed, but never enlarging</tip>
+			<icon1>#viewerzoomfit</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=zoom,fit</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey="G" hotkey_label="yes" label_pos="right" no_label="yes" separate="yes" textcol="none">
+			<label>Grow To Window</label>
+			<tip>Display the whole image, as large as possible</tip>
+			<icon1>#viewerzoomgrow</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=zoom,grow</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+			<label>Full Screen</label>
+			<tip>Toggle the viewer&apos;s fullscreen mode</tip>
+			<icon1>#viewerfullscreen</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=fullscreen</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none" type="menu_button">
+			<label>&amp;Mark</label>
+			<tip>Mark the current file for further processing; push again to unmark</tip>
+			<hotkeys>
+				<key>M</key>
+				<key>insert</key>
+			</hotkeys>
+			<icon1>#markpicture</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=mark,toggle,nohighlight</instruction>
+			</function>
+			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Mark</label>
+				<tip>Mark the current file for further processing; push again to unmark</tip>
+				<icon1>#markpicture</icon1>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=mark,toggle,nohighlight</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Exchange Mark</label>
+				<tip>Mark the current file, and unmark the file which was marked before it</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=mark,exchange</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+				<label>&amp;Go To</label>
+				<button backcol="none" display="label" hotkey="ctrl+up" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;First Marked</label>
+					<tip>Jump to the first marked file</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=mark,first</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+left" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Previous Marked</label>
+					<tip>Jump to the previous marked file</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=mark,prev</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+right" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Next Marked</label>
+					<tip>Jump to the next marked file</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=mark,next</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+down" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+					<label>&amp;Last Marked</label>
+					<tip>Jump to the last marked file</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=mark,last</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" hotkey="ctrl+space" hotkey_label="yes" label_pos="right" textcol="none">
+					<label>&amp;Return from &quot;Go&quot;</label>
+					<tip>Undo a jump, returning to the image you were at before</tip>
+					<function type="normal">
+						<instruction>Show VIEWERCMD=mark,return</instruction>
+					</function>
+				</button>
+			</button>
+			<button backcol="none" display="label" hotkey_label="yes" label_pos="right" textcol="none">
+				<label>&amp;Show Marked Pictures Pane</label>
+				<tip>Toggle a panel listing marked images within the viewer</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=mark,view</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Browse Marked Pictures...</label>
+				<tip>Open the list of marked images in a folder tab</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=mark,browse</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Clear Marked Pictures</label>
+				<tip>Clear the list of marked images</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=mark,clear</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="icon" hotkey="shift+M" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Exchange Mark</label>
+			<tip>Mark the current file, and unmark the file which was marked before it</tip>
+			<icon1>#exchangemarkedpicture</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=mark,exchange</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey="ctrl+M" hotkey_label="yes" label_pos="right" no_label="yes" separate="yes" textcol="none">
+			<label>Show Marked Pictures Pane</label>
+			<tip>Toggle a panel listing marked images within the viewer</tip>
+			<icon1>#showmarkedpictures</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=mark,view</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" hotkey="f2" hotkey_label="yes" label_pos="right" textcol="none">
+			<label>Rename</label>
+			<tip>Rename the current file</tip>
+			<icon1>#rename</icon1>
+			<function type="normal">
+				<instruction>Rename SIMPLE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
+			<label>Delete</label>
+			<tip>Delete the current file</tip>
+			<hotkeys>
+				<key>delete</key>
+				<key>shift+delete</key>
+			</hotkeys>
+			<icon1>#delete</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=delete</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+			<label>Open Containing Folder</label>
+			<tip>Open the folder containing the current file</tip>
+			<icon1>#folder</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=selectfile</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Link to Lister</label>
+			<tip>Track and display the currently selected file in the Lister which opened the viewer</tip>
+			<icon1>#listerlink</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=listerlink</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" field_type="spacer" label_pos="right" size="full" textcol="none">
+			<label>Spacer</label>
+			<function type="normal">
+				<instruction>Set SPACER</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey="f1" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Help</label>
+			<tip>Open the manual on how to use the viewer</tip>
+			<icon1>#help</icon1>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=help</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Previous Monitor</label>
+			<tip>Move the viewer to the previous monitor (hidden if not fullscreen)</tip>
+			<icon1>#monitorprev</icon1>
+			<function type="normal">
+				<instruction>@showif:=fullscreen</instruction>
+				<instruction>Show VIEWERCMD=monitorprev</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+			<label>Next Monitor</label>
+			<tip>Move the viewer to the next monitor (hidden if not fullscreen)</tip>
+			<icon1>#monitornext</icon1>
+			<function type="normal">
+				<instruction>@showif:=fullscreen</instruction>
+				<instruction>Show VIEWERCMD=monitornext</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+			<label>Close</label>
+			<tip>Close the viewer (hidden if not fullscreen)</tip>
+			<icon1>#closelister</icon1>
+			<function type="normal">
+				<instruction>@showif:=fullscreen</instruction>
+				<instruction>Show VIEWERCMD=close</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0x8233ba28,0x47bedda8,0x20854fa7,0x160c54a8,0x9c0818de" type="Image Viewer" version="13.0" />
+</toolbar>

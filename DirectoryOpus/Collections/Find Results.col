@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<collection def_icon="321" dupeflags="0" dupes="no" name="Find Results" relpath="C:\Users\hsayed\Downloads">
+	<query auto_update="no" engine="2" last_run="+0+0">
+		<query>&amp;name match * any
+and contains match PBBK partial utf8
+</query>
+		<scope>
+			<path>
+				<dir>
+					<pathstring>C:\Users\hsayed\Downloads</pathstring>
+				</dir>
+			</path>
+		</scope>
+	</query>
+	<search_params>
+		<folders>
+			<path>
+				<dir>
+					<pathstring>C:\Users\hsayed\Downloads</pathstring>
+				</dir>
+			</path>
+		</folders>
+	</search_params>
+</collection>

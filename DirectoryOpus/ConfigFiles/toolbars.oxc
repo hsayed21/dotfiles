@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbars flags="0">
+	<toolbar type="top">
+		<file>Menu.dop</file>
+	</toolbar>
+	<toolbar type="top">
+		<file>Operations.dop</file>
+	</toolbar>
+	<toolbar type="top">
+		<file>Favorites Bar.dop</file>
+	</toolbar>
+	<toolbar type="top">
+		<file>Drives.dop</file>
+	</toolbar>
+</toolbars>

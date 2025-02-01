@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<folder_formats>
+	<path name="Archives">
+		<format autosize="yes" getsizes="default" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+	<path name="Documents">
+		<format autosize="yes" getsizes="default" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inheritcolumns="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="author" />
+			<field id="title" />
+			<field id="pages" />
+		</format>
+	</path>
+	<path name="Images">
+		<format autosize="yes" getsizes="default" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inheritcolumns="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="thumbnails">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="picsize" />
+			<field id="datetaken" />
+		</format>
+	</path>
+	<path name="Movies">
+		<format autosize="yes" getsizes="default" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inheritcolumns="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="picsize" />
+			<field id="duration" />
+			<field id="videocodec" />
+		</format>
+	</path>
+	<path name="Music">
+		<format autosize="yes" getsizes="default" inherit_hidefilter="yes" inherit_showfilter="yes" inheritcolumns="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="mp3artists" />
+			<field id="mp3album" />
+			<field id="mp3year" />
+			<field id="mp3track" sort="1" />
+			<field id="duration" />
+		</format>
+	</path>
+	<path name="Programs">
+		<format autosize="yes" getsizes="default" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+</folder_formats>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Copy to Clipboard</label>
+			<tip>Copy contents of highlighted cells to the clipboard</tip>
+			<function type="normal">
+				<instruction>Clipboard COPYCOLUMNS</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Copy to Clipboard (with names)</label>
+			<tip>Copy filenames and contents of highlighted cells to the clipboard</tip>
+			<function type="normal">
+				<instruction>Clipboard COPYNAMES COPYCOLUMNS</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Copy to Clipboard (with headings)</label>
+			<tip>Copy contents of highlighted cells to the clipboard, with headers</tip>
+			<function type="normal">
+				<instruction>Clipboard COPYCOLUMNS=headings</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Copy to Clipboard (with names and headings)</label>
+			<tip>Copy filenames and contents of highlighted cells to the clipboard, with headers</tip>
+			<function type="normal">
+				<instruction>Clipboard COPYNAMES COPYCOLUMNS=headings</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Clear Highlighted Cells</label>
+			<tip>Clear all cell highlights</tip>
+			<function type="normal">
+				<instruction>Select HIGHLIGHTCLEAR</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0x792e49d4,0xecb64914,0xf4760a59,0xc68ec298,0x10c9d53d" type="CopyColumnsMenu" version="13.0" />
+</toolbar>

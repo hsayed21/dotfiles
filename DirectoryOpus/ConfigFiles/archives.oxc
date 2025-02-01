@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<prefs version="6">
+	<archive_context flags="62">
+		<general>
+			<fmt desc="7z" ext=".7z" guid="BD1BE473-9198-4B95-8DA8-6D6CE4C1940C" />
+			<fmt desc="ZIP" ext=".zip" guid="6566C9D9-DD78-446D-BF74-F93B8B1B571D" />
+		</general>
+		<named>
+			<fmt desc="7z" ext=".7z" guid="BD1BE473-9198-4B95-8DA8-6D6CE4C1940C" />
+			<fmt desc="ZIP" ext=".zip" guid="6566C9D9-DD78-446D-BF74-F93B8B1B571D" />
+		</named>
+		<email>
+			<fmt desc="ZIP" ext=".zip" guid="6566C9D9-DD78-446D-BF74-F93B8B1B571D" />
+		</email>
+	</archive_context>
+</prefs>

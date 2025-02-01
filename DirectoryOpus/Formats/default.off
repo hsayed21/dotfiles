@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<folder_formats>
+	<path name="default">
+		<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field collapse="yes" id="name" sort="1" />
+			<field id="type" size="80" size_dpi="100" />
+			<field auto_size="yes" id="sizeauto" />
+			<field auto_size="yes" id="modified" />
+		</format>
+	</path>
+	<path name="Local Drives">
+		<format autosize="yes" disable="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+	<path name="Removable Drives">
+		<format autosize="yes" disable="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+	<path name="Network Drives">
+		<format autosize="yes" disable="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+	<path name="FTP">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="desc" />
+			<field id="3072" />
+		</format>
+	</path>
+	<path name="ZIP">
+		<format autosize="yes" disable="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+	<path name="Collection">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="path" sort="2" />
+		</format>
+	</path>
+	<path name="FlatView">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="pathrel" />
+		</format>
+	</path>
+	<path name="Synchronize">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="pathrel" />
+		</format>
+	</path>
+	<path name="Search">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="pathrel" sort="2" />
+		</format>
+	</path>
+	<path name="MTP">
+		<format autosize="yes" disable="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+		</format>
+	</path>
+	<path name="Duplicates">
+		<format autosize="yes" getsizes="default" group="65533" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="pathrel" sort="2" />
+		</format>
+	</path>
+	<path name="FindResults">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="modified" />
+			<field id="attr" />
+			<field id="pathrel" sort="2" />
+		</format>
+	</path>
+</folder_formats>

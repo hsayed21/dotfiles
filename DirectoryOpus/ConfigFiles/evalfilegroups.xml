@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<evalfilegroups>
+	<schemes>
+		<scheme desc="First letter of name" keyword="first_letter" reverse="no" sort="yes">
+			<eval>group = left(value, 1);
+if (ispunct(group) or isspace(group))
+	return &quot;&quot;;
+return ucase(group);</eval>
+			<groups enable="no" />
+		</scheme>
+		<scheme desc="First two letters of name" keyword="first_two_letters" reverse="no" sort="yes">
+			<eval>group = left(value, 1);
+if (ispunct(group) or isspace(group))
+	return &quot;&quot;;
+second = mid(value, 1, 1);
+if (!ispunct(second) and !isspace(second))
+	group = group + second;
+return ucase(group);</eval>
+			<groups enable="no" />
+		</scheme>
+		<scheme desc="First word of name" keyword="first_word" reverse="no" sort="yes">
+			<eval>n = is_dir ? value : Stem(value);
+return RegEx(n, &quot;([^-\s.,=+!%^()_]+)&quot;, &quot;\1&quot;);</eval>
+			<groups enable="no" />
+		</scheme>
+		<scheme desc="Extension" keyword="name_extension" reverse="no" sort="yes">
+			<eval>return Ext(value);</eval>
+			<groups enable="no" />
+		</scheme>
+		<scheme desc="Length of name" keyword="name_length" reverse="no" sort="no">
+			<eval>if (len(value) &lt; 12) return 1;
+if (len(value) &lt; 24) return 2;
+if (len(value) &lt; 64) return 3;
+return 4;
+</eval>
+			<groups enable="yes">
+				<group name="Short" />
+				<group name="Medium" />
+				<group name="Long" />
+				<group name="Very Long" />
+			</groups>
+		</scheme>
+	</schemes>
+	<columns>
+		<field id="name">
+			<schemes>
+				<scheme scheme="first_letter" />
+				<scheme scheme="first_two_letters" />
+				<scheme scheme="name_length" />
+				<scheme scheme="name_extension" />
+				<scheme scheme="first_word" />
+			</schemes>
+		</field>
+	</columns>
+</evalfilegroups>

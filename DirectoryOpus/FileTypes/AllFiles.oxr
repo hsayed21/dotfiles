@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xml_registry_redirect hive="HKCR" regkey="AllFiles">
+	<key name="opus" />
+	<key name="opusflags">
+		<value name="OpusDoneDefTiles" type="sz" />
+		<value name="OpusDoneDefTooltip" type="sz" />
+		<value name="OpusTilesDef" type="sz">{type}
+{sizeauto}</value>
+		<value name="OpusTooltipDPI" type="sz">150</value>
+		<value name="OpusTooltipDef" type="sz">{name}
+&lt;b&gt;Type:&lt;/b&gt;\	{type}
+&lt;b&gt;Modified:&lt;/b&gt;\	{modified}
+&lt;b&gt;Size:&lt;/b&gt;\	{sizeauto}</value>
+	</key>
+</xml_registry_redirect>

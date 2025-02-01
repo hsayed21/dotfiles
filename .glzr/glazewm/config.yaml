@@ -150,7 +150,7 @@ window_rules:
       # Move autocad to workspace 2.
       - window_process: { regex: "Code - Insiders|Code|dbforge.*?|devenv" }
 
-  - commands: ["move --workspace 3", "focus --workspace 3"]
+  - commands: ["move --workspace 3", "focus --workspace 3", "set-fullscreen"]
     match:
       # Move directory-opus to workspace 4.
       - window_process: { regex: "chrome|firefox|brave|msedge|opera|vivaldi" }
@@ -176,7 +176,8 @@ window_rules:
         window_class: { regex: "HwndWrapper" }
       - window_title: { equals: "TODO Tasks" }
       - window_process: { regex: "AutoHotkey.*?" }
-      - window_process: { equals: "POPsRestaurant" }
+      - window_process: { regex: "POPsRestaurant|pops_enterprise" }
+      - window_title: { regex: "Swagger UI.*?" }
       #   window_class: { equals: "PotPlayer64" }
 
 

@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu_button">
+			<label>&amp;Back</label>
+			<tip>Go back to %1</tip>
+			<function type="normal">
+				<instruction>Go BACK USEQUALKEYS</instruction>
+			</function>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Back list</label>
+				<tip>Displays a list of previously visited folders you can go back to</tip>
+				<function type="normal">
+					<instruction>Go BACKLIST</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu_button">
+			<label>For&amp;ward</label>
+			<tip>Go forward to %1</tip>
+			<function type="normal">
+				<instruction>Go FORWARD USEQUALKEYS</instruction>
+			</function>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Forward list</label>
+				<tip>Displays a list of previously visited folders you can go forward to</tip>
+				<function type="normal">
+					<instruction>Go FORWARDLIST</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="three_button">
+			<label>Go Up</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Go Up</label>
+				<tip>Go up to %1</tip>
+				<function type="normal">
+					<instruction>Go UP BACK USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Go To &amp;Root</label>
+				<tip>Load the root folder of the current folder</tip>
+				<function type="normal">
+					<instruction>Go ROOT USEQUALKEYS</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;This PC</label>
+				<tip>Go to This PC folder</tip>
+				<function type="normal">
+					<instruction>Go /mycomputer USEQUALKEYS</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+			<label>&amp;View</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Folder Tree</label>
+				<tip>Show or hide the Folder Tree</tip>
+				<function type="normal">
+					<instruction>Set TREE=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Dual Display</label>
+				<tip>Display two folders simultaneously in the one Lister</tip>
+				<function type="normal">
+					<instruction>Set DUAL=Toggle,Remember</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Viewer Pane</label>
+				<tip>Show or hide the Lister Viewer Pane</tip>
+				<function type="normal">
+					<instruction>Set VIEWPANE=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Metadata Pane</label>
+				<tip>Show or hide the Metadata Pane</tip>
+				<function type="normal">
+					<instruction>Set METAPANE=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Large Icons</label>
+				<tip>Displays items using large icons</tip>
+				<function type="normal">
+					<instruction>Set VIEW=LargeIcons</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>L&amp;ist</label>
+				<tip>Displays items in a list</tip>
+				<function type="normal">
+					<instruction>Set VIEW=List</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>D&amp;etails</label>
+				<tip>Displays the details of each item</tip>
+				<function type="normal">
+					<instruction>Set VIEW=Details</instruction>
+					<instruction>Set COLUMNSREMOVE=thumbnail</instruction>
+					<instruction>@toggle:if&amp;!COLUMNSTOGGLE=thumbnail</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>De&amp;tails + Thumbnails</label>
+				<tip>Displays the details of each item along with a column that shows thumbnails</tip>
+				<function type="normal">
+					<instruction>@disableifpath:shell</instruction>
+					<instruction>Set VIEW=Details</instruction>
+					<instruction>Set COLUMNSADD=thumbnail(0,{dpi|96})</instruction>
+					<instruction>@toggle:if&amp;COLUMNSTOGGLE=thumbnail</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>T&amp;humbnails</label>
+				<tip>Displays thumbnails of image files</tip>
+				<function type="normal">
+					<instruction>Set VIEW=Thumbnails</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>Tile&amp;s</label>
+				<tip>Displays files in tiles with configurable information</tip>
+				<function type="normal">
+					<instruction>Set VIEW=Tiles</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>F&amp;older Format...</label>
+				<tip>Edit the appearance and settings of the current folder</tip>
+				<function type="normal">
+					<instruction>Properties FOLDERFORMAT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Refresh</label>
+				<tip>Refresh the contents of the current folder</tip>
+				<function type="normal">
+					<instruction>Go REFRESH=source</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
+			<label>&amp;Sort By</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Sortable Columns</label>
+				<tip>Displays a list of the current columns allowing you to change the sort order</tip>
+				<function type="normal">
+					<instruction>Set SORTBY=sortlist</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;Group By</label>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Groupable Columns</label>
+				<tip>Displays a list of the current columns allowing you to change the grouping</tip>
+				<function type="normal">
+					<instruction>Set GROUPBY=grouplist</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Expand all groups</label>
+				<tip>Expand all file groups</tip>
+				<function type="normal">
+					<instruction>Go GROUPEXPAND=*</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Collapse all groups</label>
+				<tip>Collapse all file groups</tip>
+				<function type="normal">
+					<instruction>Go GROUPCOLLAPSE=*</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Paste</label>
+			<tip>Paste files and folders on the clipboard to the destination folder\n\n%1</tip>
+			<function type="normal">
+				<instruction>Clipboard PASTE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Undo</label>
+			<tip>Displays a list of the items in the undo list, allowing you to selectively undo your previous actions</tip>
+			<function type="normal">
+				<instruction>Undo LISTMENU</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>New Library...</label>
+			<tip>Create a new library</tip>
+			<function type="normal">
+				<instruction>CreateFolder</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0x73efd52,0x8553308b,0xd298bc95,0xa270cbd3,0x51e1add0" type="LibraryMenu" version="13.0" />
+</toolbar>

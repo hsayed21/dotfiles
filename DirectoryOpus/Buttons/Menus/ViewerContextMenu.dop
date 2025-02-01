@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+	<buttons backcol="none" display="label" textcol="none" type="menu">
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Previous Picture</label>
+			<tip>Display the previous picture in the folder or image list</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=prev</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Next Picture</label>
+			<tip>Display the next picture in the folder or image list</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=next</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Rotate Left</label>
+			<tip>Rotate the image 90 degrees counterclockwise</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=rotate,-90</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Rotate Right</label>
+			<tip>Rotate the image 90 degrees clockwise</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=rotate,+90</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;View Size</label>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Original Size</label>
+				<tip>Display the image at its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,reset</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;25% </label>
+				<tip>Display the image at 25% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,25</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;50% </label>
+				<tip>Display the image at 50% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,50</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;75% </label>
+				<tip>Display the image at 75% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,75</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;150% </label>
+				<tip>Display the image at 150% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,150</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>2&amp;00% </label>
+				<tip>Display the image at 200% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,200</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>250% </label>
+				<tip>Display the image at 250% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,250</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;300% </label>
+				<tip>Display the image at 300% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,300</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>350% </label>
+				<tip>Display the image at 350% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,350</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;400% </label>
+				<tip>Display the image at 400% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,400</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;600% </label>
+				<tip>Display the image at 600% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,600</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;800% </label>
+				<tip>Display the image at 800% of its original size</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,800</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Fit To Window</label>
+				<tip>Display the whole image, reducing if needed, but never enlarging</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,fit</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Grow To Window</label>
+				<tip>Display the whole image, as large as possible</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,grow</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Tiled</label>
+				<tip>Display the image at its original size, repeated to fill the window</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=zoom,tile</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Open...</label>
+			<tip>Browse for a new file to load into the viewer</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=open</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Save</label>
+			<tip>Save changes over the existing file</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=save</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Save As...</label>
+			<tip>Save the current image to a new file</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=saveas</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Print...</label>
+			<tip>Print the current file</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=print</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Convert Image...</label>
+			<tip>Open the Image Converter for the current picture</tip>
+			<function type="normal">
+				<instruction>@useimagedata</instruction>
+				<instruction>Image CONVERT</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
+			<label>&amp;Set As Desktop Wallpaper</label>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Center</label>
+				<tip>Set the desktop wallpaper, centering the image on each monitor</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=wallpaper,center</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Tile</label>
+				<tip>Set the desktop wallpaper, tiling the image to fill all monitors</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=wallpaper,tile</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Stretch</label>
+				<tip>Set the desktop wallpaper, distorting the image to fill each monitor</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=wallpaper,stretch</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>&amp;Fit</label>
+				<tip>Set the desktop wallpaper, making the image as large as possible without cropping</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=wallpaper,fit</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>F&amp;ill</label>
+				<tip>Set the desktop wallpaper, resizing and cropping the image to fill the screen</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=wallpaper,fill</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>S&amp;pan</label>
+				<tip>Set the desktop wallpaper, similar to &quot;fit&quot; except across multiple monitors</tip>
+				<function type="normal">
+					<instruction>Show VIEWERCMD=wallpaper,span</instruction>
+				</function>
+			</button>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Copy To...</label>
+			<tip>Create a copy of the current file</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=copyto</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Move To...</label>
+			<tip>Move the current file to another folder</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=moveto</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Rename</label>
+			<tip>Rename the current file</tip>
+			<function type="normal">
+				<instruction>Rename SIMPLE</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Cut File</label>
+			<tip>Place the current file in the clipboard, moving it if it is then pasted</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=cut</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Delete</label>
+			<tip>Delete the current file</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=delete</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Select All</label>
+			<tip>Select all of the current image (or text)</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=selectall</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Reselect</label>
+			<tip>Select the same area of the image as was last selected</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=reselect</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Copy</label>
+			<tip>=selimage ? &quot;Copy selection to the clipboard&quot; : &quot;Copy the image (or text) data to the clipboard&quot;</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=copy</instruction>
+				<instruction>@label:LanguageStr(selimage ? &quot;CopySelection&quot; : &quot;CopyAll&quot;)</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Crop</label>
+			<tip>Crop the image to the selected area</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=crop</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Undo</label>
+			<tip>Undo the previous crop or other destructive edit</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=restore</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Mark File</label>
+			<tip>Mark the current file for further processing; push again to unmark</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=mark,toggle</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Show Information</label>
+			<tip>Overlay an Info Tip displaying metadata</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=info</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Edit Metadata</label>
+			<tip>Open a metadata editing panel in the viewer</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=meta</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Slideshow</label>
+			<tip>Toggle slideshow mode; subsequent images display automatically after a delay</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=slideshow</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<label>Full Screen</label>
+			<tip>Toggle the viewer&apos;s fullscreen mode</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=fullscreen</instruction>
+			</function>
+		</button>
+		<button backcol="none" label_pos="right" no_label="yes" textcol="none">
+			<label>Close</label>
+			<tip>Close the viewer</tip>
+			<function type="normal">
+				<instruction>Show VIEWERCMD=close</instruction>
+			</function>
+		</button>
+	</buttons>
+	<default_info hash="0xb60465ce,0x2b4e0e35,0x45c6908b,0xbe445989,0x305b2885" type="ViewerContextMenu" version="13.0" />
+</toolbar>

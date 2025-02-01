@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>MaxViewerPane</label>
+	<user_label>MaxViewerPane</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>function OnInit(scriptInitData)</instruction>
+		<instruction>{</instruction>
+		<instruction>    scriptInitData.name = &quot;MaxViewerPane&quot;;</instruction>
+		<instruction>    scriptInitData.desc = DOpus.strings.Get(&apos;description&apos;);</instruction>
+		<instruction>    scriptInitData.version = &quot;0.2&quot;;</instruction>
+		<instruction>    scriptInitData.copyright = &quot;Chaoses Ib&quot;;</instruction>
+		<instruction>    scriptInitData.url = &quot;https://github.com/Chaoses-Ib/IbDOpusScripts&quot;;</instruction>
+		<instruction>    scriptInitData.default_enable = true;</instruction>
+		<instruction />
+		<instruction>    var config_desc = DOpus.Create().Map();</instruction>
+		<instruction />
+		<instruction>    var exePath = DOpus.FSUtil.NewPath(scriptInitData.file);</instruction>
+		<instruction>    exePath.Parent();</instruction>
+		<instruction>    exePath.Add(&quot;MaxViewerPane&quot;);</instruction>
+		<instruction>    exePath.Add(&quot;MaxViewerPane.exe&quot;);</instruction>
+		<instruction>    scriptInitData.config.ExePath = String(exePath);</instruction>
+		<instruction>    config_desc(&quot;ExePath&quot;) = DOpus.strings.Get(&apos;exePath&apos;);</instruction>
+		<instruction />
+		<instruction>    scriptInitData.config_desc = config_desc;</instruction>
+		<instruction />
+		<instruction>    var cmd = scriptInitData.AddCommand();</instruction>
+		<instruction>    cmd.name = &quot;MaxViewerPane&quot;;</instruction>
+		<instruction>    cmd.desc = DOpus.strings.Get(&apos;description&apos;);</instruction>
+		<instruction>    cmd.method = &quot;OnMaxViewerPane&quot;;</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>function OnMaxViewerPane(scriptCommandData) {</instruction>
+		<instruction>    var lister = scriptCommandData.func.sourcetab.lister;</instruction>
+		<instruction>    var cmd = scriptCommandData.func.command;</instruction>
+		<instruction>    cmd.AddLine(&quot;@runmode:hide&quot;);</instruction>
+		<instruction>    cmd.AddLine(Script.config.ExePath</instruction>
+		<instruction>        + &apos; &quot;&apos; + lister.title</instruction>
+		<instruction>        + &apos;&quot; &apos; + lister.left</instruction>
+		<instruction>        + &apos; &apos; + lister.top</instruction>
+		<instruction>        + &apos; &apos; + lister.right</instruction>
+		<instruction>        + &apos; &apos; + lister.bottom</instruction>
+		<instruction>        );</instruction>
+		<instruction>    cmd.Run();</instruction>
+		<instruction>}</instruction>
+		<instruction />
+		<instruction>==SCRIPT RESOURCES</instruction>
+		<instruction>&lt;resources&gt;</instruction>
+		<instruction>    &lt;resource type=&quot;strings&quot;&gt;</instruction>
+		<instruction>        &lt;strings lang=&quot;english&quot;&gt;</instruction>
+		<instruction>            &lt;string id=&quot;description&quot; text=&quot;Maximize the viewer pane.&quot; /&gt;</instruction>
+		<instruction>            &lt;string id=&quot;exePath&quot; text=&quot;The path to MaxViewerPane.exe (You can download it from https://github.com/Chaoses-Ib/IbDOpusScripts/releases)&quot; /&gt;</instruction>
+		<instruction>        &lt;/strings&gt;</instruction>
+		<instruction>        &lt;strings lang=&quot;chs&quot;&gt;</instruction>
+		<instruction>            &lt;string id=&quot;description&quot; text=&quot;最大化查看器窗格。&quot; /&gt;</instruction>
+		<instruction>            &lt;string id=&quot;exePath&quot; text=&quot;MaxViewerPane.exe 的路径（可从 https://github.com/Chaoses-Ib/IbDOpusScripts/releases 下载）&quot; /&gt;</instruction>
+		<instruction>        &lt;/strings&gt;</instruction>
+		<instruction>    &lt;/resource&gt;</instruction>
+		<instruction>&lt;/resources&gt;</instruction>
+	</function>
+</usercommand>

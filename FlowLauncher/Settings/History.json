@@ -95,6 +95,78 @@
     {
       "Query": "\u003E %LOCALAPPDATA%\\Microsoft\\WindowsApps",
       "ExecutedDateTime": "2025-01-08T23:37:03.2186925+02:00"
+    },
+    {
+      "Query": "chrome",
+      "ExecutedDateTime": "2025-01-13T10:45:28.2308011+02:00"
+    },
+    {
+      "Query": "chat",
+      "ExecutedDateTime": "2025-01-13T10:50:57.0203842+02:00"
+    },
+    {
+      "Query": "resta",
+      "ExecutedDateTime": "2025-01-13T14:56:57.7770528+02:00"
+    },
+    {
+      "Query": "chat",
+      "ExecutedDateTime": "2025-01-13T15:57:55.6630037+02:00"
+    },
+    {
+      "Query": "sng",
+      "ExecutedDateTime": "2025-01-13T18:02:49.5922725+02:00"
+    },
+    {
+      "Query": "sn",
+      "ExecutedDateTime": "2025-01-13T18:13:08.3367219+02:00"
+    },
+    {
+      "Query": "resta",
+      "ExecutedDateTime": "2025-01-13T18:14:30.8977946+02:00"
+    },
+    {
+      "Query": "retai",
+      "ExecutedDateTime": "2025-01-13T18:34:21.6841595+02:00"
+    },
+    {
+      "Query": "voice",
+      "ExecutedDateTime": "2025-01-18T03:43:13.928713+02:00"
+    },
+    {
+      "Query": "chat",
+      "ExecutedDateTime": "2025-01-18T04:41:46.2467936+02:00"
+    },
+    {
+      "Query": "gl",
+      "ExecutedDateTime": "2025-01-18T05:49:38.9183111+02:00"
+    },
+    {
+      "Query": "voice",
+      "ExecutedDateTime": "2025-01-18T08:09:08.7301399+02:00"
+    },
+    {
+      "Query": "\u003E %appdata%\\popsenterprise_cloud",
+      "ExecutedDateTime": "2025-01-18T12:23:55.0627585+02:00"
+    },
+    {
+      "Query": "driv",
+      "ExecutedDateTime": "2025-01-23T06:40:25.0165711+02:00"
+    },
+    {
+      "Query": "dri",
+      "ExecutedDateTime": "2025-01-23T06:53:53.0294028+02:00"
+    },
+    {
+      "Query": "vo",
+      "ExecutedDateTime": "2025-01-23T07:20:48.8937402+02:00"
+    },
+    {
+      "Query": "voice",
+      "ExecutedDateTime": "2025-01-27T07:21:24.0766745+02:00"
+    },
+    {
+      "Query": "enter",
+      "ExecutedDateTime": "2025-01-27T07:22:46.8680624+02:00"
     }
   ]
 }

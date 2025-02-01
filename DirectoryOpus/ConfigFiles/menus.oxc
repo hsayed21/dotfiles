@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+	<menu name="TrayMenu">
+		<file>Menus\TrayMenu.dop</file>
+	</menu>
+	<menu name="ContextMenu">
+		<file>Menus\ContextMenu.dop</file>
+	</menu>
+	<menu name="ZipMenu">
+		<file>Menus\ZipMenu.dop</file>
+	</menu>
+	<menu name="FTPMenu">
+		<file>Menus\FTPMenu.dop</file>
+	</menu>
+	<menu name="HeaderMenu">
+		<file>Menus\HeaderMenu.dop</file>
+	</menu>
+	<menu name="CollectionMenu">
+		<file>Menus\CollectionMenu.dop</file>
+	</menu>
+	<menu name="LibraryMenu">
+		<file>Menus\LibraryMenu.dop</file>
+	</menu>
+	<menu name="MyComputerBackground">
+		<file>Menus\MyComputerBackground.dop</file>
+	</menu>
+	<menu name="ViewerContextMenu">
+		<file>Menus\ViewerContextMenu.dop</file>
+	</menu>
+	<menu name="CopyColumnsMenu">
+		<file>Menus\CopyColumnsMenu.dop</file>
+	</menu>
+	<menu name="FolderTabMenu">
+		<file>Menus\FolderTabMenu.dop</file>
+	</menu>
+</menus>

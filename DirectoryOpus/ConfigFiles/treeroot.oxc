@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<treeroot>
+	<root>
+		<folder desktop="no" id="10" root_item="quickaccess" shown="yes" />
+		<folder desktop="no" id="3" root_item="favorites" shown="yes" />
+		<folder desktop="no" id="0" root_item="desktop" shown="yes" />
+		<folder desktop="yes" root_item="folders" shown="yes" />
+		<folder desktop="yes" id="12" root_item="thispc" shown="yes" />
+		<folder desktop="yes" id="13" root_item="network" shown="yes" />
+		<folder desktop="yes" id="14" root_item="recyclebin" shown="yes" />
+		<folder desktop="no" id="11" root_item="cloudstorage" shown="no" />
+		<folder desktop="no" id="15" root_item="linux" shown="yes" />
+		<folder desktop="no" id="1" root_item="collections" shown="no" />
+		<folder desktop="no" id="2" root_item="libraries" shown="yes" />
+		<folder desktop="no" id="8" root_item="ftp" shown="no" />
+		<folder desktop="no" id="4" root_item="aliases" shown="no" />
+		<folder desktop="no" id="5" root_item="recent" shown="no" />
+		<folder desktop="no" id="6" root_item="smartfavorites" shown="no" />
+		<folder desktop="no" id="7" root_item="profile" shown="no" />
+	</root>
+</treeroot>

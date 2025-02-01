@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<folder_formats>
+	<path>
+		<format autosize="yes" getsizes="default" group="3" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="2048" />
+			<field id="2050" />
+			<field id="2049" />
+		</format>
+		<dir>
+			<pidl>?AAAAFAAfUOBP0CDqOmkQotgIACswMJ0AAA==</pidl>
+		</dir>
+	</path>
+	<path>
+		<format autosize="yes" getsizes="default" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field id="name" sort="1" />
+			<field id="sizeauto" />
+			<field id="type" />
+			<field id="4124" />
+			<field id="4125" />
+		</format>
+		<dir>
+			<pathstring>mtp://</pathstring>
+		</dir>
+	</path>
+</folder_formats>
