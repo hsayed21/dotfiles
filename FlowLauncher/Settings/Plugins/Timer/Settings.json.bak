@@ -1,7 +1,7 @@
 {
-  "theme": "blue",
-  "displayDigital": "false",
-  "elapsedTime": "false",
   "useDarkTheme": "true",
-  "prefer24h": "true"
+  "prefer24h": "true",
+  "displayDigital": "false",
+  "theme": "blue",
+  "elapsedTime": "false"
 }

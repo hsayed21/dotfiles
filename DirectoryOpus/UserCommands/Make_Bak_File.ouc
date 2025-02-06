@@ -2,7 +2,7 @@
 <usercommand backcol="none" hide_from_menu="no" textcol="none">
 	<label>Make_Bak_File</label>
 	<user_label>Make Bak File</user_label>
-	<icon1>#usercommand</icon1>
+	<icon1>/downloads/file_bak_format_type_icon_134709.ico,0</icon1>
 	<function type="script">
 		<instruction>@script JScript</instruction>
 		<instruction>// Button / User Command script that creates &apos;.bak&apos; backups for any number of selected files or folders. If a .bak already exists for an item, it will create .bak2, .bak3 and so on. Also has an argument option to restore a file.</instruction>

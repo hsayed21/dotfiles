@@ -2,20 +2,11 @@
 <toolbar>
 	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
 	<buttons display="icon" type="menu">
-		<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-			<label>Fixed Drives</label>
-			<tip>Automatically adds a button for each of the drives in your system to the toolbar/menu</tip>
-			<icon1>#drivebuttons</icon1>
-			<function type="normal">
-				<instruction>Go DRIVEBUTTONS=fixed</instruction>
-			</function>
-		</button>
 		<button backcol="none" display="both" label_pos="right" textcol="none">
-			<label>Other Drives</label>
-			<tip>Automatically adds a button for each of the drives in your system to the toolbar/menu</tip>
-			<icon1>#drivebuttons</icon1>
+			<label>Extract</label>
+			<icon1>#usercommand</icon1>
 			<function type="normal">
-				<instruction>Go DRIVEBUTTONS=cdrom,network,removable,hideempty</instruction>
+				<instruction>Extract</instruction>
 			</function>
 		</button>
 		<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -23,6 +14,13 @@
 			<icon1>#usercommand</icon1>
 			<function type="normal">
 				<instruction>ToMP3</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Make Bak File</label>
+			<icon1>#usercommand</icon1>
+			<function type="normal">
+				<instruction>Make_Bak_File</instruction>
 			</function>
 		</button>
 		<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -45,13 +43,6 @@
 			<icon1>#usercommand</icon1>
 			<function type="normal">
 				<instruction>Copy_Path_With_Auto_Qoute</instruction>
-			</function>
-		</button>
-		<button backcol="none" display="both" label_pos="right" textcol="none">
-			<label>Make Bak File</label>
-			<icon1>#usercommand</icon1>
-			<function type="normal">
-				<instruction>Make_Bak_File</instruction>
 			</function>
 		</button>
 	</buttons>
