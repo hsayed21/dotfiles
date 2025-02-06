@@ -212,12 +212,8 @@ $mappings = @(
   },
   # OBS
   @{
-    source = "$PWD\OBS\scenes\recording.json"
-    dest = "$Env:APPDATA\obs-studio\basic\scenes\recording.json"
-  },
-  @{
-    source = "$PWD\OBS\profiles\Virtual_Mic"
-    dest = "$Env:APPDATA\obs-studio\basic\profiles\Virtual_Mic"
+    source = "$PWD\OBS\basic"
+    dest = "$Env:APPDATA\obs-studio\basic"
   },
   # wireshark
   @{
@@ -269,6 +265,19 @@ $mappings = @(
   @{
     source = "$PWD\VoicemeeterBanana\MacroButtonConfig.xml"
     dest = "$Home\Documents\Voicemeeter\MacroButtonConfig.xml"
+  },
+  # EqualizerAPO
+  @{
+    source = "$PWD\EqualizerAPO\config.txt"
+    dest = "$Env:ProgramFiles\EqualizerAPO\config\config.txt"
+  },
+  @{
+    source = "$PWD\EqualizerAPO\Mic.txt"
+    dest = "$Env:ProgramFiles\EqualizerAPO\config\Mic.txt"
+  },
+  @{
+    source = "$PWD\EqualizerAPO\peace.txt"
+    dest = "$Env:ProgramFiles\EqualizerAPO\config\peace.txt"
   },
   # dbForge
   @{

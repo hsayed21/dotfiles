@@ -3,6 +3,29 @@
 	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
 	<buttons backcol="none" display="label" textcol="none" type="menu">
 		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Fixed Drives</label>
+			<tip>Automatically adds a button for each of the drives in your system to the toolbar/menu</tip>
+			<icon1>#drivebuttons</icon1>
+			<function type="normal">
+				<instruction>Go DRIVEBUTTONS=fixed</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Other Drives</label>
+			<tip>Automatically adds a button for each of the drives in your system to the toolbar/menu</tip>
+			<icon1>#drivebuttons</icon1>
+			<function type="normal">
+				<instruction>Go DRIVEBUTTONS=cdrom,network,removable,hideempty</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" dpi="100" field_type="spacer" label_pos="right" size="23" textcol="none">
+			<label>Spacer</label>
+			<icon1>#spacer</icon1>
+			<function type="normal">
+				<instruction>Set SPACER</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
 			<label>Favorites Bar</label>
 			<tip>Lists the Favorites Bar branch of the Favorites tree</tip>
 			<function type="normal">

@@ -1,0 +1,5 @@
+Device: Microphone USB PnP Audio Device {fca7113a-8f48-4879-9ff8-848080d1bd44}
+Channel: all
+Preamp: -5 dB
+Filter 5: ON LSC Fc 166 Hz Gain 8 dB Q 0.4
+Filter 10: ON HSC Fc 4000 Hz Gain 7 dB Q 0.7

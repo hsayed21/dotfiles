@@ -163,7 +163,7 @@ window_rules:
     match:
       # Operating System apps
       - window_process: { regex: "zebar|Flow.Launche|AltSnap" }
-
+      - window_process: { regex: "Taskmgr|ScreenClippingHost" }
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
@@ -178,8 +178,13 @@ window_rules:
       - window_process: { regex: "AutoHotkey.*?" }
       - window_process: { regex: "POPsRestaurant|pops_enterprise" }
       - window_title: { regex: "Swagger UI.*?" }
-      - window_role: { regex: "dialog|alert" }  # Regex match
-      - window_type: { equals: "dialog" }
+      - window_title: { regex: "dialog|alert" }  # Regex match
+      - window_process: { equals: "voicemeeterpro" }
+
+      - window_class: { regex: "#32770" }
+
+ 
+      # - window_type: { equals: "dialog" }
       #   window_class: { equals: "PotPlayer64" }
 
 
@@ -192,7 +197,6 @@ window_rules:
       - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint|WindowsTerminal|ApplicationFrameHost" }
       - window_title: { regex: "Volume Mixer|Settings|Task Manager" }
       - window_process: { equals: "DeepL" }
-      # - window_class: { regex: "#32770" }
 
   - commands: ["set-fullscreen"]
     match:

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Extract</label>
+	<user_label>Extract</user_label>
+	<icon1>#usercommand</icon1>
+	<function type="script">
+		<instruction>@script JScript</instruction>
+		<instruction>function OnClick(clickData)</instruction>
+		<instruction>{</instruction>
+		<instruction>	var cmd = clickData.func.command;</instruction>
+		<instruction>	var st = clickData.func.sourcetab;</instruction>
+		<instruction>	var listerPath = st.path;</instruction>
+		<instruction>	var parentPath = DOpus.FSUtil.NewPath(listerPath);</instruction>
+		<instruction>	var createdFolder = null;</instruction>
+		<instruction>	if (DOpus.FSUtil.GetType(listerPath, &quot;a&quot;) == &quot;file&quot;) {</instruction>
+		<instruction>                // within archive</instruction>
+		<instruction>		parentPath.Parent();</instruction>
+		<instruction>		createdFolder = listerPath.stem_m;</instruction>
+		<instruction>		cmd.AddLine(&apos;COPY EXTRACT=sub FILE=&quot;&apos; + listerPath + &apos;&quot; TO=&quot;&apos; + parentPath + &apos;&quot;&apos;);</instruction>
+		<instruction>	}</instruction>
+		<instruction>	else {</instruction>
+		<instruction>                // Archive selected.</instruction>
+		<instruction>		createdFolder = st.selected_files(0).realpath.stem_m</instruction>
+		<instruction>		cmd.AddLine(&apos;COPY EXTRACT=sub HERE&apos;);</instruction>
+		<instruction>	}</instruction>
+		<instruction>	parentPath.add(createdFolder);</instruction>
+		<instruction>	cmd.AddLine(&apos;GO &quot;&apos; + parentPath + &apos;&quot;&apos;);</instruction>
+		<instruction>	cmd.Run();</instruction>
+		<instruction>}</instruction>
+	</function>
+</usercommand>

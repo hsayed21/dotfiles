@@ -2178,5 +2178,6 @@
   "workbench.sideBar.location": "right",
   "json-i18n-key.suggestSimilarKeysIfTheSameExist": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": false
+  
 }
