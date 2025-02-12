@@ -1531,7 +1531,7 @@ return
         excluded_filetypes = {},
         mappings = {},
       })
-  
+
       -- Bindings:
       --
       -- mx              Set mark x

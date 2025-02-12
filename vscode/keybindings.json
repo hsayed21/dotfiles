@@ -534,6 +534,21 @@
     "when": "neovim.mode != 'insert'"
   },
   {
+    "key": "ctrl+'",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus || !terminalFocus"
+  },
+  // {
+  //     "key": "ctrl+'",
+  //     "command": "workbench.action.terminal.focus",
+  //     "when": "!terminalFocus"
+  // },
+  // {
+  //     "key": "ctrl+'",
+  //     "command": "workbench.action.closePanel",
+  //     "when": "terminalFocus"
+  // },
+  {
     "command": "editor.action.triggerSuggest",
     "key": "alt+j",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible && neovim.mode == 'insert'"
@@ -4497,11 +4512,11 @@
   },
   {
     "command": "workbench.action.openGlobalKeybindingsFile",
-    "key": "shift+alt+i shift+alt+j"
+    "key": "alt+o alt+j"
   },
   {
     "command": "workbench.action.openGlobalKeybindings",
-    "key": "shift+alt+i shift+alt+k"
+    "key": "alt+o alt+k"
   },
   {
     "command": "-editor.action.smartSelect.shrink",
@@ -5224,10 +5239,6 @@
     //     }
     //   }
     // ]
-  },
-  {
-    "key": "alt+q",
-    "command": "keypathtranslator.addKey"
   },
   {
     "key": "alt+f3",

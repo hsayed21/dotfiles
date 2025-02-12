@@ -289,8 +289,8 @@ Map("n", "<leader>sb", function() VSCodeNotify("workbench.action.showAllEditorsB
 
 Map("n","<leader>pf", FindFiles, { desc = "Find files" })
 Map("n","<leader>pt", FindFilesWithType, { desc = "Find files with type" })
--- Map("n","<leader>sw", FindInsideFiles, { desc = "Find inside files" })
-Map("n","<leader>sg", FindInsideFilesWithType, { desc = "Find inside files with type" })
+Map("n","<leader>sg", FindInsideFiles, { desc = "Find inside files" })
+Map("n","<leader>sG", FindInsideFilesWithType, { desc = "Find inside files with type" })
 -- Map("n","<leader>pr", ResumeSearch, { desc = "Resume search" }) -- not implemented with windows
 
 -- Git

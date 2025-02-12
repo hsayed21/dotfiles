@@ -245,6 +245,22 @@
 				</function>
 			</button>
 		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>New File</label>
+			<tip>Create a new, empty file</tip>
+			<icon1>#newtextfile</icon1>
+			<function type="normal">
+				<instruction>New_File</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>New Dated Folder</label>
+			<tip>Create a new folder and automatically name it using the current date and time</tip>
+			<icon1>#makedir</icon1>
+			<function type="normal">
+				<instruction>CreateFolder NAME=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
+			</function>
+		</button>
 		<button backcol="none" display="both" hotkey="ctrl+N" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
 			<label>Ne&amp;w Folder</label>
 			<tip>Create a new folder</tip>
@@ -300,7 +316,7 @@
 					<instruction>CreateFolder NAME=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
 				<label>M&amp;ove to Dated Folder</label>
 				<tip>Move the selected items into a new sub-folder named with the current date and time</tip>
 				<icon1>#move</icon1>

@@ -4,3 +4,5 @@ nvim/Archieved/
 .vscode/
 .globonote
 .glzr/glazewm/errors.log
+setup.log
+test.ps1

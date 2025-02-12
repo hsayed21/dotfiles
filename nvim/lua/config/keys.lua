@@ -26,9 +26,9 @@ Cmd('nmap k gk')
 -- Map("n", "k", "gk")
 
 -- Find & Search
-Map("", ",s", "/\\V") -- (Forward) Auto escape special characters in the search pattern.
+Map("", ",s", "/\\V") -- (Forward) Auto escape special characters in the search pattern. (often search for plain text)
 Map("", "/", "/\\v")  -- (Forward) make regular expressions more concise and easier to read This is the opposite of `\V`
-Map("", ",S", "?\\V") -- (Backward) Auto escape special characters in the search pattern.
+Map("", ",S", "?\\V") -- (Backward) Auto escape special characters in the search pattern. (often search for plain text)
 Map("", "?", "?\\v")  -- (Backward) make regular expressions more concise and easier to read This is the opposite of `\V`
 
 -- Sort selected lines when visual mode is active

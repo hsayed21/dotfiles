@@ -1234,9 +1234,18 @@ return {
 		keys = {
 			{ "<leader>fs", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
 			{ "<leader>ft", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-			{ "r",          mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-			{ "R",          mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-			{ "<c-u>",      mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+			{ "<leader>fr",          mode = "o", function() require("flash").remote() end,            desc = "Remote Flash" },
+			{ "<leader>fT",          mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			-- { "<c-s>",      mode = { "c" }, function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+			-- f => flash search char forward before cursor (f, F to move between results)
+			-- F => flash search char backward after cursor (f, F to move between results)
+			-- t => flash search char forward before cursor (t, T to move between results)
+			-- T => flash search char backward after cursor (t, T to move between results)
+			-- ; => repeat last flash search
+			-- , => repeat last flash search in opposite direction
+
+
+
 		},
 		config = function()
 			-- flash
