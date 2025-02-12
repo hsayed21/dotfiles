@@ -32,8 +32,8 @@ $packages = @{
             @{ name = "extras/unigetui" }
             @{ name = "zig" },
             @{ name = "lazygit" },
-            @{ name = "fzf" },
-            @{ name = "ripgrep" }
+            # @{ name = "fzf" },
+            # @{ name = "ripgrep" }
         )
         Winget = @(
             @{ name = "Microsoft.PowerToys" },
@@ -52,7 +52,11 @@ $packages = @{
             @{ name = "everything" },
             @{ name = "wget" },
             @{ name = "smartsystemmenu" },
-            @{ name = "ffmpeg" }
+            @{ name = "ffmpeg" },
+            @{ name = "fzf" },
+            @{ name = "ripgrep" },
+            @{ name = "bat" },
+            
         )
         SourceForge = @(
             @{

@@ -2023,7 +2023,6 @@
   "window.density.editorTabHeight": "compact",
   "autoHide.autoHideAuxiliaryBar": false,
   "easySnippet.snippetsPath": "C:\\Users\\hsayed\\AppData\\Roaming\\Code\\User\\profiles\\781f746d\\snippets",
-  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "Karma",
   "GitCommitPlugin.FillSubjectWithCurrent": true,
   "conventionalCommits.gitmoji": false,
@@ -2136,15 +2135,13 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "find-it-faster.general.showMaximizedTerminal": true,
   "find-it-faster.general.additionalSearchLocations": [
+
 
     "C:\\Users\\hsayed\\AppData\\Local\\nvim"
 
   ],
   "diffEditor.renderSideBySide": false,
-  "window.commandCenter": false,
-  "workbench.layoutControl.enabled": false,
   "window.newWindowProfile": "Default",
   "gitlens.views.scm.grouped.views": {
     "commits": false,
@@ -2178,6 +2175,15 @@
   "workbench.sideBar.location": "right",
   "json-i18n-key.suggestSimilarKeysIfTheSameExist": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "breadcrumbs.enabled": false
-  
+  "workbench.activityBar.location": "top",
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "find-it-faster.general.useTerminalInEditor": true,
+  "find-it-faster.general.restoreFocusTerminal": true,
+  "find-it-faster.findFiles.previewWindowConfig": "'right:57%'  --bind 'up:preview-up' --bind 'down:preview-down' --bind 'ctrl-b:preview-page-up' --bind 'ctrl-f:preview-page-down' --bind 'ctrl-u:preview-half-page-up' --bind 'ctrl-d:preview-half-page-down' --bind='ctrl-p:toggle-preview' --bind='ctrl-a:select-all' --bind='ctrl-x:deselect-all'",
+  "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
+  "find-it-faster.findWithinFiles.showPreview": false,
+  "find-it-faster.general.killTerminalAfterUse": true,
+  "window.customTitleBarVisibility": "never"
+
 }

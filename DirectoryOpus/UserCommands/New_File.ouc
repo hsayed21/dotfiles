@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>New_File</label>
+	<tip>Create a new, empty file</tip>
+	<user_label>New File</user_label>
+	<icon1>#newtextfile</icon1>
+	<function type="normal">
+		<instruction>Filetype NEW=.txt NEWNAME=empty.</instruction>
+	</function>
+</usercommand>
