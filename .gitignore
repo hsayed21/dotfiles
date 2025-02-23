@@ -6,3 +6,6 @@ nvim/Archieved/
 .glzr/glazewm/errors.log
 setup.log
 test.ps1
+DirectoryOpus/Collections/*.cct
+DirectoryOpus/Collections/*.col
+DirectoryOpus/Logs

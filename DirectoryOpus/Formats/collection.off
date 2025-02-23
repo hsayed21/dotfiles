@@ -1,2 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<folder_formats />
+<folder_formats>
+	<path>
+		<format autosize="yes" getsizes="default" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+			<field collapse="yes" id="name" manual_resize="yes" size="601" size_dpi="150" sort="1" />
+			<field id="sizerel" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" size="89" size_dpi="150" />
+			<field id="type" manual_resize="yes" size="248" size_dpi="150" />
+			<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+			<field id="attr" size="79" size_dpi="150" />
+			<field collapse="yes" id="path" size="716" size_dpi="150" />
+		</format>
+		<dir>
+			<pathstring>coll://Find Results</pathstring>
+		</dir>
+	</path>
+</folder_formats>

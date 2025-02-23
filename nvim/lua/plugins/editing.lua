@@ -398,14 +398,27 @@ return {
 	{
 		"bkad/CamelCaseMotion",
 		init = function()
-			vim.g.camelcasemotion_key = "<leader>"
-		end, -- only `init` works
+			-- Bind directly to w/e/b (no prefix)
+			vim.g.camelcasemotion_key = ""
+		end,
+		config = function()
+			-- Map motions (w/e/b/ge) to camelCase navigation
+			vim.keymap.set({"n", "o", "x"}, "w",  "<Plug>CamelCaseMotion_w",  { desc = "CamelCase forward" })
+			vim.keymap.set({"n", "o", "x"}, "b",  "<Plug>CamelCaseMotion_b",  { desc = "CamelCase backward" })
+			vim.keymap.set({"n", "o", "x"}, "e",  "<Plug>CamelCaseMotion_e",  { desc = "CamelCase end" })
+			vim.keymap.set({"n", "o", "x"}, "ge", "<Plug>CamelCaseMotion_ge", { desc = "CamelCase prev end" })
 
-		-- Default CamelCase Motion Keymaps
-		-- <leader>w - Move to the start of the next CamelCase word
-		-- <leader>e - Move to the end of the next CamelCase word
-		-- <leader>b - Move to the start of the previous CamelCase word
-		-- <leader>ge - Move to the end of the previous CamelCase word
+			-- Map text objects (iw/ib/ie) for camelCase
+			-- vim.keymap.set({"o", "x"}, "iw", "<Plug>CamelCaseMotion_iw", { desc = "Inner camelCase word" })
+			-- vim.keymap.set({"o", "x"}, "ib", "<Plug>CamelCaseMotion_ib", { desc = "Inner camelCase block" })
+			-- vim.keymap.set({"o", "x"}, "ie", "<Plug>CamelCaseMotion_ie", { desc = "Inner camelCase end" })
+
+			Map("n", "vw", "v<Plug>CamelCaseMotion_iw", { desc = "Visual camelCase word" })
+			Map("n", "dw", 'd<Plug>CamelCaseMotion_iw', { desc = "Delete camelCase word" })
+			Map("n", "cw", '"_c<Plug>CamelCaseMotion_iw', { desc = "Change camelCase word" })
+			Map("n", "yw", 'y<Plug>CamelCaseMotion_iw', { desc = "Yank camelCase word" })
+
+		end
 	},
 	-- Window maximizer
 	{
