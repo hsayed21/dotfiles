@@ -73,7 +73,7 @@ window_effects:
 window_behavior:
   # New windows are created in this state whenever possible.
   # Allowed values: "tiling", "floating".
-  initial_state: "tiling"
+  initial_state: "floating"
 
   # Sets the default options for when a new window is created. This also
   # changes the defaults for when the state change commands, like
@@ -134,7 +134,7 @@ window_rules:
   #   match:
   #     - window_process: { regex: ".*" }
 
-  - commands: ["move --workspace 1", "focus --workspace 1"]
+  - commands: ["move --workspace 1", "focus --workspace 1", "set-fullscreen"]
     match:
       # Move ms-teams to workspace 1.
       - window_process: { regex: "ms-teams|slack|discord|Mailbird|telegram|whatsapp" }
@@ -145,7 +145,7 @@ window_rules:
       # - window_process: { equals: "chrome" }
       #   window_title: { regex: ".*YouTube.*" }
 
-  - commands: ["move --workspace 2", "focus --workspace 2", "wm-redraw"]
+  - commands: ["move --workspace 2", "focus --workspace 2", "set-fullscreen", "wm-redraw"]
     match:
       # Move autocad to workspace 2.
       - window_process: { regex: "Code - Insiders|Code|dbforge.*?|devenv" }
@@ -178,9 +178,10 @@ window_rules:
       - window_process: { regex: "AutoHotkey.*?" }
       - window_process: { regex: "POPsRestaurant|pops_enterprise|Retail.Main.BackOffice|Retail.Main.POS" }
       - window_title: { regex: "Swagger UI.*?" }
-      - window_title: { regex: "dialog|alert" }  # Regex match
-      - window_process: { equals: "voicemeeterpro" }
-      - window_class: { regex: "#32770" }
+      - window_title: { regex: ".*?dialog.*?|.*?alert.*?" }  # Regex match
+      - window_process: { regex: "voicemeeterpro|voicemeeter8x64" }
+      - window_class: { equals: "#32770" }
+      - window_title: { equals: "ShareX - Image editor" }
 
       # - window_type: { equals: "dialog" }
       #   window_class: { equals: "PotPlayer64" }
@@ -198,7 +199,7 @@ window_rules:
 
   - commands: ["set-fullscreen"]
     match:
-      - window_title: { regex: "ShareX - Image editor.*?" }
+      - window_title: { regex: "ShareX - Image editor - .*?" }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.

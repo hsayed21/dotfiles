@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<find>
+	<lister opus_version_beta="0" opus_version_major="13" opus_version_minor="12">
+		<collection>coll://Find Results</collection>
+		<filter desc="" name="">
+			<clause match="yes" type="name" wildcards="yes" />
+		</filter>
+		<flags>0x840001</flags>
+		<flags2>0x840001</flags2>
+		<mode>0</mode>
+		<folders>
+			<path>
+				<dir>
+					<pathstring>C:\</pathstring>
+				</dir>
+			</path>
+		</folders>
+		<exclude>
+			<path>
+				<dir>
+					<pathstring>$Recycle.Bin\*</pathstring>
+				</dir>
+			</path>
+			<path>
+				<dir>
+					<pathstring>System Volume Information\*</pathstring>
+				</dir>
+			</path>
+		</exclude>
+		<simple>
+			<name />
+			<contains />
+			<flags>0x80630</flags>
+			<date_type>0</date_type>
+			<time_type>0</time_type>
+			<size_type>0</size_type>
+			<date1>+1db7117+92e18000</date1>
+			<date2>+1db7117+92e18000</date2>
+			<time1>+1db71a0+56a63200</time1>
+			<time2>+1db71a0+7a6950f0</time2>
+			<size1>0</size1>
+			<size2>0</size2>
+			<date_within>1</date_within>
+			<date_withinunits>0</date_withinunits>
+			<time_within>1</time_within>
+			<time_withinunits>0</time_withinunits>
+			<size_fromunits>0</size_fromunits>
+			<size_tounits>0</size_tounits>
+			<type />
+		</simple>
+		<indexed engine="1" query="startwith:WhatsApp|startwith:VID_|&quot;POS Print&quot;|&quot;My C#.NET RAW&quot;|&quot;POS Driver&quot;|PBBK|PB_BackOffice ext:zip;rar;bak;7z;mp4;mp3;ogg;pdf | folder:!path:recycle path:!Posbank_Projects path:!WindowsApps" />
+		<splitter>0.375924</splitter>
+	</lister>
+</find>

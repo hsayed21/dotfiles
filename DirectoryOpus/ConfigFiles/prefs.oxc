@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prefs opus_version_beta="0" opus_version_major="13" opus_version_minor="12" version="6">
-	<fileop flags1="0x8000100f086e7" flags2="0x20000002" jobs_button_width="165" jobs_button_width2="165,0,150" secure_delete="3" upload_modified_time="20" />
+	<fileop flags1="0x8000700f086e7" flags2="0x20000002" jobs_button_width="165" jobs_button_width2="165,0,150" secure_delete="3" upload_modified_time="20" />
 	<flags autorememberlimit="100" lowspace="10" misc="0x104a00" privacy="0" settings1="0xc00000408389ba" settings2="0x21802400" settings3="0x1166818600011" settings4="4" settings5="0x6000c0000002000" settings6="0x10000000018000" settings7="0x2200">
 		<powermode button="left" cmdelay="1000" flags="0x9100" />
 		<powermode button="right" cmdelay="1000" flags="0xa400" />

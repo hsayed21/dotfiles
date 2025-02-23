@@ -83,9 +83,10 @@ Map("", '"', ":")
 Map("", "'", '"') -- Map single quote to double quote in normal mode
 
 --##### [Text Objects] #####
-Map("n", "vw", "viw") -- Select the current word
-Map("n", "dw", 'diw')   -- Delete a word
-Map("n", "cw", '"_ciw') -- Change a word
+Map("n", "vW", "viw") -- Select the current word
+Map("n", "dW", 'diw')   -- Delete a word
+Map("n", "cW", '"_ciw') -- Change a word
+Map("n", "yW", 'yiw') -- Yank a word
 
 if vim.g.vscode == false then
   -- ##### window management

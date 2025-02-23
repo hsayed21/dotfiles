@@ -2184,6 +2184,7 @@
   "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
   "find-it-faster.findWithinFiles.showPreview": false,
   "find-it-faster.general.killTerminalAfterUse": true,
-  "window.customTitleBarVisibility": "never"
+  "window.customTitleBarVisibility": "never",
+  "breadcrumbs.enabled": false
 
 }

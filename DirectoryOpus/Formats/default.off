@@ -3,7 +3,7 @@
 	<path name="default">
 		<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
 			<field collapse="yes" id="name" sort="1" />
-			<field id="type" size="80" size_dpi="100" />
+			<field id="type" size="120" size_dpi="150" />
 			<field auto_size="yes" id="sizeauto" />
 			<field auto_size="yes" id="modified" />
 		</format>
@@ -86,7 +86,7 @@
 		</format>
 	</path>
 	<path name="Search">
-		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_view="yes" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
 			<field id="name" sort="1" />
 			<field id="sizeauto" />
 			<field id="type" />
@@ -115,7 +115,7 @@
 		</format>
 	</path>
 	<path name="FindResults">
-		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
+		<format autosize="yes" getsizes="default" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_view="yes" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
 			<field id="name" sort="1" />
 			<field id="sizeauto" />
 			<field id="type" />
