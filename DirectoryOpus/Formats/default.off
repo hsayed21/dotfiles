@@ -6,6 +6,7 @@
 			<field id="type" size="120" size_dpi="150" />
 			<field auto_size="yes" id="sizeauto" />
 			<field auto_size="yes" id="modified" />
+			<field auto_size="yes" id="ext" />
 		</format>
 	</path>
 	<path name="Local Drives">

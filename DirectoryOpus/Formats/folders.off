@@ -2,11 +2,12 @@
 <folder_formats>
 	<path>
 		<format folderssortalpha="yes" getsizes="default" group="11" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" v="3" view_mode="details">
-			<field collapse="yes" id="name" manual_resize="yes" size="677" size_dpi="150" sort="1" />
-			<field auto_size="yes" id="modified" size="200" size_dpi="150" />
+			<field collapse="yes" id="name" manual_resize="yes" size="677" size_dpi="150" />
+			<field auto_size="yes" id="modified" size="200" size_dpi="150" sort="1" />
 			<field id="type" size="120" size_dpi="150" />
 			<field auto_size="yes" id="sizerel" />
 			<field auto_size="yes" id="sizeauto" size="98" size_dpi="150" />
+			<field auto_size="yes" id="ext" />
 		</format>
 		<dir>
 			<pathstring>C:\Users\hsayed\Downloads</pathstring>

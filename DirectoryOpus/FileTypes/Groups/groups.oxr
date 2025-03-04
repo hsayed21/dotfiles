@@ -204,6 +204,7 @@ Image HERE CONVERT=png</value>
 		</key>
 		<value name="@default" type="sz">Music</value>
 		<value name="Members" type="sz">.mp3 .mp2 .mp2v .mp1 .m4a .m4b .mka .wav .wma .aac .flac .m4p .mid .ogg .spx</value>
+		<value name="ShownTooltipHelper" type="dword">2</value>
 	</key>
 	<key name="Programs">
 		<key name="opusflags">

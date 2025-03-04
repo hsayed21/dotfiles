@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<tabgroup active="0" active2="0" closeexisting="yes" hidden="no" overrideauto="no" specificsides="no">
+	<tab buf_flags="0xc0020000" flags="2" name="AHK">
+		<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
+		<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+			<field collapse="yes" id="name" size="188" size_dpi="150" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
+			<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+		</format>
+		<curdir>
+			<7>
+				<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
+			</7>
+		</curdir>
+		<vars />
+	</tab>
+	<tab buf_flags="0xc0020000" flags="2" name="dotfiles">
+		<pathstring>G:\My Drive\dotfiles</pathstring>
+		<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+			<field collapse="yes" id="name" size="233" size_dpi="150" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" size="116" size_dpi="150" />
+			<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+		</format>
+		<curdir>
+			<7>
+				<pathstring>G:\My Drive\dotfiles</pathstring>
+			</7>
+		</curdir>
+		<vars />
+	</tab>
+	<tab buf_flags="0xc0020000" flags="2" name="Hugo">
+		<pathstring>C:\MyRepo\hugo_theme\hsayed21.github.io</pathstring>
+		<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+			<field collapse="yes" id="name" size="208" size_dpi="150" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
+			<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+		</format>
+		<curdir>
+			<3>
+				<pathstring>C:\MyRepo\hugo_theme\hsayed21.github.io</pathstring>
+			</3>
+		</curdir>
+		<vars />
+	</tab>
+	<tab buf_flags="0xc0020000" flags="2" name="Obsidian">
+		<pathstring>C:\MyRepo\my_workspace</pathstring>
+		<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+			<field collapse="yes" id="name" size="259" size_dpi="150" sort="1" />
+			<field id="type" size="120" size_dpi="150" />
+			<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
+			<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+		</format>
+		<curdir>
+			<3>
+				<pathstring>C:\MyRepo\my_workspace</pathstring>
+			</3>
+		</curdir>
+		<vars />
+	</tab>
+</tabgroup>

@@ -9,3 +9,4 @@ test.ps1
 DirectoryOpus/Collections/*.cct
 DirectoryOpus/Collections/*.col
 DirectoryOpus/Logs
+resources.txt
