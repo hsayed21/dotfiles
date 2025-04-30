@@ -75,6 +75,7 @@ Map("i", "<C-j>", "<C-o>o")      -- add a new line below the current line in ins
 Map("n", "<C-j>", "o<Esc>")
 Map("i", "<C-e>", "<Backspace>") -- delete the character under the cursor and enter insert mode
 Map("i", "<C-r>", "<Delete>")    -- delete the character under the cursor and enter insert mode
+Map("i", "<C-y>", "<C-o>C")      -- delete from the cursor to the end of the line and enter insert mode
 
 Map("n", "~", "~h")              -- Lower/Upper case the character under the cursor
 

@@ -25,10 +25,16 @@ function Scroll_line_up() VSCodeCall("scrollLineUp") end
 
 function Trim_trailing_whitespace() VSCodeCall("editor.action.trimTrailingWhitespace") end
 
-function Trim__save__format()
+function Trim__Save__FormatPrettier()
   Trim_trailing_whitespace()
   -- Format()
   FormatPrettier()
+  Save()
+end
+
+function Trim__Save__Format()
+  Trim_trailing_whitespace()
+  Format()
   Save()
 end
 
@@ -223,7 +229,8 @@ Map("n", "zy", function() VSCodeNotify("editor.debug.action.toggleBreakpoint") e
 Map("", "L", Move_to_bottom_screen, { desc = "Move to bottom screen" })
 Map("", "H", Move_to_top_screen, { desc = "Move to top screen" })
 -- Map("", "<Space>", Trim__save__no_highlight)
-Map("n", "U", Trim__save__format)
+Map("n", "U", Trim__Save__FormatPrettier)
+Map("n", "<leader>U", Trim__Save__Format)
 Map("n", "<<", Outdent)
 Map("n", ">>", Indent)
 Map("v", "<", function() VSCodeNotify("editor.action.outdentLines", false) end, { desc = "Outdent selected lines" })
