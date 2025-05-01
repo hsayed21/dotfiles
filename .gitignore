@@ -10,3 +10,4 @@ DirectoryOpus/Collections/*.cct
 DirectoryOpus/Collections/*.col
 DirectoryOpus/Logs
 resources.txt
+nvim/notes.md

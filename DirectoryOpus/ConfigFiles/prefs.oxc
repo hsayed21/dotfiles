@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prefs opus_version_beta="0" opus_version_major="13" opus_version_minor="12" version="6">
-	<fileop flags1="0x8000700f086e7" flags2="0x22000002" jobs_button_width="110" jobs_button_width2="110,0,100" secure_delete="3" upload_modified_time="20" />
+	<fileop flags1="0x8000700f086e7" flags2="0x22000002" jobs_button_width="165" jobs_button_width2="165,0,150" secure_delete="3" upload_modified_time="20" />
 	<flags autorememberlimit="100" lowspace="10" misc="0x104a00" privacy="0" settings1="0xc00000408389ba" settings2="0x21802400" settings3="0x1166818600011" settings4="4" settings5="0x6000c0000002001" settings6="0x10000000018000" settings7="0x2200">
 		<powermode button="left" cmdelay="1000" flags="0x9100" />
 		<powermode button="right" cmdelay="1000" flags="0xa400" />
@@ -17,7 +17,7 @@
 		<name>佐藤雅人</name>
 		<max_threads>1</max_threads>
 	</smtp>
-	<gridlines detailspadding="1" detailspadding_dpi="100" detailsthumbpadding="0,0,100" expandindent="1" expandindent_dpi="100" powerpadding="1" powerpadding_dpi="100" powerthumbpadding="0,0,100" spacing="257" thumbcolratio="0" />
+	<gridlines detailspadding="2" detailspadding_dpi="150" detailsthumbpadding="0,0,150" expandindent="2" expandindent_dpi="150" powerpadding="2" powerpadding_dpi="150" powerthumbpadding="0,0,150" spacing="257" thumbcolratio="0" />
 	<status>
 		<single>// Selected/total folder and file counts:{||}{i:dir} {sd} / {td} {||}{i:file} {sf} / {tf} {||}// Selected file extensions and counts:{||}{h!} {ft:sel,frame} {h!}{||}// Hidden item count, or &quot;Everything&quot; indicator when in Show Everything mode:{||}{h!} &lt;#%error_text&gt;&lt;b&gt;{hi} hidden&lt;/b&gt;&lt;/#&gt; {h!}{||}{h!} &lt;#%ok_text&gt;&lt;b&gt;{hse}&lt;/b&gt;&lt;/#&gt; {h!}{||}// Selected/Total music and video duration (if available):{||}{h!} {smp3} /{h!}{h!} {tmp3} {h!}{||}// Selected/total size in bytes:{||} {sba} / {tba} {rpad}{||}// Lister state (if applicable):{||}{h!} {ls} {h!}{||}// Format lock:{||} {fl} {||}// Free space count, and bar graph:{||}{h!} {df} {bg+w=50,f=2,g=3,t=n,c1=#68f040,c2=#f06840}{h!}</single>
 		<dual>// LEFT: Selected/total folder and file counts:{||}{i:dir} {sdL} / {tdL} {||}{i:file} {sfL} / {tfL} {||}// LEFT: Hidden item count, or &quot;Everything&quot; indicator when in Show Everything mode:{||}{h!L} &lt;#%error_text&gt;&lt;b&gt;{hiL} hidden&lt;/b&gt;&lt;/#&gt; {h!L}{||}{h!L} &lt;#%ok_text&gt;&lt;b&gt;{hseL}&lt;/b&gt;&lt;/#&gt; {h!L}{||}// LEFT: Selected/Total music and video duration (if available):{||}{h!L} {smp3L} /{h!L}{h!L} {tmp3L} {h!L}{||}// LEFT: Selected/total size in bytes:{||} {sbaL} / {tbaL} {||}// LEFT: Free space count, and bar graph:{||}{h!L} {dfL} {bgL+w=50,f=2,g=3,t=n,c1=#68f040,c2=#f06840} {h!L}{rleft-}{||}// RIGHT: Selected/total folder and file counts:{||}{i:dir} {sdR} / {tdR} {||}{i:file} {sfR} / {tfR} {||}// RIGHT: Hidden item count, or &quot;Everything&quot; indicator when in Show Everything mode:{||}{h!R} &lt;#%error_text&gt;&lt;b&gt;{hiR} hidden&lt;/b&gt;&lt;/#&gt; {h!R}{||}{h!R} &lt;#%ok_text&gt;&lt;b&gt;{hseR}&lt;/b&gt;&lt;/#&gt; {h!R}{||}// RIGHT: Selected/Total music and video duration (if available):{||}{h!R} {smp3R} /{h!R}{h!R} {tmp3R} {h!R}{||}// RIGHT: Selected/total size in bytes:{||} {sbaR} / {tbaR} {rpad}{||}// RIGHT: Free space count, and bar graph:{||}{h!R} {dfR} {bgR+w=50,f=2,g=3,t=n,c1=#68f040,c2=#f06840}{h!R}{||}// Format lock:{||}{fl}</dual>
@@ -25,7 +25,7 @@
 		<right>// Selected/total folder and file counts:{||}{i:dir} {sd} / {td} {||}{i:file} {sf} / {tf} {||}// Selected file extensions and counts:{||}{h!} {ft:sel,frame} {h!}{||}// Hidden item count, or &quot;Everything&quot; indicator when in Show Everything mode:{||}{h!} &lt;#%error_text&gt;&lt;b&gt;{hi} hidden&lt;/b&gt;&lt;/#&gt; {h!}{||}{h!} &lt;#%ok_text&gt;&lt;b&gt;{hse}&lt;/b&gt;&lt;/#&gt; {h!}{||}// Selected/Total music and video duration (if available):{||}{h!} {smp3} /{h!}{h!} {tmp3} {h!}{||}// Selected/total size in bytes:{||} {sba} / {tba} {rpad}{||}// Lister state (if applicable):{||}{h!} {ls} {h!}{||}// Format lock:{||} {fl} {||}// Free space count, and bar graph:{||}{h!} {df} {bg+w=50,f=2,g=3,t=n,c1=#68f040,c2=#f06840}{h!}</right>
 		<tortoise_set>Win10</tortoise_set>
 	</status>
-	<tree custom_gap="11" custom_gap_dpi="100" custom_indent="10" custom_indent_dpi="100" extra_height="1" extra_height_dpi="100">
+	<tree custom_gap="17" custom_gap_dpi="150" custom_indent="15" custom_indent_dpi="150" extra_height="2" extra_height_dpi="150">
 		<actions>
 			<lmb_alt enable="yes">Go NEWTAB</lmb_alt>
 			<lmb_ctrl enable="yes">Go OPENINDUAL</lmb_ctrl>
@@ -48,7 +48,7 @@
 			<frozen />
 		</gridlines>
 		<system_colors_enabled />
-		<system_colors MENUHILIGHT="#0078d7" />
+		<system_colors />
 		<named_color_bools />
 		<named_dwords />
 		<named_colors />
@@ -98,7 +98,7 @@
 		</bg_commands>
 		<mouse_hook_delay>0</mouse_hook_delay>
 	</dblclk>
-	<toolbars fdb="File Display" flags="0x2a8d" flags2="0" scaling="100" spacing="3,2,100" viewer="Image Viewer">
+	<toolbars fdb="File Display" flags="0x2a8d" flags2="0" scaling="100" spacing="5,3,150" viewer="Image Viewer">
 		<viewmodes>
 			<mode mode="6" name="Images" set="no" type="0" />
 		</viewmodes>
@@ -127,15 +127,15 @@
 		<hideext>.exe</hideext>
 		<auto>.exe;.msi;.msix</auto>
 	</zip>
-	<thumbnails cache_size="100" flags="0x21de030" lines="2" max_threads="7" single_image="*" size="0x800080" size2="128,128,100" spacing="8,4,100" />
-	<tiles flags="192" size="0x3001a" spacing="0x40004" spacing2="4,4,100" thumb_size="0x400040" thumb_size2="64,64,100" />
+	<thumbnails cache_size="100" flags="0x21de030" lines="2" max_threads="7" single_image="*" size="0xc000c0" size2="192,192,150" spacing="12,6,150" />
+	<tiles flags="192" size="0x3001a" spacing="0x60006" spacing2="6,6,150" thumb_size="0x600060" thumb_size2="96,96,150" />
 	<recent flags="31" history="10" limit="10" />
 	<smartfav limit="10" points="0x5,0x5,0x5,0xa,0x8,0x8,0x3,0x5,0x8,0x5,0xa,0xa,0x8,0x5,0xa,0x8,0x8,0x0,0x0" size="100" thresh="40" />
-	<viewer customtitle="" dblclkcmd="" edgewidth="20" flags="0x202e1901" flags2="0" flags3="130" gamma="100" lbuttoncmd="" markedthumb="64,64,100" mbuttoncmd="" minwidth="533,0,100" speed="10.000000" tagcol="Marked Pictures\%F" />
-	<foldertab_size>0x640064</foldertab_size>
-	<foldertab_size2>0x800028</foldertab_size2>
-	<foldertab_size3>100,100,100</foldertab_size3>
-	<foldertab_size4>40,128,100</foldertab_size4>
+	<viewer customtitle="" dblclkcmd="" edgewidth="20" flags="0x202e1901" flags2="0" flags3="130" gamma="100" lbuttoncmd="" markedthumb="96,96,150" mbuttoncmd="" minwidth="800,0,150" speed="10.000000" tagcol="Marked Pictures\%F" />
+	<foldertab_size>0x960096</foldertab_size>
+	<foldertab_size2>0xc0003c</foldertab_size2>
+	<foldertab_size3>150,150,150</foldertab_size3>
+	<foldertab_size4>60,192,150</foldertab_size4>
 	<transanims disable="no" navback="default" navforward="default" navinto="default" navother="default" navup="default" prefspages="default" />
 	<jumplist flags="0xf4610" />
 	<filters prefix="">
