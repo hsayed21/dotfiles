@@ -8,16 +8,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 
 -- Set up an autocommand to open AhkTest.ahk in the _MyAutohotkey folder when starting Neovim
-vim.cmd([[
-  augroup OpenTestAHK
-    autocmd!
-    autocmd VimEnter * if getcwd() == "G:\\My Drive\\_MyAutohotkey" | call timer_start(100, 'OpenMyFile') | NvimTreeClose | endif
-  augroup END
-
-  function! OpenMyFile(timer)
-    exe "edit G:/My Drive/_MyAutohotkey/Test/AhkTest.ahk"
-  endfunction
-]])
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    if vim.fn.getcwd() == "G:\\My Drive\\_MyAutohotkey" then
+      vim.defer_fn(function()
+        vim.cmd("edit G:/My Drive/_MyAutohotkey/Test/AhkTest.ahk")
+        -- Close NvimTree if it's available
+        local ok, _ = pcall(require, "nvim-tree")
+        if ok and require("nvim-tree.api") then
+          require("nvim-tree.api").tree.close()
+        end
+      end, 100)
+    end
+  end,
+})
 
 -- Set the cursor color when the terminal is opened or closed
 vim.api.nvim_set_hl(0, "TerminalCursorShape", { underline = true })

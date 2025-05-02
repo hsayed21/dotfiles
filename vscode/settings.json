@@ -2202,5 +2202,10 @@
   "editor.experimentalEditContextEnabled": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 5,
-  "firefox.launchArgs": ["-start-debugger-server", "6000"]
+  "firefox.launchArgs": [
+    "-start-debugger-server",
+    "6000"
+  ],
+  "git.blame.editorDecoration.enabled": false,
+  "git.blame.statusBarItem.enabled": true
 }

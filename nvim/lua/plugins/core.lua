@@ -158,14 +158,20 @@ return {
 			}
 		},
 		config = function()
+
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
 			-- import lspconfig plugin
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({})
-			lspconfig.tsserver.setup({})
-			lspconfig.html.setup({})
-			lspconfig.cssls.setup({})
-			lspconfig.csharp_ls.setup({})
-			lspconfig.pyright.setup({})
+			lspconfig.lua_ls.setup({ capabilities = capabilities })
+			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.html.setup({ capabilities = capabilities })
+			lspconfig.cssls.setup({ capabilities = capabilities })
+			lspconfig.csharp_ls.setup({ capabilities = capabilities })
+			lspconfig.pyright.setup({ capabilities = capabilities })
+			lspconfig.jsonls.setup({ capabilities = capabilities })
+			lspconfig.eslint.setup({ capabilities = capabilities })
 
 
 			require('lsp-progress').setup()
@@ -367,9 +373,6 @@ return {
 			-- 	}
 			-- end
 
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
 			-- ahkv2
 			local function custom_attach(client, bufnr)
 				require("lsp_signature").on_attach({
@@ -490,6 +493,8 @@ return {
 					"lua_ls",
 					"pyright",
 					"csharp_ls",
+					"jsonls",
+					"eslint",
 				},
 				handlers = {
 					-- function(server_name)
