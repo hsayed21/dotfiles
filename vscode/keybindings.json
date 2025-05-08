@@ -5274,15 +5274,6 @@
     "command": "actions.find"
   },
   {
-    "key": "shift+alt+a",
-    "command": "toggleexcludedfiles.toggle"
-  },
-  {
-    "key": "ctrl+shift+a",
-    "command": "-toggleexcludedfiles.toggle",
-    "when": "filesExplorerFocus"
-  },
-  {
     "key": "ctrl+shift+i",
     "command": "snippetsExplorer.focus"
   },
@@ -5686,6 +5677,10 @@
     "key": "ctrl+u",
     "command": "editor.action.pageUpHover",
     "when": "editorHoverVisible && editorHoverFocused"
+  },
+  {
+    "key": "shift+alt+a",
+    "command": "earshinov.toggleExcludeGitIgnore.toggleExcludeGitIgnore"
   }
 
 ]

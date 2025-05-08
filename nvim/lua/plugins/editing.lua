@@ -266,7 +266,7 @@ return {
 					return require("nvim-treesitter.indent").get_indent(lnum)
 				end,
 			},
-			enabled = not vim.g.vscode
+			-- enabled = not vim.g.vscode
 		},
 		-- Indentation guessing
 		{
@@ -281,12 +281,12 @@ return {
 					"prompt",
 				},
 			},
-			enabled = not vim.g.vscode
+			-- enabled = not vim.g.vscode
 		},
 		-- Automatic indentation detection
 		{
 			"tpope/vim-sleuth",
-			enabled = false,
+			enabled = true
 		},
 	},
 	-- Formating
@@ -538,14 +538,8 @@ return {
 							["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
 							["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
 							-- works for javascript/typescript files (custom capture I created in after/queries/ecma/textobjects.scm)
-							["af"] = {
-								query = "@function.outer",
-								desc = "Select outer part of a method/function definition",
-							},
-							["if"] = {
-								query = "@function.inner",
-								desc = "Select inner part of a method/function definition",
-							},
+							["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition", },
+							["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition", },
 							["ag"] = { query = "@block.outer" },
 							["ig"] = { query = "@block.inner" },
 							["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/argument" },
@@ -1284,4 +1278,19 @@ return {
 			})
 		end,
 	},
+	-- EasyClip
+	{
+		-- After copying a visual selection, return to original location
+		'svermeulen/vim-easyclip',
+		init = function()
+			-- Disable all mappings; we'll opt-in manually
+			-- vim.g.EasyClipUseSubstituteMappings = 0
+			-- vim.g.EasyClipUseCutDefaults = 1
+			-- vim.g.EasyClipUsePasteDefaults = 0
+			-- vim.g.EasyClipUseEmacsDefaults = 0
+			vim.g.EasyClipPreserveCursorPositionAfterYank = 1
+		end,
+		event = "VeryLazy"
+	}
+
 }

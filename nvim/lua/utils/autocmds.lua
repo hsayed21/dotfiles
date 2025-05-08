@@ -1,9 +1,9 @@
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 
@@ -46,23 +46,36 @@ vim.cmd([[
 ]])
 
 function DeleteTelescopeProjects()
-    local telescope_projects_file = vim.fn.stdpath('data') .. '/telescope-projects.txt'
-    os.remove(telescope_projects_file)
-    print("Deleted telescope-projects.txt. It will be rebuilt on next Neovim start.")
+  local telescope_projects_file = vim.fn.stdpath('data') .. '/telescope-projects.txt'
+  os.remove(telescope_projects_file)
+  print("Deleted telescope-projects.txt. It will be rebuilt on next Neovim start.")
 end
 
 vim.api.nvim_create_autocmd("InsertEnter", {
-	callback = function()
+  callback = function()
     vim.cmd [[set scrolloff=9999]]
-	end,
+  end,
 })
 
 vim.api.nvim_create_autocmd("InsertLeave", {
-	callback = function()
+  callback = function()
     vim.cmd [[set scrolloff=0]]
-	end,
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   command = "TSEnable highlight",
 })
+
+if vim.g.vscode then
+  -- VSCode-specific config
+  vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = "*",
+    callback = function()
+      vim.opt_local.autoindent = true
+      vim.opt_local.smartindent = true
+    end,
+  })
+
+  return  -- Skip the rest of init.lua
+end

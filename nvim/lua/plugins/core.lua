@@ -155,6 +155,13 @@ return {
 			},
 			{
 				'linrongbin16/lsp-progress.nvim',
+			},
+			{
+				"tris203/rzls.nvim", -- Razor Language Server (support for Razor/Blazor/CSHTML files)
+				dependencies = { "neovim/nvim-lspconfig" },
+				config = function()
+					require("rzls").setup()
+				end
 			}
 		},
 		config = function()
