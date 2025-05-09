@@ -5454,7 +5454,7 @@
   {
     "key": "alt+j",
     "command": "vscode-neovim.send",
-    "args": "<A-h>",
+    "args": "<A-j>",
     "when": "editorTextFocus && neovim.init && neovim.mode == 'normal' && !editorHoverVisible"
   },
   {
@@ -5467,6 +5467,12 @@
     "key": "alt+l",
     "command": "vscode-neovim.send",
     "args": "<A-l>",
+    "when": "editorTextFocus && neovim.init && neovim.mode == 'normal' && !editorHoverVisible"
+  },
+  {
+    "key": "alt+h",
+    "command": "vscode-neovim.send",
+    "args": "<A-h>",
     "when": "editorTextFocus && neovim.init && neovim.mode == 'normal' && !editorHoverVisible"
   },
   {

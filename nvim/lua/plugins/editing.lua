@@ -1279,18 +1279,18 @@ return {
 		end,
 	},
 	-- EasyClip
-	{
-		-- After copying a visual selection, return to original location
-		'svermeulen/vim-easyclip',
-		init = function()
-			-- Disable all mappings; we'll opt-in manually
-			-- vim.g.EasyClipUseSubstituteMappings = 0
-			-- vim.g.EasyClipUseCutDefaults = 1
-			-- vim.g.EasyClipUsePasteDefaults = 0
-			-- vim.g.EasyClipUseEmacsDefaults = 0
-			vim.g.EasyClipPreserveCursorPositionAfterYank = 1
-		end,
-		event = "VeryLazy"
-	}
+	-- {
+	-- 	-- After copying a visual selection, return to original location
+	-- 	'svermeulen/vim-easyclip',
+	-- 	init = function()
+	-- 		-- Disable all mappings; we'll opt-in manually
+	-- 		vim.g.EasyClipUseSubstituteMappings = 1
+	-- 		vim.g.EasyClipUseCutDefaults = 1
+	-- 		vim.g.EasyClipUsePasteDefaults = 1
+	-- 		vim.g.EasyClipUseEmacsDefaults = 0
+	-- 		vim.g.EasyClipPreserveCursorPositionAfterYank = 1
+	-- 	end,
+	-- 	event = "VeryLazy"
+	-- }
 
 }

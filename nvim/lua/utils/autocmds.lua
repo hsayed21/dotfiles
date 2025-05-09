@@ -66,16 +66,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
   command = "TSEnable highlight",
 })
-
-if vim.g.vscode then
-  -- VSCode-specific config
-  vim.api.nvim_create_autocmd("BufEnter", {
-    pattern = "*",
-    callback = function()
-      vim.opt_local.autoindent = true
-      vim.opt_local.smartindent = true
-    end,
-  })
-
-  return  -- Skip the rest of init.lua
-end

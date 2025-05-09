@@ -82,6 +82,16 @@ Map( 'n', 'o', "o<Cmd>call VSCodeNotifyRange('editor.action.reindentselectedline
 Map( 'n', 'O', "O<Cmd>call VSCodeNotifyRange('editor.action.reindentselectedlines', line('.'), line('.'), 1)<CR>")
 
 
+-- Store original cursor position before yanking
+Map('v', 'y', function()
+  -- Save current cursor position
+  local pos = vim.fn.getpos('.')
+  -- Perform yank
+  vim.cmd('normal! y')
+  -- Return to original position
+  vim.fn.setpos('.', pos)
+end, { desc = 'Yank and preserve cursor position' })
+
 Map("n", "~", "~h")              -- Lower/Upper case the character under the cursor
 
 ----##### [Shortcuts] #####
