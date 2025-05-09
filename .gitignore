@@ -12,3 +12,4 @@ DirectoryOpus/Logs
 resources.txt
 nvim/notes.md
 nvim/ForDebugging.txt
+*.bak

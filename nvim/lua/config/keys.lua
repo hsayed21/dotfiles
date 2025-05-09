@@ -14,11 +14,11 @@ local opts = { noremap = true, silent = true }
 
 --##### [Movement] #####
 -- Navigation & Jumping
-Map("", "<C-d>", "6+")
-Map("", "<C-u>", "6-")
+Map("", "<C-d>", "6+zz")
+Map("", "<C-u>", "6-zz")
 Map("", "<C-f>", "10+")
 Map("", "<C-b>", "10-")
-Map("", "gM", "M") -- middle of the screen
+Map("", "gM", "Mzz") -- middle of the screen
 -- skip folds (down, up)
 Cmd('nmap j gj')
 Cmd('nmap k gk')

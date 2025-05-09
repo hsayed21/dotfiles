@@ -671,7 +671,7 @@
   },
   {
     "command": "workbench.action.navigateBack",
-    "key": "alt+left",
+    "key": "ctrl+alt+j",
     "when": "canNavigateBack"
   },
   {
@@ -696,12 +696,12 @@
   },
   {
     "command": "hideSuggestWidget",
-    "key": "alt+o",
+    "key": "shift+alt+i",
     "when": "suggestWidgetVisible"
   },
   {
     "command": "editor.action.inlineSuggest.hide",
-    "key": "alt+p",
+    "key": "alt+i",
     "when": "inlineSuggestionVisible && textInputFocus"
   },
   {
@@ -781,7 +781,7 @@
   },
   {
     "command": "workbench.action.navigateForward",
-    "key": "alt+right",
+    "key": "ctrl+alt+k",
     "when": "canNavigateForward"
   },
   {
@@ -5513,7 +5513,7 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+i",
+    "key": "ctrl+alt+w",
     "command": "workbench.action.openQuickChat"
   },
   {
@@ -5687,6 +5687,16 @@
   {
     "key": "shift+alt+a",
     "command": "earshinov.toggleExcludeGitIgnore.toggleExcludeGitIgnore"
+  },
+  {
+    "key": "alt+left",
+    "command": "-workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  {
+    "key": "alt+right",
+    "command": "-workbench.action.navigateForward",
+    "when": "canNavigateForward"
   }
 
 ]
