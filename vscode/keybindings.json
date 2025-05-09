@@ -671,7 +671,7 @@
   },
   {
     "command": "workbench.action.navigateBack",
-    "key": "ctrl+alt+j",
+    "key": "ctrl+alt+-",
     "when": "canNavigateBack"
   },
   {
@@ -781,7 +781,7 @@
   },
   {
     "command": "workbench.action.navigateForward",
-    "key": "ctrl+alt+k",
+    "key": "ctrl+alt+=",
     "when": "canNavigateForward"
   },
   {
@@ -5697,6 +5697,16 @@
     "key": "alt+right",
     "command": "-workbench.action.navigateForward",
     "when": "canNavigateForward"
+  },
+  {
+    "key": "alt+f12",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
+  },
+  {
+    "key": "ctrl+f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
   }
 
 ]

@@ -1,3 +1,16 @@
+-- Quick reference for hotkeys
+-- ["CTRL+SHIFT+ALT+E"] = "Toggle color scheme",
+-- ["CTRL+SHIFT+ALT+h"] = "Split pane right",
+-- ["CTRL+SHIFT+ALT+v"] = "Split pane down",
+-- ["CTRL+SHIFT+U"] = "Adjust pane size left",
+-- ["CTRL+SHIFT+I"] = "Adjust pane size down",
+-- ["CTRL+SHIFT+O"] = "Adjust pane size up",
+-- ["CTRL+SHIFT+P"] = "Adjust pane size right",
+-- ["CTRL+9"] = "Pane select",
+-- ["CTRL+L"] = "Show debug overlay",
+-- ["CTRL+Shift+ALT+O"] = "Toggle opacity",
+
+
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local act = wezterm.action
