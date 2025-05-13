@@ -235,22 +235,22 @@ return {
 	},
 	-- Escape key enhancement
 	{
-    "max397574/better-escape.nvim",
-    config = function()
-        require("better_escape").setup({
-            keys = function()
-                vim.api.nvim_input("<Esc>")
-                local current_line = vim.api.nvim_get_current_line()
-                if current_line:match("^%s+j$") then
-                    vim.schedule(function()
-                        vim.api.nvim_set_current_line("")
-                    end)
-                end
-            end,
-            timeout = vim.o.timeoutlen, -- Keeps using timeoutlen for timing
-        })
-    end,
-    enabled = not vim.g.vscode
+		"max397574/better-escape.nvim",
+		config = function()
+			require("better_escape").setup({
+				keys = function()
+					vim.api.nvim_input("<Esc>")
+					local current_line = vim.api.nvim_get_current_line()
+					if current_line:match("^%s+j$") then
+						vim.schedule(function()
+							vim.api.nvim_set_current_line("")
+						end)
+					end
+				end,
+				timeout = vim.o.timeoutlen, -- Keeps using timeoutlen for timing
+			})
+		end,
+		enabled = not vim.g.vscode
 	},
 	-- Indentation
 	{
@@ -408,22 +408,31 @@ return {
 			vim.g.camelcasemotion_key = ""
 		end,
 		config = function()
+			local modes = { "n", "o", "x" }
 			-- Map motions (w/e/b/ge) to camelCase navigation
-			vim.keymap.set({"n", "o", "x"}, "w",  "<Plug>CamelCaseMotion_w",  { desc = "CamelCase forward" })
-			vim.keymap.set({"n", "o", "x"}, "b",  "<Plug>CamelCaseMotion_b",  { desc = "CamelCase backward" })
-			vim.keymap.set({"n", "o", "x"}, "e",  "<Plug>CamelCaseMotion_e",  { desc = "CamelCase end" })
-			vim.keymap.set({"n", "o", "x"}, "ge", "<Plug>CamelCaseMotion_ge", { desc = "CamelCase prev end" })
+			-- [CamelCase motions]
+			Map(modes, "w", "<Plug>CamelCaseMotion_w", { desc = "CamelCase forward" })
+			Map(modes, "b", "<Plug>CamelCaseMotion_b", { desc = "CamelCase backward" })
+			Map(modes, "e", "<Plug>CamelCaseMotion_e", { desc = "CamelCase end" })
+			Map(modes, "ge", "<Plug>CamelCaseMotion_ge", { desc = "CamelCase prev end" })
 
 			-- Map text objects (iw/ib/ie) for camelCase
-			-- vim.keymap.set({"o", "x"}, "iw", "<Plug>CamelCaseMotion_iw", { desc = "Inner camelCase word" })
-			-- vim.keymap.set({"o", "x"}, "ib", "<Plug>CamelCaseMotion_ib", { desc = "Inner camelCase block" })
-			-- vim.keymap.set({"o", "x"}, "ie", "<Plug>CamelCaseMotion_ie", { desc = "Inner camelCase end" })
+			-- [CamelCase text object motions]
+			Map({ "o", "x" }, "iw", "<Plug>CamelCaseMotion_iw", { desc = "Inner camelCase word" })
+			Map({ "o", "x" }, "ib", "<Plug>CamelCaseMotion_ib", { desc = "Inner camelCase block" })
+			Map({ "o", "x" }, "ie", "<Plug>CamelCaseMotion_ie", { desc = "Inner camelCase end" })
 
-			Map("n", "vw", "v<Plug>CamelCaseMotion_iw", { desc = "Visual camelCase word" })
-			Map("n", "dw", 'd<Plug>CamelCaseMotion_iw', { desc = "Delete camelCase word" })
-			Map("n", "cw", '"_c<Plug>CamelCaseMotion_iw', { desc = "Change camelCase word" })
-			Map("n", "yw", 'y<Plug>CamelCaseMotion_iw', { desc = "Yank camelCase word" })
-
+			-- [Custom Shortcuts]
+			-- for camelcase
+			Map("n", "vw", "v<Plug>CamelCaseMotion_ib", { desc = "Visual camelCase word" })
+			Map("n", "dw", 'd<Plug>CamelCaseMotion_ib', { desc = "Delete camelCase word" })
+			Map("n", "cw", '"_c<Plug>CamelCaseMotion_ib', { desc = "Change camelCase word" })
+			Map("n", "yw", 'y<Plug>CamelCaseMotion_ib', { desc = "Yank camelCase word" })
+			-- for entire word
+			Map("n", "vW", "viw") -- Select the current word
+			Map("n", "dW", 'diw') -- Delete a word
+			Map("n", "cW", '"_ciw') -- Change a word
+			Map("n", "yW", 'yiw') -- Yank a word
 		end
 	},
 	-- Window maximizer
@@ -1110,7 +1119,7 @@ return {
 			-- For Other using key ? for more help
 			-- <leader>R => Replace all
 			-- <leader>rc => Replace current
-    end,
+		end,
 		enabled = not vim.g.vscode
 	},
 	-- Folding enhancement
@@ -1247,8 +1256,8 @@ return {
 		keys = {
 			{ "<leader>fs", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
 			{ "<leader>ft", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-			{ "<leader>fr",          mode = "o", function() require("flash").remote() end,            desc = "Remote Flash" },
-			{ "<leader>fT",          mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			{ "<leader>fr", mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+			{ "<leader>fT", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
 			-- { "<c-s>",      mode = { "c" }, function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
 			-- f => flash search char forward before cursor (f, F to move between results)
 			-- F => flash search char backward after cursor (f, F to move between results)

@@ -2223,5 +2223,9 @@
     "editor.formatOnType"
   ],
   "editor.formatOnPaste": false,
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "editor.inlineSuggest.edits.showCollapsed": true
 }
