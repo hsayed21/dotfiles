@@ -168,9 +168,6 @@
   "codesnap.containerPadding": "1em",
   "codesnap.showWindowControls": false,
   "codesnap.shutterAction": "copy",
-  "csharp.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
-  "csharp.inlayHints.enableInlayHintsForLambdaParameterTypes": true,
-  "csharp.inlayHints.enableInlayHintsForTypes": true,
   "debug.console.fontSize": 12,
   "debug.inlineValues": "off",
   "debug.toolBarLocation": "docked",
@@ -179,12 +176,6 @@
   "diffEditor.renderIndicators": false,
   "dotnet.codeLens.enableTestsCodeLens": false,
   "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
-  "dotnet.inlayHints.enableInlayHintsForLiteralParameters": true,
-  "dotnet.inlayHints.enableInlayHintsForObjectCreationParameters": true,
-  "dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
-  "dotnet.inlayHints.suppressInlayHintsForParametersThatDifferOnlyBySuffix": true,
-  "dotnet.inlayHints.suppressInlayHintsForParametersThatMatchArgumentName": true,
-  "dotnet.inlayHints.suppressInlayHintsForParametersThatMatchMethodIntent": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.acceptSuggestionOnEnter": "off",
   "editor.accessibilitySupport": "off",
@@ -239,7 +230,6 @@
   "editor.mouseWheelZoom": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.overviewRulerBorder": false,
-  "editor.parameterHints.enabled": false,
   "editor.quickSuggestions": {
     "comments": "inline",
     "other": true,
@@ -2202,8 +2192,6 @@
   "editor.wordWrap": "on",
   "breadcrumbs.enabled": false,
   "csharp.experimental.debug.hotReload": true,
-  "dotnet.inlayHints.enableInlayHintsForParameters": true,
-  "dotnet.inlayHints.enableInlayHintsForIndexerParameters": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
   "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
@@ -2227,5 +2215,9 @@
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
-  "editor.inlineSuggest.edits.showCollapsed": true
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "[aspnetcorerazor]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+  "editor.parameterHints.enabled": false
 }
