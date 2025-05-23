@@ -825,27 +825,27 @@
     "Git Bash": {
       "source": "Git Bash"
     },
-    "PowerShell": {
-      "icon": "terminal-powershell",
-      "source": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-    },
-    "WSL": {
-      "args": [
-        "-d",
-        "kali-linux"
-      ],
-      "path": "C:\\WINDOWS\\System32\\wsl.exe"
-    },
     "Windows PowerShell": {
       "path": "C:\\Users\\hsayed\\scoop\\shims\\pwsh.exe"
-    },
-    "kali-linux (WSL)": {
-      "args": [
-        "-d",
-        "kali-linux"
-      ],
-      "path": "C:\\WINDOWS\\System32\\wsl.exe"
     }
+    // "PowerShell": {
+    //   "icon": "terminal-powershell",
+    //   "source": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    // },
+    // "WSL": {
+    //   "args": [
+    //     "-d",
+    //     "kali-linux"
+    //   ],
+    //   "path": "C:\\WINDOWS\\System32\\wsl.exe"
+    // },
+    // "kali-linux (WSL)": {
+    //   "args": [
+    //     "-d",
+    //     "kali-linux"
+    //   ],
+    //   "path": "C:\\WINDOWS\\System32\\wsl.exe"
+    // }
   },
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.tabs.enableed": false,
