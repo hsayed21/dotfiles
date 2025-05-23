@@ -5,30 +5,30 @@
 		<layout flags="0x103000001" view_mode="details,details" well_width="192,0" well_width_dpi="150" />
 		<filedisplay>
 			<left buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>G:\My Drive\POSBANK\GetProductKey_Restaurant</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Programs" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="316" size_dpi="150" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="79" size_dpi="150" />
-					<field id="type" size="114" size_dpi="150" />
+				<pathstring>C:\Users\hsayed\AppData\Local\nvim-data\lazy\nvim-treesitter-textobjects\queries\lua</pathstring>
+				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+					<field collapse="yes" id="name" size="201" size_dpi="150" sort="1" />
+					<field id="type" size="120" size_dpi="150" />
+					<field auto_size="yes" id="sizeauto" size="83" size_dpi="150" />
 					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
-					<field id="attr" size="73" size_dpi="150" />
+					<field auto_size="yes" id="ext" size="56" size_dpi="150" />
 				</format>
 				<curdir>
-					<7>
-						<pathstring>G:\My Drive\POSBANK\GetProductKey_Restaurant</pathstring>
-					</7>
+					<3>
+						<pathstring>C:\Users\hsayed\AppData\Local\nvim-data\lazy\nvim-treesitter-textobjects\queries\lua</pathstring>
+					</3>
 				</curdir>
 				<vars />
 			</left>
 		</filedisplay>
 		<initial_layout>Explorer</initial_layout>
-		<tabs1 active="5">
+		<tabs1 active="6">
 			<tab buf_flags="0xc0020000" flags="2" name="AHK">
 				<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
 				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" reverse="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="3" view_mode="details">
 					<field collapse="yes" id="name" size="188" size_dpi="150" />
 					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="114" size_dpi="150" />
+					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
 					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
 					<field auto_size="yes" id="ext" size="77" size_dpi="150" sort="1" />
 				</format>
@@ -44,7 +44,7 @@
 				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
 					<field collapse="yes" id="name" size="1" size_dpi="150" sort="1" />
 					<field id="type" size="120" size_dpi="150" />
-					<field auto_size="yes" id="sizeauto" size="116" size_dpi="150" />
+					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
 					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
 					<field auto_size="yes" id="ext" size="53" size_dpi="150" />
 				</format>
@@ -93,7 +93,7 @@
 			<tab buf_flags="0xc0020000" flags="0" name="">
 				<pathstring>C:\POSBANK\Projects\_Codes_MenuTree-Frontend</pathstring>
 				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
-					<field collapse="yes" id="name" size="200" size_dpi="150" sort="1" />
+					<field collapse="yes" id="name" size="1" size_dpi="150" sort="1" />
 					<field id="type" size="120" size_dpi="150" />
 					<field auto_size="yes" id="sizeauto" size="102" size_dpi="150" />
 					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
@@ -119,6 +119,22 @@
 					<7>
 						<pathstring>G:\My Drive\POSBANK\GetProductKey_Restaurant</pathstring>
 					</7>
+				</curdir>
+				<vars />
+			</tab>
+			<tab buf_flags="0xc0020000" flags="0" name="">
+				<pathstring>C:\Users\hsayed\AppData\Local\nvim-data\lazy\nvim-treesitter-textobjects\queries\lua</pathstring>
+				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x8000000" v="3" view_mode="details">
+					<field collapse="yes" id="name" size="201" size_dpi="150" sort="1" />
+					<field id="type" size="120" size_dpi="150" />
+					<field auto_size="yes" id="sizeauto" size="83" size_dpi="150" />
+					<field auto_size="yes" id="modified" size="204" size_dpi="150" />
+					<field auto_size="yes" id="ext" size="56" size_dpi="150" />
+				</format>
+				<curdir>
+					<3>
+						<pathstring>C:\Users\hsayed\AppData\Local\nvim-data\lazy\nvim-treesitter-textobjects\queries\lua</pathstring>
+					</3>
 				</curdir>
 				<vars />
 			</tab>

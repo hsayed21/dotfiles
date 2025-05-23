@@ -96,7 +96,7 @@ return {
 				-- Package Manager for LSP
 				"williamboman/mason.nvim",
 				config = function()
-				require("mason").setup({
+					require("mason").setup({
 						ui = {
 							icons = {
 								package_installed = "✓",
@@ -142,7 +142,7 @@ return {
 				"ray-x/lsp_signature.nvim",
 				event = "VeryLazy",
 				opts = {},
-				config = function(_, opts) require'lsp_signature'.setup(opts) end
+				config = function(_, opts) require 'lsp_signature'.setup(opts) end
 			},
 			{
 				"nvimdev/lspsaga.nvim",
@@ -165,7 +165,6 @@ return {
 			}
 		},
 		config = function()
-
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
@@ -395,7 +394,7 @@ return {
 
 			function list_directories(path)
 				local i, t, popen = 0, {}, io.popen
-				local pfile, err = popen('dir "'..path..'" /b /ad')
+				local pfile, err = popen('dir "' .. path .. '" /b /ad')
 				if not pfile then
 					return nil, "Error opening pipe: " .. err
 				end
@@ -404,18 +403,19 @@ return {
 					local clean_path = string.gsub(path .. '\\' .. filename, "thqby%.vscode%-autohotkey2%-lsp%-.+", "")
 					t[i] = clean_path .. filename
 				end
-			pfile:close()
+				pfile:close()
 				return t
 			end
 
-			local directories = list_directories(os.getenv("USERPROFILE").."\\.vscode\\extensions\\thqby.vscode-autohotkey2-lsp-*")
+			local directories = list_directories(os.getenv("USERPROFILE") ..
+			"\\.vscode\\extensions\\thqby.vscode-autohotkey2-lsp-*")
 
 			-- AHK2 LSP configuration
 			local ahk2_configs = {
 				autostart = true,
 				cmd = {
 					"node",
-					vim.fn.expand(directories[1].."/server/dist/server.js"),
+					vim.fn.expand(directories[1] .. "/server/dist/server.js"),
 					"--stdio"
 				},
 				filetypes = { "ahk", "autohotkey", "ah2" },
@@ -526,13 +526,11 @@ return {
 				group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 				-- group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(event)
-
 					local builtin = require("telescope.builtin")
 
 					local function search_treesitter_symbols()
-
 						-- local ts_treesitter_symbols = { 'Type', 'Method', 'Function', 'Constant', 'Field' }
-						local treesitter_symbols = { 'Method', 'Function'}
+						local treesitter_symbols = { 'Method', 'Function' }
 
 						local treesitter_highlights = {}
 
@@ -615,7 +613,7 @@ return {
 					_map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
 					-- Show buffer diagnostics option bufnr=0 for current buffer
-					_map("<leader>db",function() builtin.diagnostics({ bufnr = 0 }) end, "[D]iagnostics [B]uffer")
+					_map("<leader>db", function() builtin.diagnostics({ bufnr = 0 }) end, "[D]iagnostics [B]uffer")
 
 					-- Show line diagnostics
 					_map("<leader>dl", vim.diagnostic.open_float, "[D]ocument [L]ine Diagnostics")
@@ -636,7 +634,7 @@ return {
 					-- keymap to restart lsp since some like to crash
 					_map("<leader><leader>r", function()
 						Cmd("LspRestart")
-						end, "Restart LspServer")
+					end, "Restart LspServer")
 				end,
 
 			})
@@ -647,7 +645,6 @@ return {
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
 		end,
 		enabled = not vim.g.vscode
 	},
