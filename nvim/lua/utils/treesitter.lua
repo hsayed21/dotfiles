@@ -33,72 +33,16 @@ function M.register_queries()
       body: (block) @function.inner)
   ]])
 
-  -- JavaScript/TypeScript custom queries
-  vim.treesitter.query.set("javascript", "textobjects", [[
-    ;; Function declarations
-    (function_declaration
-      name: (identifier) @function.name) @function.outer
+end
 
-    ;; Arrow functions with block
-    (arrow_function
-      body: (statement_block) @function.inner) @function.outer
 
-    ;; Function expressions
-    (function_expression) @function.outer
+local function is_function_node(node)
+  if not node then return false end
 
-    ;; Method definitions
-    (method_definition
-      name: (property_identifier) @function.name) @function.outer
-
-    ;; Class declarations
-    (class_declaration
-      name: (identifier) @class.name) @class.outer
-  ]])
-
-  -- TypeScript queries (extends JavaScript)
-  vim.treesitter.query.set("typescript", "textobjects", [[
-    ;; Function declarations
-    (function_declaration
-      name: (identifier) @function.name) @function.outer
-
-    ;; Arrow functions with block
-    (arrow_function
-      body: (statement_block) @function.inner) @function.outer
-
-    ;; Function expressions
-    (function_expression) @function.outer
-
-    ;; Method definitions
-    (method_definition
-      name: (property_identifier) @function.name) @function.outer
-
-    ;; Class declarations
-    (class_declaration
-      name: (type_identifier) @class.name) @class.outer
-
-    ;; Interface declarations
-    (interface_declaration
-      name: (type_identifier) @interface.name) @interface.outer
-  ]])
-
-  -- Python custom queries
-  vim.treesitter.query.set("python", "textobjects", [[
-    ;; Function definitions
-    (function_definition
-      name: (identifier) @function.name) @function.outer
-
-    ;; Function body
-    (function_definition
-      body: (block) @function.inner)
-
-    ;; Class definitions
-    (class_definition
-      name: (identifier) @class.name) @class.outer
-
-    ;; Class body
-    (class_definition
-      body: (block) @class.inner)
-  ]])
+  local node_type = node:type()
+  return node_type == "function_declaration" or
+         node_type == "function_definition" or
+         node_type == "method_definition"
 end
 
 -- Function to get the function under the current cursor position
@@ -112,15 +56,7 @@ function M.goto_function_under_cursor()
   local current_node = cursor_node
   while current_node do
     local node_type = current_node:type()
-    if node_type == "function_declaration" or
-       node_type == "function_definition" or
-       node_type == "method_definition" or
-       node_type == "arrow_function" or
-       node_type == "function_expression" or
-       (node_type == "field" and current_node:field("value")[1] and
-        current_node:field("value")[1]:type() == "function_definition") or
-       (node_type == "assignment_statement" and current_node:field("expression_list")[1] and
-        current_node:field("expression_list")[1]:type() == "function_definition") then
+    if is_function_node(current_node) then
       -- Found a function node, jump to the start of it
       local start_row, start_col, _, _ = current_node:range()
       vim.api.nvim_win_set_cursor(0, {start_row + 1, start_col})
@@ -146,15 +82,7 @@ function M.goto_function_under_cursor()
 
   local function find_functions(node)
     local node_type = node:type()
-    if node_type == "function_declaration" or
-       node_type == "function_definition" or
-       node_type == "method_definition" or
-       node_type == "arrow_function" or
-       node_type == "function_expression" or
-       (node_type == "field" and node:field("value")[1] and
-        node:field("value")[1]:type() == "function_definition") or
-       (node_type == "assignment_statement" and node:field("expression_list")[1] and
-        node:field("expression_list")[1]:type() == "function_definition") then
+    if is_function_node(node) then
       local fn_start_row, _, _, _ = node:range()
       -- Only consider functions after the cursor
       if fn_start_row > row and (fn_start_row - row) < min_distance then
@@ -182,6 +110,7 @@ function M.goto_function_under_cursor()
   return false
 end
 
+
 -- Jump to the previous function
 function M.goto_prev_function()
   local ts_utils = require("nvim-treesitter.ts_utils")
@@ -205,15 +134,7 @@ function M.goto_prev_function()
 
   local function find_prev_functions(node)
     local node_type = node:type()
-    if node_type == "function_declaration" or
-       node_type == "function_definition" or
-       node_type == "method_definition" or
-       node_type == "arrow_function" or
-       node_type == "function_expression" or
-       (node_type == "field" and node:field("value")[1] and
-        node:field("value")[1]:type() == "function_definition") or
-       (node_type == "assignment_statement" and node:field("expression_list")[1] and
-        node:field("expression_list")[1]:type() == "function_definition") then
+    if is_function_node(node) then
       local fn_start_row, _, _, _ = node:range()
       -- Only consider functions before the cursor
       if fn_start_row < row and (row - fn_start_row) > max_distance then
@@ -253,15 +174,7 @@ function M.current_function_name()
   local function_node = cursor_node
   while function_node do
     local node_type = function_node:type()
-    if node_type == "function_declaration" or
-       node_type == "function_definition" or
-       node_type == "method_definition" or
-       node_type == "arrow_function" or
-       node_type == "function_expression" or
-       (node_type == "field" and function_node:field("value")[1] and
-        function_node:field("value")[1]:type() == "function_definition") or
-       (node_type == "assignment_statement" and function_node:field("expression_list")[1] and
-        function_node:field("expression_list")[1]:type() == "function_definition") then
+    if is_function_node(function_node) then
       -- Found a function node
       break
     end
@@ -282,15 +195,6 @@ function M.current_function_name()
     name_node = function_node:field("name")[1]
   elseif node_type == "method_definition" then
     -- Method definition
-    name_node = function_node:field("name")[1]
-  elseif node_type == "assignment_statement" then
-    -- Function assigned to a variable
-    local var_list = function_node:field("variable_list")[1]
-    if var_list then
-      name_node = var_list:field("")[1] -- Get the first child which should be the identifier
-    end
-  elseif node_type == "field" then
-    -- Function in a table
     name_node = function_node:field("name")[1]
   end
 

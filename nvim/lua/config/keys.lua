@@ -16,20 +16,39 @@ local opts = { noremap = true, silent = true }
 -- Navigation & Jumping
 Map("", "<C-d>", "6+zz")
 Map("", "<C-u>", "6-zz")
-Map("", "<C-f>", "10+")
-Map("", "<C-b>", "10-")
+Map("", "<C-f>", "10+zz")
+Map("", "<C-b>", "10-zz")
 Map("", "gM", "Mzz") -- middle of the screen
 -- skip folds (down, up)
 Cmd('nmap j gj')
 Cmd('nmap k gk')
 -- Map("n", "j", "gj")
 -- Map("n", "k", "gk")
+-- Large jumps with centering
+Map("n", "G", "Gzz", { desc = "Go to end and center" })
+Map("n", "gg", "ggzz", { desc = "Go to beginning and center" })
+Map("n", "{", "{zz", { desc = "Previous paragraph centered" })
+Map("n", "}", "}zz", { desc = "Next paragraph centered" })
 
+-- Screen position jumps with centering
+Map("n", "H", "Hzz", { desc = "Top of screen centered" })
+Map("n", "L", "Lzz", { desc = "Bottom of screen centered" })
+Map("n", "M", "Mzz", { desc = "Middle of screen" })
+
+-- Jump list navigation with centering
+Map("n", "<C-o>", "<C-o>zz", { desc = "Jump back centered" })
+Map("n", "<C-i>", "<C-i>zz", { desc = "Jump forward centered" })
 -- Find & Search
 Map("", ",s", "/\\V") -- (Forward) Auto escape special characters in the search pattern. (often search for plain text)
 Map("", "/", "/\\v")  -- (Forward) make regular expressions more concise and easier to read This is the opposite of `\V`
 Map("", ",S", "?\\V") -- (Backward) Auto escape special characters in the search pattern. (often search for plain text)
 Map("", "?", "?\\v")  -- (Backward) make regular expressions more concise and easier to read This is the opposite of `\V`
+
+-- Search with centering
+Map("n", "*", "*zzzv", { desc = "Search word under cursor centered" })
+Map("n", "#", "#zzzv", { desc = "Search word under cursor backward centered" })
+Map("n", "n", "nzzzv", { desc = "Next search result centered" })
+Map("n", "N", "Nzzzv", { desc = "Previous search result centered" })
 
 -- Sort selected lines when visual mode is active
 Map("v", ",t", ":sort<CR>")

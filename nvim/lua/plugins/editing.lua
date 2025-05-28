@@ -682,7 +682,7 @@ return {
 
 			-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
 			Map({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-			Map({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+			Map({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F, { expr = true })
 			Map({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
 			Map({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 		end,

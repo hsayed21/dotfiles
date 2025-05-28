@@ -5697,5 +5697,9 @@
     "key": "ctrl+f12",
     "command": "-editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus && isWeb"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "-workbench.action.quickOpen"
   }
 ]

@@ -2120,7 +2120,7 @@
     "C:\\Users\\hsayed\\AppData\\Local\\nvim"
 
   ],
-  "diffEditor.renderSideBySide": false,
+   "diffEditor.renderSideBySide": false,
   "window.newWindowProfile": "Default",
   "gitlens.views.scm.grouped.views": {
     "commits": false,
@@ -2219,5 +2219,7 @@
   "[aspnetcorerazor]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
-  "editor.parameterHints.enabled": false
+  "editor.parameterHints.enabled": false,
+  "editor.cursorSurroundingLines": 4,
+  "workbench.editor.revealIfOpen": true
 }

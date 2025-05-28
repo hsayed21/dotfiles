@@ -225,6 +225,20 @@ Map("n", "K", function() VSCodeNotify("editor.action.showHover") end, { desc = "
 Map("n", "<leader>ww", function() VSCodeNotify("editor.action.toggleWordWrap") end, { desc = "Toggle word wrap" })
 Map("n", "zy", function() VSCodeNotify("editor.debug.action.toggleBreakpoint") end, { desc = "Toggle breakpoint" })
 
+-- Harpoon - VS Code Harpoon extension
+Map("n", "<leader>a", function() VSCodeNotify("vscode-harpoon.addEditor") end, { desc = "Harpoon add file" })
+Map("n", "<C-e>", function() VSCodeNotify("vscode-harpoon.editorQuickPick") end, { desc = "Harpoon quick menu" })
+Map("n", "<leader>hh", function() VSCodeNotify("vscode-harpoon.editEditors") end, { desc = "Harpoon Edit Editors" })
+Map("n", "<C-j>", function() VSCodeNotify("vscode-harpoon.navigatePreviousEditor") end, { desc = "Harpoon previous" })
+Map("n", "<C-S-j>", function() VSCodeNotify("vscode-harpoon.navigatePreviousEditor") end, { desc = "Harpoon previous" })
+Map("n", "<C-k>", function() VSCodeNotify("vscode-harpoon.navigateNextEditor") end, { desc = "Harpoon next" })
+Map("n", "<C-S-k>", function() VSCodeNotify("vscode-harpoon.navigateNextEditor") end, { desc = "Harpoon next" })
+Map("n", "<leader>1", function() VSCodeNotify("vscode-harpoon.gotoEditor1") end, { desc = "Harpoon file 1" })
+Map("n", "<leader>2", function() VSCodeNotify("vscode-harpoon.gotoEditor2") end, { desc = "Harpoon file 2" })
+Map("n", "<leader>3", function() VSCodeNotify("vscode-harpoon.gotoEditor3") end, { desc = "Harpoon file 3" })
+Map("n", "<leader>4", function() VSCodeNotify("vscode-harpoon.gotoEditor4") end, { desc = "Harpoon file 4" })
+Map("n", "<leader>ra", function() VSCodeNotify("vscode-harpoon.removeAllEditors") end, { desc = "Harpoon remove all" })
+
 -- Editor
 Map("", "L", Move_to_bottom_screen, { desc = "Move to bottom screen" })
 Map("", "H", Move_to_top_screen, { desc = "Move to top screen" })
