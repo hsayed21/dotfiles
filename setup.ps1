@@ -8,84 +8,84 @@ Write-Log "Starting setup process..." -Level Info
 
 # Group packages by categories
 $packages = @{
-    Development = @{
-        Scoop = @(
-            @{ name = "git" },
-            @{ name = "python" }
-        )
-        Winget = @(
-            @{ name = "Microsoft.VisualStudioCode" },
-            @{ name = "Microsoft.WindowsTerminal" }
-        )
-        Choco = @(
-            @{ name = "dotnet-sdk" }
-        )
-    }
-    Utilities = @{
-        Scoop = @(
-            @{ name = "sudo" },
-            @{ name = "curl" },
-            @{ name = "pwsh" },
-            @{ name = "concfg" },
-            @{ name = "extras/altsnap" },
-            @{ name = "alacritty" }
-            @{ name = "extras/unigetui" }
-            @{ name = "zig" },
-            @{ name = "lazygit" },
-            # @{ name = "fzf" },
-            # @{ name = "ripgrep" }
-        )
-        Winget = @(
-            @{ name = "Microsoft.PowerToys" },
-            @{ name = "JanDeDobbeleer.OhMyPosh" },
-            @{ name = "GlazeWM" },
-            @{ name = "Zebar" },
-            @{ id = "stnkl.EverythingToolbar" }
-        )
-        Choco = @(
-            @{ name = "flow-launcher" },
-            @{ name = "winspy" },
-            @{ name = "wingetui" },
-            @{ name = "nircmd" },
-            @{ name = "7zip" },
-            @{ name = "notepadplusplus" },
-            @{ name = "everything" },
-            @{ name = "wget" },
-            @{ name = "smartsystemmenu" },
-            @{ name = "ffmpeg" },
-            @{ name = "fzf" },
-            @{ name = "ripgrep" },
-            @{ name = "bat" },
-            
-        )
-        SourceForge = @(
-            @{
-                project = "globonote/files/globonote"
-                file = "globonote-setup.exe"
-                # args = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART"
-            }
-        )
-    }
-    Browsers = @{
-        Winget = @(
-            @{ name = "Google.Chrome" },
-            @{ name = "Mozilla.Firefox" }
-        )
-    }
-    Fonts = @{
-        Choco = @(
-            @{ name = "nerdfont-hack" },
-            @{ name = "nerd-fonts-firacode" }
-        )
-    }
+  Development = @{
+    Scoop  = @(
+      @{ name = "git" },
+      @{ name = "python" }
+    )
+    Winget = @(
+      @{ name = "Microsoft.VisualStudioCode" },
+      @{ name = "Microsoft.WindowsTerminal" }
+    )
+    Choco  = @(
+      @{ name = "dotnet-sdk" }
+    )
+  }
+  Utilities   = @{
+    Scoop       = @(
+      @{ name = "sudo" },
+      @{ name = "curl" },
+      @{ name = "pwsh" },
+      @{ name = "concfg" },
+      @{ name = "extras/altsnap" },
+      @{ name = "alacritty" }
+      @{ name = "extras/unigetui" }
+      @{ name = "zig" },
+      @{ name = "lazygit" },
+      # @{ name = "fzf" },
+      # @{ name = "ripgrep" }
+    )
+    Winget      = @(
+      @{ name = "Microsoft.PowerToys" },
+      @{ name = "JanDeDobbeleer.OhMyPosh" },
+      @{ name = "GlazeWM" },
+      @{ name = "Zebar" },
+      @{ id = "stnkl.EverythingToolbar" }
+    )
+    Choco       = @(
+      @{ name = "flow-launcher" },
+      @{ name = "winspy" },
+      @{ name = "wingetui" },
+      @{ name = "nircmd" },
+      @{ name = "7zip" },
+      @{ name = "notepadplusplus" },
+      @{ name = "everything" },
+      @{ name = "wget" },
+      @{ name = "smartsystemmenu" },
+      @{ name = "ffmpeg" },
+      @{ name = "fzf" },
+      @{ name = "ripgrep" },
+      @{ name = "bat" },
+
+    )
+    SourceForge = @(
+      @{
+        project = "globonote/files/globonote"
+        file    = "globonote-setup.exe"
+        # args = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART"
+      }
+    )
+  }
+  Browsers    = @{
+    Winget = @(
+      @{ name = "Google.Chrome" },
+      @{ name = "Mozilla.Firefox" }
+    )
+  }
+  Fonts       = @{
+    Choco = @(
+      @{ name = "nerdfont-hack" },
+      @{ name = "nerd-fonts-firacode" }
+    )
+  }
 }
 
 # Track installation statistics
 $stats = @{
-    Successful = 0
-    Failed = 0
-    Skipped = 0
-    Total = 0
+  Successful = 0
+  Failed     = 0
+  Skipped    = 0
+  Total      = 0
 }
 
 # Setup Environment
@@ -93,280 +93,290 @@ Write-Log "Setting up environment..." -Level Info
 
 # Package Manager Installation
 $packageManagers = @(
-    @{
-        Name = "Scoop"
-        Condition = { -not (Get-Command scoop -ErrorAction SilentlyContinue) }
-        Install = { iex "& {$(irm get.scoop.sh)} -RunAsAdmin" }
-    },
-    @{
-        Name = "Chocolatey"
-        Condition = { -not (Get-Command choco -ErrorAction SilentlyContinue) }
-        Install = { Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1")) }
-    },
-    @{
-        Name = "Winget"
-        Condition = { -not (Get-Command winget -ErrorAction SilentlyContinue) }
-        Install = { irm asheroto.com/winget | iex }
-    }
+  @{
+    Name      = "Scoop"
+    Condition = { -not (Get-Command scoop -ErrorAction SilentlyContinue) }
+    Install   = { iex "& {$(irm get.scoop.sh)} -RunAsAdmin" }
+  },
+  @{
+    Name      = "Chocolatey"
+    Condition = { -not (Get-Command choco -ErrorAction SilentlyContinue) }
+    Install   = { Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1")) }
+  },
+  @{
+    Name      = "Winget"
+    Condition = { -not (Get-Command winget -ErrorAction SilentlyContinue) }
+    Install   = { irm asheroto.com/winget | iex }
+  }
 )
 
 foreach ($pm in $packageManagers) {
-    if (& $pm.Condition) {
-        try {
-            Write-Log "Installing $($pm.Name)..." -Level Info
-            & $pm.Install
-            Show-SuccessMessage -Message "$($pm.Name) has been installed successfully."
-        }
-        catch {
-            Write-Log "Failed to install $($pm.Name): $($_.Exception.Message)" -Level Error
-            exit 1
-        }
+  if (& $pm.Condition) {
+    try {
+      Write-Log "Installing $($pm.Name)..." -Level Info
+      & $pm.Install
+      Show-SuccessMessage -Message "$($pm.Name) has been installed successfully."
     }
-    else {
-        Show-SuccessMessage -Message "$($pm.Name) is already installed."
+    catch {
+      Write-Log "Failed to install $($pm.Name): $($_.Exception.Message)" -Level Error
+      exit 1
     }
+  }
+  else {
+    Show-SuccessMessage -Message "$($pm.Name) is already installed."
+  }
 }
 
 # Install packages by category
 foreach ($category in $packages.Keys) {
-    Write-Log "Installing $category packages..." -Level Info
+  Write-Log "Installing $category packages..." -Level Info
 
-    if ($packages[$category].Scoop) {
-        foreach ($pkg in $packages[$category].Scoop) {
-            $stats.Total++
-            $result = Install-ScoopPackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-        }
+  if ($packages[$category].Scoop) {
+    foreach ($pkg in $packages[$category].Scoop) {
+      $stats.Total++
+      $result = Install-ScoopPackage -Package $pkg
+      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
     }
+  }
 
-    if ($packages[$category].Winget) {
-        foreach ($pkg in $packages[$category].Winget) {
-            $stats.Total++
-            $result = Install-WingetPackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-        }
+  if ($packages[$category].Winget) {
+    foreach ($pkg in $packages[$category].Winget) {
+      $stats.Total++
+      $result = Install-WingetPackage -Package $pkg
+      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
     }
+  }
 
-    if ($packages[$category].Choco) {
-        foreach ($pkg in $packages[$category].Choco) {
-            $stats.Total++
-            $result = Install-ChocoPackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-        }
+  if ($packages[$category].Choco) {
+    foreach ($pkg in $packages[$category].Choco) {
+      $stats.Total++
+      $result = Install-ChocoPackage -Package $pkg
+      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
     }
+  }
 
-    if ($packages[$category].SourceForge) {
-        foreach ($pkg in $packages[$category].SourceForge) {
-            $stats.Total++
-            $result = Install-SourceForgePackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-        }
+  if ($packages[$category].SourceForge) {
+    foreach ($pkg in $packages[$category].SourceForge) {
+      $stats.Total++
+      $result = Install-SourceForgePackage -Package $pkg
+      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
     }
+  }
 }
 
 # Configuration
 Write-Log "Starting configuration..." -Level Info
 
 $mappings = @(
-   # nvim
+  # nvim
   @{
     source = "$PWD\nvim"
-    dest = "$Env:LOCALAPPDATA\nvim"
+    dest   = "$Env:LOCALAPPDATA\nvim"
   },
-   # vscode
+  # vscode
   @{
     source = "$PWD\vscode\settings.json"
-    dest = "$Env:APPDATA\Code\User\settings.json"
+    dest   = "$Env:APPDATA\Code\User\settings.json"
   },
   @{
     source = "$PWD\vscode\keybindings.json"
-    dest = "$Env:APPDATA\Code\User\keybindings.json"
+    dest   = "$Env:APPDATA\Code\User\keybindings.json"
   },
   @{
     source = "$PWD\vscode\extensions.json"
-    dest = "$Home\.vscode\extensions\extensions.json"
+    dest   = "$Home\.vscode\extensions\extensions.json"
   },
   # vs2022
   @{
     source = "$PWD\VS2022\CurrentSettings.vssettings"
-    dest = "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_*\Settings\CurrentSettings.vssettings"
+    dest   = "$Env:LOCALAPPDATA\Microsoft\VisualStudio\17.0_*\Settings\CurrentSettings.vssettings"
   },
   # lazygit
   @{
     source = "$PWD\lazygit\config.yml"
-    dest = "$Env:LOCALAPPDATA\lazygit\config.yml"
+    dest   = "$Env:LOCALAPPDATA\lazygit\config.yml"
   },
   # ShareX
   @{
     source = "$PWD\ShareX\ApplicationConfig.json"
-    dest = "$Home\Documents\ShareX\ApplicationConfig.json"
+    dest   = "$Home\Documents\ShareX\ApplicationConfig.json"
   },
   @{
     source = "$PWD\ShareX\HotkeysConfig.json"
-    dest = "$Home\Documents\ShareX\HotkeysConfig.json"
+    dest   = "$Home\Documents\ShareX\HotkeysConfig.json"
   },
   # Everything
   @{
     source = "$PWD\Everything\Everything.ini"
-    dest = "$Env:APPDATA\Everything\Everything.ini"
+    dest   = "$Env:APPDATA\Everything\Everything.ini"
   },
   @{
     source = "$PWD\Everything\Filters.csv"
-    dest = "$Env:APPDATA\Everything\Filters.csv"
+    dest   = "$Env:APPDATA\Everything\Filters.csv"
   },
   # OBS
   @{
     source = "$PWD\OBS\basic"
-    dest = "$Env:APPDATA\obs-studio\basic"
+    dest   = "$Env:APPDATA\obs-studio\basic"
   },
   # wireshark
   @{
     source = "$PWD\wireshark\MyProfile"
-    dest = "$Env:APPDATA\Wireshark\profiles\MyProfile"
+    dest   = "$Env:APPDATA\Wireshark\profiles\MyProfile"
   },
   # elevenclock
   @{
     source = "$PWD\elevenclock\CustomClockStrings"
-    dest = "$Home\.elevenclock\CustomClockStrings"
+    dest   = "$Home\.elevenclock\CustomClockStrings"
   },
   @{
     source = "$PWD\elevenclock\PreferredLanguage"
-    dest = "$Home\.elevenclock\PreferredLanguage"
+    dest   = "$Home\.elevenclock\PreferredLanguage"
   },
   @{
     source = "$PWD\elevenclock\CustomClockClickAction"
-    dest = "$Home\.elevenclock\CustomClockClickAction"
+    dest   = "$Home\.elevenclock\CustomClockClickAction"
   },
   @{
     source = "$PWD\elevenclock\CustomClockDoubleClickAction"
-    dest = "$Home\.elevenclock\CustomClockDoubleClickAction"
+    dest   = "$Home\.elevenclock\CustomClockDoubleClickAction"
   },
   @{
     source = "$PWD\elevenclock\ClockFixedHeight"
-    dest = "$Home\.elevenclock\ClockFixedHeight"
+    dest   = "$Home\.elevenclock\ClockFixedHeight"
   },
   @{
     source = "$PWD\elevenclock\ClockYOffset"
-    dest = "$Home\.elevenclock\ClockYOffset"
+    dest   = "$Home\.elevenclock\ClockYOffset"
   },
   @{
     source = "$PWD\elevenclock\ClockXOffset"
-    dest = "$Home\.elevenclock\ClockXOffset"
+    dest   = "$Home\.elevenclock\ClockXOffset"
   },
   @{
     source = "$PWD\elevenclock\UseCustomFontSize"
-    dest = "$Home\.elevenclock\UseCustomFontSize"
+    dest   = "$Home\.elevenclock\UseCustomFontSize"
   },
   # voicemeeter
   @{
     source = "$PWD\VoicemeeterBanana\VoiceMeeterBananaDefault.xml"
-    dest = "$Env:APPDATA\VoiceMeeterBananaDefault.xml"
+    dest   = "$Env:APPDATA\VoiceMeeterBananaDefault.xml"
   },
   @{
     source = "$PWD\VoicemeeterBanana\VoicemeeterBanana_LastSettings.xml"
-    dest = "$Home\Documents\Voicemeeter\VoicemeeterBanana_LastSettings.xml"
+    dest   = "$Home\Documents\Voicemeeter\VoicemeeterBanana_LastSettings.xml"
   },
   @{
     source = "$PWD\VoicemeeterBanana\MacroButtonConfig.xml"
-    dest = "$Home\Documents\Voicemeeter\MacroButtonConfig.xml"
+    dest   = "$Home\Documents\Voicemeeter\MacroButtonConfig.xml"
   },
   # EqualizerAPO
   @{
     source = "$PWD\EqualizerAPO\config.txt"
-    dest = "$Env:ProgramFiles\EqualizerAPO\config\config.txt"
+    dest   = "$Env:ProgramFiles\EqualizerAPO\config\config.txt"
   },
   @{
     source = "$PWD\EqualizerAPO\Mic.txt"
-    dest = "$Env:ProgramFiles\EqualizerAPO\config\Mic.txt"
+    dest   = "$Env:ProgramFiles\EqualizerAPO\config\Mic.txt"
   },
   @{
     source = "$PWD\EqualizerAPO\peace.txt"
-    dest = "$Env:ProgramFiles\EqualizerAPO\config\peace.txt"
+    dest   = "$Env:ProgramFiles\EqualizerAPO\config\peace.txt"
   },
   # dbForge
   @{
     source = "$PWD\dbForge\SQL Server\Snippets"
-    dest = "$Env:ProgramData\Devart\dbForge Studio for SQL Server\Snippets"
+    dest   = "$Env:ProgramData\Devart\dbForge Studio for SQL Server\Snippets"
   },
   @{
     source = "$PWD\dbForge\PostgreSQL\Snippets"
-    dest = "$Env:ProgramData\Devart\dbForge Studio for PostgreSQL\Snippets"
+    dest   = "$Env:ProgramData\Devart\dbForge Studio for PostgreSQL\Snippets"
   },
   @{
     source = "$PWD\dbForge\MySQL\Snippets"
-    dest = "$Env:ProgramData\Devart\dbForge Studio for MySQL\Snippets"
+    dest   = "$Env:ProgramData\Devart\dbForge Studio for MySQL\Snippets"
   },
   @{
     source = "$PWD\dbForge\SQL Server\Keybinding_Default.xml"
-    dest = "$Env:APPDATA\Devart\dbForge Studio for SQL Server\ShortcutSchemes\Default.xml"
+    dest   = "$Env:APPDATA\Devart\dbForge Studio for SQL Server\ShortcutSchemes\Default.xml"
   },
   @{
     source = "$PWD\dbForge\PostgreSQL\Keybinding_Default.xml"
-    dest = "$Env:APPDATA\Devart\dbForge Studio for PostgreSQL\ShortcutSchemes\Default.xml"
+    dest   = "$Env:APPDATA\Devart\dbForge Studio for PostgreSQL\ShortcutSchemes\Default.xml"
   },
   @{
     source = "$PWD\dbForge\MySQL\Keybinding_Default.xml"
-    dest = "$Env:APPDATA\Devart\dbForge Studio for MySQL\ShortcutSchemes\Default.xml"
+    dest   = "$Env:APPDATA\Devart\dbForge Studio for MySQL\ShortcutSchemes\Default.xml"
   },
   # git
   @{
     source = "$PWD\git\.gitconfig-work"
-    dest = "$Home\git\.gitconfig-work"
+    dest   = "$Home\git\.gitconfig-work"
   },
   @{
     source = "$PWD\git\.gitconfig"
-    dest = "$Home\git\.gitconfig"
+    dest   = "$Home\git\.gitconfig"
   }
   # WindowsTerminal
   @{
     source = "$PWD\WindowsTerminal\settings.json"
-    dest = "$Env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+    dest   = "$Env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
   },
   @{
     source = "$PWD\WindowsTerminal\Microsoft.PowerShell_profile.ps1"
-    dest = "$Profile"
+    dest   = "$Profile"
   },
   # glazewm (tiling window manager for Windows inspired by i3wm)
   @{
     source = "$PWD\.glzr"
-    dest = "$Home\.glzr"
+    dest   = "$Home\.glzr"
   },
   # AltSnap
   @{
     source = "$PWD\AltSnap\AltSnap.ini"
-    dest = "$env:UserProfile\scoop\apps\altsnap\1.64\AltSnap.ini"
+    dest   = "$env:UserProfile\scoop\apps\altsnap\1.64\AltSnap.ini"
   }
   # wezterm
   @{
     source = "$PWD\wezterm\.wezterm.lua"
-    dest = "$Home\.wezterm.lua"
+    dest   = "$Home\.wezterm.lua"
   },
   # FlowLauncher
   @{
     source = "$PWD\FlowLauncher\Settings"
-    dest = "$Env:APPDATA\FlowLauncher\Settings"
+    dest   = "$Env:APPDATA\FlowLauncher\Settings"
   },
   # globonote
   @{
     source = "$PWD\.globonote"
-    dest = "$Home\.globonote"
+    dest   = "$Home\.globonote"
   },
   # Directory Opus
   @{
     source = "$PWD\DirectoryOpus"
-    dest = "$Env:APPDATA\GPSoftware\Directory Opus"
+    dest   = "$Env:APPDATA\GPSoftware\Directory Opus"
+  },
+  # editorconfig
+  @{
+    source = "$PWD\vscode\.editorconfig"
+    dest   = "$Home\.editorconfig"
+  },
+  # Prettier
+  @{
+    source = "$PWD\vscode\.prettierrc"
+    dest   = "$Home\.prettierrc"
   }
 )
 
 # Process symlinks with progress and force
 $total = $mappings.Count
-$current = 0
+urrent = 0
 foreach ($mapping in $mappings) {
-    $current++
-    $progress = [math]::Round(($current / $total) * 100)
-    Write-Progress -Activity "Creating symlinks" -Status "$progress% Complete" -PercentComplete $progress
+  $current++
+  $progress = [math]::Round(($current / $total) * 100)
+  Write-Progress -Activity "Creating symlinks" -Status "$progress% Complete" -PercentComplete $progress
 
-    Create-SymbolicLink -destPath $mapping.dest -sourcePath $mapping.source -Force
+  Create-SymbolicLink -destPath $mapping.dest -sourcePath $mapping.source -Force
 }
 Write-Progress -Activity "Creating symlinks" -Completed
 
@@ -376,21 +386,21 @@ Write-Log "Configuring PowerShell environment..." -Level Info
 # Install PowerShell modules
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 $psModules = @(
-    "CompletionPredictor",
-    "PSScriptAnalyzer",
-    "ps-color-scripts",
-    "Get-ChildItemColor",
-    "oh-my-posh",
-    "pscolor",
-    "posh-ssh",
-    "posh-git"
+  "CompletionPredictor",
+  "PSScriptAnalyzer",
+  "ps-color-scripts",
+  "Get-ChildItemColor",
+  "oh-my-posh",
+  "pscolor",
+  "posh-ssh",
+  "posh-git"
 )
 
 foreach ($module in $psModules) {
-    if (!(Get-Module -ListAvailable -Name $module)) {
-        Write-Log "Installing PowerShell module: $module" -Level Info
-        Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
-    }
+  if (!(Get-Module -ListAvailable -Name $module)) {
+    Write-Log "Installing PowerShell module: $module" -Level Info
+    Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+  }
 }
 
 # vs2022

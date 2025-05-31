@@ -1255,6 +1255,16 @@ return {
 		-- Flash Keymaps
 		keys = {
 			{ "<leader>fs", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+			{ "<leader>ff", mode = { "n", "x", "o" },
+			function()
+				require("flash").jump({
+					search = {
+						mode = function(str)
+							return "\\<" .. str
+						end,
+					},
+				})
+			end, desc = "Match beginning of words only" },
 			{ "<leader>ft", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
 			{ "<leader>fr", mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
 			{ "<leader>fT", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
@@ -1285,6 +1295,28 @@ return {
 				bg = '#7c634c',
 				fg = 'white'
 			})
+
+			require("flash").setup({
+				modes = {
+					-- options used when flash is activated through
+					-- a regular search with `/` or `?`
+					search = {
+						-- when `true`, flash will be activated during regular search by default.
+						-- You can always toggle when searching with `require("flash").toggle()`
+						enabled = true,
+						highlight = { backdrop = false },
+						jump = { history = true, register = true, nohlsearch = true },
+						search = {
+							-- `forward` will be used in flash.jump, `backward` in flash.treesitter_search
+							mode = "search",
+							max_length = false,
+							multi_window = true,
+							wrap = true,
+							incremental = false,
+						},
+					},
+				},
+			})
 		end,
 	},
 	-- EasyClip
@@ -1301,5 +1333,4 @@ return {
 	-- 	end,
 	-- 	event = "VeryLazy"
 	-- }
-
 }

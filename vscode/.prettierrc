@@ -9,5 +9,14 @@
   "arrowParens": "always",
   "endOfLine": "crlf",
   "singleAttributePerLine": true,
-  "bracketSameLine": true
+  "bracketSameLine": true,
+  "overrides": [
+    {
+      "files": "*.component.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }
+

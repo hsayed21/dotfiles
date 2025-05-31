@@ -17,9 +17,6 @@
   "Lua.diagnostics.globals": [
     "vim"
   ],
-  "Lua.format.defaultConfig": {
-    "indent_style": "tab"
-  },
   "Lua.semantic.keyword": true,
   "Lua.window.progressBar": false,
   "Lua.window.statusBar": false,
@@ -212,7 +209,6 @@
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.guides.bracketPairs": true,
   "editor.guides.bracketPairsHorizontal": false,
-  "editor.guides.highlightActiveBracketPair": false,
   "editor.guides.indentation": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.indentSize": 4,
@@ -220,7 +216,6 @@
   "editor.insertSpaces": false,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
-  "editor.matchBrackets": "near",
   // ui
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
@@ -1860,6 +1855,17 @@
   "window.zoomLevel": 0.1,
   // Aura theme customisation
   "workbench.colorCustomizations": {
+    "[Karma]": {
+      "editorLineNumber.foreground": "#333333",
+      "editorBracketMatch.border": "#233843",
+      // "editorBracketMatch.background": "#011627",
+      "editorBracketMatch.background": "#3b1c04",
+      // "editor.selectionBackground": "#cb0d0d50", // Current selection background.
+
+        "editor.wordHighlightBackground": "#ba3d0741"
+        // "editor.wordHighlightBackground": "#ffff0034", // semi-transparent yellow
+        // "editor.wordHighlightStrongBackground": "#FFA500CC" // stronger orange
+    },
     "[Aura Dark]": {
       "activityBar.background": "#110f17",
       "editor.background": "#110f17",
@@ -1964,7 +1970,7 @@
   "workbench.editor.showTabs": "single",
   "fold.enableAutoFold": false,
   "githd.blameView.enabled": false,
-  "editor.formatOnType": false,
+  "editor.formatOnType": true,
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
@@ -2002,7 +2008,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.inlineCompletionsAccessibilityVerbose": true,
   "window.density.editorTabHeight": "compact",
-  "autoHide.autoHideAuxiliaryBar": false,
   "easySnippet.snippetsPath": "C:\\Users\\hsayed\\AppData\\Roaming\\Code\\User\\profiles\\781f746d\\snippets",
   "workbench.colorTheme": "Karma",
   "GitCommitPlugin.FillSubjectWithCurrent": true,
@@ -2120,7 +2125,7 @@
     "C:\\Users\\hsayed\\AppData\\Local\\nvim"
 
   ],
-   "diffEditor.renderSideBySide": false,
+  "diffEditor.renderSideBySide": false,
   "window.newWindowProfile": "Default",
   "gitlens.views.scm.grouped.views": {
     "commits": false,
@@ -2134,7 +2139,6 @@
     "searchAndCompare": false,
     "launchpad": false
   },
-  "autoHide.autoHidePanel": false,
   "profileSelector.defaultProfile": "Default",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -2210,8 +2214,7 @@
     "editor.formatOnSave",
     "editor.formatOnType"
   ],
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
+  "editor.formatOnPaste": true,
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
@@ -2221,5 +2224,17 @@
   },
   "editor.parameterHints.enabled": false,
   "editor.cursorSurroundingLines": 4,
-  "workbench.editor.revealIfOpen": true
+  "workbench.editor.revealIfOpen": true,
+  "files.autoSave": "afterDelay",
+  "prettier.bracketSameLine": true,
+  "prettier.configPath": "G:\\My Drive\\dotfiles\\vscode\\.prettierrc",
+  "prettier.endOfLine": "crlf",
+  "prettier.printWidth": 110,
+  "prettier.singleAttributePerLine": true,
+"editor.guides.highlightActiveBracketPair": false,
+  "prettier.requireConfig": true,
+  "[powershell]": {
+    "editor.defaultFormatter": "ms-vscode.powershell"
+},
+"pasteAndIndent.selectAfter": true
 }
