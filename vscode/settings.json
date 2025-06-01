@@ -2236,5 +2236,6 @@
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell"
 },
-"pasteAndIndent.selectAfter": true
+"pasteAndIndent.selectAfter": true,
+"bookmarks.keepBookmarksOnLineDelete": true
 }

@@ -1246,7 +1246,7 @@ return {
 		end,
 		enabled = not vim.g.vscode
 	},
-	-- Motion plugin
+	-- Flash Motion plugin
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",

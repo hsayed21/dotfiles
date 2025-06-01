@@ -1549,5 +1549,6 @@ return
       -- m{              Move to the previous bookmark having the same type as the bookmark under the cursor. Works across buffers.
       -- dm=             Delete the bookmark under the cursor.
     end,
+    enabled = not vim.g.vscode,
   }
 }

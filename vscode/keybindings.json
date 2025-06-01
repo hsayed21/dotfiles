@@ -5712,5 +5712,15 @@
     "command": "vscode-neovim.send",
     "key": "ctrl+shift+v",
     "when": "editorTextFocus && neovim.init"
-  }
+  },
+  {
+    "key": "f",
+    "command": "multiDiffEditor.collapseAll",
+    "when": "!multiDiffEditorAllCollapsed && activeEditor == 'multiDiffEditor'"
+    },
+    {
+        "key": "shift+f",
+        "command": "multiDiffEditor.expandAll",
+        "when": "activeEditor == 'multiDiffEditor'"
+    }
 ]
