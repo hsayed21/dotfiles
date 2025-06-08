@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.json",
+    "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
     "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
     "window_hiding_behaviour": "Cloak",
     "cross_monitor_move_behaviour": "Insert",
@@ -10,13 +10,19 @@
     "border_width": 2,
     "border_offset": -1,
     "border_colours": {
-        "single": "#C792EA",
+        "single": "#61afef",
         "stack": "#82AAFF",
         "monocle": "#FFCB6B",
-        "unfocused": "#4A4A4A"
+        "unfocused": "#3e4451"
     },
+    "border_implementation": "Komorebi",
     "stackbar": {
-        "mode": "Never"
+        "mode": "OnStack",
+        "height": 28,
+        "background_colour": "#1e2127",
+        "focused_text_colour": "#61afef",
+        "unfocused_text_colour": "#5c6370",
+        "label": "Process"
     },
     "theme": {
         "palette": "Base16",
@@ -28,11 +34,11 @@
     "transparency_alpha": 240,
     "animation": {
         "enabled": true,
-        "duration": 250,
-        "fps": 60,
-        "style": "EaseOutQuart"
+        "duration": 200,
+        "fps": 144,
+        "style": "EaseOutExpo"
     },
-    "resize_delta": 50,
+    "resize_delta": 40,
     "global_work_area_offset": {
         "left": 0,
         "top": 0,
@@ -40,11 +46,132 @@
         "bottom": 0
     },
     "mouse_follows_focus": false,
-    "new_window_behaviour": "Create",
+    "window_container_behaviour": "Create",
+    "focus_follows_mouse": "Komorebi",
     "ignore_rules": [
         {
             "kind": "Exe",
-            "id": "explorer.exe",
+            "id": "zebar.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "Flow.Launcher.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "AltSnap.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "Taskmgr.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "ScreenClippingHost.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "voicemeeterpro.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "voicemeeter8x64.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "PowerToys.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Title",
+            "id": "Save As",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Open",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Print",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Properties",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Settings",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Preferences",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Options",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Picture-in-Picture",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Peek",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "TODO Tasks",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Title",
+            "id": "Swagger UI",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "ShareX - Image editor",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "AutoHotkey.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "POPsRestaurant.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Class",
+            "id": "#32768",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Class",
+            "id": "#32769",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Class",
+            "id": "#32770",
             "matching_strategy": "Equals"
         },
         {
@@ -58,66 +185,61 @@
             "matching_strategy": "Equals"
         },
         {
-            "kind": "Exe",
-            "id": "SystemSettings.exe",
-            "matching_strategy": "Equals"
-        },
-        {
             "kind": "Class",
             "id": "ApplicationFrameWindow",
-            "matching_strategy": "Equals"
-        },
-        {
-            "kind": "Title",
-            "id": "Calculator",
             "matching_strategy": "Equals"
         },
         {
             "kind": "Class",
             "id": "Windows.UI.Core.CoreWindow",
             "matching_strategy": "Equals"
-        },
-        {
-            "kind": "Title",
-            "id": "ShareX",
-            "matching_strategy": "Equals"
-        },
-        {
-            "kind": "Exe",
-            "id": "SnippingTool.exe",
-            "matching_strategy": "Equals"
-        },
-        {
-            "kind": "Title",
-            "id": "Settings",
-            "matching_strategy": "Equals"
-        },
-        {
-            "kind": "Title",
-            "id": "Microsoft Store",
-            "matching_strategy": "Equals"
-        },
-        {
-          "kind": "Title",
-          "id": ".ahk",
-          "matching_strategy": "Contains"
         }
     ],
     "manage_rules": [
         {
             "kind": "Exe",
-            "id": "firefox.exe",
-            "matching_strategy": "Equals"
+            "id": "ms-teams.exe",
+            "matching_strategy": "Contains"
         },
         {
             "kind": "Exe",
-            "id": "chrome.exe",
-            "matching_strategy": "Equals"
+            "id": "slack.exe",
+            "matching_strategy": "Contains"
         },
         {
             "kind": "Exe",
-            "id": "msedge.exe",
-            "matching_strategy": "Equals"
+            "id": "discord.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "Mailbird.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "telegram.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "whatsapp.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "WINWORD.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "EXCEL.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "dopus.exe",
+            "matching_strategy": "Contains"
         },
         {
             "kind": "Exe",
@@ -126,104 +248,238 @@
         },
         {
             "kind": "Exe",
-            "id": "WindowsTerminal.exe",
+            "id": "devenv.exe",
             "matching_strategy": "Equals"
         },
         {
             "kind": "Exe",
-            "id": "devenv.exe",
+            "id": "dbforge.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "chrome.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "firefox.exe",
             "matching_strategy": "Equals"
         }
     ],
     "workspace_rules": [
         {
             "kind": "Exe",
-            "id": "firefox.exe",
-            "matching_strategy": "Equals",
+            "id": "ms-teams.exe",
+            "matching_strategy": "Contains",
             "monitor": 0,
-            "workspace": "3:BROWSERS"
+            "workspace": "1.HOME"
         },
         {
             "kind": "Exe",
-            "id": "chrome.exe",
-            "matching_strategy": "Equals",
+            "id": "slack.exe",
+            "matching_strategy": "Contains",
             "monitor": 0,
-            "workspace": "3:BROWSERS"
+            "workspace": "1.HOME"
         },
         {
             "kind": "Exe",
-            "id": "msedge.exe",
+            "id": "discord.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "Mailbird.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "telegram.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "whatsapp.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "WINWORD.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "EXCEL.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "wordpad.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "dopus.exe",
+            "matching_strategy": "Contains",
+            "monitor": 0,
+            "workspace": "1.HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "explorer.exe",
             "matching_strategy": "Equals",
             "monitor": 0,
-            "workspace": "1:HOME"
+            "workspace": "1.HOME"
         },
         {
             "kind": "Exe",
             "id": "Code.exe",
             "matching_strategy": "Equals",
             "monitor": 1,
-            "workspace": "2:DEV"
+            "workspace": "2.DEV"
         },
         {
             "kind": "Exe",
             "id": "devenv.exe",
             "matching_strategy": "Equals",
             "monitor": 1,
-            "workspace": "2:DEV"
+            "workspace": "2.DEV"
+        },
+        {
+            "kind": "Exe",
+            "id": "dbforge.exe",
+            "matching_strategy": "Contains",
+            "monitor": 1,
+            "workspace": "2.DEV"
+        },
+        {
+            "kind": "Exe",
+            "id": "chrome.exe",
+            "matching_strategy": "Equals",
+            "monitor": 1,
+            "workspace": "3.WEB"
+        },
+        {
+            "kind": "Exe",
+            "id": "firefox.exe",
+            "matching_strategy": "Equals",
+            "monitor": 1,
+            "workspace": "3.WEB"
         },
         {
             "kind": "Exe",
             "id": "WindowsTerminal.exe",
             "matching_strategy": "Equals",
             "monitor": 1,
-            "workspace": "1:HOME"
+            "workspace": "4.TERM"
         },
         {
             "kind": "Exe",
             "id": "wezterm-gui.exe",
             "matching_strategy": "Equals",
             "monitor": 1,
-            "workspace": "1:HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "Discord.exe",
-            "matching_strategy": "Equals",
-            "monitor": 0,
-            "workspace": "1:HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "notepad.exe",
-            "matching_strategy": "Equals",
-            "monitor": 0,
-            "workspace": "1:HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "obs64.exe",
-            "matching_strategy": "Equals",
-            "monitor": 0,
-            "workspace": "1:HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "ShareX.exe",
-            "matching_strategy": "Equals",
-            "monitor": 0,
-            "workspace": "1:HOME"
+            "workspace": "4.TERM"
         }
     ],
     "floating_window_aspect_ratio": "Widescreen",
     "floating_applications": [
         {
             "kind": "Exe",
-            "id": "explorer.exe",
+            "id": "sublime_text.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "TreeSize.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "PotPlayerMini64.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "QuranWindows.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "quran-companion.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "everything.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "launchy.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "keypirinha.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "executor.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "Taskmgr.exe",
             "matching_strategy": "Equals"
         },
         {
             "kind": "Exe",
+            "id": "ProcessHacker.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "winspy.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "Calculator.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "notepad.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "mspaint.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
             "id": "ApplicationFrameHost.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "DeepL.exe",
             "matching_strategy": "Equals"
         }
     ],
@@ -231,49 +487,45 @@
         {
             "workspaces": [
                 {
-                    "name": "1:HOME",
+                    "name": "1.HOME",
                     "layout": "BSP",
-                    "initial_workspace": true
+                    "initial_workspace": true,
+                    "workspace_padding": 12,
+                    "container_padding": 8
                 },
                 {
-                    "name": "5:TEST",
-                    "layout": "BSP"
-                },
-                {
-                    "name": "6",
-                    "layout": "BSP"
-                },
-                {
-                    "name": "7",
-                    "layout": "BSP"
-                },
-                {
-                    "name": "8",
-                    "layout": "BSP"
-                },
-                {
-                    "name": "9",
-                    "layout": "BSP"
-                },
-                {
-                    "name": "10",
-                    "layout": "BSP"
+                    "name": "6.MISC",
+                    "layout": "Grid",
+                    "workspace_padding": 10,
+                    "container_padding": 8
                 }
             ]
         },
         {
             "workspaces": [
                 {
-                    "name": "2:DEV",
-                    "layout": "BSP"
+                    "name": "2.DEV",
+                    "layout": "BSP",
+                    "workspace_padding": 12,
+                    "container_padding": 8
                 },
                 {
-                    "name": "3:BROWSERS",
-                    "layout": "BSP"
+                    "name": "3.WEB",
+                    "layout": "VerticalStack",
+                    "workspace_padding": 10,
+                    "container_padding": 6
                 },
                 {
-                    "name": "4:OTHERS",
-                    "layout": "BSP"
+                    "name": "4.TERM",
+                    "layout": "HorizontalStack",
+                    "workspace_padding": 8,
+                    "container_padding": 4
+                },
+                {
+                    "name": "5.TEST",
+                    "layout": "Rows",
+                    "workspace_padding": 10,
+                    "container_padding": 8
                 }
             ]
         }

@@ -299,6 +299,8 @@ Map('n', '<leader>tw',
   ':%s/\\(\\S\\)\\([ \\t]\\{3,\\}\\)\\(\\/\\/\\|--\\|#\\|;\\|\\*\\*\\?\\|\\<REM\\>\\)/\\1  \\3/g<CR>',
   { desc = "Trim whitespace before comments" })
 
+Map("n", "C-r", function() VSCodeNotify("redo") end, { desc = "Redo" })
+
 -- ##### window management
 -- Split window
 Map("n", "<leader>vs", function()  VSCodeNotify("workbench.action.splitEditorRight") end,

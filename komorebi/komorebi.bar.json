@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.bar.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.bar.json",
   "monitor": {
     "index": 0
     // "work_area_offset": {
@@ -28,14 +28,20 @@
       "Komorebi": {
         "workspaces": {
           "enable": true,
-          "hide_empty_workspaces": false
+          "hide_empty_workspaces": false,
+          "display": "AllIconsAndText"
         },
         "layout": {
-          "enable": true
+          "enable": true,
+          "display": "Icon"
         },
         "focused_container": {
-          "enable": false,
-          "show_icon": true
+          "enable": true,
+          "show_icon": true,
+          "display": "Icon"
+        },
+        "tiling": {
+          "enable": true
         }
       }
     }
@@ -68,7 +74,8 @@
         "enable": true,
         "show_activity": true,
         "show_total_activity": false,
-        "label_prefix": "Icon"
+        "label_prefix": "Icon",
+        "icon": "󰖩"
       }
     },
     {
@@ -78,18 +85,9 @@
       }
     },
     {
-      "Storage": {
-        "enable": false
-      }
-    },
-    {
       "Media": {
-        "enable": false
-      }
-    },
-    {
-      "Update": {
-        "enable": false
+        "enable": true,
+        "label_prefix": "Icon"
       }
     }
   ],
