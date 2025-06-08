@@ -1,25 +1,41 @@
 {
   "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json",
   "htmlPath": "./with-glazewm.html",
-  "zOrder": "normal",
+  "zOrder": "top_most",
   "shownInTaskbar": false,
   "focused": false,
   "resizable": false,
-  "transparent": false,
+  "transparent": true,
   "presets": [
     {
-      "name": "default",
+      "name": "monitor1",
+      "anchor": "top_left",
+      "offsetX": "0px",
+      "offsetY": "0px",
+      "width": "80%",
+      "height": "30px",
+      "monitorSelection": {
+        "type": "primary"
+      },
+      "dockToEdge": {
+        "enabled": true,
+        "edge": "top",
+        "windowMargin": "0px"
+      }
+    },
+    {
+      "name": "monitor2",
       "anchor": "top_left",
       "offsetX": "0px",
       "offsetY": "0px",
       "width": "100%",
       "height": "30px",
       "monitorSelection": {
-        "type": "all"
+        "type": "secondary"
       },
       "dockToEdge": {
-        "enabled": false,
-        "edge": null,
+        "enabled": true,
+        "edge": "top",
         "windowMargin": "0px"
       }
     }

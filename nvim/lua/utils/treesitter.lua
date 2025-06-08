@@ -7,7 +7,8 @@ local function is_function_node(node)
   local node_type = node:type()
   return node_type == "function_declaration" or
          node_type == "function_definition" or
-         node_type == "method_definition"
+         node_type == "method_definition" or
+         node_type == "method_declaration"
 end
 
 local function get_parser_tree()

@@ -3,7 +3,11 @@
   "startupConfigs": [
     {
       "path": "starter/with-glazewm.zebar.json",
-      "preset": "default"
+      "preset": "monitor1"
+    },
+    {
+      "path": "starter/with-glazewm.zebar.json",
+      "preset": "monitor2"
     }
   ]
 }

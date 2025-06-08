@@ -5193,22 +5193,6 @@
     "args": "C:\\Posbank_Projects\\POPs Cloud ERP Front\\ClientApp\\src\\assets\\i18n\\en.json", // open relative to the first opened workspace folder
   }, */
   {
-    "key": "ctrl+shift+x",
-    "command": "command-runner.run",
-    "args": { "command": "echo test" }
-    // "command": "shell.runCommand",
-    // "args": "echo test"
-    // "args": [
-    //   {
-    //     "command": "json-i18n-key.searchKey",
-    //     "args": {
-    //       "searchFromSelection": true,
-    //       "defaultEnJson": true
-    //     }
-    //   }
-    // ]
-  },
-  {
     "key": "alt+f3",
     "command": "-editor.action.dirtydiff.next",
     "when": "editorTextFocus && !textCompareEditorActive"
@@ -5711,6 +5695,12 @@
     "args": "<C-S-v>",
     "command": "vscode-neovim.send",
     "key": "ctrl+shift+v",
+    "when": "editorTextFocus && neovim.init"
+  },
+  {
+    "args": "<C-S-x>",
+    "command": "vscode-neovim.send",
+    "key": "ctrl+shift+x",
     "when": "editorTextFocus && neovim.init"
   },
   {

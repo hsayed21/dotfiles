@@ -1,51 +1,285 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.json",
-  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
-  "window_hiding_behaviour": "Cloak",
-  "cross_monitor_move_behaviour": "Insert",
-  "default_workspace_padding": 20,
-  "default_container_padding": 20,
-  "border": true,
-  "border_width": 8,
-  "border_offset": -1,
-  "theme": {
-    "palette": "Base16",
-    "name": "Ashes",
-    "unfocused_border": "Base03",
-    "bar_accent": "Base0D"
-  },
-  "monitors": [
-    {
-      "workspaces": [
+    "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.json",
+    "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+    "window_hiding_behaviour": "Cloak",
+    "cross_monitor_move_behaviour": "Insert",
+    "unmanaged_window_operation_behaviour": "Op",
+    "default_workspace_padding": 4,
+    "default_container_padding": 4,
+    "border": true,
+    "border_width": 2,
+    "border_offset": -1,
+    "border_colours": {
+        "single": "#C792EA",
+        "stack": "#82AAFF",
+        "monocle": "#FFCB6B",
+        "unfocused": "#4A4A4A"
+    },
+    "stackbar": {
+        "mode": "Never"
+    },
+    "theme": {
+        "palette": "Base16",
+        "name": "HorizonDark",
+        "unfocused_border": "Base03",
+        "bar_accent": "Base0D"
+    },
+    "transparency": false,
+    "transparency_alpha": 240,
+    "animation": {
+        "enabled": true,
+        "duration": 250,
+        "fps": 60,
+        "style": "EaseOutQuart"
+    },
+    "resize_delta": 50,
+    "global_work_area_offset": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0
+    },
+    "mouse_follows_focus": false,
+    "new_window_behaviour": "Create",
+    "ignore_rules": [
         {
-          "name": "I",
-          "layout": "BSP"
+            "kind": "Exe",
+            "id": "explorer.exe",
+            "matching_strategy": "Equals"
         },
         {
-          "name": "II",
-          "layout": "VerticalStack"
+            "kind": "Class",
+            "id": "CabinetWClass",
+            "matching_strategy": "Equals"
         },
         {
-          "name": "III",
-          "layout": "HorizontalStack"
+            "kind": "Class",
+            "id": "TaskManagerWindow",
+            "matching_strategy": "Equals"
         },
         {
-          "name": "IV",
-          "layout": "UltrawideVerticalStack"
+            "kind": "Exe",
+            "id": "SystemSettings.exe",
+            "matching_strategy": "Equals"
         },
         {
-          "name": "V",
-          "layout": "Rows"
+            "kind": "Class",
+            "id": "ApplicationFrameWindow",
+            "matching_strategy": "Equals"
         },
         {
-          "name": "VI",
-          "layout": "Grid"
+            "kind": "Title",
+            "id": "Calculator",
+            "matching_strategy": "Equals"
         },
         {
-          "name": "VII",
-          "layout": "RightMainVerticalStack"
+            "kind": "Class",
+            "id": "Windows.UI.Core.CoreWindow",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Title",
+            "id": "ShareX",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "SnippingTool.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Title",
+            "id": "Settings",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Title",
+            "id": "Microsoft Store",
+            "matching_strategy": "Equals"
+        },
+        {
+          "kind": "Title",
+          "id": ".ahk",
+          "matching_strategy": "Contains"
         }
-      ]
-    }
-  ]
+    ],
+    "manage_rules": [
+        {
+            "kind": "Exe",
+            "id": "firefox.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "chrome.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "msedge.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "Code.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "WindowsTerminal.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "devenv.exe",
+            "matching_strategy": "Equals"
+        }
+    ],
+    "workspace_rules": [
+        {
+            "kind": "Exe",
+            "id": "firefox.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "3:BROWSERS"
+        },
+        {
+            "kind": "Exe",
+            "id": "chrome.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "3:BROWSERS"
+        },
+        {
+            "kind": "Exe",
+            "id": "msedge.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "1:HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "Code.exe",
+            "matching_strategy": "Equals",
+            "monitor": 1,
+            "workspace": "2:DEV"
+        },
+        {
+            "kind": "Exe",
+            "id": "devenv.exe",
+            "matching_strategy": "Equals",
+            "monitor": 1,
+            "workspace": "2:DEV"
+        },
+        {
+            "kind": "Exe",
+            "id": "WindowsTerminal.exe",
+            "matching_strategy": "Equals",
+            "monitor": 1,
+            "workspace": "1:HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "wezterm-gui.exe",
+            "matching_strategy": "Equals",
+            "monitor": 1,
+            "workspace": "1:HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "Discord.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "1:HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "notepad.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "1:HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "obs64.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "1:HOME"
+        },
+        {
+            "kind": "Exe",
+            "id": "ShareX.exe",
+            "matching_strategy": "Equals",
+            "monitor": 0,
+            "workspace": "1:HOME"
+        }
+    ],
+    "floating_window_aspect_ratio": "Widescreen",
+    "floating_applications": [
+        {
+            "kind": "Exe",
+            "id": "explorer.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "ApplicationFrameHost.exe",
+            "matching_strategy": "Equals"
+        }
+    ],
+    "monitors": [
+        {
+            "workspaces": [
+                {
+                    "name": "1:HOME",
+                    "layout": "BSP",
+                    "initial_workspace": true
+                },
+                {
+                    "name": "5:TEST",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "6",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "7",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "8",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "9",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "10",
+                    "layout": "BSP"
+                }
+            ]
+        },
+        {
+            "workspaces": [
+                {
+                    "name": "2:DEV",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "3:BROWSERS",
+                    "layout": "BSP"
+                },
+                {
+                    "name": "4:OTHERS",
+                    "layout": "BSP"
+                }
+            ]
+        }
+    ],
+    "bar_configurations": [
+        "G:\\My Drive\\dotfiles\\komorebi\\komorebi.bar.json",
+        "G:\\My Drive\\dotfiles\\komorebi\\komorebi.bar2.json"
+    ]
 }

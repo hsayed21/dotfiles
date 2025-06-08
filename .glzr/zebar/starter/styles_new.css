@@ -1,0 +1,317 @@
+/**
+ * Import the Nerdfonts icon font.
+ * Ref https://www.nerdfonts.com/cheat-sheet for a cheatsheet of available Nerdfonts icons.
+ */
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+/* CSS Variables for minimal theming */
+:root {
+  --bg: #1a1a1a;
+  --bg-light: #2a2a2a;
+  --accent: #ffffff;
+  --accent-dim: #888888;
+  --accent-subtle: #444444;
+  --text: #ffffff;
+  --text-dim: #aaaaaa;
+  --text-subtle: #666666;
+  --success: #00ff88;
+  --warning: #ffaa00;
+  --error: #ff4444;
+  --radius: 6px;
+  --spacing: 8px;
+  --transition: all 0.15s ease;
+}
+
+i {
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+body {
+  color: var(--text);
+  overflow: hidden;
+  font-size: 12px;
+  font-family: 'CaskaydiaCove Nerd Font', 'JetBrains Mono', 'Fira Code', monospace;
+  background: transparent;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background: var(--bg);
+  border-bottom: 1px solid var(--accent-subtle);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 12px;
+  gap: var(--spacing);
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+
+.center {
+  justify-self: center;
+  font-weight: 500;
+}
+
+.right {
+  justify-self: end;
+}
+
+/* Workspaces */
+.workspaces {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.workspace {
+  background: transparent;
+  color: var(--text-dim);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  transition: var(--transition);
+  min-width: 24px;
+  text-align: center;
+
+  &:hover {
+    background: var(--bg-light);
+    color: var(--text);
+  }
+
+  &.displayed {
+    background: var(--accent-subtle);
+    color: var(--text);
+  }
+
+  &.focused {
+    background: var(--accent);
+    color: var(--bg);
+  }
+}
+
+/* Process info */
+.process-info {
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  padding: 2px 6px;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.process-name {
+  font-weight: 500;
+}
+
+/* Time display */
+.time-display {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  background: var(--bg-light);
+  transition: var(--transition);
+  font-weight: 500;
+
+  &:hover {
+    background: var(--accent-subtle);
+  }
+}
+
+/* Widget styling */
+.network,
+.memory,
+.cpu,
+.battery,
+.weather,
+.audio,
+.media,
+.disk,
+.ip-address,
+.keyboard,
+.load-average {
+  background: var(--bg-light);
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  font-size: 11px;
+
+  &:hover {
+    background: var(--accent-subtle);
+  }
+}
+
+/* Network info */
+.network-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ssid {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.traffic {
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+/* Weather info */
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.temp {
+  font-weight: 500;
+}
+
+.humidity {
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+/* Media info */
+.media-title {
+  font-size: 10px;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Binding modes */
+.binding-mode {
+  background: var(--error);
+  color: var(--bg);
+  border-radius: var(--radius);
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.tiling-direction {
+  background: var(--accent-subtle);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 2px 6px;
+  font-size: 10px;
+  font-weight: 500;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Status indicators */
+.high-usage {
+  color: var(--error) !important;
+  font-weight: 600;
+}
+
+.low-battery {
+  color: var(--warning) !important;
+  font-weight: 600;
+}
+
+/* Simple animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.charging-icon {
+  position: absolute;
+  font-size: 8px;
+  right: 2px;
+  top: 2px;
+  color: var(--warning);
+  animation: pulse 2s infinite;
+}
+
+/* Usage indicators */
+.usage-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent-subtle);
+  overflow: hidden;
+}
+
+.usage-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.cpu-fill {
+  background: var(--success);
+}
+
+/* Color coding */
+.cpu { border-left: 2px solid var(--success); }
+.memory { border-left: 2px solid var(--accent); }
+.disk { border-left: 2px solid var(--warning); }
+.network { border-left: 2px solid var(--success); }
+.battery { border-left: 2px solid var(--warning); position: relative; }
+.weather { border-left: 2px solid #56b6c2; }
+.audio { border-left: 2px solid #d19a66; }
+.media { border-left: 2px solid #c678dd; }
+.ip-address { border-left: 2px solid var(--accent); }
+.keyboard { border-left: 2px solid var(--success); }
+.load-average { border-left: 2px solid var(--warning); }
+
+/* Responsive design */
+@media (max-width: 1400px) {
+  .traffic,
+  .humidity {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .media,
+  .ip-address,
+  .keyboard {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .disk,
+  .load-average {
+    display: none;
+  }
+}
+
+/* Focus states */
+button:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}

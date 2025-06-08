@@ -1989,7 +1989,7 @@
   "conventionalCommits.silentAutoCommit": true,
   "lazygit-vscode.autoHidePanel": true,
   "workbench.tree.enableStickyScroll": false,
-  "workbench.preferredDarkColorTheme": "Aura Dark",
+  "workbench.preferredDarkColorTheme": "Karma",
   "autoHide.hideOnOpen": true,
   "terminal.integrated.env.windows": {
     "RETRONVIM_PATH": "${env:USERPROFILE}/.vscode/extensions/yeferyv.retronvim-0.1.1",
@@ -2225,7 +2225,6 @@
   "editor.parameterHints.enabled": false,
   "editor.cursorSurroundingLines": 4,
   "workbench.editor.revealIfOpen": true,
-  "files.autoSave": "afterDelay",
   "prettier.bracketSameLine": true,
   "prettier.configPath": "G:\\My Drive\\dotfiles\\vscode\\.prettierrc",
   "prettier.endOfLine": "crlf",
@@ -2237,5 +2236,24 @@
     "editor.defaultFormatter": "ms-vscode.powershell"
 },
 "pasteAndIndent.selectAfter": true,
-"bookmarks.keepBookmarksOnLineDelete": true
+"bookmarks.keepBookmarksOnLineDelete": true,
+"json.schemas": [
+
+    {
+      "fileMatch": [
+        "komorebi.json"
+      ],
+      "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json"
+    },
+    {
+        "fileMatch": [
+            "komorebi.bar.json"
+        ],
+        "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json"
+    },
+    {
+        "fileMatch": ["with-glazevm.zebar.json"],
+        "url": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json"
+    }
+]
 }

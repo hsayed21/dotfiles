@@ -98,6 +98,7 @@ Map("n", "<C-j>", "o<Esc>")
 Map("i", "<C-e>", "<Backspace>") -- delete the character under the cursor and enter insert mode
 Map("i", "<C-r>", "<Delete>")    -- delete the character under the cursor and enter insert mode
 Map("i", "<C-y>", "<C-o>C")      -- delete from the cursor to the end of the line and enter insert mode
+Map("n", "<C-S-x>", "vb\"_d") -- delete word backwards without yankingk
 
 -- change o in normal mode to also auto indent using VSCode
 Map( 'n', 'o', "o<Cmd>call VSCodeNotifyRange('editor.action.reindentselectedlines', line('.'), line('.'), 1)<CR>")

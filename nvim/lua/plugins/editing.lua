@@ -1084,12 +1084,68 @@ return {
 		config = function()
 			local substitute = require("substitute")
 
-			substitute.setup()
-			-- Substitute Keymaps
-			Map("n", "s", substitute.operator, { desc = "Substitute with motion" })
-			Map("n", "ss", substitute.line, { desc = "Substitute line" })
-			Map("n", "S", substitute.eol, { desc = "Substitute to end of line" })
-			Map("x", "s", substitute.visual, { desc = "Substitute in visual mode" })
+			substitute.setup({
+				modifiers = function(state)
+					local mods = {}
+					-- Always reindent for linewise operations
+					if state.vmode == 'line' then
+						table.insert(mods, 'reindent')
+					end
+
+					-- Trim whitespace for characterwise operations
+					if state.vmode == 'char' then
+						table.insert(mods, 'trim')
+					end
+
+					return mods
+				end,
+			})
+
+			-- Smart substitute functions with conditional modifiers
+			local function smart_substitute_operator()
+				return require('substitute').operator({
+					modifiers = function(state)
+						local mods = {}
+						if state.vmode == 'line' then
+							table.insert(mods, 'reindent')
+						elseif state.vmode == 'char' then
+							table.insert(mods, 'trim')
+						end
+						return mods
+					end
+				})
+			end
+
+			local function smart_substitute_line()
+				return require('substitute').line({
+					modifiers = { 'reindent' }
+				})
+			end
+
+			local function smart_substitute_eol()
+				return require('substitute').eol({
+					modifiers = { 'trim' }
+				})
+			end
+
+			local function smart_substitute_visual()
+				return require('substitute').visual({
+					modifiers = function(state)
+						local mods = {}
+						if state.vmode == 'line' then
+							table.insert(mods, 'reindent')
+						elseif state.vmode == 'char' then
+							table.insert(mods, 'trim')
+						end
+						return mods
+					end
+				})
+			end
+			-- Basic substitute keymaps with smart modifiers
+			vim.keymap.set("n", "s", smart_substitute_operator, { noremap = true, desc = "Smart substitute with motion" })
+			vim.keymap.set("n", "ss", smart_substitute_line, { noremap = true, desc = "Smart substitute line (reindent)" })
+			vim.keymap.set("n", "S", smart_substitute_eol, { noremap = true, desc = "Smart substitute to EOL (trim)" })
+			vim.keymap.set("x", "s", smart_substitute_visual, { noremap = true, desc = "Smart substitute in visual mode" })
 		end,
 		-- enabled = not vim.g.vscode
 	},
