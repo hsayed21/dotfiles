@@ -1,0 +1,1080 @@
+/*
+This is default and very simple styles file for Yasb.
+For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
+*/
+:root {
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --yellow: #f9e2af;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #282936;
+    --base: #1e1e2e;
+    --crust: rgba(32, 32, 43, 0.92);
+}
+/* Global styles for ToolTip */
+QToolTip {
+    padding: 6px;
+    color: #cdd6f4;
+    font-size: 12px;
+    background-color: #1e1e2e;
+    border: 0px solid #313244;
+    border-radius: 6px;
+}
+* {
+    font-size: 12px;
+    color: var(--text);
+    font-weight: 600;
+    font-family: "JetBrainsMono NFP";
+    margin: 0;
+    padding: 0;
+}
+.yasb-bar {
+    padding: 0;
+    margin: 0;
+    background-color: var(--crust);
+    border-radius: 8px;
+    border: 1px solid #313244;
+    /* position: fixed;
+    top: 0;
+    z-index: 9999; */
+}
+.widget {
+    padding: 0 12px;
+    margin: 0;
+}
+.icon {
+    font-size: 16px;
+}
+.widget .label {
+    padding: 0px 2px;
+}
+.komorebi-active-layout {
+    padding: 0 4px 0 0;
+}
+.komorebi-active-layout .label {
+    font-weight: 600;
+    padding: 2px 0 0 0;
+}
+.apps-widget .widget-container,
+.komorebi-workspaces .widget-container,
+.komorebi-active-layout .widget-container {
+    background-color: var(--surface1);
+    margin: 3px 0 3px 0;
+    border-radius: 12px;
+    border: 1px solid var(--surface0);
+}
+.komorebi-workspaces .widget-container {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    margin-left: 4px;
+}
+.komorebi-workspaces {
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    padding: 0 4px 0 0;
+}
+.komorebi-workspaces .offline-status {
+    color: var(--surface2);
+    font-size: 12px;
+    padding: 0 0 0 4px;
+    font-weight: 600;
+}
+.komorebi-workspaces .ws-btn {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    font-size: 11px;
+    color: var(--overlay1);
+    height: 28px;
+    width: auto;
+    min-width: 45px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.komorebi-workspaces .ws-btn:hover {
+    color: var(--subtext1);
+}
+.komorebi-workspaces .ws-btn.populated {
+    color: var(--lavender);
+    width: auto;
+    min-width: 45px;
+    height: 28px;
+    background-color: transparent;
+    border-radius: 5px;
+    margin: 0 2px;
+    padding: 0 6px;
+    font-size: 11px;
+}
+.komorebi-workspaces .ws-btn.active {
+    color: var(--base);
+    background-color: var(--lavender);
+    width: auto;
+    min-width: 45px;
+    height: 28px;
+    margin: 0 2px;
+    padding: 0 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--blue);
+}
+.apps-widget {
+    padding: 0 4px 0 2px;
+}
+.apps-widget .label {
+    font-size: 14px;
+    padding: 0 2px;
+    color: var(--subtext0);
+}
+.apps-widget .label:hover {
+    color: var(--text);
+}
+
+.power-menu-widget .label {
+    color: #f38ba8;
+    font-size: 13px;
+}
+.power-menu-popup {
+    background-color: transparent
+}
+.power-menu-popup .button {
+    padding: 0;
+    width: 180px;
+    height: 230px;
+    border-radius: 8px;
+    background-color: var(--crust);
+    color: var(--text);
+    border-left: 4px solid rgba(58, 59, 83, 0);
+    border-right: 4px solid rgba(58, 59, 83, 0);
+    border-top: 4px solid rgba(58, 59, 83, 0);
+    border-bottom: 4px solid rgba(58, 59, 83, 0);
+    margin: 0px;
+}
+.power-menu-popup .button.hover {
+    background-color: var(--base);
+    border-left: 4px solid var(--base);
+    border-right: 4px solid var(--base);
+    border-top: 4px solid var(--base);
+    border-bottom: 4px solid var(--base);
+}
+
+.power-menu-popup .button .label {
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--overlay2)
+}
+.power-menu-popup .button .icon {
+    font-size: 64px;
+    padding-top: 32px;
+    color: var(--surface2)
+}
+
+.power-menu-popup .button.cancel .icon {
+    padding: 0;
+    margin: 0;
+}
+.power-menu-popup .button.cancel .label {
+    color: var(--red);
+    margin: 0;
+}
+.power-menu-popup .button.cancel {
+    height: 32px;
+    border-radius: 4px;
+}
+.uptime {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--surface2);
+    font-weight: 600;
+}
+.microphone-widget {
+    padding: 0 6px 0 6px;
+}
+.microphone-widget .icon {
+    font-size: 18px;
+}
+.microphone-widget .icon {
+    color: var(--mauve);
+}
+.volume-widget .icon {
+    font-size: 17px;
+    color: var(--blue);
+    margin: 0px 2px 0 0;
+}
+.weather-widget,
+.volume-widget {
+    padding: 0 6px;
+}
+.weather-widget .icon {
+    font-size: 18px;
+    margin: 0 2px 1px 0;
+    color: var(--yellow);
+}
+.media-widget {
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+}
+.media-widget .label {
+    color: #bac2db;
+    padding: 0px;
+    padding-right: 4px;
+    font-size: 12px;
+}
+.media-widget .btn {
+    color: #7a7f8b;
+    padding: 0 4px;
+    margin: 0;
+    font-family: "JetBrainsMono NFP";
+    font-weight: 400;
+    font-size: 20px;
+}
+.media-widget .btn:hover {
+    color: #babfd3;
+}
+.media-widget .btn.play {
+    font-size: 24px;
+    color: #989caa;
+}
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+    color: #4e525c;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+}
+.home-widget {
+    padding: 0 4px 0 12px;
+}
+.home-widget .icon {
+    color: var(--lavender);
+}
+.home-widget .icon:hover {
+    color: var(--text);
+}
+.home-menu {
+    background-color: var(--crust);
+    border-radius: 8px;
+}
+.home-menu .menu-item {
+    padding: 8px 48px 9px 16px;
+    font-size: 12px;
+    font-family: 'Segoe UI';
+    color: var(--text);
+    font-weight: 600;
+}
+.home-menu .menu-item:hover {
+    background-color: rgba(128, 130, 158, 0.15);
+    color: #fff;
+}
+.home-menu .separator {
+    max-height: 1px;
+    background-color: rgba(128, 130, 158, 0.3);
+}
+.notification-widget {
+    padding: 0 0px 0 4px;
+}
+.notification-widget .icon {
+    font-size: 14px;
+}
+.notification-widget .icon.new-notification {
+    color: var(--blue);
+}
+
+.pomodoro-widget {
+    padding: 0 6px 0 6px;
+}
+.pomodoro-widget .icon {
+    font-size: 12px;
+    padding-right: 4px;
+}
+.pomodoro-widget .label.paused,
+.pomodoro-widget .icon.paused {
+    color: #7d7e8b;
+}
+.pomodoro-widget .label.work,
+.pomodoro-widget .icon.work {
+    color: #a6e3a1;
+}
+.pomodoro-widget .label.break,
+.pomodoro-widget .icon.break {
+    color: #89b4fa;
+}
+/* Pomodoro menu styling */
+.pomodoro-menu {
+    background-color: rgba(17, 17, 27, 0.2);
+    border-radius: 8px;
+}
+.pomodoro-menu .header {
+    font-size: 16px;
+    font-weight: 600;
+    max-height: 0px;
+    color: #ffffff;
+}
+.pomodoro-menu .status {
+    font-size: 18px;
+    font-weight: 600;
+    color: #cdd6f4;
+}
+.pomodoro-menu .session {
+    font-size: 12px;
+    color: #a6adc8;
+}
+.pomodoro-menu .button {
+    background-color: #3f4053;
+    color: #cdd6f4;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+}
+.pomodoro-menu .button.start {
+    background-color: #3f4053;
+}
+.pomodoro-menu .button.reset {
+    background-color: #3f4053;
+}
+.pomodoro-menu .button:hover {
+    background-color: rgba(255, 255, 255, 0.158);
+}
+.pomodoro-menu .button.pause {
+    background-color: #a6e3a1;
+    color: #1e1e2e;
+}
+.pomodoro-menu .button:pressed {
+    background-color: #5a5b6e;
+}
+
+.notes-widget {
+    padding: 0;
+}
+.notes-widget .label {
+   font-size: 14px;
+   color: #dbfeb4;;
+}
+.notes-widget .icon {
+    font-size: 16px;
+    color: #dbfeb4;
+}
+/* Notes Widget Menu */
+.notes-menu {
+    min-width: 400px;
+    max-width: 400px;
+    background-color: rgba(17, 17, 27, 0.4);
+}
+.notes-menu .note-item {
+    background-color:transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.notes-menu .note-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.notes-menu .note-item .icon {
+    font-size: 16px;
+    padding: 0 4px;
+}
+.notes-menu .delete-button {
+    color: #ff6b6b;
+    background: transparent;
+    border: none;
+    font-size: 8px;
+    padding: 7px 8px;
+    border-radius: 3px;
+}
+.notes-menu .delete-button:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.notes-menu .copy-button {
+    color: #babfd3;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+.notes-menu .copy-button:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+.notes-menu .copy-button:pressed {
+    color: #ffffff;
+}
+.notes-menu .note-item .title {
+    font-size: 13px;
+    font-family: 'Segoe UI'
+}
+.notes-menu .note-item .date {
+    font-size: 12px;
+    font-family: 'Segoe UI';
+    color: rgba(255, 255, 255, 0.4);
+}
+.notes-menu .empty-list {
+    font-family: 'Segoe UI';
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 0 20px 0;     
+}
+.notes-menu .add-button,  
+.notes-menu .cancel-button {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: 'Segoe UI'
+}
+.notes-menu .cancel-button {
+    margin-left: 4px;
+}
+.notes-menu .add-button:hover,
+.notes-menu .cancel-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.notes-menu .scroll-area {
+    background: transparent; 
+    border: none; 
+    border-radius:0;
+}
+.notes-menu .note-input {
+    background-color:rgba(17, 17, 27, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    max-height: 30px;
+    padding: 4px;
+    border-radius: 6px;
+}
+.note-input:focus {
+    border: 1px solid #89b4fa;
+}
+
+.disk-group {
+    background-color:rgba(17, 17, 27, 0.75);
+}
+.disk-group-row {
+    min-width: 220px;
+    max-width: 220px;
+    max-height: 40px;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(128, 128, 128, 0);
+}
+.disk-group-row:hover {
+    background-color:rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+}
+.disk-group-label-bar{
+    max-height:8px;
+    border:0px solid rgba(128, 128, 128, 0);
+    background-color: rgba(137, 180, 250, 0.1);
+    border-radius: 4px
+}
+.disk-group-label-bar::chunk{
+    background-color: rgba(137, 180, 250, 0.3);
+    border-radius: 4px
+}
+.disk-group-label {
+    font-size: 10px
+}
+.disk-group-label-size {
+    font-size: 10px;
+    color: #585b70
+}
+
+.calendar {
+    background-color: rgba(17, 17, 27, 0.4);
+}
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+    background-color: rgba(17, 17, 27, 0);
+    color: rgba(162, 177, 196, 0.85);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;  
+}
+.calendar .calendar-table::item:selected {
+    color: rgb(255, 255, 255);
+}
+.calendar .day-label {
+    margin-top: 20px;
+}
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
+    min-width: 180px;
+    max-width: 180px;
+}
+.calendar .month-label {
+    font-weight: normal;
+}
+.calendar .date-label {
+    font-size: 88px;
+    font-weight: 900;
+    color: rgb(255, 255, 255);
+    margin-top: -20px;
+}
+
+.github-menu    {
+    background-color:  rgba(17, 17, 27, 0.2);
+    max-height: 500px;
+    min-height: 500px;
+    min-width: 420px;
+}
+.github-menu .header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 8px;
+    color: white;
+    background-color: rgba(17, 17, 27, 0.75);
+}
+.github-menu .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    padding: 4px 8px 6px 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #9399b2;
+    background-color: rgba(17, 17, 27, 0.75);
+}
+.github-menu .contents {
+    background-color:  rgba(17, 17, 27, 0.2);
+}
+.github-menu .contents .item {
+    min-height: 40px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+.github-menu .contents .item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.github-menu .contents .item .title,
+.github-menu .contents .item .description {
+    color: #9399b2;
+    font-family: Segoe UI;
+}
+.github-menu .contents .item .title {
+    font-size: 14px;
+    font-weight: 600; 
+}
+.github-menu .contents .item .description {
+    font-size: 12px;
+    font-weight: 500
+}
+.github-menu .contents .item.new .title,
+.github-menu .contents .item.new .description {
+    color: #ffffff
+}
+.github-menu .contents .item .icon {
+    font-size: 16px;
+    padding-right: 0;
+    padding-left: 8px;
+    padding-right: 4px;
+    color: #9399b2;
+}
+.github-menu .contents .item.new .icon {
+    color: #3fb950;
+}
+
+
+/* Sections Widget - Enhanced Grid and Responsive Styling */
+
+/* Status Bar Button */
+.sections-widget {
+    padding: 0 8px;
+}
+
+.sections-widget .widget-container {
+    background-color: var(--surface1);
+    margin: 3px 0;
+    border-radius: 8px;
+    border: 1px solid var(--surface0);
+}
+
+.sections-widget .widget-container:hover {
+    background-color: var(--surface2);
+}
+
+.sections-widget .label {
+    font-size: 14px;
+    color: var(--text);
+    padding: 4px 8px;
+    font-weight: 500;
+}
+
+/* Popup Menu Container - Enhanced for responsiveness */
+.sections-menu {
+    background-color: var(--base);
+    border-radius: 8px;
+    border: 1px solid var(--surface0);
+    min-width: 300px;
+    max-width: 450px;
+    max-height: 500px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollable Content Area */
+.sections-menu .contents {
+    background-color: transparent;
+}
+
+/* Sections Container */
+.sections-menu .sections-container {
+    background-color: transparent;
+}
+
+/* Individual Sections */
+.sections-menu .section {
+    background-color: transparent;
+    margin: 8px;
+}
+
+/* Section Titles */
+.sections-menu .section-title {
+    background-color: var(--surface0);
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+/* Base Section Items Styling */
+.sections-menu .section-item {
+    padding: 10px 12px;
+    margin: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    min-height: 36px;
+    background-color: var(--surface1);
+}
+
+.sections-menu .section-item:hover {
+    background-color: var(--surface2);
+    border-color: var(--overlay0);
+    transform: translateY(-1px);
+}
+
+/* Horizontal Layout Specific Styling */
+.sections-menu .section[data-layout="horizontal"] {
+    margin: 8px 6px;
+}
+
+.sections-menu .section[data-layout="horizontal"] .section-item {
+    flex: 1;
+    min-width: 0;
+    margin: 0 2px;
+    padding: 12px 8px;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 60px;
+    border: 1px solid var(--surface2);
+    background-color: var(--surface1);
+}
+
+.sections-menu .section[data-layout="horizontal"] .section-item:first-child {
+    margin-left: 0;
+}
+
+.sections-menu .section[data-layout="horizontal"] .section-item:last-child {
+    margin-right: 0;
+}
+
+.sections-menu .section[data-layout="horizontal"] .section-item:hover {
+    background-color: var(--surface2);
+    border-color: var(--overlay0);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Horizontal Layout Icons */
+.sections-menu .section[data-layout="horizontal"] .item-icon {
+    font-size: 18px;
+    margin-right: 0;
+    margin-bottom: 6px;
+    color: var(--subtext1);
+    display: block;
+    text-align: center;
+}
+
+/* Horizontal Layout Labels */
+.sections-menu .section[data-layout="horizontal"] .item-label-value {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Grid Layout Specific Styling */
+.sections-menu .section[data-layout="grid"] {
+    margin: 8px 4px;
+}
+
+.sections-menu .section[data-layout="grid"] .section-items {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    padding: 4px;
+}
+
+.sections-menu .section[data-layout="grid"] .section-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px 8px;
+    min-height: 60px;
+    justify-content: center;
+}
+
+/* Vertical Layout (Default) */
+.sections-menu .section[data-layout="vertical"] .section-item,
+.sections-menu .section:not([data-layout]) .section-item {
+    flex-direction: row;
+    text-align: left;
+    padding: 10px 12px;
+    min-height: 36px;
+    align-items: center;
+}
+
+/* Gold Prices Specific Styling - Enhanced for horizontal layout */
+.sections-menu .section[data-title*="Gold"] .section-item,
+.sections-menu .section[data-title*="gold"] .section-item {
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Gold prices horizontal layout */
+.sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .section-item,
+.sections-menu .section[data-title*="gold"][data-layout="horizontal"] .section-item {
+    background: linear-gradient(135deg, var(--surface1) 0%, var(--surface0) 100%);
+    border: 1px solid var(--surface2);
+    padding: 14px 10px;
+    min-height: 70px;
+}
+
+.sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .section-item:hover,
+.sections-menu .section[data-title*="gold"][data-layout="horizontal"] .section-item:hover {
+    background: linear-gradient(135deg, var(--surface2) 0%, var(--surface1) 100%);
+    border-color: var(--overlay0);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Sell price styling (first item) */
+.sections-menu .section[data-title*="Gold"] .section-item:nth-child(1),
+.sections-menu .section[data-title*="gold"] .section-item:nth-child(1) {
+    border-left: 3px solid var(--yellow);
+}
+
+/* Buy price styling (second item) */
+.sections-menu .section[data-title*="Gold"] .section-item:nth-child(2),
+.sections-menu .section[data-title*="gold"] .section-item:nth-child(2) {
+    border-left: 3px solid var(--blue);
+}
+
+/* Gold prices horizontal layout borders */
+.sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .section-item:nth-child(1),
+.sections-menu .section[data-title*="gold"][data-layout="horizontal"] .section-item:nth-child(1) {
+    border-top: 3px solid var(--yellow);
+    border-left: 1px solid var(--surface2);
+}
+
+.sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .section-item:nth-child(2),
+.sections-menu .section[data-title*="gold"][data-layout="horizontal"] .section-item:nth-child(2) {
+    border-top: 3px solid var(--blue);
+    border-left: 1px solid var(--surface2);
+}
+
+/* Item Icons - Enhanced for different layouts */
+.sections-menu .item-icon {
+    font-size: 16px;
+    color: var(--subtext1);
+    margin-right: 8px;
+    min-width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sections-menu .section[data-layout="grid"] .item-icon {
+    margin-right: 0;
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+/* Gold prices specific icon styling */
+.sections-menu .section[data-title*="Gold"] .item-icon,
+.sections-menu .section[data-title*="gold"] .item-icon {
+    font-size: 18px;
+    margin-right: 6px;
+}
+
+.sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .item-icon,
+.sections-menu .section[data-title*="gold"][data-layout="horizontal"] .item-icon {
+    font-size: 20px;
+    margin-right: 0;
+    margin-bottom: 8px;
+    color: var(--yellow);
+}
+
+/* Item Labels - Enhanced for different layouts */
+.sections-menu .item-label-value {
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 600;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sections-menu .section[data-layout="grid"] .item-label-value {
+    flex: none;
+    font-size: 10px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Gold prices specific label styling */
+.sections-menu .section[data-title*="Gold"] .item-label-value,
+.sections-menu .section[data-title*="gold"] .item-label-value {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--subtext1);
+}
+
+.sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .item-label-value,
+.sections-menu .section[data-title*="gold"][data-layout="horizontal"] .item-label-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Force Update Button */
+.sections-menu .force-update-button {
+    background-color: var(--surface0);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 8px;
+    border: 1px solid var(--surface1);
+    font-size: 11px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.sections-menu .force-update-button:hover {
+    background-color: var(--surface1);
+    border-color: var(--surface2);
+    color: var(--blue);
+}
+
+/* Separator */
+.sections-menu .separator {
+    height: 1px;
+    background-color: var(--surface1);
+    margin: 8px 16px;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1600px) {
+    .sections-menu {
+        min-width: 280px;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .sections-menu {
+        min-width: 260px;
+        max-width: 350px;
+    }
+
+    .sections-menu .section[data-layout="horizontal"] .section-item {
+        padding: 10px 6px;
+        min-height: 55px;
+    }
+
+    .sections-menu .section[data-title*="Gold"][data-layout="horizontal"] .section-item,
+    .sections-menu .section[data-title*="gold"][data-layout="horizontal"] .section-item {
+        padding: 12px 8px;
+        min-height: 65px;
+    }
+
+    .sections-menu .section[data-layout="horizontal"] .item-label-value {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sections-menu {
+        min-width: 240px;
+        max-width: 300px;
+    }
+
+    .sections-menu .section[data-layout="horizontal"] .section-item {
+        padding: 8px 4px;
+        min-height: 50px;
+    }
+
+    .sections-menu .section[data-layout="horizontal"] .item-icon {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+
+    .sections-menu .section[data-layout="horizontal"] .item-label-value {
+        font-size: 9px;
+        line-height: 1.1;
+    }
+}
+
+/* Loading state styling */
+.sections-menu .item-label-value.loading {
+    color: var(--overlay1);
+    font-style: italic;
+}
+
+.sections-menu .item-label-value.loading::before {
+    content: "⟳ ";
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Error state styling */
+.sections-menu .item-label-value.error {
+    color: var(--red);
+    font-size: 10px;
+}
+
+/* Simple Scrollbar styling */
+.sections-menu QScrollArea {
+    border: none;
+    background: transparent;
+}
+
+.sections-menu QScrollBar:vertical {
+    background: transparent;
+    width: 4px;
+    border-radius: 2px;
+}
+
+.sections-menu QScrollBar::handle:vertical {
+    background: var(--surface2);
+    border-radius: 2px;
+    min-height: 16px;
+}
+
+.sections-menu QScrollBar::handle:vertical:hover {
+    background: var(--overlay0);
+}
+
+.sections-menu QScrollBar::add-line:vertical,
+.sections-menu QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+.sections-menu QScrollBar::add-page:vertical,
+.sections-menu QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+/* Responsive width adjustments */
+.sections-menu[class*="horizontal"] {
+    min-width: 400px;
+    max-width: 600px;
+}
+
+
+
+.volume-slider {
+    border: none;
+}
+.volume-slider::groove {}
+.volume-slider::handle{} 
+.audio-menu {
+    background-color:rgba(17, 17, 27, 0.4); 
+}
+.audio-container .device {
+    background-color:transparent;
+    border: none;
+    padding:6px 8px 6px 4px;
+    margin: 2px 0;
+    font-size: 12px;
+    border-radius: 4px;
+}
+.audio-container .device.selected {
+    background-color: rgba(255, 255, 255, 0.085);
+}
+.audio-container .device:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+.wallpapers-widget {
+    padding: 0 6px 0 6px;
+}
+.wallpapers-gallery-window {
+    background-color: rgba(85, 42, 240, 0.01);
+    border: 0;
+    margin: 0;
+}
+.wallpapers-gallery-buttons {
+    background-color:rgba(255, 255, 255, 0);
+    color: white;
+    border: none;
+    font-size: 14px;
+    padding: 8px 0;
+    border-radius: 8px;
+    margin:0 8px 8px 8px;
+    width: 600px;
+}
+.wallpapers-gallery-buttons:hover {
+    background-color:rgba(255, 255, 255, 0.1)
+}
+.wallpapers-gallery-image {
+    border: 4px solid transparent;
+    border-radius: 10px;
+}
+.wallpapers-gallery-image:hover {
+    border: 4px solid rgb(66, 68, 83);
+}
+.wallpapers-gallery-image.focused {
+    border: 4px solid #89b4fa;
+}
