@@ -56,7 +56,7 @@ $packages = @{
       @{ name = "fzf" },
       @{ name = "ripgrep" },
       @{ name = "bat" },
-
+      @{ name = "grep" }
     )
     SourceForge = @(
       @{
@@ -365,6 +365,11 @@ $mappings = @(
   @{
     source = "$PWD\vscode\.prettierrc"
     dest   = "$Home\.prettierrc"
+  },
+  # yasb
+  @{
+    source = "$PWD\yasb"
+    dest   = "$Home\.config\yasb"
   }
 )
 

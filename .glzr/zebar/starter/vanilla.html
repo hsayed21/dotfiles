@@ -27,7 +27,6 @@
 
       const providers = zebar.createProviderGroup({
         network: { type: 'network' },
-        glazewm: { type: 'glazewm' },
         cpu: { type: 'cpu' },
         date: { type: 'date', formatting: 'EEE d MMM t' },
         battery: { type: 'battery' },
@@ -123,67 +122,11 @@
           <div className="app">
             <div className="left">
               <i className="logo nf nf-fa-windows"></i>
-              {output.glazewm && (
-                <div className="workspaces">
-                  {output.glazewm.currentWorkspaces.map(workspace => (
-                    <button
-                      className={`workspace ${workspace.hasFocus && 'focused'} ${workspace.isDisplayed && 'displayed'}`}
-                      onClick={() =>
-                        output.glazewm.runCommand(
-                          `focus --workspace ${workspace.name}`,
-                        )
-                      }
-                      key={workspace.name}
-                    >
-                      {workspace.displayName ?? workspace.name}
-                    </button>
-                  ))}
-                </div>
-              )}
             </div>
 
             <div className="center">{output.date?.formatted}</div>
 
             <div className="right">
-              {output.glazewm && (
-                <>
-                  {output.glazewm.isPaused && (
-                    <button
-                      className="paused-button"
-                      onClick={() =>
-                        output.glazewm.runCommand('wm-toggle-pause')
-                      }
-                    >
-                      PAUSED
-                    </button>
-                  )}
-                  {output.glazewm.bindingModes.map(bindingMode => (
-                    <button
-                      className="binding-mode"
-                      key={bindingMode.name}
-                      onClick={() =>
-                        output.glazewm.runCommand(
-                          `wm-disable-binding-mode --name ${bindingMode.name}`,
-                        )
-                      }
-                    >
-                      {bindingMode.displayName ?? bindingMode.name}
-                    </button>
-                  ))}
-
-                  <button
-                    className={`tiling-direction nf ${
-                      output.glazewm.tilingDirection === 'horizontal'
-                        ? 'nf-md-swap_horizontal'
-                        : 'nf-md-swap_vertical'
-                    }`}
-                    onClick={() =>
-                      output.glazewm.runCommand('toggle-tiling-direction')
-                    }
-                  ></button>
-                </>
-              )}
-
               {output.network && (
                 <div className="network">
                   {getNetworkIcon(output.network)}

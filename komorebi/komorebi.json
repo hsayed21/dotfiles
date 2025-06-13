@@ -30,7 +30,7 @@
         "unfocused_border": "Base03",
         "bar_accent": "Base0D"
     },
-    "transparency": false,
+    "transparency": true,
     "transparency_alpha": 240,
     "animation": {
         "enabled": true,
@@ -267,132 +267,146 @@
             "matching_strategy": "Equals"
         }
     ],
-    "workspace_rules": [
+    "monitors": [
         {
-            "kind": "Exe",
-            "id": "ms-teams.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
+            "workspaces": [
+                {
+                    "name": "1.HOME",
+                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
+                    // "layout": "BSP",
+                    "initial_workspace": true,
+                    "initial_workspace_rules": [
+                        {
+                            "kind": "Exe",
+                            "id": "ms-teams.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "slack.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "discord.exe",
+                            "matching_strategy": "Equals"
+
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "Mailbird.exe",
+                            "matching_strategy": "Equals"
+
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "telegram.exe",
+                            "matching_strategy": "Equals"
+
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "whatsapp.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "WINWORD.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "EXCEL.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "wordpad.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "dopus.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "explorer.exe",
+                            "matching_strategy": "Equals"
+                        }
+                    ]
+                },
+                {
+                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
+                    "name": "6.MISC",
+                    "layout": "Grid"
+                }
+            ]
         },
         {
-            "kind": "Exe",
-            "id": "slack.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "discord.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "Mailbird.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "telegram.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "whatsapp.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "WINWORD.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "EXCEL.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "wordpad.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "dopus.exe",
-            "matching_strategy": "Contains",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "explorer.exe",
-            "matching_strategy": "Equals",
-            "monitor": 0,
-            "workspace": "1.HOME"
-        },
-        {
-            "kind": "Exe",
-            "id": "Code.exe",
-            "matching_strategy": "Equals",
-            "monitor": 1,
-            "workspace": "2.DEV"
-        },
-        {
-            "kind": "Exe",
-            "id": "devenv.exe",
-            "matching_strategy": "Equals",
-            "monitor": 1,
-            "workspace": "2.DEV"
-        },
-        {
-            "kind": "Exe",
-            "id": "dbforge.exe",
-            "matching_strategy": "Contains",
-            "monitor": 1,
-            "workspace": "2.DEV"
-        },
-        {
-            "kind": "Exe",
-            "id": "chrome.exe",
-            "matching_strategy": "Equals",
-            "monitor": 1,
-            "workspace": "3.WEB"
-        },
-        {
-            "kind": "Exe",
-            "id": "firefox.exe",
-            "matching_strategy": "Equals",
-            "monitor": 1,
-            "workspace": "3.WEB"
-        },
-        {
-            "kind": "Exe",
-            "id": "WindowsTerminal.exe",
-            "matching_strategy": "Equals",
-            "monitor": 1,
-            "workspace": "4.TERM"
-        },
-        {
-            "kind": "Exe",
-            "id": "wezterm-gui.exe",
-            "matching_strategy": "Equals",
-            "monitor": 1,
-            "workspace": "4.TERM"
+            "workspaces": [
+                {
+                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
+                    "name": "2.DEV",
+                    "layout": "BSP",
+                    "initial_workspace_rules": [
+                        {
+                            "kind": "Exe",
+                            "id": "Code.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "devenv.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "dbforge.exe",
+                            "matching_strategy": "Equals"
+                        }
+                    ]
+                },
+                {
+                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
+                    "name": "3.WEB",
+                    "layout": "VerticalStack",
+                    "initial_workspace_rules": [
+                        {
+                            "kind": "Exe",
+                            "id": "chrome.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "firefox.exe",
+                            "matching_strategy": "Equals"
+                        }
+                    ]
+                },
+                {
+                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
+                    "name": "4.TERM",
+                    "layout": "HorizontalStack",
+                    "initial_workspace_rules": [
+                        {
+                            "kind": "Exe",
+                            "id": "WindowsTerminal.exe",
+                            "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "wezterm-gui.exe",
+                            "matching_strategy": "Equals"
+                        }
+                    ]
+                },
+                {
+                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
+                    "name": "5.TEST",
+                    "layout": "Rows"
+                }
+            ]
         }
     ],
     "floating_window_aspect_ratio": "Widescreen",
@@ -481,53 +495,6 @@
             "kind": "Exe",
             "id": "DeepL.exe",
             "matching_strategy": "Equals"
-        }
-    ],
-    "monitors": [
-        {
-            "workspaces": [
-                {
-                    "name": "1.HOME",
-                    "layout": "BSP",
-                    "initial_workspace": true,
-                    "workspace_padding": 12,
-                    "container_padding": 8
-                },
-                {
-                    "name": "6.MISC",
-                    "layout": "Grid",
-                    "workspace_padding": 10,
-                    "container_padding": 8
-                }
-            ]
-        },
-        {
-            "workspaces": [
-                {
-                    "name": "2.DEV",
-                    "layout": "BSP",
-                    "workspace_padding": 12,
-                    "container_padding": 8
-                },
-                {
-                    "name": "3.WEB",
-                    "layout": "VerticalStack",
-                    "workspace_padding": 10,
-                    "container_padding": 6
-                },
-                {
-                    "name": "4.TERM",
-                    "layout": "HorizontalStack",
-                    "workspace_padding": 8,
-                    "container_padding": 4
-                },
-                {
-                    "name": "5.TEST",
-                    "layout": "Rows",
-                    "workspace_padding": 10,
-                    "container_padding": 8
-                }
-            ]
         }
     ],
     "bar_configurations": [
