@@ -13,3 +13,7 @@ resources.txt
 nvim/notes.md
 nvim/ForDebugging.txt
 *.bak
+yasb/notes.json
+yasb/yasb.log
+git/ForSensitive
+sensitive-patterns.json
