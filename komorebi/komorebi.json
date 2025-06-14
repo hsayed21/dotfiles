@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/master/schema.json",
     "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
-    "window_hiding_behaviour": "Cloak",
+    "window_hiding_behaviour": "Hide",
     "cross_monitor_move_behaviour": "Insert",
     "unmanaged_window_operation_behaviour": "Op",
     "default_workspace_padding": 4,
@@ -269,6 +269,18 @@
     ],
     "monitors": [
         {
+            // "window_based_work_area_offset": {
+            //     "left": 0,
+            //     "top": 0,
+            //     "right": 0,
+            //     "bottom": 0
+            // },
+            "work_area_offset": {
+                "left": 0,
+                "top": 50,
+                "right": 0,
+                "bottom": 50
+            },
             "workspaces": [
                 {
                     "name": "1.HOME",

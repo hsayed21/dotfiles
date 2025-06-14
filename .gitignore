@@ -14,6 +14,6 @@ nvim/notes.md
 nvim/ForDebugging.txt
 *.bak
 yasb/notes.json
-yasb/yasb.log
+yasb/yasb.log*
 git/ForSensitive
 sensitive-patterns.json

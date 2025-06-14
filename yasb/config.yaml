@@ -84,7 +84,7 @@ bars:
                     "disk",
                     "wallpapers",
                     "github",
-                    "traffic",
+                    # "traffic",
                     # "wifi",
                     # "ip_info",
                     "media",
@@ -437,7 +437,7 @@ widgets:
             label: "<span>󰸉</span>"
             image_path: "C:\\MyRepo\\Wallpapers" # Example path to folder with images
             change_automatically: false # Automatically change wallpaper
-            update_interval: 60 # If change_automatically is true, update interval in seconds
+            update_interval: 300 # If change_automatically is true, update interval in seconds
             gallery:
                 enabled: true
                 blur: true
@@ -454,7 +454,8 @@ widgets:
             run_after:
               # List of functions to run after wallpaper is updated
             #   - "wal -s -t -e -q -n -i {image}" # Example command to run after wallpaper is updated
-            #   - "cmd.exe /c start /min pwsh ./yasb.ps1" # Example command to run after wallpaper is updated
+              - "wal -i {image} --backend haishoku" # Example command to run after wallpaper is updated
+            #   - 'cmd.exe /c start pwsh "G:\\My Drive\\dotfiles\\yasb\\yasb.ps1"' # Example command to run after wallpaper is updated
             label_shadow:
                 enabled: true
                 color: "black"

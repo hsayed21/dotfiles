@@ -18,7 +18,7 @@ For more information about configuration options, please visit the Wiki https://
     --surface1: #45475a;
     --surface0: #282936;
     --base: #1e1e2e;
-    --crust: rgba(32, 32, 43, 0.92);
+    --crust: rgba(32, 32, 43, 0.20);
 }
 /* Global styles for ToolTip */
 QToolTip {
