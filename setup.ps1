@@ -1,9 +1,50 @@
+param(
+    [switch]$Package,
+    [switch]$Mapping,
+    [switch]$Environment,
+    [switch]$PackageManager,
+    [switch]$PowerShell,
+    [switch]$Registry,
+    [switch]$All,
+    [string[]]$Category = @(),
+    [switch]$Help
+)
+
+# Show help information
+if ($Help) {
+    Write-Host @"
+Setup Script Parameters:
+
+-Package         : Install packages only
+-Mapping         : Create symbolic links/mappings only
+-Environment     : Setup environment (package managers + PowerShell modules)
+-PackageManager  : Install package managers only
+-PowerShell      : Configure PowerShell environment only
+-Registry        : Apply registry settings only
+-All             : Run all sections (default behavior)
+-Category        : Install packages from specific categories only (Development, Utilities, Browsers, Fonts)
+-Help            : Show this help message
+
+Examples:
+  .\setup.ps1                                    # Run everything
+  .\setup.ps1 -Package                          # Install packages only
+  .\setup.ps1 -Mapping                          # Create symlinks only
+  .\setup.ps1 -Category Development,Utilities   # Install only Development and Utilities packages
+  .\setup.ps1 -Environment                      # Setup package managers and PowerShell
+"@
+    exit 0
+}
+
+# If no parameters specified, run all sections
+if (-not ($Package -or $Mapping -or $Environment -or $PackageManager -or $PowerShell -or $Registry -or $Category)) {
+    $Mapping = $true
+}
+
 . .\_helper\_function.ps1
 #Requires -RunAsAdministrator
 
 # Initialize logging
 Initialize-Log
-
 Write-Log "Starting setup process..." -Level Info
 
 # Group packages by categories
@@ -31,7 +72,7 @@ $packages = @{
       @{ name = "alacritty" }
       @{ name = "extras/unigetui" }
       @{ name = "zig" },
-      @{ name = "lazygit" },
+      @{ name = "lazygit" }
       # @{ name = "fzf" },
       # @{ name = "ripgrep" }
     )
@@ -80,93 +121,8 @@ $packages = @{
   }
 }
 
-# Track installation statistics
-$stats = @{
-  Successful = 0
-  Failed     = 0
-  Skipped    = 0
-  Total      = 0
-}
 
-# Setup Environment
-Write-Log "Setting up environment..." -Level Info
-
-# Package Manager Installation
-$packageManagers = @(
-  @{
-    Name      = "Scoop"
-    Condition = { -not (Get-Command scoop -ErrorAction SilentlyContinue) }
-    Install   = { iex "& {$(irm get.scoop.sh)} -RunAsAdmin" }
-  },
-  @{
-    Name      = "Chocolatey"
-    Condition = { -not (Get-Command choco -ErrorAction SilentlyContinue) }
-    Install   = { Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1")) }
-  },
-  @{
-    Name      = "Winget"
-    Condition = { -not (Get-Command winget -ErrorAction SilentlyContinue) }
-    Install   = { irm asheroto.com/winget | iex }
-  }
-)
-
-foreach ($pm in $packageManagers) {
-  if (& $pm.Condition) {
-    try {
-      Write-Log "Installing $($pm.Name)..." -Level Info
-      & $pm.Install
-      Show-SuccessMessage -Message "$($pm.Name) has been installed successfully."
-    }
-    catch {
-      Write-Log "Failed to install $($pm.Name): $($_.Exception.Message)" -Level Error
-      exit 1
-    }
-  }
-  else {
-    Show-SuccessMessage -Message "$($pm.Name) is already installed."
-  }
-}
-
-# Install packages by category
-foreach ($category in $packages.Keys) {
-  Write-Log "Installing $category packages..." -Level Info
-
-  if ($packages[$category].Scoop) {
-    foreach ($pkg in $packages[$category].Scoop) {
-      $stats.Total++
-      $result = Install-ScoopPackage -Package $pkg
-      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-    }
-  }
-
-  if ($packages[$category].Winget) {
-    foreach ($pkg in $packages[$category].Winget) {
-      $stats.Total++
-      $result = Install-WingetPackage -Package $pkg
-      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-    }
-  }
-
-  if ($packages[$category].Choco) {
-    foreach ($pkg in $packages[$category].Choco) {
-      $stats.Total++
-      $result = Install-ChocoPackage -Package $pkg
-      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-    }
-  }
-
-  if ($packages[$category].SourceForge) {
-    foreach ($pkg in $packages[$category].SourceForge) {
-      $stats.Total++
-      $result = Install-SourceForgePackage -Package $pkg
-      if ($result) { $stats.Successful++ } else { $stats.Failed++ }
-    }
-  }
-}
-
-# Configuration
-Write-Log "Starting configuration..." -Level Info
-
+# Mappings for symbolic links
 $mappings = @(
   # nvim
   @{
@@ -373,61 +329,180 @@ $mappings = @(
   }
 )
 
-# Process symlinks with progress and force
-$total = $mappings.Count
-urrent = 0
-foreach ($mapping in $mappings) {
-  $current++
-  $progress = [math]::Round(($current / $total) * 100)
-  Write-Progress -Activity "Creating symlinks" -Status "$progress% Complete" -PercentComplete $progress
 
-  Create-SymbolicLink -destPath $mapping.dest -sourcePath $mapping.source -Force
+# Track installation statistics
+$stats = @{
+  Successful = 0
+  Failed     = 0
+  Skipped    = 0
+  Total      = 0
 }
-Write-Progress -Activity "Creating symlinks" -Completed
+
+# Determine which sections to run
+$runPackageManager = $All -or $Environment -or $PackageManager
+$runPowerShell = $All -or $Environment -or $PowerShell
+$runPackages = $All -or $Package -or ($Category.Count -gt 0)
+$runMappings = $All -or $Mapping
+$runRegistry = $All -or $Registry
+
+Write-Log "Running sections: PackageManager=$runPackageManager, PowerShell=$runPowerShell, Packages=$runPackages, Mappings=$runMappings, Registry=$runRegistry" -Level Info
+
+
+
+# Setup Environment
+if ($runPackageManager) {
+    Write-Log "Setting up package managers..." -Level Info
+
+    # Package Manager Installation
+    $packageManagers = @(
+      @{
+        Name      = "Scoop"
+        Condition = { -not (Get-Command scoop -ErrorAction SilentlyContinue) }
+        Install   = { iex "& {$(irm get.scoop.sh)} -RunAsAdmin" }
+      },
+      @{
+        Name      = "Chocolatey"
+        Condition = { -not (Get-Command choco -ErrorAction SilentlyContinue) }
+        Install   = { Invoke-Expression ((New-Object System.Net.WebClient).DownloadString("https://chocolatey.org/install.ps1")) }
+      },
+      @{
+        Name      = "Winget"
+        Condition = { -not (Get-Command winget -ErrorAction SilentlyContinue) }
+        Install   = { irm asheroto.com/winget | iex }
+      }
+    )
+
+    foreach ($pm in $packageManagers) {
+      if (& $pm.Condition) {
+        try {
+          Write-Log "Installing $($pm.Name)..." -Level Info
+          & $pm.Install
+          Show-SuccessMessage -Message "$($pm.Name) has been installed successfully."
+        }
+        catch {
+          Write-Log "Failed to install $($pm.Name): $($_.Exception.Message)" -Level Error
+          exit 1
+        }
+      }
+      else {
+        Show-SuccessMessage -Message "$($pm.Name) is already installed."
+      }
+    }
+}
+
+# Install packages by category
+if ($runPackages) {
+    Write-Log "Installing packages..." -Level Info
+
+    foreach ($category in $packages.Keys) {
+      if ($Category.Count -eq 0 -or $Category -contains $category) {
+        Write-Log "Installing $category packages..." -Level Info
+
+        if ($packages[$category].Scoop) {
+          foreach ($pkg in $packages[$category].Scoop) {
+            $stats.Total++
+            $result = Install-ScoopPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+          }
+        }
+
+        if ($packages[$category].Winget) {
+          foreach ($pkg in $packages[$category].Winget) {
+            $stats.Total++
+            $result = Install-WingetPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+          }
+        }
+
+        if ($packages[$category].Choco) {
+          foreach ($pkg in $packages[$category].Choco) {
+            $stats.Total++
+            $result = Install-ChocoPackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+          }
+        }
+
+        if ($packages[$category].SourceForge) {
+          foreach ($pkg in $packages[$category].SourceForge) {
+            $stats.Total++
+            $result = Install-SourceForgePackage -Package $pkg
+            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+          }
+        }
+      }
+    }
+}
+
+# Configuration/Mapping
+if ($runMappings) {
+    Write-Log "Creating symbolic links..." -Level Info
+
+    # Process symlinks with progress and force
+    $total = $mappings.Count
+    $current = 0
+    foreach ($_mapping in $mappings) {
+      $current++
+      $progress = [math]::Round(($current / $total) * 100)
+      Write-Progress -Activity "Creating symlinks" -Status "$progress% Complete" -PercentComplete $progress
+
+      Create-SymbolicLink -destPath $_mapping.dest -sourcePath $_mapping.source -Force
+    }
+    Write-Progress -Activity "Creating symlinks" -Completed
+}
 
 # Configure PowerShell environment
-Write-Log "Configuring PowerShell environment..." -Level Info
+if ($runPowerShell) {
+    Write-Log "Configuring PowerShell environment..." -Level Info
 
-# Install PowerShell modules
-Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
-$psModules = @(
-  "CompletionPredictor",
-  "PSScriptAnalyzer",
-  "ps-color-scripts",
-  "Get-ChildItemColor",
-  "oh-my-posh",
-  "pscolor",
-  "posh-ssh",
-  "posh-git"
-)
+    # Install PowerShell modules
+    Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+    $psModules = @(
+      "CompletionPredictor",
+      "PSScriptAnalyzer",
+      "ps-color-scripts",
+      "Get-ChildItemColor",
+      "oh-my-posh",
+      "pscolor",
+      "posh-ssh",
+      "posh-git"
+    )
 
-foreach ($module in $psModules) {
-  if (!(Get-Module -ListAvailable -Name $module)) {
-    Write-Log "Installing PowerShell module: $module" -Level Info
-    Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
-  }
+    foreach ($module in $psModules) {
+      if (!(Get-Module -ListAvailable -Name $module)) {
+        Write-Log "Installing PowerShell module: $module" -Level Info
+        Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+      }
+    }
+
+    # PowerShell profile and theme configuration
+    concfg import "$PWD\WindowsTerminal\concfg.json"
+    Copy-Item -Path "$PWD\WindowsTerminal\kali.theme.json" -Destination $Env:LOCALAPPDATA\kali.theme.json -Force
+    & "$PWD\WindowsTerminal\fix warning screen reader for powershell.ps1"
+
+    # $profileContent = @"
+    # oh-my-posh init pwsh --config '$Env:LOCALAPPDATA\kali.theme.json' | Invoke-Expression
+    # `$PSStyle.FileInfo.Directory = "`e[33m"
+    # "@
+    # Set-Content -Path $Profile -Value $profileContent
+
 }
 
-# vs2022
-# & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
-# Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
+# Registry settings
+if ($runRegistry) {
+    Write-Log "Applying registry settings..." -Level Info
 
-# vscode
-reg import "$PWD\vscode\vscode contextmenu with profile.reg" *>&1 | Out-Null
+    # vscode
+    reg import "$PWD\vscode\vscode contextmenu with profile.reg" *>&1 | Out-Null
+    Write-Log "VS Code context menu settings applied" -Level Success
 
-# ExplorerPatcher
-reg import "$PWD\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg" *>&1 | Out-Null
-Show-SuccessMessage -Message "ExplorerPatcher Settings has been Restored successfully."
+    # ExplorerPatcher
+    reg import "$PWD\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg" *>&1 | Out-Null
+    Write-Log "ExplorerPatcher settings applied" -Level Success
 
-concfg import "$PWD\WindowsTerminal\concfg.json"
-Copy-Item -Path "$PWD\WindowsTerminal\kali.theme.json" -Destination $Env:LOCALAPPDATA\kali.theme.json -Force
-# $profileContent = @"
-# oh-my-posh init pwsh --config '$Env:LOCALAPPDATA\kali.theme.json' | Invoke-Expression
-# `$PSStyle.FileInfo.Directory = "`e[33m"
-# "@
-# Set-Content -Path $Profile -Value $profileContent
-
-& "$PWD\WindowsTerminal\fix warning screen reader for powershell.ps1"
+    # vs2022
+    # & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
+    # Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
+}
 
 # Display installation summary
 Write-Log "Installation Summary:" -Level Info
