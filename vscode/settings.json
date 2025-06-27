@@ -2192,7 +2192,7 @@
   "dotnet.formatting.organizeImportsOnFormat": true,
   "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format: <type>: <short summary>. Use only one line. Keep it under 72 characters. Be clear and specific about what changed. Do not include a body or explanation. Types include: feat, fix, chore, docs, refactor, test, perf, ci, build, style.",
   "gitlens.ai.generateCreatePullRequest.customInstructions": "Generate a clear and concise pull request title that summarizes the main purpose of the changes in plain language, under 72 characters. The description should include a short summary of what changed, why it was needed, and any important implementation details. Use bullet points for clarity. If applicable, include a \"Closes #issue-number\" at the end. Avoid unnecessary technical jargon or verbose explanations.",
-  "explorer.excludeGitIgnore": false,
+  "explorer.excludeGitIgnore": true,
   "editor.wordWrap": "on",
   "breadcrumbs.enabled": false,
   "csharp.experimental.debug.hotReload": true,
@@ -2230,30 +2230,33 @@
   "prettier.endOfLine": "crlf",
   "prettier.printWidth": 110,
   "prettier.singleAttributePerLine": true,
-"editor.guides.highlightActiveBracketPair": false,
+  "editor.guides.highlightActiveBracketPair": false,
   "prettier.requireConfig": true,
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell"
-},
-"pasteAndIndent.selectAfter": true,
-"bookmarks.keepBookmarksOnLineDelete": true,
-"json.schemas": [
-
-    {
-      "fileMatch": [
-        "komorebi.json"
-      ],
-      "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json"
-    },
-    {
+   },
+    "pasteAndIndent.selectAfter": true,
+    "bookmarks.keepBookmarksOnLineDelete": true,
+    "json.schemas": [
+        {
         "fileMatch": [
-            "komorebi.bar.json"
+            "komorebi.json"
         ],
-        "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json"
+        "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json"
+        },
+        {
+            "fileMatch": [
+                "komorebi.bar.json"
+            ],
+            "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json"
+        },
+        {
+            "fileMatch": ["with-glazevm.zebar.json"],
+            "url": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json"
+        }
+    ],
+    "workbench.view.showQuietly": {
+        "workbench.panel.output": true
     },
-    {
-        "fileMatch": ["with-glazevm.zebar.json"],
-        "url": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json"
-    }
-]
+    "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}"
 }

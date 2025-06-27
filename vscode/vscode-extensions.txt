@@ -1,10 +1,12 @@
 adamcaviness.theme-monokai-dark-soda
 adpyke.codesnap
 adrianwilczynski.asp-net-core-switcher
+adrianwilczynski.csharp-to-typescript
 adrianwilczynski.namespace
 aledev29.razor-snippets-for-asp-net-core
 alefragnani.bookmarks
 alefragnani.project-manager
+amodio.toggle-excluded-files
 angular.ng-template
 ara225.regex-copy-or-cut
 arturock.gitstash
@@ -15,9 +17,11 @@ biati.vscode-text-tools
 bierner.markdown-preview-github-styles
 christian-kohler.path-intellisense
 clinyong.vscode-css-modules
+cnsmaple.neovim-ui-indicator
 coderabbit.coderabbit-vscode
 codescene.codescene-vscode
 codezombiech.gitignore
+continue.continue
 cschlosser.doxdocgen
 csharpier.csharpier-vscode
 dabbinavo.xamlstyler
@@ -41,6 +45,7 @@ firefox-devtools.vscode-firefox-debug
 formulahendry.auto-rename-tag
 formulahendry.dotnet
 funkyremi.vscode-google-translate
+gazugafan.vscode-indent-on-paste
 github.copilot
 github.copilot-chat
 golang.go
@@ -63,6 +68,7 @@ joy-yu.css-snippets
 jpcrs.binocular
 k--kato.docomment
 kdcro101.favorites
+kennylong.kubernetes-yaml-formatter
 khanhtungmtp.csharptots
 kreativ-software.csharpextensions
 ktriek.ng-bootstrap-snippets
@@ -81,6 +87,7 @@ ms-dotnettools.vscodeintellicode-csharp
 ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
+ms-vscode-remote.remote-wsl
 ms-vscode.js-debug-nightly
 ms-vscode.powershell
 ms-vscode.vscode-typescript-next
@@ -100,6 +107,7 @@ revrenlove.c-sharp-utilities
 ritwickdey.liveserver
 robin-duckett.open-dir-as-window
 robole.profile-status
+roonie007.hide-files
 ryuta46.multi-command
 schneiderpat.aspnet-helper
 shardulm94.trailing-spaces
@@ -117,6 +125,7 @@ thekalinga.bootstrap4-vscode
 thinker.sort-json
 thqby.vscode-autohotkey2-lsp
 tintoy.msbuild-project-tools
+tobias-z.vscode-harpoon
 tombonnike.vscode-status-bar-format-toggle
 tomoki1207.pdf
 tompollak.lazygit-vscode
