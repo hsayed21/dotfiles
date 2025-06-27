@@ -8,12 +8,18 @@ setup.log
 test.ps1
 DirectoryOpus/Collections/*.cct
 DirectoryOpus/Collections/*.col
-DirectoryOpus/Logs
+DirectoryOpus/Logs/
 resources.txt
 nvim/notes.md
 nvim/ForDebugging.txt
 *.bak
 yasb/notes.json
 yasb/yasb.log*
-git/ForSensitive
+git/ForSensitive/
 sensitive-patterns.json
+
+
+#start-assume-unchanged
+# DirectoryOpus/
+# FlowLauncher/
+#end-assume-unchanged

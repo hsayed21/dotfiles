@@ -1,0 +1,10 @@
+# Files and folders to mark as assume-unchanged
+# Lines starting with # are comments and will be ignored
+# Empty lines are also ignored
+
+DirectoryOpus/Layouts/System/default.oll
+FlowLauncher/Settings/Plugins/AnyVideo Downloader/Settings.json
+FlowLauncher/Settings/Plugins/Emoji+/Settings.json
+FlowLauncher/Settings/Plugins/Flow.Launcher.Plugin.Program/Settings.json
+FlowLauncher/Settings/Plugins/Timer/Settings.json
+FlowLauncher/Settings/Settings.json

@@ -2190,7 +2190,7 @@
   "gitlens.hovers.currentLine.over": "line",
   "gitlens.currentLine.enabled": false,
   "dotnet.formatting.organizeImportsOnFormat": true,
-  "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format: <type>: <short summary>. Use only one line. Keep it under 72 characters. Be clear and specific about what changed. Do not include a body or explanation. Types include: feat, fix, chore, docs, refactor, test, perf, ci, build, style.",
+  "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use only one line. Keep it under 72 characters. Be clear and specific about what changed. Do not include a body or explanation. Types include: ✨ feat, 🐞 fix, 🔨 chore, 📝 docs, ♻️ refactor, ✅ test, ⚡️ perf, 🤖 ci, 🏗️ build, 🎨 style.",
   "gitlens.ai.generateCreatePullRequest.customInstructions": "Generate a clear and concise pull request title that summarizes the main purpose of the changes in plain language, under 72 characters. The description should include a short summary of what changed, why it was needed, and any important implementation details. Use bullet points for clarity. If applicable, include a \"Closes #issue-number\" at the end. Avoid unnecessary technical jargon or verbose explanations.",
   "explorer.excludeGitIgnore": true,
   "editor.wordWrap": "on",
@@ -2258,5 +2258,6 @@
     "workbench.view.showQuietly": {
         "workbench.panel.output": true
     },
-    "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}"
+    "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}",
+    "github.copilot.chat.codesearch.enabled": true
 }
