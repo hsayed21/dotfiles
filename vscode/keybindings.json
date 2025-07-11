@@ -5509,11 +5509,6 @@
     "command": "-workbench.action.chat.open"
   },
   {
-    "key": "ctrl+alt+e",
-    "command": "workbench.action.chat.openEditSession",
-    "when": "chatEditingParticipantRegistered && chatIsEnabled"
-  },
-  {
     "key": "ctrl+alt+r",
     "command": "workbench.action.chat.open",
     "when": "chatPanelParticipantRegistered || chatSetupInstalled"
@@ -5712,5 +5707,10 @@
         "key": "shift+f",
         "command": "multiDiffEditor.expandAll",
         "when": "activeEditor == 'multiDiffEditor'"
+    },
+    {
+      "key": "ctrl+alt+e",
+      "command": "workbench.action.chat.openAgent",
+      "when": "!chatSetupDisabled && !chatSetupHidden"
     }
 ]

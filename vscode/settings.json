@@ -2135,6 +2135,7 @@
     "tags": false,
     "worktrees": false,
     "contributors": false,
+    "fileHistory": false,
     "repositories": false,
     "searchAndCompare": false,
     "launchpad": false
@@ -2166,7 +2167,12 @@
     "*": true,
     "plaintext": false,
     "markdown": true,
-    "scminput": false
+    "scminput": false,
+    "ahk2": true,
+    "html": true,
+    "typescript": true,
+    "json": true,
+    "csharp": false
   },
   "editor.stickyScroll.enabled": false,
   "github.copilot.chat.editor.temporalContext.enabled": true,
@@ -2185,14 +2191,19 @@
   ],
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": true,
-  "gitlens.ai.model": "gitkraken",
+  "gitlens.ai.model": "vscode",
   "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash",
-  "gitlens.hovers.currentLine.over": "line",
   "gitlens.currentLine.enabled": false,
   "dotnet.formatting.organizeImportsOnFormat": true,
-  "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use only one line. Keep it under 72 characters. Be clear and specific about what changed. Do not include a body or explanation. Types include: ✨ feat, 🐞 fix, 🔨 chore, 📝 docs, ♻️ refactor, ✅ test, ⚡️ perf, 🤖 ci, 🏗️ build, 🎨 style.",
+  "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body.",
   "gitlens.ai.generateCreatePullRequest.customInstructions": "Generate a clear and concise pull request title that summarizes the main purpose of the changes in plain language, under 72 characters. The description should include a short summary of what changed, why it was needed, and any important implementation details. Use bullet points for clarity. If applicable, include a \"Closes #issue-number\" at the end. Avoid unnecessary technical jargon or verbose explanations.",
-  "explorer.excludeGitIgnore": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            // "text": "Use conventional commit message format."
+            "text": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body."
+        }
+  ],
+  "explorer.excludeGitIgnore": false,
   "editor.wordWrap": "on",
   "breadcrumbs.enabled": false,
   "csharp.experimental.debug.hotReload": true,
@@ -2259,5 +2270,8 @@
         "workbench.panel.output": true
     },
     "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}",
-    "github.copilot.chat.codesearch.enabled": true
+    "github.copilot.chat.codesearch.enabled": true,
+    "gitlens.ai.vscode.model": "copilot:claude-sonnet-4",
+    "gitlens.advanced.fileHistoryShowAllBranches": true,
+    "gitlens.views.stashes.files.layout": "list"
 }

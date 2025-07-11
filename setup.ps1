@@ -73,6 +73,7 @@ $packages = @{
       @{ name = "extras/unigetui" }
       @{ name = "zig" },
       @{ name = "lazygit" }
+      @{ name = "extras/translucenttb" }
       # @{ name = "fzf" },
       # @{ name = "ripgrep" }
     )
@@ -141,6 +142,10 @@ $mappings = @(
   @{
     source = "$PWD\vscode\extensions.json"
     dest   = "$Home\.vscode\extensions\extensions.json"
+  },
+  @{
+    source = "$PWD\vscode\copilot\prompts"
+    dest   = "$Env:APPDATA\Code\User\prompts"
   },
   # vs2022
   @{
@@ -326,6 +331,11 @@ $mappings = @(
   @{
     source = "$PWD\yasb"
     dest   = "$Home\.config\yasb"
+  },
+  # Epic Pen
+  @{
+    source = "$PWD\EpicPen\settings.json"
+    dest   = "$Env:APPDATA\Epic Pen\settings.json"
   }
 )
 

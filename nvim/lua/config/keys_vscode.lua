@@ -266,10 +266,10 @@ Map("n", "mL", function() VSCodeNotify("bookmarks.listFromAllFiles") end, { desc
 Map("", "L", Move_to_bottom_screen, { desc = "Move to bottom screen" })
 Map("", "H", Move_to_top_screen, { desc = "Move to top screen" })
 -- Map("", "<Space>", Trim__save__no_highlight)
-Map("n", "U", Trim__Save__FormatPrettier)
-Map("n", "<leader>U", Trim__Save__Format)
-Map("n", "<<", Outdent)
-Map("n", ">>", Indent)
+Map("n", "U", Trim__Save__FormatPrettier, { desc = "Trim, save and format with Prettier" })
+Map("n", "<leader>U", Trim__Save__Format, { desc = "Trim, save and format" })
+Map("n", "<<", Outdent, { desc = "Outdent line" })
+Map("n", ">>", Indent, { desc = "Indent line" })
 Map("v", "<", function() VSCodeNotify("editor.action.outdentLines", false) end, { desc = "Outdent selected lines" })
 Map("v", ">", function() VSCodeNotify("editor.action.indentLines", false) end, { desc = "Indent selected lines" })
 -- Map("n", "gcc", function()  VSCodeNotify("editor.action.commentLine") end, { desc = "Comment line" })
@@ -300,6 +300,9 @@ Map('n', '<leader>tw',
   { desc = "Trim whitespace before comments" })
 
 Map("n", "C-r", function() VSCodeNotify("redo") end, { desc = "Redo" })
+
+Map("n", "<leader>sk", function()  VSCodeNotify("neovim-keymaps-list.searchKeymaps") end, { desc = "Search keymaps" })
+
 
 -- ##### window management
 -- Split window
@@ -384,21 +387,21 @@ Map({ "n", "t" }, "<leader>lg", function() VSCodeNotify("lazygit-vscode.toggle")
 Map("n", "<leader>gg", function()  VSCodeNotify("gitSemanticCommit.semanticCommit") end, { desc = "Semantic Commits" })
 
 -- Folding
-Map("n", "za", function()  VSCodeNotify("fold.foldLevelDefault") end) -- https://marketplace.visualstudio.com/items?itemName=felicio.vscode-fold
-Map("n", "zA", function()  VSCodeNotify("editor.unfoldAll") end)
-Map("n", "zo", function()  VSCodeNotify("editor.fold") end)
-Map("n", "zO", function()  VSCodeNotify("editor.unfold") end)
-Map("n", "zr", function()  VSCodeNotify("editor.foldRecursively") end)
-Map("n", "zR", function()  VSCodeNotify("editor.unfoldRecursively") end)
+Map("n", "za", function()  VSCodeNotify("fold.foldLevelDefault") end, { desc = "Toggle Fold"}) -- https://marketplace.visualstudio.com/items?itemName=felicio.vscode-fold
+Map("n", "zA", function()  VSCodeNotify("editor.unfoldAll") end, { desc = "Unfold All" })
+Map("n", "zo", function()  VSCodeNotify("editor.fold") end, { desc = "Fold"})
+Map("n", "zO", function()  VSCodeNotify("editor.unfold") end, { desc = "Unfold" })
+Map("n", "zr", function()  VSCodeNotify("editor.foldRecursively") end, { desc = "Fold Recursively" })
+Map("n", "zR", function()  VSCodeNotify("editor.unfoldRecursively") end, { desc = "Unfold Recursively" })
 -- Map("n", "zt", function() VSCodeNotify("editor.toggleFold") end)
-Map("n", "ze", function()  VSCodeNotify("editor.foldAllExcept") end)
-Map("n", "z1", function()  VSCodeNotify("editor.foldLevel1") end)
-Map("n", "z2", function()  VSCodeNotify("editor.foldLevel2") end)
-Map("n", "z3", function()  VSCodeNotify("editor.foldLevel3") end)
-Map("n", "z4", function()  VSCodeNotify("editor.foldLevel4") end)
-Map("n", "z5", function()  VSCodeNotify("editor.foldLevel5") end)
-Map("n", "z6", function()  VSCodeNotify("editor.foldLevel6") end)
-Map("n", "z7", function()  VSCodeNotify("editor.foldLevel7") end)
+Map("n", "ze", function()  VSCodeNotify("editor.foldAllExcept") end, { desc = "Fold All Except" })
+Map("n", "z1", function()  VSCodeNotify("editor.foldLevel1") end, { desc = "Fold Level 1" })
+Map("n", "z2", function()  VSCodeNotify("editor.foldLevel2") end, { desc = "Fold Level 2" })
+Map("n", "z3", function()  VSCodeNotify("editor.foldLevel3") end, { desc = "Fold Level 3" })
+Map("n", "z4", function()  VSCodeNotify("editor.foldLevel4") end, { desc = "Fold Level 4" })
+Map("n", "z5", function()  VSCodeNotify("editor.foldLevel5") end, { desc = "Fold Level 5" })
+Map("n", "z6", function()  VSCodeNotify("editor.foldLevel6") end, { desc = "Fold Level 6" })
+Map("n", "z7", function()  VSCodeNotify("editor.foldLevel7") end, { desc = "Fold Level 7" })
 
 
 -- Jumplist

@@ -2,6 +2,11 @@
 <favorites>
 	<folder label="Favorites Bar">
 		<folder label="POSBANK">
+			<path label="Snapos Dev Release">
+				<dir>
+					<pathstring>C:\POSBANK\Snapos Dev Release</pathstring>
+				</dir>
+			</path>
 			<path label="C:\POSBANK\Backups">
 				<dir>
 					<pathstring>C:\POSBANK\Backups</pathstring>

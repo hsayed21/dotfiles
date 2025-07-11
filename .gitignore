@@ -17,6 +17,8 @@ yasb/notes.json
 yasb/yasb.log*
 git/ForSensitive/
 sensitive-patterns.json
+backups/
+vscode/copilot/
 
 
 #start-assume-unchanged
