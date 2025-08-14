@@ -2,7 +2,7 @@
   "SearchSources": [
     {
       "Title": "Google",
-      "ActionKeyword": "*",
+      "ActionKeyword": "g",
       "Icon": "google.png",
       "CustomIcon": false,
       "Url": "https://www.google.com/search?q={q}",
@@ -138,7 +138,7 @@
     },
     {
       "Title": "YouTube",
-      "ActionKeyword": "yt",
+      "ActionKeyword": "y",
       "Icon": "youtube.png",
       "CustomIcon": false,
       "Url": "https://www.youtube.com/results?search_query={q}",

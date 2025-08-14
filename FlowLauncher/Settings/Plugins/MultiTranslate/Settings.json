@@ -1,0 +1,11 @@
+{
+  "proxyUrl": "",
+  "triggerKeyword": "tr",
+  "requestTimeout": "3000",
+  "deeplxUrl": "",
+  "languagePairs": "",
+  "sourceLanguageCode": "auto",
+  "targetLanguageCode": "en",
+  "services": "youdao\ndeepl\ngoogle\nbing",
+  "interfaceLanguage": "English"
+}

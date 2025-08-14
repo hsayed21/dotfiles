@@ -1981,7 +1981,6 @@
   "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.fontWeight": "normal",
-  "terminal.integrated.fontSize": 13,
   "conventionalCommits.emojiFormat": "emoji",
   "conventionalCommits.promptBody": false,
   "conventionalCommits.promptFooter": false,
@@ -2164,14 +2163,14 @@
   "editor.renderWhitespace": "boundary",
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": true,
     "scminput": false,
     "ahk2": true,
     "html": true,
     "typescript": true,
-    "json": true,
+    "json": false,
     "csharp": false
   },
   "editor.stickyScroll.enabled": false,
@@ -2273,5 +2272,7 @@
     "github.copilot.chat.codesearch.enabled": true,
     "gitlens.ai.vscode.model": "copilot:claude-sonnet-4",
     "gitlens.advanced.fileHistoryShowAllBranches": true,
-    "gitlens.views.stashes.files.layout": "list"
+    "gitlens.views.stashes.files.layout": "list",
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "terminal.integrated.fontSize": 11
 }

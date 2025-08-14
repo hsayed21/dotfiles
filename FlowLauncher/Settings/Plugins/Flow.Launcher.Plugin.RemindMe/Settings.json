@@ -1,0 +1,6 @@
+{
+  "ShowReminderWindow": true,
+  "ShowReminderNotification": false,
+  "ShowNotificationsOnAddAndDelete": true,
+  "AcceptShortForm": true
+}

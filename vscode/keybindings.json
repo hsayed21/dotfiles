@@ -5712,5 +5712,17 @@
       "key": "ctrl+alt+e",
       "command": "workbench.action.chat.openAgent",
       "when": "!chatSetupDisabled && !chatSetupHidden"
+    },
+    {
+      "key": "ctrl+numpad_subtract",
+      "command": "workbench.action.terminal.fontZoomOut"
+    },
+    {
+      "key": "ctrl+numpad_add",
+      "command": "workbench.action.terminal.fontZoomIn"
+    },
+    {
+      "key": "ctrl+numpad_multiply",
+      "command": "workbench.action.terminal.fontZoomReset"
     }
 ]

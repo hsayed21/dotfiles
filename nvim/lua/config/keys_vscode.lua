@@ -302,6 +302,7 @@ Map('n', '<leader>tw',
 Map("n", "C-r", function() VSCodeNotify("redo") end, { desc = "Redo" })
 
 Map("n", "<leader>sk", function()  VSCodeNotify("neovim-keymaps-list.searchKeymaps") end, { desc = "Search keymaps" })
+Map("n", "<leader>ru", function() VSCodeNotify("typescript.removeUnusedImports") end, { desc = "Remove unused imports" })
 
 
 -- ##### window management
@@ -379,6 +380,8 @@ Map("n", "<leader>gps,", function()  VSCodeNotify("git.push") end, { desc = "Pus
 Map("n", "<leader>gbf", function() VSCodeNotify("git.branchFrom") end, { desc = "Create branch from" })
 Map("n", "<leader>gfcb", FetchAndCreateBranch)
 Map("n", "<leader>gdp", function() VSCodeNotify("gitlens.diffWithPrevious") end, { desc = "Open Changes with Previous Revision" })
+Map("n", "<leader>gdn", function() VSCodeNotify("gitlens.diffWithNext") end,
+{ desc = "Open Changes with Next Revision" })
 Map("n", "<leader>gdr", function() VSCodeNotify("gitlens.diffWithRevision") end, { desc = "Open Changes with Revision" })
 Map("n", "<leader>gsc", function() VSCodeNotify("gitlens.showCommitSearch") end, { desc = "Search Commits" })
 Map("n", "<leader>gsg", function() VSCodeNotify("gitlens.showGraphPage") end, { desc = "Search Commits" })
