@@ -861,7 +861,7 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "",
   "vscode-neovim.neovimExecutablePaths.linux": "",
   "vscode-neovim.neovimInitVimPaths.darwin": "",
-  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\hsayed\\AppData\\Local\\nvim\\init.lua",
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\HS\\AppData\\Local\\nvim\\init.lua",
   "vscode-neovim.revealCursorScrollLine": true,
   "vscode_custom_css.imports": [
     "file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"
@@ -2163,14 +2163,14 @@
   "editor.renderWhitespace": "boundary",
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": true,
     "scminput": false,
     "ahk2": true,
     "html": true,
     "typescript": true,
-    "json": false,
+    "json": true,
     "csharp": false
   },
   "editor.stickyScroll.enabled": false,
@@ -2190,7 +2190,7 @@
   ],
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": true,
-  "gitlens.ai.model": "vscode",
+  "gitlens.ai.model": "gitkraken",
   "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash",
   "gitlens.currentLine.enabled": false,
   "dotnet.formatting.organizeImportsOnFormat": true,
@@ -2274,5 +2274,6 @@
     "gitlens.advanced.fileHistoryShowAllBranches": true,
     "gitlens.views.stashes.files.layout": "list",
     "github.copilot.nextEditSuggestions.enabled": true,
-    "terminal.integrated.fontSize": 11
+    "terminal.integrated.fontSize": 11,
+    "debug.onTaskErrors": "debugAnyway"
 }

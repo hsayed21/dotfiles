@@ -56,7 +56,8 @@ $packages = @{
     )
     Winget = @(
       @{ name = "Microsoft.VisualStudioCode" },
-      @{ name = "Microsoft.WindowsTerminal" }
+      @{ name = "Microsoft.WindowsTerminal" },
+      @{ id = "Neovim.Neovim.Nightly" }
     )
     Choco  = @(
       @{ name = "dotnet-sdk" }
@@ -68,12 +69,12 @@ $packages = @{
       @{ name = "curl" },
       @{ name = "pwsh" },
       @{ name = "concfg" },
-      @{ name = "extras/altsnap" },
-      @{ name = "alacritty" }
+      # @{ name = "extras/altsnap" },
+      # @{ name = "alacritty" }
       @{ name = "extras/unigetui" }
       @{ name = "zig" },
-      @{ name = "lazygit" }
-      @{ name = "extras/translucenttb" }
+      # @{ name = "lazygit" }
+      @{ name = "Scoop-Search" }
       # @{ name = "fzf" },
       # @{ name = "ripgrep" }
     )
@@ -82,7 +83,8 @@ $packages = @{
       @{ name = "JanDeDobbeleer.OhMyPosh" },
       @{ name = "GlazeWM" },
       @{ name = "Zebar" },
-      @{ id = "stnkl.EverythingToolbar" }
+      @{ id = "stnkl.EverythingToolbar" },
+      @{ id = "VB-Audio.Voicemeeter.Potato" }
     )
     Choco       = @(
       @{ name = "flow-launcher" },
@@ -90,7 +92,7 @@ $packages = @{
       @{ name = "wingetui" },
       @{ name = "nircmd" },
       @{ name = "7zip" },
-      @{ name = "notepadplusplus" },
+      # @{ name = "notepadplusplus" },
       @{ name = "everything" },
       @{ name = "wget" },
       @{ name = "smartsystemmenu" },
@@ -98,7 +100,12 @@ $packages = @{
       @{ name = "fzf" },
       @{ name = "ripgrep" },
       @{ name = "bat" },
-      @{ name = "grep" }
+      @{ name = "grep" },
+      @{ name = "sublimetext4" },
+      @{ name = "sharex" },
+      @{ name = "wezterm" },
+      @{ name = "yasb" },
+      @{ name = "translucenttb" }
     )
     SourceForge = @(
       @{
@@ -342,9 +349,9 @@ $mappings = @(
 
 # Track installation statistics
 $stats = @{
-  Successful = 0
-  Failed     = 0
-  Skipped    = 0
+  Successful = @()
+  Failed     = @()
+  Skipped    = @()
   Total      = 0
 }
 
@@ -404,6 +411,11 @@ if ($runPackageManager) {
 if ($runPackages) {
     Write-Log "Installing packages..." -Level Info
 
+    # Ensure required Scoop buckets are available
+    Write-Log "Setting up Scoop buckets..." -Level Info
+    Add-ScoopBucket -BucketName "extras"
+    Add-ScoopBucket -BucketName "versions"
+
     foreach ($category in $packages.Keys) {
       if ($Category.Count -eq 0 -or $Category -contains $category) {
         Write-Log "Installing $category packages..." -Level Info
@@ -412,7 +424,11 @@ if ($runPackages) {
           foreach ($pkg in $packages[$category].Scoop) {
             $stats.Total++
             $result = Install-ScoopPackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+            switch ($result.Status) {
+              "Success" { $stats.Successful += $result }
+              "Failed"  { $stats.Failed += $result }
+              "Skipped" { $stats.Skipped += $result }
+            }
           }
         }
 
@@ -420,7 +436,11 @@ if ($runPackages) {
           foreach ($pkg in $packages[$category].Winget) {
             $stats.Total++
             $result = Install-WingetPackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+            switch ($result.Status) {
+              "Success" { $stats.Successful += $result }
+              "Failed"  { $stats.Failed += $result }
+              "Skipped" { $stats.Skipped += $result }
+            }
           }
         }
 
@@ -428,7 +448,11 @@ if ($runPackages) {
           foreach ($pkg in $packages[$category].Choco) {
             $stats.Total++
             $result = Install-ChocoPackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+            switch ($result.Status) {
+              "Success" { $stats.Successful += $result }
+              "Failed"  { $stats.Failed += $result }
+              "Skipped" { $stats.Skipped += $result }
+            }
           }
         }
 
@@ -436,12 +460,19 @@ if ($runPackages) {
           foreach ($pkg in $packages[$category].SourceForge) {
             $stats.Total++
             $result = Install-SourceForgePackage -Package $pkg
-            if ($result) { $stats.Successful++ } else { $stats.Failed++ }
+            switch ($result.Status) {
+              "Success" { $stats.Successful += $result }
+              "Failed"  { $stats.Failed += $result }
+              "Skipped" { $stats.Skipped += $result }
+            }
           }
         }
       }
     }
 }
+
+Write-Log "Installing VS Code extensions..." -Level Info
+& "$PWD\vscode\install-extensions.ps1"
 
 # Configuration/Mapping
 if ($runMappings) {
@@ -479,7 +510,7 @@ if ($runPowerShell) {
 
     foreach ($module in $psModules) {
       if (!(Get-Module -ListAvailable -Name $module)) {
-        Write-Log "Installing PowerShell module: $module" -Level Info
+        Write-Log "Installing PowerShell module: $module..." -Level Info
         Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
       }
     }
@@ -517,8 +548,34 @@ if ($runRegistry) {
 # Display installation summary
 Write-Log "Installation Summary:" -Level Info
 Write-Log "Total packages: $($stats.Total)" -Level Info
-Write-Log "Successfully installed: $($stats.Successful)" -Level Success
-Write-Log "Failed installations: $($stats.Failed)" -Level Error
-Write-Log "Skipped installations: $($stats.Skipped)" -Level Warning
+Write-Log "Successfully installed: $($stats.Successful.Count)" -Level Success
+Write-Log "Failed installations: $($stats.Failed.Count)" -Level Error
+Write-Log "Skipped installations: $($stats.Skipped.Count)" -Level Warning
+
+# Display successful installations
+if ($stats.Successful.Count -gt 0) {
+    Write-Log "`nSuccessfully installed packages:" -Level Success
+    foreach ($pkg in $stats.Successful) {
+        Write-Log "  ✓ $($pkg.PackageName) ($($pkg.PackageManager))" -Level Success
+    }
+}
+
+# Display failed installations
+if ($stats.Failed.Count -gt 0) {
+    Write-Log "`nFailed installations:" -Level Error
+    foreach ($pkg in $stats.Failed) {
+        $errorMsg = if ($pkg.Error) { " - $($pkg.Error)" } else { "" }
+        Write-Log "  ✗ $($pkg.PackageName) ($($pkg.PackageManager))$errorMsg" -Level Error
+    }
+}
+
+# Display skipped installations
+if ($stats.Skipped.Count -gt 0) {
+    Write-Log "`nSkipped installations:" -Level Warning
+    foreach ($pkg in $stats.Skipped) {
+        $reasonMsg = if ($pkg.Reason) { " - $($pkg.Reason)" } else { "" }
+        Write-Log "  ⊘ $($pkg.PackageName) ($($pkg.PackageManager))$reasonMsg" -Level Warning
+    }
+}
 
 Write-Log "Setup completed successfully!" -Level Success

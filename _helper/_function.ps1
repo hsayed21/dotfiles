@@ -4,7 +4,7 @@ function Test-PackageProperty {
         [Parameter(Mandatory = $true)]
         [hashtable]$Package
     )
-    
+
     if (-not ($Package.ContainsKey('name') -xor $Package.ContainsKey('id'))) {
         Write-Log "Package must have either 'name' or 'id' property, not both or neither" -Level Error
         return $false
@@ -12,97 +12,149 @@ function Test-PackageProperty {
     return $true
 }
 
+# Function to ensure Scoop bucket is added
+function Add-ScoopBucket {
+    param(
+        [string]$BucketName,
+        [string]$BucketUrl = ""
+    )
+
+    try {
+        $existingBuckets = scoop bucket list
+        if ($existingBuckets -notmatch "^$BucketName\s") {
+            Write-Log "Adding Scoop bucket: $BucketName" -Level Info
+            if ($BucketUrl) {
+                scoop bucket add $BucketName $BucketUrl
+            } else {
+                scoop bucket add $BucketName
+            }
+            if ($LASTEXITCODE -eq 0) {
+                Write-Log "Successfully added bucket: $BucketName" -Level Success
+                return $true
+            } else {
+                Write-Log "Failed to add bucket: $BucketName" -Level Error
+                return $false
+            }
+        } else {
+            Write-Log "Bucket $BucketName already exists" -Level Info
+            return $true
+        }
+    }
+    catch {
+        Write-Log "Error adding bucket $BucketName`: $($_.Exception.Message)" -Level Error
+        return $false
+    }
+}
+
 # Function to install a package using Scoop
 function Install-ScoopPackage {
     param(
         [Parameter(Mandatory = $true)]
-        [hashtable]$Package,
-        [int]$maxRetries = 3
+        [hashtable]$Package
     )
 
     if (-not (Test-PackageProperty -Package $Package)) {
-        return $false
+        return @{ Status = "Failed"; PackageName = "Unknown"; PackageManager = "Scoop"; Error = "Invalid package property" }
     }
 
     $packageName = if ($Package.ContainsKey('name')) { $Package.name } else { $Package.id }
 
-    for ($i = 1; $i -le $maxRetries; $i++) {
-        try {
-            if (!(scoop list $packageName -ErrorAction SilentlyContinue)) {
-                Write-Log "Installing $packageName (Attempt $i of $maxRetries)" -Level Info
-                scoop install $packageName
-                if (Test-Installation -Command $packageName -Package $packageName) {
-                    return $true
-                }
-            } else {
-                Write-Log "$packageName is already installed" -Level Success
-                return $true
-            }
-        }
-        catch {
-            Write-Log "Attempt $i failed: $($_.Exception.Message)" -Level Warning
-            if ($i -eq $maxRetries) {
-                Write-Log "Failed to install $packageName after $maxRetries attempts" -Level Error
-                return $false
-            }
-            Start-Sleep -Seconds ($i * 2)
+    # Handle bucket/package format (e.g., "extras/altsnap")
+    $bucketName = $null
+    $actualPackageName = $packageName
+    if ($packageName -match "^([^/]+)/(.+)$") {
+        $bucketName = $matches[1]
+        $actualPackageName = $matches[2]
+
+        # Ensure bucket is added
+        if (-not (Add-ScoopBucket -BucketName $bucketName)) {
+            return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Scoop"; Error = "Failed to add required bucket: $bucketName" }
         }
     }
-    return $false
+
+    try {
+        # Check if already installed
+        $installedCheck = scoop list $actualPackageName -ErrorAction SilentlyContinue
+        if ($installedCheck -and ($installedCheck | Where-Object { $_ -match "^\s*$actualPackageName\s" })) {
+            Write-Log "$packageName is already installed" -Level Success
+            return @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Scoop"; Reason = "Already installed" }
+        }
+
+        Write-Log "Installing $packageName..." -Level Info
+        $result = scoop install $packageName 2>&1
+        $exitCode = $LASTEXITCODE
+
+        if ($exitCode -eq 0) {
+            Write-Log "$packageName installed successfully" -Level Success
+            return @{ Status = "Success"; PackageName = $packageName; PackageManager = "Scoop" }
+        } else {
+            $errorMsg = if ($result) { ($result | Out-String).Trim() } else { "Unknown error" }
+            Write-Log "Scoop failed to install $packageName : $errorMsg" -Level Error
+            return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Scoop"; Error = $errorMsg }
+        }
+    }
+    catch {
+        Write-Log "Scoop Failed to install $packageName : $($_.Exception.Message)" -Level Error
+        return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Scoop"; Error = $_.Exception.Message }
+    }
 }
 
 # Function to install a package using Winget
 function Install-WingetPackage {
     param(
         [Parameter(Mandatory = $true)]
-        [hashtable]$Package,
-        [int]$maxRetries = 3
+        [hashtable]$Package
     )
-    
+
     if (-not (Test-PackageProperty -Package $Package)) {
-        return $false
+        return @{ Status = "Failed"; PackageName = "Unknown"; PackageManager = "Winget"; Error = "Invalid package property" }
     }
 
     try {
         $useId = $Package.ContainsKey('id')
         $displayName = if ($useId) { $Package.id } else { $Package.name }
-        
+
         # Check if package is already installed
         $searchArg = if ($useId) { "--id $($Package.id)" } else { "--query $($Package.name)" }
-        $installedPackages = winget list $searchArg --accept-source-agreements
+        try {
+            $installedPackages = winget list $searchArg --accept-source-agreements --disable-interactivity
+        }
+        catch {
+            Write-Log "Failed to check installed packages: $($_.Exception.Message)" -Level Warning
+            $installedPackages = ""
+        }
 
         if ($installedPackages -match $displayName) {
             Write-Log "$displayName is already installed" -Level Success
-            return $true
+            return @{ Status = "Skipped"; PackageName = $displayName; PackageManager = "Winget"; Reason = "Already installed" }
         }
 
-        # Install package with retry logic
-        $installBlock = {
-            if ($useId) {
-                $result = winget install --exact --id $Package.id --silent --accept-package-agreements --accept-source-agreements
-                if ($LASTEXITCODE -ne 0) {
-                    if ($result -match "No package found matching input criteria") {
-                        throw "Package ID '$($Package.id)' not found"
-                    }
-                    throw "Winget installation failed with exit code $LASTEXITCODE"
+        # Install package
+        Write-Log "Installing $displayName with winget..." -Level Info
+        if ($useId) {
+            $result = winget install --id $Package.id --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force
+            if ($LASTEXITCODE -ne 0) {
+                if ($result -match "No package found matching input criteria") {
+                    Write-Log "Package ID '$($Package.id)' not found" -Level Error
+                    return @{ Status = "Failed"; PackageName = $displayName; PackageManager = "Winget"; Error = "Package ID not found" }
                 }
-            } else {
-                $result = winget install $Package.name --silent --accept-package-agreements --accept-source-agreements
-                if ($LASTEXITCODE -ne 0) {
-                    throw "Winget installation failed with exit code $LASTEXITCODE"
-                }
+                Write-Log "Winget installation failed with exit code $LASTEXITCODE" -Level Error
+                return @{ Status = "Failed"; PackageName = $displayName; PackageManager = "Winget"; Error = "Installation failed with exit code $LASTEXITCODE" }
+            }
+        } else {
+            $result = winget install $Package.name --silent --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force
+            if ($LASTEXITCODE -ne 0) {
+                Write-Log "Winget installation failed with exit code $LASTEXITCODE" -Level Error
+                return @{ Status = "Failed"; PackageName = $displayName; PackageManager = "Winget"; Error = "Installation failed with exit code $LASTEXITCODE" }
             }
         }
 
-        $success = Invoke-WithRetry -ScriptBlock $installBlock -OperationName "Installing $displayName with winget" -MaxRetries $maxRetries
-        if ($success) {
-            Write-Log "$displayName installed successfully" -Level Success
-        }
-        return $success
+        Write-Log "$displayName installed successfully" -Level Success
+        return @{ Status = "Success"; PackageName = $displayName; PackageManager = "Winget" }
     }
     catch {
-        Write-Log ("Error installing {0}: {1}" -f $displayName, $_.Exception.Message) -Level Error
-        return $false
+        Write-Log ("Winget Error installing {0}: {1}" -f $displayName, $_.Exception.Message) -Level Error
+        return @{ Status = "Failed"; PackageName = $displayName; PackageManager = "Winget"; Error = $_.Exception.Message }
     }
 }
 
@@ -110,38 +162,44 @@ function Install-WingetPackage {
 function Install-ChocoPackage {
     param(
         [Parameter(Mandatory = $true)]
-        [hashtable]$Package,
-        [int]$maxRetries = 3
+        [hashtable]$Package
     )
-    
+
     if (-not (Test-PackageProperty -Package $Package)) {
-        return $false
+        return @{ Status = "Failed"; PackageName = "Unknown"; PackageManager = "Chocolatey"; Error = "Invalid package property" }
     }
 
     $packageName = if ($Package.ContainsKey('name')) { $Package.name } else { $Package.id }
 
     try {
         # Check if package is already installed
-        if (choco list --local-only $packageName --exact | Select-String -Pattern "^$packageName\s+") {
+        $installedCheck = $null
+        try {
+            $installedCheck = choco list --local-only $packageName --exact --limit-output
+        }
+        catch {
+            Write-Log "Failed to check if package is installed: $($_.Exception.Message)" -Level Warning
+        }
+
+        if ($installedCheck -and ($installedCheck | Select-String -Pattern "^$packageName\|")) {
             Write-Log "$packageName is already installed" -Level Success
-            return $true
+            return @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Chocolatey"; Reason = "Already installed" }
         }
 
-        # Install package with retry logic
-        $installBlock = {
-            choco install $packageName -y
-            if ($LASTEXITCODE -ne 0) { throw "Chocolatey installation failed with exit code $LASTEXITCODE" }
+        # Install package
+        Write-Log "Installing $packageName with chocolatey..." -Level Info
+        choco install $packageName -y --no-progress
+        if ($LASTEXITCODE -ne 0) {
+            Write-Log "Chocolatey installation failed with exit code $LASTEXITCODE" -Level Error
+            return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Chocolatey"; Error = "Installation failed with exit code $LASTEXITCODE" }
         }
 
-        $success = Invoke-WithRetry -ScriptBlock $installBlock -OperationName "Installing $packageName with chocolatey" -MaxRetries $maxRetries
-        if ($success) {
-            Write-Log "$packageName installed successfully" -Level Success
-        }
-        return $success
+        Write-Log "$packageName installed successfully" -Level Success
+        return @{ Status = "Success"; PackageName = $packageName; PackageManager = "Chocolatey" }
     }
     catch {
-        Write-Log ("Error installing {0}: {1}" -f $packageName, $_.Exception.Message) -Level Error
-        return $false
+        Write-Log ("chocolatey Error installing {0}: {1}" -f $packageName, $_.Exception.Message) -Level Error
+        return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Chocolatey"; Error = $_.Exception.Message }
     }
 }
 
@@ -177,7 +235,7 @@ function Create-SymbolicLink {
                     return $true
                 }
             }
-            
+
             if ($Force) {
                 Backup-ExistingConfig -Path $destPath
                 Remove-Item -Path $destPath -Force -Recurse
@@ -210,7 +268,7 @@ function Show-SuccessMessage {
 # Function to initialize logging
 function Initialize-Log {
     param([string]$LogPath = "$PWD\setup.log")
-    
+
     # Create log directory if it doesn't exist
     $logDir = Split-Path -Parent $LogPath
     if (-not (Test-Path $logDir)) {
@@ -220,7 +278,7 @@ function Initialize-Log {
     $Global:LogFile = $LogPath
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     "$timestamp - Setup started" | Out-File -FilePath $LogFile -Force
-    
+
     Write-Host "Logging initialized at $LogFile"
 }
 
@@ -231,12 +289,12 @@ function Write-Log {
         [ValidateSet('Info', 'Warning', 'Error', 'Success')]
         [string]$Level = 'Info'
     )
-    
+
     # Ensure log file exists
     if (-not $Global:LogFile) {
         Initialize-Log
     }
-    
+
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
     $logMessage = "$timestamp - [$Level] $Message"
     $logMessage | Out-File -FilePath $Global:LogFile -Append
@@ -254,12 +312,12 @@ function Write-Log {
 # Function to backup existing config
 function Backup-ExistingConfig {
     param([string]$Path)
-    
+
     if (Test-Path $Path) {
         $backupDir = New-BackupDirectory
         $fileName = Split-Path $Path -Leaf
         $backupPath = Join-Path $backupDir "$fileName.backup-$(Get-Date -Format 'yyyyMMddHHmmss')"
-        
+
         try {
             Copy-Item -Path $Path -Destination $backupPath -Recurse -Force
             Write-Log "Backed up $Path to $backupPath" -Level Success
@@ -279,7 +337,7 @@ function Test-Installation {
         [string]$Command,
         [string]$Package
     )
-    
+
     try {
         $null = Get-Command $Command -ErrorAction Stop
         Write-Log "Verified $Package installation" -Level Success
@@ -291,36 +349,10 @@ function Test-Installation {
     }
 }
 
-# Function to handle retries
-function Invoke-WithRetry {
-    param(
-        [scriptblock]$ScriptBlock,
-        [string]$OperationName,
-        [int]$MaxRetries = 3,
-        [int]$RetryDelay = 2
-    )
-    
-    for ($i = 1; $i -le $MaxRetries; $i++) {
-        try {
-            Write-Log "Attempting $OperationName (Try $i of $MaxRetries)" -Level Info
-            & $ScriptBlock
-            return $true
-        }
-        catch {
-            Write-Log "$OperationName failed: $($_.Exception.Message)" -Level Warning
-            if ($i -eq $MaxRetries) {
-                Write-Log "Failed $OperationName after $MaxRetries attempts" -Level Error
-                return $false
-            }
-            Start-Sleep -Seconds ($RetryDelay * $i)
-        }
-    }
-}
-
 # Enhanced config management functions
 function New-BackupDirectory {
     param([string]$Path)
-    
+
     $backupDir = Join-Path $PWD "backups"
     if (-not (Test-Path $backupDir)) {
         New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
@@ -346,9 +378,9 @@ function Get-LatestExeFromSourceForge {
         if ($html -match '(?s)<table[^>]*id="files_list"[^>]*>(.*?)</table>') {
             $tableContent = $Matches[1]
             $rows = [regex]::Matches($tableContent, '(?s)<tr[^>]*>.*?<th[^>]*headers="files_name_h"[^>]*>(.*?)</tr>')
-            
+
             Write-Log "Found $($rows.Count) files in table" -Level Info
-            
+
             # First pass: look for exe files
             foreach ($row in $rows) {
                 $rowContent = $row.Groups[1].Value
@@ -405,12 +437,18 @@ function Install-SourceForgePackage {
         [hashtable]$Package
     )
 
+    # Validate required properties for SourceForge packages
+    if (-not $Package.ContainsKey('project') -or -not $Package.ContainsKey('file')) {
+        Write-Log "SourceForge package must have 'project' and 'file' properties" -Level Error
+        return @{ Status = "Failed"; PackageName = "Unknown"; PackageManager = "SourceForge"; Error = "Missing required properties" }
+    }
+
     try {
         $projectName = $Package.project
         $fileName = $Package.file
-        
-        Write-Log "Installing SourceForge package: $projectName" -Level Info
-        
+
+        Write-Log "Installing SourceForge package: $projectName..." -Level Info
+
         # Create temp directory if it doesn't exist
         $tempDir = Join-Path $env:TEMP "sf_downloads"
         if (-not (Test-Path $tempDir)) {
@@ -422,7 +460,7 @@ function Install-SourceForgePackage {
         # Get the download URL by recursively checking files and folders
         $projectUrl = "https://sourceforge.net/projects/$projectName"
         Write-Log "Checking for latest version..." -Level Info
-        
+
         $directUrl = Get-LatestExeFromSourceForge -projectUrl $projectUrl
         if (-not $directUrl) {
             Write-Log "No .exe file found, using default latest download" -Level Warning
@@ -430,14 +468,30 @@ function Install-SourceForgePackage {
         }
 
         # Download using curl with progress tracking
-        Write-Log "Downloading from: $directUrl" -Level Info
-        $curlArgs = @(
-            '-L',
-            '-o', $outputPath,
-            '--progress-bar',
-            $directUrl
-        )
-        $result = curl.exe @curlArgs
+        Write-Log "Downloading from: $directUrl..." -Level Info
+        try {
+            $curlArgs = @(
+                '-L',
+                '-o', $outputPath,
+                '--progress-bar',
+                '--fail',
+                '--connect-timeout', '30',
+                '--max-time', '600',
+                '--insecure',  # Skip SSL certificate verification for SourceForge
+                $directUrl
+            )
+            $result = curl.exe @curlArgs
+            $exitCode = $LASTEXITCODE
+
+            if ($exitCode -ne 0) {
+                Write-Log "Download failed with exit code $exitCode" -Level Error
+                return @{ Status = "Failed"; PackageName = $projectName; PackageManager = "SourceForge"; Error = "Download failed with exit code $exitCode" }
+            }
+        }
+        catch {
+            Write-Log "Download error: $($_.Exception.Message)" -Level Error
+            return @{ Status = "Failed"; PackageName = $projectName; PackageManager = "SourceForge"; Error = "Download error: $($_.Exception.Message)" }
+        }
 
         if (Test-Path $outputPath) {
             # Install the package
@@ -446,20 +500,20 @@ function Install-SourceForgePackage {
             # $process = Start-Process -FilePath $outputPath -ArgumentList $processArgs -Wait -PassThru
             $process = Start-Process -FilePath $outputPath -Wait -Verb RunAs
             # Start-Process $output -Wait -Verb RunAs
-            
+
             if ($process.ExitCode -eq 0) {
                 Write-Log "Installation completed successfully" -Level Success
                 Remove-Item $outputPath -Force
-                return $true
+                return @{ Status = "Success"; PackageName = $projectName; PackageManager = "SourceForge" }
             } else {
                 Write-Log "Installation failed with exit code: $($process.ExitCode)" -Level Error
-                return $false
+                return @{ Status = "Failed"; PackageName = $projectName; PackageManager = "SourceForge"; Error = "Installation failed with exit code: $($process.ExitCode)" }
             }
         }
-        return $false
+        return @{ Status = "Failed"; PackageName = $projectName; PackageManager = "SourceForge"; Error = "Download failed" }
     }
     catch {
         Write-Log "Failed to install SourceForge package $($Package.project): $($_.Exception.Message)" -Level Error
-        return $false
+        return @{ Status = "Failed"; PackageName = $Package.project; PackageManager = "SourceForge"; Error = $_.Exception.Message }
     }
 }

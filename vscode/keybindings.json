@@ -5226,10 +5226,6 @@
     "when": "editorTextFocus"
   },
   {
-    "key": "ctrl+shift+s",
-    "command": "saveall.saveAllWithoutFormating"
-  },
-  {
     "key": "ctrl+shift+/",
     "command": "lazygit-vscode.toggle"
   },
@@ -5724,5 +5720,9 @@
     {
       "key": "ctrl+numpad_multiply",
       "command": "workbench.action.terminal.fontZoomReset"
+    },
+    {
+      "key": "ctrl+shift+s",
+      "command": "workbench.action.files.saveFiles"
     }
 ]
