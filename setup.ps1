@@ -57,7 +57,8 @@ $packages = @{
     Winget = @(
       @{ name = "Microsoft.VisualStudioCode" },
       @{ name = "Microsoft.WindowsTerminal" },
-      @{ id = "Neovim.Neovim.Nightly" }
+      @{ id = "Neovim.Neovim.Nightly" },
+      @{ id = "GitHub.cli" }
     )
     Choco  = @(
       @{ name = "dotnet-sdk" }
@@ -124,7 +125,14 @@ $packages = @{
   Fonts       = @{
     Choco = @(
       @{ name = "nerdfont-hack" },
-      @{ name = "nerd-fonts-firacode" }
+      @{ name = "nerd-fonts-firacode" },
+      @{ name = "nerd-fonts-jetbrainsmono" },
+      @{ name = "jetbrainsmono" },
+      @{ name = "firacode" },
+      @{ name = "cascadiacode" }
+    ),
+    Winget = @(
+      @{ name = "Microsoft.CascadiaCode" }
     )
   }
 }
@@ -505,13 +513,27 @@ if ($runPowerShell) {
       "oh-my-posh",
       "pscolor",
       "posh-ssh",
-      "posh-git"
+      "posh-git",
+      "Microsoft.WinGet.CommandNotFound"
     )
 
     foreach ($module in $psModules) {
       if (!(Get-Module -ListAvailable -Name $module)) {
         Write-Log "Installing PowerShell module: $module..." -Level Info
-        Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+
+        # Special handling for WinGet CommandNotFound module
+        if ($module -eq "Microsoft.WinGet.CommandNotFound") {
+          try {
+            Install-PSResource -Name $module -Scope CurrentUser -TrustRepository
+          }
+          catch {
+            Write-Log "Failed to install $module with Install-PSResource, trying Install-Module..." -Level Warning
+            Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+          }
+        }
+        else {
+          Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+        }
       }
     }
 

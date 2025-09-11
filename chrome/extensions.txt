@@ -1,0 +1,792 @@
+'Improve YouTube!' 🎧 (for YouTube & Videos) 4.1325
+Store URL:
+https://chrome.google.com/webstore/detail/bnomihfieiccainjcjblhegjgglakjdd
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbnomihfieiccainjcjblhegjgglakjdd%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/bnomihfieiccainjcjblhegjgglakjdd
+CRXcavator Link:
+https://crxcavator.io/report/bnomihfieiccainjcjblhegjgglakjdd?platform=Chrome
+AdBlock — block ads across the web 6.27.2
+Store URL:
+https://chrome.google.com/webstore/detail/gighmmpiobklfepjocnamgkkbiglidom
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgighmmpiobklfepjocnamgkkbiglidom%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/gighmmpiobklfepjocnamgkkbiglidom
+CRXcavator Link:
+https://crxcavator.io/report/gighmmpiobklfepjocnamgkkbiglidom?platform=Chrome
+Angular DevTools 1.2.0
+Store URL:
+https://chrome.google.com/webstore/detail/ienfalfjdbdpebioblfackkekamfmbnh
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dienfalfjdbdpebioblfackkekamfmbnh%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ienfalfjdbdpebioblfackkekamfmbnh
+CRXcavator Link:
+https://crxcavator.io/report/ienfalfjdbdpebioblfackkekamfmbnh?platform=Chrome
+Bookmanize - Advanced bookmark manager 1.6.26
+Store URL:
+https://chrome.google.com/webstore/detail/idbigcbhfbdclcbljcoopcjgkejaknnl
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Didbigcbhfbdclcbljcoopcjgkejaknnl%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/idbigcbhfbdclcbljcoopcjgkejaknnl
+CRXcavator Link:
+https://crxcavator.io/report/idbigcbhfbdclcbljcoopcjgkejaknnl?platform=Chrome
+Bookmarks clean up 0.2.0
+Store URL:
+https://chrome.google.com/webstore/detail/oncbjlgldmiagjophlhobkogeladjijl
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Doncbjlgldmiagjophlhobkogeladjijl%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/oncbjlgldmiagjophlhobkogeladjijl
+CRXcavator Link:
+https://crxcavator.io/report/oncbjlgldmiagjophlhobkogeladjijl?platform=Chrome
+Copy as Markdown 3.2.0
+Store URL:
+https://chrome.google.com/webstore/detail/fkeaekngjflipcockcnpobkpbbfbhmdn
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfkeaekngjflipcockcnpobkpbbfbhmdn%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fkeaekngjflipcockcnpobkpbbfbhmdn
+CRXcavator Link:
+https://crxcavator.io/report/fkeaekngjflipcockcnpobkpbbfbhmdn?platform=Chrome
+Dark Reader 4.9.110
+Store URL:
+https://chrome.google.com/webstore/detail/eimadpbcbfnmbkopoojfekhnkhdbieeh
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Deimadpbcbfnmbkopoojfekhnkhdbieeh%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/eimadpbcbfnmbkopoojfekhnkhdbieeh
+CRXcavator Link:
+https://crxcavator.io/report/eimadpbcbfnmbkopoojfekhnkhdbieeh?platform=Chrome
+Email Extractor 5.0.4
+Store URL:
+https://chrome.google.com/webstore/detail/jdianbbpnakhcmfkcckaboohfgnngfcc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djdianbbpnakhcmfkcckaboohfgnngfcc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jdianbbpnakhcmfkcckaboohfgnngfcc
+CRXcavator Link:
+https://crxcavator.io/report/jdianbbpnakhcmfkcckaboohfgnngfcc?platform=Chrome
+Email Tracker by Mailtrack® 12.55.1
+Store URL:
+https://chrome.google.com/webstore/detail/ndnaehgpjlnokgebbaldlmgkapkpjkkb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dndnaehgpjlnokgebbaldlmgkapkpjkkb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ndnaehgpjlnokgebbaldlmgkapkpjkkb
+CRXcavator Link:
+https://crxcavator.io/report/ndnaehgpjlnokgebbaldlmgkapkpjkkb?platform=Chrome
+Email Tracker For Gmail - MailerPlex 2.0.0.9
+Store URL:
+https://chrome.google.com/webstore/detail/kihifmacbckmlbcaobdofgjikfgidkmd
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dkihifmacbckmlbcaobdofgjikfgidkmd%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/kihifmacbckmlbcaobdofgjikfgidkmd
+CRXcavator Link:
+https://crxcavator.io/report/kihifmacbckmlbcaobdofgjikfgidkmd?platform=Chrome
+Extension Exporter 3.0.1
+Store URL:
+https://chrome.google.com/webstore/detail/doikmfpjbcjjimnbablebijofdbgfepb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddoikmfpjbcjjimnbablebijofdbgfepb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/doikmfpjbcjjimnbablebijofdbgfepb
+CRXcavator Link:
+https://crxcavator.io/report/doikmfpjbcjjimnbablebijofdbgfepb?platform=Chrome
+Extensity 1.14.0
+Store URL:
+https://chrome.google.com/webstore/detail/jjmflmamggggndanpgfnpelongoepncg
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djjmflmamggggndanpgfnpelongoepncg%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jjmflmamggggndanpgfnpelongoepncg
+CRXcavator Link:
+https://crxcavator.io/report/jjmflmamggggndanpgfnpelongoepncg?platform=Chrome
+Fonts Ninja 8.0.4
+Store URL:
+https://chrome.google.com/webstore/detail/eljapbgkmlngdpckoiiibecpemleclhh
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Deljapbgkmlngdpckoiiibecpemleclhh%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/eljapbgkmlngdpckoiiibecpemleclhh
+CRXcavator Link:
+https://crxcavator.io/report/eljapbgkmlngdpckoiiibecpemleclhh?platform=Chrome
+FoxyProxy 9.2
+Store URL:
+https://chrome.google.com/webstore/detail/gcknhkkoolaabfmlnjonogaaifnjlfnp
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgcknhkkoolaabfmlnjonogaaifnjlfnp%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/gcknhkkoolaabfmlnjonogaaifnjlfnp
+CRXcavator Link:
+https://crxcavator.io/report/gcknhkkoolaabfmlnjonogaaifnjlfnp?platform=Chrome
+Ghostery Tracker & Ad Blocker - Privacy AdBlock 10.5.9
+Store URL:
+https://chrome.google.com/webstore/detail/mlomiejdfkolichcflejclcbmpeaniij
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmlomiejdfkolichcflejclcbmpeaniij%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/mlomiejdfkolichcflejclcbmpeaniij
+CRXcavator Link:
+https://crxcavator.io/report/mlomiejdfkolichcflejclcbmpeaniij?platform=Chrome
+Global Speed 3.2.34
+Store URL:
+https://chrome.google.com/webstore/detail/jpbjcnkcffbooppibceonlgknpkniiff
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djpbjcnkcffbooppibceonlgknpkniiff%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jpbjcnkcffbooppibceonlgknpkniiff
+CRXcavator Link:
+https://crxcavator.io/report/jpbjcnkcffbooppibceonlgknpkniiff?platform=Chrome
+Gmail Sender Icons 4.0
+Store URL:
+https://chrome.google.com/webstore/detail/jniljaamodclkmphgkgkooplflhkadpg
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djniljaamodclkmphgkgkooplflhkadpg%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jniljaamodclkmphgkgkooplflhkadpg
+CRXcavator Link:
+https://crxcavator.io/report/jniljaamodclkmphgkgkooplflhkadpg?platform=Chrome
+GoFullPage - Full Page Screen Capture 8.5
+Store URL:
+https://chrome.google.com/webstore/detail/fdpohaocaechififmbbbbbknoalclacl
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfdpohaocaechififmbbbbbknoalclacl%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fdpohaocaechififmbbbbbknoalclacl
+CRXcavator Link:
+https://crxcavator.io/report/fdpohaocaechififmbbbbbknoalclacl?platform=Chrome
+Google Docs Offline 1.94.1
+Store URL:
+https://chrome.google.com/webstore/detail/ghbmnnjooekpmoecnnnilnnbdlolhkhi
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dghbmnnjooekpmoecnnnilnnbdlolhkhi%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ghbmnnjooekpmoecnnnilnnbdlolhkhi
+CRXcavator Link:
+https://crxcavator.io/report/ghbmnnjooekpmoecnnnilnnbdlolhkhi?platform=Chrome
+Google Translate 2.0.16
+Store URL:
+https://chrome.google.com/webstore/detail/aapbdbdomjkkjkaonfhkkikfgjllcleb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Daapbdbdomjkkjkaonfhkkikfgjllcleb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/aapbdbdomjkkjkaonfhkkikfgjllcleb
+CRXcavator Link:
+https://crxcavator.io/report/aapbdbdomjkkjkaonfhkkikfgjllcleb?platform=Chrome
+Grammarly: AI Writing Assistant and Grammar Checker App 14.1253.0
+Store URL:
+https://chrome.google.com/webstore/detail/kbfnbcaeplbcioakkpcpgfkobkghlhen
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dkbfnbcaeplbcioakkpcpgfkobkghlhen%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/kbfnbcaeplbcioakkpcpgfkobkghlhen
+CRXcavator Link:
+https://crxcavator.io/report/kbfnbcaeplbcioakkpcpgfkobkghlhen?platform=Chrome
+Grepper 0.1.0.3
+Store URL:
+https://chrome.google.com/webstore/detail/amaaokahonnfjjemodnpmeenfpnnbkco
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Damaaokahonnfjjemodnpmeenfpnnbkco%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/amaaokahonnfjjemodnpmeenfpnnbkco
+CRXcavator Link:
+https://crxcavator.io/report/amaaokahonnfjjemodnpmeenfpnnbkco?platform=Chrome
+HaramBlur - Blur Haram & NSFW Images & Videos 0.6.5
+Store URL:
+https://chrome.google.com/webstore/detail/pbcoegikffnadpahojjhgdladmmddeji
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpbcoegikffnadpahojjhgdladmmddeji%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/pbcoegikffnadpahojjhgdladmmddeji
+CRXcavator Link:
+https://crxcavator.io/report/pbcoegikffnadpahojjhgdladmmddeji?platform=Chrome
+Highlighter 4.0.5
+Store URL:
+https://chrome.google.com/webstore/detail/fdfcjfoifbjplmificlkdfneafllkgmn
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfdfcjfoifbjplmificlkdfneafllkgmn%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fdfcjfoifbjplmificlkdfneafllkgmn
+CRXcavator Link:
+https://crxcavator.io/report/fdfcjfoifbjplmificlkdfneafllkgmn?platform=Chrome
+Hover Zoom+ 1.1.6
+Store URL:
+https://chrome.google.com/webstore/detail/pccckmaobkjjboncdfnnofkonhgpceea
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpccckmaobkjjboncdfnnofkonhgpceea%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/pccckmaobkjjboncdfnnofkonhgpceea
+CRXcavator Link:
+https://crxcavator.io/report/pccckmaobkjjboncdfnnofkonhgpceea?platform=Chrome
+Huntr - Job Search Tracker & Autofill 2.0.42
+Store URL:
+https://chrome.google.com/webstore/detail/mihdfbecejheednfigjpdacgeilhlmnf
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmihdfbecejheednfigjpdacgeilhlmnf%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/mihdfbecejheednfigjpdacgeilhlmnf
+CRXcavator Link:
+https://crxcavator.io/report/mihdfbecejheednfigjpdacgeilhlmnf?platform=Chrome
+Instant Data Scraper 1.2.1
+Store URL:
+https://chrome.google.com/webstore/detail/ofaokhiedipichpaobibbnahnkdoiiah
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dofaokhiedipichpaobibbnahnkdoiiah%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ofaokhiedipichpaobibbnahnkdoiiah
+CRXcavator Link:
+https://crxcavator.io/report/ofaokhiedipichpaobibbnahnkdoiiah?platform=Chrome
+Jobalytics - Resume Keyword Analyzer 6.4.7
+Store URL:
+https://chrome.google.com/webstore/detail/fkiljfkkceaopbpfgfmjdnkiejaifkgd
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfkiljfkkceaopbpfgfmjdnkiejaifkgd%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fkiljfkkceaopbpfgfmjdnkiejaifkgd
+CRXcavator Link:
+https://crxcavator.io/report/fkiljfkkceaopbpfgfmjdnkiejaifkgd?platform=Chrome
+JobHunnt AI - Free Job Tracking Dashboard & Resume Builder 1.2
+Store URL:
+https://chrome.google.com/webstore/detail/gndopdejcoebchjomamhmiedcgbokbfe
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgndopdejcoebchjomamhmiedcgbokbfe%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/gndopdejcoebchjomamhmiedcgbokbfe
+CRXcavator Link:
+https://crxcavator.io/report/gndopdejcoebchjomamhmiedcgbokbfe?platform=Chrome
+Lightkey - AI-powered Text Prediction 3.1.1
+Store URL:
+https://chrome.google.com/webstore/detail/dmndpcnahnbclhbgnfcblpnefkjminlb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddmndpcnahnbclhbgnfcblpnefkjminlb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/dmndpcnahnbclhbgnfcblpnefkjminlb
+CRXcavator Link:
+https://crxcavator.io/report/dmndpcnahnbclhbgnfcblpnefkjminlb?platform=Chrome
+LinkedIn Focus Mode 1.1.1
+Store URL:
+https://chrome.google.com/webstore/detail/hhnognkefifgogbaiejdfggflknbeggd
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhhnognkefifgogbaiejdfggflknbeggd%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/hhnognkefifgogbaiejdfggflknbeggd
+CRXcavator Link:
+https://crxcavator.io/report/hhnognkefifgogbaiejdfggflknbeggd?platform=Chrome
+LinkOff - Filter and Customizer for LinkedIn™ 1.10.0
+Store URL:
+https://chrome.google.com/webstore/detail/maanaljajdhhnllllmhmiiboodmoffon
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmaanaljajdhhnllllmhmiiboodmoffon%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/maanaljajdhhnllllmhmiiboodmoffon
+CRXcavator Link:
+https://crxcavator.io/report/maanaljajdhhnllllmhmiiboodmoffon?platform=Chrome
+Live editor for CSS, Less & Sass - Magic CSS 8.22.5
+Store URL:
+https://chrome.google.com/webstore/detail/ifhikkcafabcgolfjegfcgloomalapol
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Difhikkcafabcgolfjegfcgloomalapol%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ifhikkcafabcgolfjegfcgloomalapol
+CRXcavator Link:
+https://crxcavator.io/report/ifhikkcafabcgolfjegfcgloomalapol?platform=Chrome
+MarkDownload - Markdown Web Clipper 3.4.0
+Store URL:
+https://chrome.google.com/webstore/detail/pcmpcfapbekmbjjkdalcgopdkipoggdi
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpcmpcfapbekmbjjkdalcgopdkipoggdi%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/pcmpcfapbekmbjjkdalcgopdkipoggdi
+CRXcavator Link:
+https://crxcavator.io/report/pcmpcfapbekmbjjkdalcgopdkipoggdi?platform=Chrome
+Midnight Lizard 10.7.0
+Store URL:
+https://chrome.google.com/webstore/detail/pbnndmlekkboofhnbonilimejonapojg
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpbnndmlekkboofhnbonilimejonapojg%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/pbnndmlekkboofhnbonilimejonapojg
+CRXcavator Link:
+https://crxcavator.io/report/pbnndmlekkboofhnbonilimejonapojg?platform=Chrome
+ModHeader - Modify HTTP headers 7.0.11
+Store URL:
+https://chrome.google.com/webstore/detail/idgpnmonknjnojddfkpgkljpfnnfcklj
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Didgpnmonknjnojddfkpgkljpfnnfcklj%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/idgpnmonknjnojddfkpgkljpfnnfcklj
+CRXcavator Link:
+https://crxcavator.io/report/idgpnmonknjnojddfkpgkljpfnnfcklj?platform=Chrome
+ModResponse - Mock and replay API 1.2.1
+Store URL:
+https://chrome.google.com/webstore/detail/bbjcdpjihbfmkgikdkplcalfebgcjjpm
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbbjcdpjihbfmkgikdkplcalfebgcjjpm%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/bbjcdpjihbfmkgikdkplcalfebgcjjpm
+CRXcavator Link:
+https://crxcavator.io/report/bbjcdpjihbfmkgikdkplcalfebgcjjpm?platform=Chrome
+MyJDownloader Browser Extension 3.3.20
+Store URL:
+https://chrome.google.com/webstore/detail/fbcohnmimjicjdomonkcbcpbpnhggkip
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfbcohnmimjicjdomonkcbcpbpnhggkip%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fbcohnmimjicjdomonkcbcpbpnhggkip
+CRXcavator Link:
+https://crxcavator.io/report/fbcohnmimjicjdomonkcbcpbpnhggkip?platform=Chrome
+Netify 0.4.0
+Store URL:
+https://chrome.google.com/webstore/detail/mdafhjaillpdogjdigdkmnoddeoegblj
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmdafhjaillpdogjdigdkmnoddeoegblj%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/mdafhjaillpdogjdigdkmnoddeoegblj
+CRXcavator Link:
+https://crxcavator.io/report/mdafhjaillpdogjdigdkmnoddeoegblj?platform=Chrome
+Obsidian Web 3.5.0
+Store URL:
+https://chrome.google.com/webstore/detail/edoacekkjanmingkbkgjndndibhkegad
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dedoacekkjanmingkbkgjndndibhkegad%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/edoacekkjanmingkbkgjndndibhkegad
+CRXcavator Link:
+https://crxcavator.io/report/edoacekkjanmingkbkgjndndibhkegad?platform=Chrome
+OneNote Web Clipper 3.10.10
+Store URL:
+https://chrome.google.com/webstore/detail/gojbdfnpnhogfdgjbigejoaolejmgdhk
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgojbdfnpnhogfdgjbigejoaolejmgdhk%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/gojbdfnpnhogfdgjbigejoaolejmgdhk
+CRXcavator Link:
+https://crxcavator.io/report/gojbdfnpnhogfdgjbigejoaolejmgdhk?platform=Chrome
+Page Ruler 0.1.5
+Store URL:
+https://chrome.google.com/webstore/detail/jcbmcnpepaddcedmjdcmhbekjhbfnlff
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djcbmcnpepaddcedmjdcmhbekjhbfnlff%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jcbmcnpepaddcedmjdcmhbekjhbfnlff
+CRXcavator Link:
+https://crxcavator.io/report/jcbmcnpepaddcedmjdcmhbekjhbfnlff?platform=Chrome
+PDF Viewer 4.6.129
+Store URL:
+https://chrome.google.com/webstore/detail/oemmndcbldboiebfnladdacbdfmadadm
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Doemmndcbldboiebfnladdacbdfmadadm%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/oemmndcbldboiebfnladdacbdfmadadm
+CRXcavator Link:
+https://crxcavator.io/report/oemmndcbldboiebfnladdacbdfmadadm?platform=Chrome
+Permanent Progress Bar for YouTube 0.3.1
+Store URL:
+https://chrome.google.com/webstore/detail/dammfdepmngjjoidfdbhkjboecgceamb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddammfdepmngjjoidfdbhkjboecgceamb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/dammfdepmngjjoidfdbhkjboecgceamb
+CRXcavator Link:
+https://crxcavator.io/report/dammfdepmngjjoidfdbhkjboecgceamb?platform=Chrome
+Phone Number Extractor – Auto Extract & Export Phone Numbers 1.3.1
+Store URL:
+https://chrome.google.com/webstore/detail/epjgkcphfbhdjnmpolaoehiifokblbme
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Depjgkcphfbhdjnmpolaoehiifokblbme%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/epjgkcphfbhdjnmpolaoehiifokblbme
+CRXcavator Link:
+https://crxcavator.io/report/epjgkcphfbhdjnmpolaoehiifokblbme?platform=Chrome
+Phone number Extractor & Email Finder 1.0.1
+Store URL:
+https://chrome.google.com/webstore/detail/nnniaiihdgpgonjiiabpondekclpegdc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dnnniaiihdgpgonjiiabpondekclpegdc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/nnniaiihdgpgonjiiabpondekclpegdc
+CRXcavator Link:
+https://crxcavator.io/report/nnniaiihdgpgonjiiabpondekclpegdc?platform=Chrome
+Picture-in-Picture Extension (by Google) 1.14
+Store URL:
+https://chrome.google.com/webstore/detail/hkgfoiooedgoejojocmhlaklaeopbecg
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhkgfoiooedgoejojocmhlaklaeopbecg%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/hkgfoiooedgoejojocmhlaklaeopbecg
+CRXcavator Link:
+https://crxcavator.io/report/hkgfoiooedgoejojocmhlaklaeopbecg?platform=Chrome
+PixelBlock 2024.3.12
+Store URL:
+https://chrome.google.com/webstore/detail/jmpmfcjnflbcoidlgapblgpgbilinlem
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djmpmfcjnflbcoidlgapblgpgbilinlem%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jmpmfcjnflbcoidlgapblgpgbilinlem
+CRXcavator Link:
+https://crxcavator.io/report/jmpmfcjnflbcoidlgapblgpgbilinlem?platform=Chrome
+PocketTube: Youtube Subscription Manager 17.6.3
+Store URL:
+https://chrome.google.com/webstore/detail/kdmnjgijlmjgmimahnillepgcgeemffb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dkdmnjgijlmjgmimahnillepgcgeemffb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/kdmnjgijlmjgmimahnillepgcgeemffb
+CRXcavator Link:
+https://crxcavator.io/report/kdmnjgijlmjgmimahnillepgcgeemffb?platform=Chrome
+Print Edit WE 31.3
+Store URL:
+https://chrome.google.com/webstore/detail/olnblpmehglpcallpnbgmikjblmkopia
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dolnblpmehglpcallpnbgmikjblmkopia%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/olnblpmehglpcallpnbgmikjblmkopia
+CRXcavator Link:
+https://crxcavator.io/report/olnblpmehglpcallpnbgmikjblmkopia?platform=Chrome
+Quick Javascript Switcher 2.2.0
+Store URL:
+https://chrome.google.com/webstore/detail/geddoclleiomckbhadiaipdggiiccfje
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgeddoclleiomckbhadiaipdggiiccfje%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/geddoclleiomckbhadiaipdggiiccfje
+CRXcavator Link:
+https://crxcavator.io/report/geddoclleiomckbhadiaipdggiiccfje?platform=Chrome
+Request Interceptor 2.0
+Store URL:
+https://chrome.google.com/webstore/detail/hkkjcknodnahjdnemannhkhnfedifkoh
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhkkjcknodnahjdnemannhkhnfedifkoh%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/hkkjcknodnahjdnemannhkhnfedifkoh
+CRXcavator Link:
+https://crxcavator.io/report/hkkjcknodnahjdnemannhkhnfedifkoh?platform=Chrome
+Requestly: Supercharge your Development & QA 25.8.21
+Store URL:
+https://chrome.google.com/webstore/detail/mdnleldcmiljblolnjhpnblkcekpdkpa
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmdnleldcmiljblolnjhpnblkcekpdkpa%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/mdnleldcmiljblolnjhpnblkcekpdkpa
+CRXcavator Link:
+https://crxcavator.io/report/mdnleldcmiljblolnjhpnblkcekpdkpa?platform=Chrome
+Roam Highlighter 0.4.6
+Store URL:
+https://chrome.google.com/webstore/detail/hponfflfgcjikmehlcdcnpapicnljkkc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhponfflfgcjikmehlcdcnpapicnljkkc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/hponfflfgcjikmehlcdcnpapicnljkkc
+CRXcavator Link:
+https://crxcavator.io/report/hponfflfgcjikmehlcdcnpapicnljkkc?platform=Chrome
+RSS Feed Reader 8.0.23
+Store URL:
+https://chrome.google.com/webstore/detail/pnjaodmkngahhkoihejjehlcdlnohgmp
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpnjaodmkngahhkoihejjehlcdlnohgmp%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/pnjaodmkngahhkoihejjehlcdlnohgmp
+CRXcavator Link:
+https://crxcavator.io/report/pnjaodmkngahhkoihejjehlcdlnohgmp?platform=Chrome
+Scripty - Javascript Injector 1.0.1
+Store URL:
+https://chrome.google.com/webstore/detail/milkbiaeapddfnpenedfgbfdacpbcbam
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmilkbiaeapddfnpenedfgbfdacpbcbam%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/milkbiaeapddfnpenedfgbfdacpbcbam
+CRXcavator Link:
+https://crxcavator.io/report/milkbiaeapddfnpenedfgbfdacpbcbam?platform=Chrome
+Selectext: Copy Text from Videos 3.1.13
+Store URL:
+https://chrome.google.com/webstore/detail/gkkdmjjodidppndkbkhhknakbeflbomf
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgkkdmjjodidppndkbkhhknakbeflbomf%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/gkkdmjjodidppndkbkhhknakbeflbomf
+CRXcavator Link:
+https://crxcavator.io/report/gkkdmjjodidppndkbkhhknakbeflbomf?platform=Chrome
+Self-Destructing Cookies 0.2.2
+Store URL:
+https://chrome.google.com/webstore/detail/igdpjhaninpfanncfifdoogibpdidddf
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Digdpjhaninpfanncfifdoogibpdidddf%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/igdpjhaninpfanncfifdoogibpdidddf
+CRXcavator Link:
+https://crxcavator.io/report/igdpjhaninpfanncfifdoogibpdidddf?platform=Chrome
+Session Buddy 4.0.5
+Store URL:
+https://chrome.google.com/webstore/detail/edacconmaakjimmfgnblocblbcdcpbko
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dedacconmaakjimmfgnblocblbcdcpbko%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/edacconmaakjimmfgnblocblbcdcpbko
+CRXcavator Link:
+https://crxcavator.io/report/edacconmaakjimmfgnblocblbcdcpbko?platform=Chrome
+Set password for your browser ( chrome lock ) 9.1
+Store URL:
+https://chrome.google.com/webstore/detail/cjmjgijhapgicbhmniemjkjeaedanank
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dcjmjgijhapgicbhmniemjkjeaedanank%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/cjmjgijhapgicbhmniemjkjeaedanank
+CRXcavator Link:
+https://crxcavator.io/report/cjmjgijhapgicbhmniemjkjeaedanank?platform=Chrome
+SetupVPN - Lifetime Free VPN 4.0.9
+Store URL:
+https://chrome.google.com/webstore/detail/oofgbpoabipfcfjapgnbbjjaenockbdp
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Doofgbpoabipfcfjapgnbbjjaenockbdp%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/oofgbpoabipfcfjapgnbbjjaenockbdp
+CRXcavator Link:
+https://crxcavator.io/report/oofgbpoabipfcfjapgnbbjjaenockbdp?platform=Chrome
+SheetWA Bulk WA Sender - Excel, Google Sheets 5.73.902
+Store URL:
+https://chrome.google.com/webstore/detail/ldaicopgopphphhmeggpdicdeiedlmjo
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dldaicopgopphphhmeggpdicdeiedlmjo%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ldaicopgopphphhmeggpdicdeiedlmjo
+CRXcavator Link:
+https://crxcavator.io/report/ldaicopgopphphhmeggpdicdeiedlmjo?platform=Chrome
+SingleFile 1.22.81
+Store URL:
+https://chrome.google.com/webstore/detail/mpiodijhokgodhhofbcjdecpffjipkle
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmpiodijhokgodhhofbcjdecpffjipkle%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/mpiodijhokgodhhofbcjdecpffjipkle
+CRXcavator Link:
+https://crxcavator.io/report/mpiodijhokgodhhofbcjdecpffjipkle?platform=Chrome
+Skrapp.io - Email Finder 2.0.2
+Store URL:
+https://chrome.google.com/webstore/detail/geplbbbmdpmdodfmohpikfacgkfpkhec
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgeplbbbmdpmdodfmohpikfacgkfpkhec%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/geplbbbmdpmdodfmohpikfacgkfpkhec
+CRXcavator Link:
+https://crxcavator.io/report/geplbbbmdpmdodfmohpikfacgkfpkhec?platform=Chrome
+Slack "Also send to #Channel" Default On 1.0.7
+Store URL:
+https://chrome.google.com/webstore/detail/ipicacdapmgpgehdfcicmpngcajdfflb
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dipicacdapmgpgehdfcicmpngcajdfflb%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ipicacdapmgpgehdfcicmpngcajdfflb
+CRXcavator Link:
+https://crxcavator.io/report/ipicacdapmgpgehdfcicmpngcajdfflb?platform=Chrome
+SleepyTabs 1.5
+Store URL:
+https://chrome.google.com/webstore/detail/bkmaopaigmniimdmfbngnjgfiaoieijh
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbkmaopaigmniimdmfbngnjgfiaoieijh%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/bkmaopaigmniimdmfbngnjgfiaoieijh
+CRXcavator Link:
+https://crxcavator.io/report/bkmaopaigmniimdmfbngnjgfiaoieijh?platform=Chrome
+Speed Dial 1.1.9
+Store URL:
+https://chrome.google.com/webstore/detail/ejbjamhkdedinncaeiackcdehpccoejm
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dejbjamhkdedinncaeiackcdehpccoejm%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ejbjamhkdedinncaeiackcdehpccoejm
+CRXcavator Link:
+https://crxcavator.io/report/ejbjamhkdedinncaeiackcdehpccoejm?platform=Chrome
+Speed Dial 2 New tab 3.8.4
+Store URL:
+https://chrome.google.com/webstore/detail/jpfpebmajhhopeonhlcgidhclcccjcik
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djpfpebmajhhopeonhlcgidhclcccjcik%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jpfpebmajhhopeonhlcgidhclcccjcik
+CRXcavator Link:
+https://crxcavator.io/report/jpfpebmajhhopeonhlcgidhclcccjcik?platform=Chrome
+Sprucemarks 2025.6.26.0
+Store URL:
+https://chrome.google.com/webstore/detail/fakeocdnmmmnokabaiflppclocckihoj
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfakeocdnmmmnokabaiflppclocckihoj%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fakeocdnmmmnokabaiflppclocckihoj
+CRXcavator Link:
+https://crxcavator.io/report/fakeocdnmmmnokabaiflppclocckihoj?platform=Chrome
+Streak CRM for Gmail 7.30
+Store URL:
+https://chrome.google.com/webstore/detail/pnnfemgpilpdaojpnkjdgfgbnnjojfik
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dpnnfemgpilpdaojpnkjdgfgbnnjojfik%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/pnnfemgpilpdaojpnkjdgfgbnnjojfik
+CRXcavator Link:
+https://crxcavator.io/report/pnnfemgpilpdaojpnkjdgfgbnnjojfik?platform=Chrome
+Stylebot 3.1.4
+Store URL:
+https://chrome.google.com/webstore/detail/oiaejidbmkiecgbjeifoejpgmdaleoha
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Doiaejidbmkiecgbjeifoejpgmdaleoha%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/oiaejidbmkiecgbjeifoejpgmdaleoha
+CRXcavator Link:
+https://crxcavator.io/report/oiaejidbmkiecgbjeifoejpgmdaleoha?platform=Chrome
+Stylish - Custom themes for any website 3.4.5
+Store URL:
+https://chrome.google.com/webstore/detail/fjnbnpbmkenffdnngjfgmeleoegfcffe
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dfjnbnpbmkenffdnngjfgmeleoegfcffe%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/fjnbnpbmkenffdnngjfgmeleoegfcffe
+CRXcavator Link:
+https://crxcavator.io/report/fjnbnpbmkenffdnngjfgmeleoegfcffe?platform=Chrome
+Sunnah - السنة النبوية 2.1.0
+Store URL:
+https://chrome.google.com/webstore/detail/odlfokfcmbpcbehnlfcjmbkbbalffahc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dodlfokfcmbpcbehnlfcjmbkbbalffahc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/odlfokfcmbpcbehnlfcjmbkbbalffahc
+CRXcavator Link:
+https://crxcavator.io/report/odlfokfcmbpcbehnlfcjmbkbbalffahc?platform=Chrome
+Super Simple Highlighter 27
+Store URL:
+https://chrome.google.com/webstore/detail/hhlhjgianpocpoppaiihmlpgcoehlhio
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhhlhjgianpocpoppaiihmlpgcoehlhio%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/hhlhjgianpocpoppaiihmlpgcoehlhio
+CRXcavator Link:
+https://crxcavator.io/report/hhlhjgianpocpoppaiihmlpgcoehlhio?platform=Chrome
+Superpower ChatGPT 7.4.7
+Store URL:
+https://chrome.google.com/webstore/detail/amhmeenmapldpjdedekalnfifgnpfnkc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Damhmeenmapldpjdedekalnfifgnpfnkc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/amhmeenmapldpjdedekalnfifgnpfnkc
+CRXcavator Link:
+https://crxcavator.io/report/amhmeenmapldpjdedekalnfifgnpfnkc?platform=Chrome
+Tab Resize - split screen layouts 3.0.1
+Store URL:
+https://chrome.google.com/webstore/detail/bkpenclhmiealbebdopglffmfdiilejc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbkpenclhmiealbebdopglffmfdiilejc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/bkpenclhmiealbebdopglffmfdiilejc
+CRXcavator Link:
+https://crxcavator.io/report/bkpenclhmiealbebdopglffmfdiilejc?platform=Chrome
+Tampermonkey 5.3.3
+Store URL:
+https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddhdgffkkebhmkfjojejmpbldmpobfkfo%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/dhdgffkkebhmkfjojejmpbldmpobfkfo
+CRXcavator Link:
+https://crxcavator.io/report/dhdgffkkebhmkfjojejmpbldmpobfkfo?platform=Chrome
+Teal - Job Search Companion 4.0.8
+Store URL:
+https://chrome.google.com/webstore/detail/opafjjlpbiaicbbgifbejoochmmeikep
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dopafjjlpbiaicbbgifbejoochmmeikep%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/opafjjlpbiaicbbgifbejoochmmeikep
+CRXcavator Link:
+https://crxcavator.io/report/opafjjlpbiaicbbgifbejoochmmeikep?platform=Chrome
+Toby: Tab Management Tool 1.6.3
+Store URL:
+https://chrome.google.com/webstore/detail/hddnkoipeenegfoeaoibdmnaalmgkpip
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dhddnkoipeenegfoeaoibdmnaalmgkpip%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/hddnkoipeenegfoeaoibdmnaalmgkpip
+CRXcavator Link:
+https://crxcavator.io/report/hddnkoipeenegfoeaoibdmnaalmgkpip?platform=Chrome
+Ultrawidify 6.3.0
+Store URL:
+https://chrome.google.com/webstore/detail/dndehlekllfkaijdlokmmicgnlanfjbi
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Ddndehlekllfkaijdlokmmicgnlanfjbi%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/dndehlekllfkaijdlokmmicgnlanfjbi
+CRXcavator Link:
+https://crxcavator.io/report/dndehlekllfkaijdlokmmicgnlanfjbi?platform=Chrome
+Video Downloader Professional 2.1.6
+Store URL:
+https://chrome.google.com/webstore/detail/elicpjhcidhpjomhibiffojpinpmmpil
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Delicpjhcidhpjomhibiffojpinpmmpil%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/elicpjhcidhpjomhibiffojpinpmmpil
+CRXcavator Link:
+https://crxcavator.io/report/elicpjhcidhpjomhibiffojpinpmmpil?platform=Chrome
+Video Image Control ( new gamma ) 10.0.0
+Store URL:
+https://chrome.google.com/webstore/detail/mdoelcifdkcimkdbfkjjnedabmjlkokc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dmdoelcifdkcimkdbfkjjnedabmjlkokc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/mdoelcifdkcimkdbfkjjnedabmjlkokc
+CRXcavator Link:
+https://crxcavator.io/report/mdoelcifdkcimkdbfkjjnedabmjlkokc?platform=Chrome
+Video Speed Controller 0.9.5
+Store URL:
+https://chrome.google.com/webstore/detail/nffaoalbilbmmfgbnbgppjihopabppdk
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dnffaoalbilbmmfgbnbgppjihopabppdk%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/nffaoalbilbmmfgbnbgppjihopabppdk
+CRXcavator Link:
+https://crxcavator.io/report/nffaoalbilbmmfgbnbgppjihopabppdk?platform=Chrome
+Video Styler (brightness and more) 1.3.3
+Store URL:
+https://chrome.google.com/webstore/detail/bfmgdnjlifbmedglimhnbhgkefanaiep
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dbfmgdnjlifbmedglimhnbhgkefanaiep%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/bfmgdnjlifbmedglimhnbhgkefanaiep
+CRXcavator Link:
+https://crxcavator.io/report/bfmgdnjlifbmedglimhnbhgkefanaiep?platform=Chrome
+Volume Master 2.4.0
+Store URL:
+https://chrome.google.com/webstore/detail/jghecgabfgfdldnmbfkhmffcabddioke
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Djghecgabfgfdldnmbfkhmffcabddioke%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/jghecgabfgfdldnmbfkhmffcabddioke
+CRXcavator Link:
+https://crxcavator.io/report/jghecgabfgfdldnmbfkhmffcabddioke?platform=Chrome
+Wappalyzer - Technology profiler 6.10.85
+Store URL:
+https://chrome.google.com/webstore/detail/gppongmhjkpfnbhagpmjfkannfbllamg
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dgppongmhjkpfnbhagpmjfkannfbllamg%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/gppongmhjkpfnbhagpmjfkannfbllamg
+CRXcavator Link:
+https://crxcavator.io/report/gppongmhjkpfnbhagpmjfkannfbllamg?platform=Chrome
+Zoom for Google Chrome 2.8.18.0
+Store URL:
+https://chrome.google.com/webstore/detail/lajondecmobodlejlcjllhojikagldgd
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dlajondecmobodlejlcjllhojikagldgd%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/lajondecmobodlejlcjllhojikagldgd
+CRXcavator Link:
+https://crxcavator.io/report/lajondecmobodlejlcjllhojikagldgd?platform=Chrome
+Zotero Connector 5.0.181
+Store URL:
+https://chrome.google.com/webstore/detail/ekhagklcjbdpajgpjgmbionohlpdbjgc
+CRX Link:
+https://clients2.google.com/service/update2/crx?response=redirect&prodversion=49.0&acceptformat=crx3&x=id%3Dekhagklcjbdpajgpjgmbionohlpdbjgc%26installsource%3Dondemand%26uc
+Stats Link:
+https://chrome-stats.com/d/ekhagklcjbdpajgpjgmbionohlpdbjgc
+CRXcavator Link:
+https://crxcavator.io/report/ekhagklcjbdpajgpjgmbionohlpdbjgc?platform=Chrome

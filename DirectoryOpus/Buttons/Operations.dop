@@ -198,6 +198,18 @@
 				</function>
 			</button>
 		</button>
+		<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
+			<label>&amp;Paste</label>
+			<tip>Paste files and folders on the clipboard to the destination folder\n\n%1</tip>
+			<hotkeys>
+				<key>ctrl+V</key>
+				<key>shift+insert</key>
+			</hotkeys>
+			<icon1>#clippaste</icon1>
+			<function type="normal">
+				<instruction>Clipboard PASTE</instruction>
+			</function>
+		</button>
 		<button backcol="none" display="both" hotkey="ctrl+3" hotkey_label="yes" label_pos="right" separate="yes" textcol="none" type="menu_button">
 			<label>Re&amp;name</label>
 			<tip>Change the names of selected files and folders</tip>
