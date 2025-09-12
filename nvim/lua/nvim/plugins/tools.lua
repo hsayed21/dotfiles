@@ -1499,7 +1499,8 @@ return
       fzf = require "fzf-lua"
       fzf.setup({})
       Map("n", "<leader>,f", fzf.files, { desc = "Fzf Files" })
-    end
+    end,
+    enabled = not vim.g.vscode
   },
   {
     "chentoast/marks.nvim",

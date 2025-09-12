@@ -213,7 +213,6 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.indentSize": 4,
   "editor.inlineSuggest.suppressSuggestions": true,
-  "editor.insertSpaces": false,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   // ui
@@ -1970,7 +1969,7 @@
   "workbench.editor.showTabs": "single",
   "fold.enableAutoFold": false,
   "githd.blameView.enabled": false,
-  "editor.formatOnType": true,
+  "editor.formatOnType": false,
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
@@ -2171,7 +2170,7 @@
     "html": true,
     "typescript": true,
     "json": true,
-    "csharp": false
+    "csharp": true
   },
   "editor.stickyScroll.enabled": false,
   "github.copilot.chat.editor.temporalContext.enabled": true,
@@ -2275,5 +2274,8 @@
     "gitlens.views.stashes.files.layout": "list",
     "github.copilot.nextEditSuggestions.enabled": true,
     "terminal.integrated.fontSize": 11,
-    "debug.onTaskErrors": "debugAnyway"
+    "debug.onTaskErrors": "debugAnyway",
+    "liveServer.settings.donotVerifyTags": true,
+    "csharpOrganizeUsings.splitGroups": false,
+    "editor.formatOnSave": false
 }

@@ -78,11 +78,11 @@ m.vscode = function()
     callback = function()
       local mode = vim.api.nvim_get_mode().mode
       if mode == "i" then
-        require('vscode').action("neovim-ui-indicator.insert")
+        require('nvim.lua.vs_code.init').action("neovim-ui-indicator.insert")
       elseif mode == "v" then
-        require('vscode').action("neovim-ui-indicator.visual")
+        require('nvim.lua.vs_code.init').action("neovim-ui-indicator.visual")
       elseif mode == "n" then
-        require('vscode').action("neovim-ui-indicator.normal")
+        require('nvim.lua.vs_code.init').action("neovim-ui-indicator.normal")
       end
     end,
   })

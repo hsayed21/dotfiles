@@ -1,10 +1,4 @@
 return {
-
-	--#region For VSCode
-
-	--#endregion
-
-
 	-- Autocompletion
 	{
 		"hrsh7th/nvim-cmp", -- main plugin

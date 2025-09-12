@@ -404,6 +404,7 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
+		enabled = not vim.g.vscode
 	},
 	-- barbar "Buffer Tabs"
 	{
