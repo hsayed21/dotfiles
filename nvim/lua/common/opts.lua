@@ -86,6 +86,11 @@ vim.g.maplocalleader = ' '
 -- vim.g.camelcasemotion_key = "<leader>"
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 
+-- Cmd function to execute vim commands
+function Cmd(command)
+  vim.cmd(command)
+end
+
 -- Global helper functions
 -- These functions are used in both nvim and vscode contexts
 function Map(mode, lhs, rhs, opts)
@@ -99,49 +104,20 @@ function Map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, options)
 end
 
--- Cmd = vim.cmd
-function Cmd(command)
-  return table.concat({ '<Cmd>', command, '<CR>' })
-end
-
 -- Common keymaps that work in both environments
 -- Movement & navigation (shared between nvim and vscode)
 local common_keymaps = {
-  -- General movement
-  { "n", "gM", "Mzz", { desc = "Go to middle of screen" } },
-
   -- Skip folds (down, up)
-  { "n", "j", "gj", { desc = "Move down (display lines)" } },
-  { "n", "k", "gk", { desc = "Move up (display lines)" } },
-	-- Cmd('nmap j gj')
-	-- Cmd('nmap k gk')
-
-  -- Large jumps with centering
-  { "n", "G", "Gzz", { desc = "Go to end and center" } },
-  { "n", "gg", "ggzz", { desc = "Go to beginning and center" } },
-  { "n", "{", "{zz", { desc = "Previous paragraph centered" } },
-  { "n", "}", "}zz", { desc = "Next paragraph centered" } },
-
-  -- Screen position jumps with centering
-  { "n", "H", "Hzz", { desc = "Top of screen centered" } },
-  { "n", "L", "Lzz", { desc = "Bottom of screen centered" } },
-  { "n", "M", "Mzz", { desc = "Middle of screen" } },
+  -- { "n", "j", "gj", { desc = "Move down (display lines)" } },
+  -- { "n", "k", "gk", { desc = "Move up (display lines)" } },
+  { cmd = "vim.cmd('nmap j gj')", desc = "Map j to gj for display line movement" },
+  { cmd = "vim.cmd('nmap k gk')", desc = "Map k to gk for display line movement" },
 
   -- Search
   { "", ",s", "/\\V", { desc = "Search (literal)" } },
   { "", "/", "/\\v", { desc = "Search (regex)" } },
   { "", ",S", "?\\V", { desc = "Backward search (literal)" } },
   { "", "?", "?\\v", { desc = "Backward search (regex)" } },
-
-  -- Search with centering
-  { "n", "*", "*zzzv", { desc = "Search word under cursor centered" } },
-  { "n", "#", "#zzzv", { desc = "Search word under cursor backward centered" } },
-  { "n", "n", "nzzzv", { desc = "Next search result centered" } },
-  { "n", "N", "Nzzzv", { desc = "Previous search result centered" } },
-
-  -- Jump list navigation with centering
-  { "n", "<C-o>", "<C-o>zz", { desc = "Jump back centered" } },
-  { "n", "<C-i>", "<C-i>zz", { desc = "Jump forward centered" } },
 
   -- Copy & Paste & Delete
   { "n", "yp", "yyp", { desc = "Copy line down" } },
@@ -182,15 +158,15 @@ local common_keymaps = {
   { "i", "<C-y>", "<C-o>C", { desc = "Delete to line end" } },
 
   -- Normal mode line creation
-  { "n", "<C-k>", "O<Esc>", { desc = "Create line above" } },
-	{ "n", "<C-j>", "o<Esc>", { desc = "Create line below" } },
+  -- { "n", "<C-k>", "O<Esc>", { desc = "Create line above" } },
+	-- { "n", "<C-j>", "o<Esc>", { desc = "Create line below" } },
 
 	-- General
 	{ "n", "~", "~h", { desc = "Lower/Upper case the character under the cursor" } },
 
 	{ "",  '"', ":" },
 	{ "",  "'",     '"' },   -- Map single quote to double quote in normal mode
-	
+
 	-- Store original cursor position before yanking
 	{ 'v', 'y', function()
 		-- Save current cursor position
@@ -205,7 +181,39 @@ local common_keymaps = {
 
 -- Apply common keymaps
 for _, keymap in ipairs(common_keymaps) do
-  Map(keymap[1], keymap[2], keymap[3], keymap[4])
+  if type(keymap) == "string" then
+    -- Handle direct command strings like "vim.cmd('nmap j gj')"
+    local func, err = load(keymap)
+    if func then
+      func()
+    else
+      vim.notify("Error executing command: " .. keymap .. " - " .. (err or "unknown error"), vim.log.levels.ERROR)
+    end
+  elseif type(keymap) == "table" then
+    if keymap.cmd then
+      -- Handle command objects with descriptions: { cmd = "vim.cmd('nmap j gj')", desc = "Move down visually" }
+      local func, err = load(keymap.cmd)
+      if func then
+        func()
+        if keymap.desc then
+          -- Store description for reference (could be used by documentation tools)
+          -- For now, just print it as a comment in verbose mode
+        end
+      else
+        vim.notify("Error executing command: " .. keymap.cmd .. " - " .. (err or "unknown error"), vim.log.levels.ERROR)
+      end
+    elseif #keymap >= 3 then
+      -- Handle standard keymap table format [mode, lhs, rhs, opts]
+      Map(keymap[1], keymap[2], keymap[3], keymap[4])
+    else
+      vim.notify("Invalid keymap entry: " .. vim.inspect(keymap), vim.log.levels.WARN)
+    end
+  elseif type(keymap) == "function" then
+    -- Handle function entries - execute them
+    keymap()
+  else
+    vim.notify("Invalid keymap entry: " .. vim.inspect(keymap), vim.log.levels.WARN)
+  end
 end
 
 return {

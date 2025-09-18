@@ -2172,7 +2172,6 @@
     "json": true,
     "csharp": true
   },
-  "editor.stickyScroll.enabled": false,
   "github.copilot.chat.editor.temporalContext.enabled": true,
   "AHK++.v2.formatter": {
     "maxPreserveNewlines": 2,
@@ -2223,7 +2222,6 @@
     "editor.formatOnSave",
     "editor.formatOnType"
   ],
-  "editor.formatOnPaste": true,
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp"
   },
@@ -2277,5 +2275,25 @@
     "debug.onTaskErrors": "debugAnyway",
     "liveServer.settings.donotVerifyTags": true,
     "csharpOrganizeUsings.splitGroups": false,
-    "editor.formatOnSave": false
+    "editor.formatOnSave": false,
+    "editor.autoIndentOnPaste": true,
+    "gitlens.views.launchpad.files.layout": "list",
+    "gitlens.views.scm.grouped.default": "launchpad",
+    "gitlens.views.scm.grouped.hiddenViews": {
+      "commits": false,
+      "worktrees": false,
+      "branches": false,
+      "remotes": false,
+      "stashes": false,
+      "tags": false,
+      "contributors": false,
+      "repositories": false,
+      "fileHistory": false,
+      "launchpad": false,
+      "searchAndCompare": false
+    },
+    "gitlens.graph.layout": "editor",
+    "gitlens.graph.onlyFollowFirstParent": true,
+    "gitlens.graph.dimMergeCommits": true,
+    "editor.stickyScroll.enabled": false
 }

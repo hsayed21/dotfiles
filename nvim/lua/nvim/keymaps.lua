@@ -6,6 +6,27 @@ local nvim_keymaps = {
   { "", "<C-f>", "10+zz", { desc = "Page down and center" } },
   { "", "<C-b>", "10-zz", { desc = "Page up and center" } },
 
+  -- Large jumps with centering
+  { "n", "G", "Gzz", { desc = "Go to end and center" } },
+  { "n", "gg", "ggzz", { desc = "Go to beginning and center" } },
+  { "n", "{", "{zz", { desc = "Previous paragraph centered" } },
+  { "n", "}", "}zz", { desc = "Next paragraph centered" } },
+
+  -- Screen position jumps with centering
+  { "n", "H", "Hzz", { desc = "Top of screen centered" } },
+  { "n", "L", "Lzz", { desc = "Bottom of screen centered" } },
+  { "n", "M", "Mzz", { desc = "Middle of screen" } },
+
+  -- Search with centering
+  { "n", "*", "*zzzv", { desc = "Search word under cursor centered" } },
+  { "n", "#", "#zzzv", { desc = "Search word under cursor backward centered" } },
+  { "n", "n", "nzzzv", { desc = "Next search result centered" } },
+  { "n", "N", "Nzzzv", { desc = "Previous search result centered" } },
+
+  -- Jump list navigation with centering
+  { "n", "<C-o>", "<C-o>zz", { desc = "Jump back centered" } },
+  { "n", "<C-i>", "<C-i>zz", { desc = "Jump forward centered" } },
+
   -- Paste operations (nvim-specific)
   { "n", ",p", "Pv`[o`]do<c-r><c-p>\"<esc>", { desc = "Paste (down) a characterwise register on a new line" } },
   { "n", ",P", "Pv`[o`]dO<c-r><c-p>\"<esc>", { desc = "Paste (up) a characterwise register on a new line" } },

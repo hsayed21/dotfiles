@@ -386,15 +386,7 @@ function call(arg)
     nvim_feedkeys(string.format(':call %s<enter>', arg))
 end
 
-function vsc_notify(arg)
-    call(string.format('VSCodeNotify("%s")', arg))
-end
-
-function vsc_call(arg)
-    call(string.format('VSCodeCall("%s")', arg))
-end
-
-function register_jump()
+--[[ function register_jump()
     vsc_call('jumplist.registerJump')
 end
 
@@ -405,3 +397,4 @@ end
 function jump_forw()
     vsc_notify('jumplist.jumpForward')
 end
+ ]]
