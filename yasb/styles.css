@@ -129,6 +129,236 @@ QToolTip {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border: 1px solid var(--blue);
 }
+
+/* GlazeWM Workspaces - Matching Komorebi styling */
+.glazewm-workspaces {
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    padding: 0 4px 0 0;
+}
+
+.glazewm-workspaces .widget-container {
+    background-color: var(--surface1);
+    margin: 3px 0 3px 0;
+    border-radius: 12px;
+    border: 1px solid var(--surface0);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    margin-left: 4px;
+}
+
+.glazewm-workspaces .offline-status {
+    color: var(--surface2);
+    font-size: 12px;
+    padding: 0 0 0 4px;
+    font-weight: 600;
+}
+
+.glazewm-workspaces .ws-btn {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    font-size: 11px;
+    color: var(--overlay1);
+    height: 28px;
+    width: auto;
+    min-width: 45px;
+    padding: 0 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.glazewm-workspaces .ws-btn:hover {
+    color: var(--subtext1);
+}
+
+.glazewm-workspaces .ws-btn.empty {
+    color: var(--overlay1);
+    background-color: transparent;
+}
+
+.glazewm-workspaces .ws-btn.populated {
+    color: var(--lavender);
+    width: auto;
+    min-width: 45px;
+    height: 28px;
+    background-color: transparent;
+    border-radius: 5px;
+    margin: 0 2px;
+    padding: 0 6px;
+    font-size: 11px;
+}
+
+.glazewm-workspaces .ws-btn.active_empty {
+    color: var(--base);
+    background-color: var(--blue);
+    width: auto;
+    min-width: 45px;
+    height: 28px;
+    margin: 0 2px;
+    padding: 0 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--lavender);
+}
+
+.glazewm-workspaces .ws-btn.active_populated {
+    color: var(--base);
+    background-color: var(--lavender);
+    width: auto;
+    min-width: 45px;
+    height: 28px;
+    margin: 0 2px;
+    padding: 0 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--blue);
+}
+
+/* GlazeWM Workspace App Icons (when enabled) */
+.glazewm-workspaces .ws-btn .label {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 0 2px;
+}
+
+.glazewm-workspaces .ws-btn .icon {
+    font-size: 14px;
+    margin-right: 4px;
+}
+
+.glazewm-workspaces .ws-btn.active_populated .icon,
+.glazewm-workspaces .ws-btn.active_empty .icon {
+    color: var(--base);
+}
+
+.glazewm-workspaces .ws-btn.populated .icon {
+    color: var(--lavender);
+}
+
+.glazewm-workspaces .ws-btn.empty .icon {
+    color: var(--overlay1);
+}
+
+/* Individual app icon styling */
+.glazewm-workspaces .ws-btn .icon-1 {
+    margin-right: 2px;
+}
+
+.glazewm-workspaces .ws-btn .icon-2 {
+    margin-right: 2px;
+    opacity: 0.8;
+}
+
+.glazewm-workspaces .ws-btn .icon-3 {
+    margin-right: 2px;
+    opacity: 0.6;
+}
+
+.glazewm-workspaces .ws-btn .icon-4,
+.glazewm-workspaces .ws-btn .icon-5,
+.glazewm-workspaces .ws-btn .icon-6 {
+    margin-right: 1px;
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+/* GlazeWM Tiling Direction - Matching layout styling */
+.glazewm-tiling-direction {
+    padding: 0 4px 0 0;
+}
+
+.glazewm-tiling-direction .widget-container {
+    background-color: var(--surface1);
+    margin: 3px 0 3px 0;
+    border-radius: 12px;
+    border: 1px solid var(--surface0);
+}
+
+.glazewm-tiling-direction .btn {
+    border: none;
+    background-color: transparent;
+    margin: 0;
+    font-size: 14px;
+    color: var(--text);
+    height: 28px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.glazewm-tiling-direction .btn:hover {
+    color: var(--lavender);
+    background-color: rgba(180, 190, 254, 0.1);
+}
+
+.glazewm-tiling-direction .btn:active {
+    background-color: rgba(180, 190, 254, 0.2);
+    transform: scale(0.95);
+}
+
+/* GlazeWM Binding Mode - Status indicator styling */
+.glazewm-binding-mode {
+    padding: 0 6px 0 6px;
+}
+
+.glazewm-binding-mode .widget-container {
+    background-color: var(--surface1);
+    margin: 3px 0 3px 0;
+    border-radius: 12px;
+    border: 1px solid var(--surface0);
+}
+
+.glazewm-binding-mode .label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 0 4px 0 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.glazewm-binding-mode .label-offline {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--surface2);
+    padding: 0 4px 0 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.glazewm-binding-mode .icon.none {
+    font-size: 14px;
+    color: var(--overlay1);
+    margin-right: 4px;
+}
+
+.glazewm-binding-mode .icon.pause {
+    font-size: 14px;
+    color: var(--yellow);
+    margin-right: 4px;
+    animation: pulse 2s infinite;
+}
+
+.glazewm-binding-mode .icon.resize {
+    font-size: 14px;
+    color: var(--blue);
+    margin-right: 4px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
 .apps-widget {
     padding: 0 4px 0 2px;
 }
@@ -422,9 +652,9 @@ QToolTip {
     color: rgba(255, 255, 255, 0.2);
     font-size: 24px;
     font-weight: 600;
-    padding: 10px 0 20px 0;     
+    padding: 10px 0 20px 0;
 }
-.notes-menu .add-button,  
+.notes-menu .add-button,
 .notes-menu .cancel-button {
     padding: 8px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -441,8 +671,8 @@ QToolTip {
     background-color: rgba(255, 255, 255, 0.2);
 }
 .notes-menu .scroll-area {
-    background: transparent; 
-    border: none; 
+    background: transparent;
+    border: none;
     border-radius:0;
 }
 .notes-menu .note-input {
@@ -503,7 +733,7 @@ QToolTip {
     margin: 0;
     padding: 0;
     border: none;
-    outline: none;  
+    outline: none;
 }
 .calendar .calendar-table::item:selected {
     color: rgb(255, 255, 255);
@@ -573,7 +803,7 @@ QToolTip {
 }
 .github-menu .contents .item .title {
     font-size: 14px;
-    font-weight: 600; 
+    font-weight: 600;
 }
 .github-menu .contents .item .description {
     font-size: 12px;
@@ -1027,10 +1257,16 @@ QToolTip {
 .volume-slider {
     border: none;
 }
-.volume-slider::groove {}
-.volume-slider::handle{} 
+.volume-slider::groove {
+    background-color: var(--surface0);
+    border-radius: 2px;
+}
+.volume-slider::handle {
+    background-color: var(--blue);
+    border-radius: 2px;
+}
 .audio-menu {
-    background-color:rgba(17, 17, 27, 0.4); 
+    background-color:rgba(17, 17, 27, 0.4);
 }
 .audio-container .device {
     background-color:transparent;

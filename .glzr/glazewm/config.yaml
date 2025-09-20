@@ -9,33 +9,29 @@
 general:
   # Commands to run when the WM has started
   startup_commands:
-    - "shell-exec zebar"
-    - "shell-exec altsnap"
+    - "shell-exec yasb"
+    # - "shell-exec altsnap"
 
   # Commands to run just before the WM is shutdown
   shutdown_commands:
-    - "shell-exec taskkill /IM zebar.exe /F"
+    - "shell-exec taskkill /IM yasb.exe /F"
 
   # Commands to run after the WM config is reloaded
   config_reload_commands:
-    - "shell-exec taskkill /IM zebar.exe /F"
-    - "shell-exec zebar"
+    - "shell-exec taskkill /IM yasb.exe /F"
+    - "shell-exec yasb"
     - "wm-redraw"
 
-  # Whether to automatically focus windows underneath the cursor
-  focus_follows_cursor: false
+  # Whether to automatically focus windows underneath the cursor (matching Komorebi's focus_follows_mouse)
+  focus_follows_cursor: true
 
-  # Whether to switch back and forth between the previously focused
-  # workspace when focusing the current workspace
+  # Whether to switch back and forth between the previously focused workspace
   toggle_workspace_on_refocus: true
 
   cursor_jump:
-    # Whether to automatically move the cursor on the specified trigger
+    # Whether to automatically move the cursor on the specified trigger (matching Komorebi's mouse_follows_focus)
     enabled: true
-
-    # Trigger for cursor jump:
-    # - "monitor_focus": Jump when focus changes between monitors.
-    # - "window_focus": Jump when focus changes between windows.
+    # Trigger for cursor jump
     trigger: "window_focus"
 
 # =============================================================================
@@ -44,14 +40,14 @@ general:
 gaps:
   # Whether to scale the gaps with the DPI of the monitor
   scale_with_dpi: true
-  # Gap between adjacent windows
-  inner_gap: "8px"
-  # Gap between windows and the screen edge
+  # Gap between adjacent windows (matching Komorebi's default_container_padding: 4)
+  inner_gap: "4px"
+  # Gap between windows and the screen edge (matching Komorebi's default_workspace_padding: 4)
   outer_gap:
-    top: "40px"    # Extra space for status bar
-    right: "8px"
-    bottom: "8px"
-    left: "8px"
+    top: "4px"
+    right: "4px"
+    bottom: "4px"
+    left: "4px"
 
 window_effects:
   # Visual effects to apply to the focused window
@@ -60,7 +56,7 @@ window_effects:
     border:
       enabled: true
       color: "#61afef"    # Blue accent color
-      width: 2
+      width: 1
     # Remove the title bar from the window's frame
     hide_title_bar:
       enabled: false
@@ -86,11 +82,12 @@ window_effects:
       enabled: true
       style: "rounded"
     transparency:
-      enabled: false
-      opacity: 0.90
+      enabled: true
+      opacity: 0.99
 
 # =============================================================================
 # WINDOW BEHAVIOR
+# Optimized for productivity workflow
 # =============================================================================
 window_behavior:
   # New windows are created in this state whenever possible
@@ -107,128 +104,151 @@ window_behavior:
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
       # maximize button, then it'll be fullscreen'ed normally instead
-      maximized: true
+      maximized: false
       # Whether to show fullscreen windows as always on top
       shown_on_top: false
 
 # =============================================================================
 # WORKSPACES
-# Configured for dual monitor setup
+# Optimized for dual monitor productivity workflow
 # =============================================================================
 workspaces:
+  # PRIMARY MONITOR (Monitor 0) - Core workflow
   - name: "1"
-    display_name: "1: 󰋜 HOME"
+    display_name: "1.TERM"
     bind_to_monitor: 0
     keep_alive: true
+  - name: "5"
+    display_name: "5.FILES"
+    bind_to_monitor: 0
+    # keep_alive: true
+
+  # SECONDARY MONITOR (Monitor 1) - Development & Browsing
   - name: "2"
-    # display_name: "2:   DEV"
-    display_name: "2:  ‎ DEV"
+    display_name: "2.CHROME"
     bind_to_monitor: 1
     keep_alive: true
   - name: "3"
-    display_name: "3: 󰈹 WEB"
+    display_name: "3.DEV"
     bind_to_monitor: 1
+    # keep_alive: true
   - name: "4"
-    display_name: "4:  OTHERS"
-    # bind_to_monitor: 0
-  - name: "5"
-    display_name: "5:  TEST"
+    display_name: "4.WEB"
+    bind_to_monitor: 1
+    # keep_alive: true
   - name: "6"
-    display_name: "6:      "
+    display_name: "6.MISC"
+    bind_to_monitor: 1
+    # No monitor binding - flexible placement
   - name: "7"
-    display_name: "7:      "
+    display_name: "7.EXTRA"
   - name: "8"
-    display_name: "8:      "
+    display_name: "8.EXTRA"
   - name: "9"
-    display_name: "9:     "
+    display_name: "9.EXTRA"
   - name: "10"
-    display_name: "10:     "
+    display_name: "10.EXTRA"
 
-# My Configuration: 2 physical displays/monitors
-# - Monitor 0: Primary (left) - Workspace 1kkk
+# Monitor Layout (matching Komorebi structure):
+# Monitor 0 (Primary): Terminal (1.TERM), File Management (2.FILES)
+# Monitor 1 (Secondary): Development (3.DEV), Chrome (4.CHROME), Web Browsing (5.WEB), Miscellaneous (6.MISC)
 
 # =============================================================================
 # WINDOW RULES
-# Automatic application routing and window management
+# Automatic application routing and window management based on new workspace layout
 # =============================================================================
 window_rules:
-  # Communication & Office Apps → Workspace 1 (Primary Monitor)
-  - commands: ["move --workspace 1", "focus --workspace 1", "set-fullscreen"]
+  # Terminal Applications → Workspace 1.TERM (Primary Monitor)
+  - commands: ["move --workspace 1", "focus --workspace 1"]
+    match:
+      # Terminal applications
+      - window_process: { regex: "WindowsTerminal|wezterm|cmd|powershell|pwsh" }
+      - window_title: { regex: "Command Prompt|PowerShell|Terminal" }
+
+  # File Management → Workspace 5.FILES (Primary Monitor)
+  - commands: ["move --workspace 5", "focus --workspace 5"]
+    match:
+      # File managers and explorers
+      - window_process: { regex: "dopus|explorer" }
+      - window_title: { regex: "File Explorer|Directory Opus" }
+      # Search tools
+      - window_process: { equals: "everything" }
+
+  # Chrome → Workspace 2.CHROME (Secondary Monitor)
+  - commands: ["move --workspace 2", "focus --workspace 2"]
+    match:
+      # Chrome specifically
+      - window_process: { equals: "chrome" }
+
+
+  # Development Tools → Workspace 3.DEV (Secondary Monitor)
+  - commands: ["move --workspace 3", "focus --workspace 3"]
+    match:
+      # Code editors and IDEs
+      - window_process: { regex: "Code|devenv|Code - Insiders" }
+      - window_title: { regex: "Visual Studio Code|Visual Studio 2022|.*\\.cs - Visual Studio|.*\\.ahk - Visual Studio Code" }
+      # Database tools
+      - window_process: { regex: "dbforge.*?" }
+
+  # Web Browsers → Workspace 5.WEB (Secondary Monitor)
+  - commands: ["move --workspace 4", "focus --workspace 4"]
+    match:
+      # Firefox and Edge for web browsing
+      - window_process: { regex: "firefox|msedge" }
+
+  # Communication & Office → Workspace 6.MISC (Flexible)
+  - commands: ["move --workspace 6", "focus --workspace 6"]
     match:
       # Communication apps
       - window_process: { regex: "ms-teams|slack|discord|Mailbird|telegram|whatsapp" }
-      # Microsoft Office and document editors
+      # Office applications
       - window_process: { regex: "WINWORD|EXCEL|MSPUB|MSACCESS|soffice|wordpad" }
-      # File managers
-      - window_process: { regex: "dopus|explorer" }
+      # Other browsers
+      - window_process: { regex: "brave|opera|vivaldi" }
 
-  # Development Tools → Workspace 2 (Secondary Monitor)
-  - commands: ["move --workspace 2", "focus --workspace 2", "set-fullscreen", "wm-redraw"]
+  # Floating Applications (matching Komorebi floating_applications)
+  - commands: ["set-floating --centered"]
     match:
-      # Code editors and IDEs
-      - window_process: { regex: "Code - Insiders|Code|dbforge.*?|devenv" }
+      # Text editors and utilities
+      - window_process: { regex: "sublime_text|TreeSize|PotPlayerMini64|QuranWindows|quran-companion" }
+      # Launcher and search utilities
+      - window_process: { regex: "everything|launchy|keypirinha|executor" }
+      # System utilities
+      - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint" }
+      - window_process: { equals: "DeepL" }
+      # Productivity tools
+      - window_process: { regex: "ShareX|snippet-tool|ColorPicker" }
+      # Communication (Slack floating like Komorebi)
+      - window_process: { equals: "slack" }
 
-  # Web Browsers → Workspace 3 (Secondary Monitor)
-  - commands: ["move --workspace 3", "focus --workspace 3", "set-fullscreen"]
-    match:
-      # All major browsers
-      - window_process: { regex: "chrome|firefox|brave|opera|vivaldi" }
-
-  # System & Utility Apps (Ignored - Don't manage these windows)
+  # System & Utility Apps (Ignored - matching Komorebi ignore_rules)
   - commands: ["ignore"]
     match:
-      # System and utility apps that should not be managed
-      - window_process: { regex: "zebar|Flow.Launche|AltSnap" }
+      # Status bars and system utilities
+      - window_process: { regex: "yasb|zebar|Flow.Launcher|AltSnap" }
       - window_process: { regex: "Taskmgr|ScreenClippingHost" }
       - window_process: { regex: "voicemeeterpro|voicemeeter8x64" }
-      # Common dialog boxes
-      - window_title: { regex: "Save As|Open|Print|Find|Replace" }
-      - window_class: { regex: "#32768|#32769" }
-      - window_class: { equals: "#32770" }
-      - window_title: { regex: ".*?dialog.*?|.*?alert.*?" }
-      # Settings and properties dialogs
-      - window_title: { regex: ".*?Properties|.*?Settings|.*?Preferences|.*?Options" }
-      # Windows with question marks (dialogs, prompts, confirmations)
-      - window_title: { regex: ".*\\?.*" }
+      # PowerToys applications
+      - window_process: { regex: "PowerToys" }
+      - window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
 
-      # Browser picture-in-picture windows
+      # Dialog boxes and system windows
+      - window_title: { regex: "Save As|Open|Print|Find|Replace" }
+      - window_title: { regex: "Properties|Settings|Preferences|Options" }
+      - window_title: { regex: "About|Help|Error|Warning|Confirmation|dialog|alert" }
+      - window_title: { regex: "Update|Install|Authentication|Login|Password" }
+      - window_class: { regex: "#32768|#32769|#32770" }
+      - window_class: { regex: "CabinetWClass|TaskManagerWindow|ApplicationFrameWindow" }
+
+      # Browser picture-in-picture
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
-
-      # PowerToys applications
-      - window_process: { equals: "PowerToys" }
-        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      - window_process: { equals: "PowerToys" }
-        window_title: { regex: ".*? - Peek" }
-        window_class: { regex: "HwndWrapper" }
 
       # Application-specific ignore rules
       - window_title: { equals: "TODO Tasks" }
       - window_process: { regex: "AutoHotkey.*?" }
       - window_process: { regex: "POPsRestaurant|pops_enterprise|Retail.Main.BackOffice|Retail.Main.POS" }
       - window_title: { regex: "Swagger UI.*?" }
-      - window_title: { equals: "ShareX - Image editor" }
-
-  # Floating Windows (Not tiled, but still managed)
-  - commands: ["set-floating"]
-    match:
-      # Text editors and media players
-      - window_process: { regex: "sublime_text|TreeSize|PotPlayerMini64|QuranWindows|quran-companion" }
-      # Search and launcher utilities
-      - window_process: { regex: "everything|launchy|keypirinha|executor" }
-
-  # Centered Floating Windows (Special positioning)
-  - commands: ["set-floating --centered"]
-    match:
-      # System utilities and small applications
-      - window_process: { regex: "Taskmgr|ProcessHacker|winspy|Calculator|notepad|mspaint|WindowsTerminal|ApplicationFrameHost" }
-      - window_title: { regex: "Volume Mixer|Settings|Task Manager" }
-      - window_process: { equals: "DeepL" }
-
-  # Fullscreen Windows (Force fullscreen for specific applications)
-  - commands: ["set-fullscreen"]
-    match:
-      - window_title: { regex: "ShareX - Image editor - .*?" }
 
 # =============================================================================
 # BINDING MODES
@@ -281,7 +301,7 @@ keybindings:
   - commands: ["toggle-tiling-direction"]
     bindings: ["alt+shift+v"]
   - commands: ["toggle-floating --centered"]
-    bindings: ["alt+ctrl+f"]
+    bindings: ["alt+shift+z"]
   - commands: ["toggle-tiling"]
     bindings: ["alt+ctrl+t"]
   - commands: ["toggle-fullscreen"]
@@ -291,7 +311,13 @@ keybindings:
   - commands: ["close"]
     bindings: ["alt+shift+c"]
 
-  # Window Focus Navigation (HJKL + Arrow Keys)
+  # Layout Management (matching Komorebi layout commands)
+  # - commands: ["set-tiling-direction --direction vertical"]
+  #   bindings: ["alt+shift+s"]
+  # - commands: ["set-tiling-direction --direction horizontal"]
+  #   bindings: ["alt+shift+h"]
+
+  # Window Focus Navigation (HJKL + Arrow Keys - matching Komorebi)
   - commands: ["focus --direction left"]
     bindings: ["alt+ctrl+h", "alt+ctrl+left"]
   - commands: ["focus --direction right"]
@@ -301,7 +327,7 @@ keybindings:
   - commands: ["focus --direction down"]
     bindings: ["alt+ctrl+j", "alt+ctrl+down"]
 
-  # Window Movement (HJKL + Arrow Keys)
+  # Window Movement (HJKL + Arrow Keys - matching Komorebi)
   - commands: ["move --direction left"]
     bindings: ["alt+shift+h", "alt+shift+left"]
   - commands: ["move --direction right"]
@@ -311,17 +337,17 @@ keybindings:
   - commands: ["move --direction down"]
     bindings: ["alt+shift+j", "alt+shift+down"]
 
-  # Window Resizing (HJKL + Arrow Keys)
+  # Window Resizing (enhanced like Komorebi)
   - commands: ["resize --width +2%"]
-    bindings: ["alt+ctrl+lwin+h", "alt+ctrl+left"]
+    bindings: ["alt+ctrl+lwin+l", "alt+ctrl+lwin+right"]
   - commands: ["resize --width -2%"]
-    bindings: ["alt+ctrl+lwin+l", "alt+ctrl+right"]
+    bindings: ["alt+ctrl+lwin+h", "alt+ctrl+lwin+left"]
   - commands: ["resize --height +2%"]
-    bindings: ["alt+ctrl+lwin+k", "alt+ctrl+up"]
+    bindings: ["alt+ctrl+lwin+k", "alt+ctrl+lwin+up"]
   - commands: ["resize --height -2%"]
-    bindings: ["alt+ctrl+lwin+j", "alt+ctrl+down"]
+    bindings: ["alt+ctrl+lwin+j", "alt+ctrl+lwin+down"]
 
-  # Workspace Focus (Number Keys 1-5)
+  # Workspace Focus (1-6 matching Komorebi workspace names)
   - commands: ["focus --workspace 1"]
     bindings: ["alt+1"]
   - commands: ["focus --workspace 2"]
@@ -343,8 +369,7 @@ keybindings:
   - commands: ["focus --workspace 10"]
     bindings: ["alt+0"]
 
-
-  # Move Window to Workspace (Shift + Number Keys)
+  # Move Window to Workspace (matching Komorebi behavior)
   - commands: ["move --workspace 1", "focus --workspace 1"]
     bindings: ["alt+shift+1"]
   - commands: ["move --workspace 2", "focus --workspace 2"]
@@ -366,11 +391,11 @@ keybindings:
   - commands: ["move --workspace 10", "focus --workspace 10"]
     bindings: ["alt+shift+0"]
 
-  # Workspace Navigation (Quick switching)
+  # Workspace Navigation (matching Komorebi CycleWorkspace)
   - commands: ["focus --next-workspace"]
-    bindings: ["alt+s"]
+    bindings: ["alt+tab"]
   - commands: ["focus --prev-workspace"]
-    bindings: ["alt+a"]
+    bindings: ["alt+shift+tab"]
   - commands: ["focus --recent-workspace"]
     bindings: ["alt+d"]
 

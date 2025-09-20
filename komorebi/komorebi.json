@@ -3,9 +3,11 @@
     "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
     "window_hiding_behaviour": "Hide",
     "cross_monitor_move_behaviour": "Insert",
-    "unmanaged_window_operation_behaviour": "Op",
     "default_workspace_padding": 4,
     "default_container_padding": 4,
+    "float_override": false,
+    "float_override_placement": "CenterAndResize",
+    "floating_layer_behaviour": "Float",
     "border": true,
     "border_width": 2,
     "border_offset": -1,
@@ -31,10 +33,10 @@
         "bar_accent": "Base0D"
     },
     "transparency": true,
-    "transparency_alpha": 240,
+    "transparency_alpha": 220,
     "animation": {
         "enabled": true,
-        "duration": 200,
+        "duration": 150,
         "fps": 144,
         "style": "EaseOutExpo"
     },
@@ -45,9 +47,11 @@
         "right": 0,
         "bottom": 0
     },
-    "mouse_follows_focus": false,
+    "mouse_follows_focus": true,
     "window_container_behaviour": "Create",
     "focus_follows_mouse": "Komorebi",
+    "unmanaged_window_operation_behaviour": "Op",
+    "default_workspace_index": 5,
     "ignore_rules": [
         {
             "kind": "Exe",
@@ -87,6 +91,21 @@
         {
             "kind": "Exe",
             "id": "PowerToys.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "AutoHotkey.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "POPsRestaurant.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "ApplicationFrameHost.exe",
             "matching_strategy": "Equals"
         },
         {
@@ -150,13 +169,53 @@
             "matching_strategy": "Equals"
         },
         {
-            "kind": "Exe",
-            "id": "AutoHotkey.exe",
+            "kind": "Title",
+            "id": "About",
             "matching_strategy": "Contains"
         },
         {
-            "kind": "Exe",
-            "id": "POPsRestaurant.exe",
+            "kind": "Title",
+            "id": "Help",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Error",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Warning",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Confirmation",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Update",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Install",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Authentication",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Login",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Title",
+            "id": "Password",
             "matching_strategy": "Contains"
         },
         {
@@ -269,73 +328,43 @@
     ],
     "monitors": [
         {
-            // "window_based_work_area_offset": {
-            //     "left": 0,
-            //     "top": 0,
-            //     "right": 0,
-            //     "bottom": 0
-            // },
-            "work_area_offset": {
-                "left": 0,
-                "top": 50,
-                "right": 0,
-                "bottom": 50
-            },
             "workspaces": [
                 {
-                    "name": "1.HOME",
-                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
-                    // "layout": "BSP",
+                    "name": "1.TERM",
+                    "layout": "BSP",
                     "initial_workspace": true,
                     "initial_workspace_rules": [
                         {
                             "kind": "Exe",
-                            "id": "ms-teams.exe",
+                            "id": "WindowsTerminal.exe",
                             "matching_strategy": "Equals"
                         },
                         {
                             "kind": "Exe",
-                            "id": "slack.exe",
+                            "id": "wezterm-gui.exe",
                             "matching_strategy": "Equals"
                         },
                         {
                             "kind": "Exe",
-                            "id": "discord.exe",
-                            "matching_strategy": "Equals"
-
-                        },
-                        {
-                            "kind": "Exe",
-                            "id": "Mailbird.exe",
-                            "matching_strategy": "Equals"
-
-                        },
-                        {
-                            "kind": "Exe",
-                            "id": "telegram.exe",
-                            "matching_strategy": "Equals"
-
-                        },
-                        {
-                            "kind": "Exe",
-                            "id": "whatsapp.exe",
+                            "id": "cmd.exe",
                             "matching_strategy": "Equals"
                         },
                         {
                             "kind": "Exe",
-                            "id": "WINWORD.exe",
+                            "id": "powershell.exe",
                             "matching_strategy": "Equals"
                         },
                         {
                             "kind": "Exe",
-                            "id": "EXCEL.exe",
+                            "id": "pwsh.exe",
                             "matching_strategy": "Equals"
-                        },
-                        {
-                            "kind": "Exe",
-                            "id": "wordpad.exe",
-                            "matching_strategy": "Equals"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "2.FILES",
+                    "layout": "VerticalStack",
+                    "initial_workspace_rules": [
                         {
                             "kind": "Exe",
                             "id": "dopus.exe",
@@ -345,21 +374,20 @@
                             "kind": "Exe",
                             "id": "explorer.exe",
                             "matching_strategy": "Equals"
+                        },
+                        {
+                            "kind": "Exe",
+                            "id": "everything.exe",
+                            "matching_strategy": "Equals"
                         }
                     ]
-                },
-                {
-                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
-                    "name": "6.MISC",
-                    "layout": "Grid"
                 }
             ]
         },
         {
             "workspaces": [
                 {
-                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
-                    "name": "2.DEV",
+                    "name": "3.DEV",
                     "layout": "BSP",
                     "initial_workspace_rules": [
                         {
@@ -375,53 +403,45 @@
                         {
                             "kind": "Exe",
                             "id": "dbforge.exe",
-                            "matching_strategy": "Equals"
+                            "matching_strategy": "Contains"
                         }
                     ]
                 },
                 {
-                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
-                    "name": "3.WEB",
+                    "name": "4.CHROME",
                     "layout": "VerticalStack",
                     "initial_workspace_rules": [
                         {
                             "kind": "Exe",
                             "id": "chrome.exe",
                             "matching_strategy": "Equals"
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "5.WEB",
+                    "layout": "VerticalStack",
+                    "initial_workspace_rules": [
                         {
                             "kind": "Exe",
                             "id": "firefox.exe",
                             "matching_strategy": "Equals"
-                        }
-                    ]
-                },
-                {
-                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
-                    "name": "4.TERM",
-                    "layout": "HorizontalStack",
-                    "initial_workspace_rules": [
-                        {
-                            "kind": "Exe",
-                            "id": "WindowsTerminal.exe",
-                            "matching_strategy": "Equals"
                         },
                         {
                             "kind": "Exe",
-                            "id": "wezterm-gui.exe",
+                            "id": "msedge.exe",
                             "matching_strategy": "Equals"
                         }
                     ]
                 },
                 {
-                    "custom_layout": "G:\\My Drive\\dotfiles\\komorebi\\single-layout.json",
-                    "name": "5.TEST",
-                    "layout": "Rows"
+                    "name": "6.MISC",
+                    "layout": "Grid"
                 }
             ]
         }
     ],
-    "floating_window_aspect_ratio": "Widescreen",
+    "floating_window_aspect_ratio": "Standard",
     "floating_applications": [
         {
             "kind": "Exe",
@@ -507,10 +527,75 @@
             "kind": "Exe",
             "id": "DeepL.exe",
             "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "ShareX.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "snippet-tool.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "ColorPicker.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "PowerToys.exe",
+            "matching_strategy": "Contains"
+        },
+        {
+            "kind": "Exe",
+            "id": "slack.exe",
+            "matching_strategy": "Contains"
         }
     ],
-    "bar_configurations": [
-        "G:\\My Drive\\dotfiles\\komorebi\\komorebi.bar.json",
-        "G:\\My Drive\\dotfiles\\komorebi\\komorebi.bar2.json"
+    "slow_application_identifiers": [
+        {
+            "kind": "Exe",
+            "id": "ms-teams.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "slack.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "chrome.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "firefox.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "devenv.exe",
+            "matching_strategy": "Equals"
+        }
+    ],
+    "object_name_change_applications": [
+        {
+            "kind": "Exe",
+            "id": "Code.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "chrome.exe",
+            "matching_strategy": "Equals"
+        },
+        {
+            "kind": "Exe",
+            "id": "firefox.exe",
+            "matching_strategy": "Equals"
+        }
     ]
 }
