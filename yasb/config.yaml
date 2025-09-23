@@ -110,7 +110,7 @@ widgets:
               - { title: "Documents", path: "~\\Documents" }
               - { title: "Pictures", path: "~\\Pictures" }
             system_menu: true
-            power_menu: false
+            power_menu: true
             blur: true
     media:
         type: "yasb.media.MediaWidget"
@@ -161,12 +161,12 @@ widgets:
     active_window:
         type: "yasb.active_window.ActiveWindowWidget"
         options:
-            label: "{win[title]}"
+            label: "{win[process][name]}"
             label_alt: "[class_name='{win[class_name]}' exe='{win[process][name]}' hwnd={win[hwnd]}]"
             label_no_window: ""
             label_icon: true
             label_icon_size: 14
-            max_length: 56
+            max_length: 12
             max_length_ellipsis: "..."
             monitor_exclusive: true
             label_shadow:

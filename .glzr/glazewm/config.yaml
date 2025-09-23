@@ -104,7 +104,7 @@ window_behavior:
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
       # maximize button, then it'll be fullscreen'ed normally instead
-      maximized: false
+      maximized: true
       # Whether to show fullscreen windows as always on top
       shown_on_top: false
 
@@ -238,6 +238,9 @@ window_rules:
       - window_title: { regex: "About|Help|Error|Warning|Confirmation|dialog|alert" }
       - window_title: { regex: "Update|Install|Authentication|Login|Password" }
       - window_class: { regex: "#32768|#32769|#32770" }
+      # - window_class: { equals: '#32770' }
+      #   window_process: { equals: 'Code' }
+      - window_process: { equals: 'Code' }
       - window_class: { regex: "CabinetWClass|TaskManagerWindow|ApplicationFrameWindow" }
 
       # Browser picture-in-picture

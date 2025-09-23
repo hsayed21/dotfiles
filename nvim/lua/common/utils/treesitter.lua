@@ -1,6 +1,11 @@
 local M = {}
 
-local ts_utils = require("nvim-treesitter.ts_utils")
+-- Check if nvim-treesitter is available (not available in VSCode)
+local ts_utils_ok, ts_utils = pcall(require, "nvim-treesitter.ts_utils")
+if not ts_utils_ok then
+  -- Return empty module if treesitter is not available
+  return M
+end
 
 local function is_function_node(node)
   if not node then return false end
@@ -63,8 +68,9 @@ local function find_function_by_direction(direction)
   return false
 end
 
+-- Safer version of register_queries with proper error handling
 function M.register_queries()
-  vim.treesitter.query.set("lua", "textobjects", [[
+  local query_string = [[
     ;; Standard function declaration
     (function_declaration
       name: (identifier) @function.name) @function.outer
@@ -89,7 +95,17 @@ function M.register_queries()
       body: (block) @function.inner)
     (function_definition
       body: (block) @function.inner)
-  ]])
+  ]]
+
+  -- Test the query before setting it
+  local ok, query_or_error = pcall(vim.treesitter.query.parse, "lua", query_string)
+  if not ok then
+    print("Treesitter query error:", query_or_error)
+    return false
+  end
+
+  vim.treesitter.query.set("lua", "textobjects", query_string)
+  return true
 end
 
 function M.next_function()

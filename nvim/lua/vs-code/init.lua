@@ -2,6 +2,7 @@
 print("VSCode mode loaded")
 
 -- Load common configuration first
+require("common.utils.functions")
 require("common.opts")
 
 -- VSCode-specific options
@@ -23,9 +24,9 @@ end
 require("vs-code.keymaps")
 
 -- Load common utilities
--- require("common.utils.functions")
--- require("common.registers.registers")
--- require("common.registers.text-objects")
+require("common.utils.autocmds")
+require("common.utils.registers")
+-- require("common.utils.treesitter")
 
 -- Load common plugins that work in VSCode
 require("lazy").setup({
