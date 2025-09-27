@@ -51,7 +51,6 @@ Write-Log "Starting setup process..." -Level Info
 $packages = @{
   Development = @{
     Scoop  = @(
-      @{ name = "git" },
       @{ name = "python" }
     )
     Winget = @(
@@ -59,6 +58,7 @@ $packages = @{
       @{ name = "Microsoft.WindowsTerminal" },
       @{ id = "Neovim.Neovim.Nightly" },
       @{ id = "GitHub.cli" }
+      @{ id = "Git.Git" }
     )
     Choco  = @(
       @{ name = "dotnet-sdk" }
@@ -78,21 +78,24 @@ $packages = @{
       @{ name = "Scoop-Search" }
       # @{ name = "fzf" },
       # @{ name = "ripgrep" }
+      @{ name = "extras/everythingtoolbar" }
     )
     Winget      = @(
       @{ name = "Microsoft.PowerToys" },
       @{ name = "JanDeDobbeleer.OhMyPosh" },
       @{ name = "GlazeWM" },
       @{ name = "Zebar" },
-      @{ id = "stnkl.EverythingToolbar" },
-      @{ id = "VB-Audio.Voicemeeter.Potato" }
+      @{ id = "VB-Audio.Voicemeeter.Potato" },
+      @{ id = "7zip.7zip" },
+      @{ id = "ShareX.ShareX" },
+      @{ id = "wez.wezterm" }
+
     )
     Choco       = @(
       @{ name = "flow-launcher" },
       @{ name = "winspy" },
       @{ name = "wingetui" },
       @{ name = "nircmd" },
-      @{ name = "7zip" },
       # @{ name = "notepadplusplus" },
       @{ name = "everything" },
       @{ name = "wget" },
@@ -103,17 +106,15 @@ $packages = @{
       @{ name = "bat" },
       @{ name = "grep" },
       @{ name = "sublimetext4" },
-      @{ name = "sharex" },
-      @{ name = "wezterm" },
       @{ name = "yasb" },
       @{ name = "translucenttb" }
     )
     SourceForge = @(
-      @{
-        project = "globonote/files/globonote"
-        file    = "globonote-setup.exe"
-        # args = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART"
-      }
+      # @{
+      #   project = "globonote/files/globonote"
+      #   file    = "globonote-setup.exe"
+      #   # args = "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART"
+      # }
     )
   }
   Browsers    = @{
@@ -130,7 +131,7 @@ $packages = @{
       @{ name = "jetbrainsmono" },
       @{ name = "firacode" },
       @{ name = "cascadiacode" }
-    ),
+    )
     Winget = @(
       @{ name = "Microsoft.CascadiaCode" }
     )
@@ -148,19 +149,19 @@ $mappings = @(
   # vscode
   @{
     source = "$PWD\vscode\settings.json"
-    dest   = "$Env:APPDATA\Code\User\settings.json"
+    dest   = "$Env:APPDATA\Code - Insiders\User\settings.json"
   },
   @{
     source = "$PWD\vscode\keybindings.json"
-    dest   = "$Env:APPDATA\Code\User\keybindings.json"
+    dest   = "$Env:APPDATA\Code - Insiders\User\keybindings.json"
   },
   @{
     source = "$PWD\vscode\extensions.json"
-    dest   = "$Home\.vscode\extensions\extensions.json"
+    dest   = "$Home\.vscode-insiders\extensions\extensions.json"
   },
   @{
     source = "$PWD\vscode\copilot\prompts"
-    dest   = "$Env:APPDATA\Code\User\prompts"
+    dest   = "$Env:APPDATA\Code - Insiders\User\prompts"
   },
   # vs2022
   @{
@@ -421,8 +422,8 @@ if ($runPackages) {
 
     # Ensure required Scoop buckets are available
     Write-Log "Setting up Scoop buckets..." -Level Info
-    Add-ScoopBucket -BucketName "extras"
-    Add-ScoopBucket -BucketName "versions"
+    $null = Add-ScoopBucket -BucketName "extras"
+    $null = Add-ScoopBucket -BucketName "versions"
 
     foreach ($category in $packages.Keys) {
       if ($Category.Count -eq 0 -or $Category -contains $category) {
@@ -431,7 +432,18 @@ if ($runPackages) {
         if ($packages[$category].Scoop) {
           foreach ($pkg in $packages[$category].Scoop) {
             $stats.Total++
-            $result = Install-ScoopPackage -Package $pkg
+            # Universal check across all package managers
+            $packageName = if ($pkg.ContainsKey('name')) { $pkg.name } else { $pkg.id }
+            $packageId = if ($pkg.ContainsKey('id')) { $pkg.id } else { "" }
+
+            $installCheck = Test-PackageInstalled -PackageName $packageName -PackageId $packageId
+            if ($installCheck.IsInstalled) {
+                Write-Log "$packageName is already installed via $($installCheck.PackageManager)" -Level Success
+                $result = @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Scoop"; Reason = "Already installed via $($installCheck.PackageManager)" }
+            } else {
+                $result = Install-ScoopPackage -Package $pkg
+            }
+
             switch ($result.Status) {
               "Success" { $stats.Successful += $result }
               "Failed"  { $stats.Failed += $result }
@@ -443,7 +455,18 @@ if ($runPackages) {
         if ($packages[$category].Winget) {
           foreach ($pkg in $packages[$category].Winget) {
             $stats.Total++
-            $result = Install-WingetPackage -Package $pkg
+            # Universal check across all package managers
+            $packageName = if ($pkg.ContainsKey('name')) { $pkg.name } else { $pkg.id }
+            $packageId = if ($pkg.ContainsKey('id')) { $pkg.id } else { "" }
+
+            $installCheck = Test-PackageInstalled -PackageName $packageName -PackageId $packageId
+            if ($installCheck.IsInstalled) {
+                Write-Log "$packageName is already installed via $($installCheck.PackageManager)" -Level Success
+                $result = @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Winget"; Reason = "Already installed via $($installCheck.PackageManager)" }
+            } else {
+                $result = Install-WingetPackage -Package $pkg
+            }
+
             switch ($result.Status) {
               "Success" { $stats.Successful += $result }
               "Failed"  { $stats.Failed += $result }
@@ -455,7 +478,18 @@ if ($runPackages) {
         if ($packages[$category].Choco) {
           foreach ($pkg in $packages[$category].Choco) {
             $stats.Total++
-            $result = Install-ChocoPackage -Package $pkg
+            # Universal check across all package managers
+            $packageName = if ($pkg.ContainsKey('name')) { $pkg.name } else { $pkg.id }
+            $packageId = if ($pkg.ContainsKey('id')) { $pkg.id } else { "" }
+
+            $installCheck = Test-PackageInstalled -PackageName $packageName -PackageId $packageId
+            if ($installCheck.IsInstalled) {
+                Write-Log "$packageName is already installed via $($installCheck.PackageManager)" -Level Success
+                $result = @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Chocolatey"; Reason = "Already installed via $($installCheck.PackageManager)" }
+            } else {
+                $result = Install-ChocoPackage -Package $pkg
+            }
+
             switch ($result.Status) {
               "Success" { $stats.Successful += $result }
               "Failed"  { $stats.Failed += $result }
@@ -482,6 +516,9 @@ if ($runPackages) {
 Write-Log "Installing VS Code extensions..." -Level Info
 & "$PWD\vscode\install-extensions.ps1"
 
+Write-Log "Windows Stuff..." -Level Info
+& "$PWD\_helper\windows.ps1"
+
 # Configuration/Mapping
 if ($runMappings) {
     Write-Log "Creating symbolic links..." -Level Info
@@ -494,7 +531,7 @@ if ($runMappings) {
       $progress = [math]::Round(($current / $total) * 100)
       Write-Progress -Activity "Creating symlinks" -Status "$progress% Complete" -PercentComplete $progress
 
-      Create-SymbolicLink -destPath $_mapping.dest -sourcePath $_mapping.source -Force
+      $null = Create-SymbolicLink -destPath $_mapping.dest -sourcePath $_mapping.source -Force
     }
     Write-Progress -Activity "Creating symlinks" -Completed
 }
@@ -521,19 +558,29 @@ if ($runPowerShell) {
       if (!(Get-Module -ListAvailable -Name $module)) {
         Write-Log "Installing PowerShell module: $module..." -Level Info
 
-        # Special handling for WinGet CommandNotFound module
-        if ($module -eq "Microsoft.WinGet.CommandNotFound") {
-          try {
-            Install-PSResource -Name $module -Scope CurrentUser -TrustRepository
+        try {
+          # Special handling for WinGet CommandNotFound module
+          if ($module -eq "Microsoft.WinGet.CommandNotFound" -or $module -eq "pscolor") {
+            try {
+              Install-PSResource -Name $module -Scope CurrentUser -TrustRepository -ErrorAction Stop
+              Write-Log "Successfully installed $module" -Level Success
+            }
+            catch {
+              Write-Log "Failed to install $module with Install-PSResource, trying Install-Module..." -Level Warning
+              Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false -ErrorAction Stop
+              Write-Log "Successfully installed $module" -Level Success
+            }
           }
-          catch {
-            Write-Log "Failed to install $module with Install-PSResource, trying Install-Module..." -Level Warning
-            Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+          else {
+            Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false -ErrorAction Stop
+            Write-Log "Successfully installed $module" -Level Success
           }
         }
-        else {
-          Install-Module -Name $module -AcceptLicense -Scope CurrentUser -Force -AllowClobber -Confirm:$false
+        catch {
+          Write-Log "Failed to install PowerShell module $module : $($_.Exception.Message)" -Level Error
         }
+      } else {
+        Write-Log "$module is already installed" -Level Success
       }
     }
 
@@ -578,7 +625,9 @@ Write-Log "Skipped installations: $($stats.Skipped.Count)" -Level Warning
 if ($stats.Successful.Count -gt 0) {
     Write-Log "`nSuccessfully installed packages:" -Level Success
     foreach ($pkg in $stats.Successful) {
-        Write-Log "  ✓ $($pkg.PackageName) ($($pkg.PackageManager))" -Level Success
+        if ($pkg.PackageName -and $pkg.PackageName -ne "") {
+            Write-Log "  ✓ $($pkg.PackageName) ($($pkg.PackageManager))" -Level Success
+        }
     }
 }
 
@@ -586,8 +635,10 @@ if ($stats.Successful.Count -gt 0) {
 if ($stats.Failed.Count -gt 0) {
     Write-Log "`nFailed installations:" -Level Error
     foreach ($pkg in $stats.Failed) {
-        $errorMsg = if ($pkg.Error) { " - $($pkg.Error)" } else { "" }
-        Write-Log "  ✗ $($pkg.PackageName) ($($pkg.PackageManager))$errorMsg" -Level Error
+        if ($pkg.PackageName -and $pkg.PackageName -ne "") {
+            $errorMsg = if ($pkg.Error) { " - $($pkg.Error)" } else { "" }
+            Write-Log "  ✗ $($pkg.PackageName) ($($pkg.PackageManager))$errorMsg" -Level Error
+        }
     }
 }
 
@@ -595,8 +646,10 @@ if ($stats.Failed.Count -gt 0) {
 if ($stats.Skipped.Count -gt 0) {
     Write-Log "`nSkipped installations:" -Level Warning
     foreach ($pkg in $stats.Skipped) {
-        $reasonMsg = if ($pkg.Reason) { " - $($pkg.Reason)" } else { "" }
-        Write-Log "  ⊘ $($pkg.PackageName) ($($pkg.PackageManager))$reasonMsg" -Level Warning
+        if ($pkg.PackageName -and $pkg.PackageName -ne "") {
+            $reasonMsg = if ($pkg.Reason) { " - $($pkg.Reason)" } else { "" }
+            Write-Log "  ⊘ $($pkg.PackageName) ($($pkg.PackageManager))$reasonMsg" -Level Warning
+        }
     }
 }
 

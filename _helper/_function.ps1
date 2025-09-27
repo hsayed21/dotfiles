@@ -12,6 +12,163 @@ function Test-PackageProperty {
     return $true
 }
 
+# Universal function to check if a package is installed across all package managers
+function Test-PackageInstalled {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$PackageName,
+        [Parameter(Mandatory = $false)]
+        [string]$PackageId = ""
+    )
+    
+    # Create search terms from package name and ID
+    $searchNames = @($PackageName)
+    if ($PackageId -and $PackageId -ne $PackageName) {
+        $searchNames += $PackageId
+    }
+    
+    # Extract base name without bucket prefix for Scoop packages (e.g., "extras/altsnap" -> "altsnap")
+    if ($PackageName -match "^([^/]+)/(.+)$") {
+        $searchNames += $matches[2]
+    }
+    
+    # Extract core name from dotted notation (e.g., "Microsoft.VisualStudioCode" -> "VisualStudioCode")
+    foreach ($name in @($PackageName, $PackageId)) {
+        if ($name -match "\.([^.]+)$") {
+            $searchNames += $matches[1]
+        }
+        # Also add lowercase version
+        $searchNames += $name.ToLower()
+        # Add version without special characters
+        $searchNames += $name -replace '[^a-zA-Z0-9]', ''
+    }
+    
+    # Remove duplicates and empty values
+    $searchNames = $searchNames | Where-Object { $_ -and $_ -ne "" } | Sort-Object -Unique
+    
+    # Check Scoop - search through all installed packages
+    try {
+        $scoopList = scoop list *>&1 | Out-String -Stream | Where-Object { $_.Trim() -ne "" }
+        if ($scoopList) {
+            foreach ($name in $searchNames) {
+                if ($scoopList -match $name) {
+                    return @{ 
+                        IsInstalled = $true
+                        PackageManager = "Scoop"
+                        InstalledName = $name
+                    }
+                }
+            }
+        }
+    } catch {
+        # Ignore scoop check errors
+    }
+    
+    # Check Winget - search through all installed packages
+    try {
+        $wingetList = winget list --accept-source-agreements --disable-interactivity *>&1 | Out-String -Stream | Where-Object { $_.Trim() -ne "" }
+        if ($LASTEXITCODE -eq 0 -and $wingetList) {
+            foreach ($name in $searchNames) {
+                if ($wingetList | Select-String -Pattern $name -SimpleMatch) {
+                    return @{ 
+                        IsInstalled = $true
+                        PackageManager = "Winget"
+                        InstalledName = $name
+                    }
+                }
+            }
+        }
+    } catch {
+        # Ignore winget check errors
+    }
+    
+    # Check Chocolatey - search through all installed packages
+    try {
+        $chocoList = choco list --local-only --limit-output *>&1 | Out-String -Stream | Where-Object { $_.Trim() -ne "" }
+        if ($chocoList) {
+            foreach ($name in $searchNames) {
+                if ($chocoList | Select-String -Pattern $name -SimpleMatch) {
+                    return @{ 
+                        IsInstalled = $true
+                        PackageManager = "Chocolatey"
+                        InstalledName = $name
+                    }
+                }
+            }
+        }
+    } catch {
+        # Ignore chocolatey check errors
+    }
+        
+    # Check local Windows installations - executables, paths, and registry
+    foreach ($name in $searchNames) {
+        try {
+            # Check if executable is available in PATH
+            if (Get-Command $name -ErrorAction SilentlyContinue) {
+                return @{ 
+                    IsInstalled = $true
+                    PackageManager = "Local"
+                    InstalledName = $name
+                }
+            }
+            
+            # Check common installation paths with wildcard matching
+            $commonBasePaths = @(
+                "$env:ProgramFiles",
+                "$env:ProgramFiles(x86)",
+                "$env:LOCALAPPDATA",
+                "$env:LOCALAPPDATA\Programs",
+                "$env:APPDATA"
+            )
+            
+            foreach ($basePath in $commonBasePaths) {
+                $matchingFolders = Get-ChildItem "$basePath\*$name*" -Directory -ErrorAction SilentlyContinue
+                if ($matchingFolders) {
+                    return @{ 
+                        IsInstalled = $true
+                        PackageManager = "Local"
+                        InstalledName = $name
+                    }
+                }
+            }
+        } catch {
+            # Ignore local path check errors for this name
+        }
+    }
+    
+    # Check Windows Registry for installed programs (one comprehensive check)
+    try {
+        $registryPaths = @(
+            "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*",
+            "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*",
+            "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*"
+        )
+        
+        foreach ($regPath in $registryPaths) {
+            $installedPrograms = Get-ItemProperty $regPath -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName }
+            foreach ($program in $installedPrograms) {
+                foreach ($name in $searchNames) {
+                    if ($program.DisplayName -like "*$name*") {
+                        return @{ 
+                            IsInstalled = $true
+                            PackageManager = "Local"
+                            InstalledName = $program.DisplayName
+                        }
+                    }
+                }
+            }
+        }
+    } catch {
+        # Ignore registry check errors
+    }
+    
+    return @{ 
+        IsInstalled = $false
+        PackageManager = $null
+        InstalledName = $null
+    }
+}
+
 # Function to ensure Scoop bucket is added
 function Add-ScoopBucket {
     param(
@@ -20,24 +177,39 @@ function Add-ScoopBucket {
     )
 
     try {
-        $existingBuckets = scoop bucket list
-        if ($existingBuckets -notmatch "^$BucketName\s") {
-            Write-Log "Adding Scoop bucket: $BucketName" -Level Info
-            if ($BucketUrl) {
-                scoop bucket add $BucketName $BucketUrl
-            } else {
-                scoop bucket add $BucketName
+        # First check if bucket is already in the list
+        $bucketListOutput = scoop bucket list 2>$null
+        if ($bucketListOutput) {
+            # Convert output to string if it's an object and split into lines
+            $bucketLines = $bucketListOutput | Out-String -Stream | Where-Object { $_.Trim() -ne "" }
+            
+            # Check each line for the bucket name (skip header and separator lines)
+            foreach ($line in $bucketLines) {
+                if ($line -notmatch "^(Name\s+|----)" -and $line.Trim() -ne "") {
+                    # Extract the first column (bucket name)
+                    $existingBucketName = ($line -split '\s+')[0]
+                    if ($existingBucketName -eq $BucketName) {
+                        Write-Log "Bucket $BucketName already exists, skipping" -Level Info
+                        return $true
+                    }
+                }
             }
-            if ($LASTEXITCODE -eq 0) {
-                Write-Log "Successfully added bucket: $BucketName" -Level Success
-                return $true
-            } else {
-                Write-Log "Failed to add bucket: $BucketName" -Level Error
-                return $false
-            }
+        }
+        
+        # Bucket doesn't exist, add it
+        Write-Log "Adding Scoop bucket: $BucketName" -Level Info
+        if ($BucketUrl) {
+            $result = scoop bucket add $BucketName $BucketUrl 2>&1
         } else {
-            Write-Log "Bucket $BucketName already exists" -Level Info
+            $result = scoop bucket add $BucketName 2>&1
+        }
+        
+        if ($LASTEXITCODE -eq 0) {
+            Write-Log "Successfully added bucket: $BucketName" -Level Success
             return $true
+        } else {
+            Write-Log "Failed to add bucket $BucketName : $result" -Level Error
+            return $false
         }
     }
     catch {
@@ -73,24 +245,30 @@ function Install-ScoopPackage {
     }
 
     try {
-        # Check if already installed
-        $installedCheck = scoop list $actualPackageName -ErrorAction SilentlyContinue
-        if ($installedCheck -and ($installedCheck | Where-Object { $_ -match "^\s*$actualPackageName\s" })) {
-            Write-Log "$packageName is already installed" -Level Success
-            return @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Scoop"; Reason = "Already installed" }
-        }
+        # Universal pre-check is done before calling this function
 
         Write-Log "Installing $packageName..." -Level Info
-        $result = scoop install $packageName 2>&1
+        $result = scoop install $packageName *>&1 | Out-String
         $exitCode = $LASTEXITCODE
 
         if ($exitCode -eq 0) {
             Write-Log "$packageName installed successfully" -Level Success
             return @{ Status = "Success"; PackageName = $packageName; PackageManager = "Scoop" }
         } else {
-            $errorMsg = if ($result) { ($result | Out-String).Trim() } else { "Unknown error" }
-            Write-Log "Scoop failed to install $packageName : $errorMsg" -Level Error
-            return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Scoop"; Error = $errorMsg }
+            # Try one more time for network-related failures
+            Write-Log "First attempt failed, retrying $packageName..." -Level Warning
+            Start-Sleep -Seconds 2
+            $result = scoop install $packageName *>&1 | Out-String
+            $exitCode = $LASTEXITCODE
+            
+            if ($exitCode -eq 0) {
+                Write-Log "$packageName installed successfully on retry" -Level Success
+                return @{ Status = "Success"; PackageName = $packageName; PackageManager = "Scoop" }
+            } else {
+                $errorMsg = if ($result) { ($result | Out-String).Trim() } else { "Unknown error" }
+                Write-Log "Scoop failed to install $packageName after retry: $errorMsg" -Level Error
+                return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Scoop"; Error = $errorMsg }
+            }
         }
     }
     catch {
@@ -114,25 +292,12 @@ function Install-WingetPackage {
         $useId = $Package.ContainsKey('id')
         $displayName = if ($useId) { $Package.id } else { $Package.name }
 
-        # Check if package is already installed
-        $searchArg = if ($useId) { "--id $($Package.id)" } else { "--query $($Package.name)" }
-        try {
-            $installedPackages = winget list $searchArg --accept-source-agreements --disable-interactivity
-        }
-        catch {
-            Write-Log "Failed to check installed packages: $($_.Exception.Message)" -Level Warning
-            $installedPackages = ""
-        }
-
-        if ($installedPackages -match $displayName) {
-            Write-Log "$displayName is already installed" -Level Success
-            return @{ Status = "Skipped"; PackageName = $displayName; PackageManager = "Winget"; Reason = "Already installed" }
-        }
+        # Universal pre-check is done before calling this function
 
         # Install package
         Write-Log "Installing $displayName with winget..." -Level Info
         if ($useId) {
-            $result = winget install --id $Package.id --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force
+            $result = winget install --id $Package.id --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force *>&1 | Out-String
             if ($LASTEXITCODE -ne 0) {
                 if ($result -match "No package found matching input criteria") {
                     Write-Log "Package ID '$($Package.id)' not found" -Level Error
@@ -142,7 +307,7 @@ function Install-WingetPackage {
                 return @{ Status = "Failed"; PackageName = $displayName; PackageManager = "Winget"; Error = "Installation failed with exit code $LASTEXITCODE" }
             }
         } else {
-            $result = winget install $Package.name --silent --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force
+            $result = winget install $Package.name --silent --exact --source winget --accept-source-agreements --disable-interactivity --silent --accept-package-agreements --force *>&1 | Out-String
             if ($LASTEXITCODE -ne 0) {
                 Write-Log "Winget installation failed with exit code $LASTEXITCODE" -Level Error
                 return @{ Status = "Failed"; PackageName = $displayName; PackageManager = "Winget"; Error = "Installation failed with exit code $LASTEXITCODE" }
@@ -172,30 +337,20 @@ function Install-ChocoPackage {
     $packageName = if ($Package.ContainsKey('name')) { $Package.name } else { $Package.id }
 
     try {
-        # Check if package is already installed
-        $installedCheck = $null
-        try {
-            $installedCheck = choco list --local-only $packageName --exact --limit-output
-        }
-        catch {
-            Write-Log "Failed to check if package is installed: $($_.Exception.Message)" -Level Warning
-        }
-
-        if ($installedCheck -and ($installedCheck | Select-String -Pattern "^$packageName\|")) {
-            Write-Log "$packageName is already installed" -Level Success
-            return @{ Status = "Skipped"; PackageName = $packageName; PackageManager = "Chocolatey"; Reason = "Already installed" }
-        }
+        # Universal pre-check is done before calling this function
 
         # Install package
         Write-Log "Installing $packageName with chocolatey..." -Level Info
-        choco install $packageName -y --no-progress
-        if ($LASTEXITCODE -ne 0) {
-            Write-Log "Chocolatey installation failed with exit code $LASTEXITCODE" -Level Error
-            return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Chocolatey"; Error = "Installation failed with exit code $LASTEXITCODE" }
+        $result = choco install $packageName -y --no-progress *>&1 | Out-String
+        $exitCode = $LASTEXITCODE
+        
+        if ($exitCode -eq 0) {
+            Write-Log "$packageName installed successfully" -Level Success
+            return @{ Status = "Success"; PackageName = $packageName; PackageManager = "Chocolatey" }
+        } else {
+            Write-Log "Chocolatey installation failed with exit code $exitCode" -Level Error
+            return @{ Status = "Failed"; PackageName = $packageName; PackageManager = "Chocolatey"; Error = "Installation failed with exit code $exitCode" }
         }
-
-        Write-Log "$packageName installed successfully" -Level Success
-        return @{ Status = "Success"; PackageName = $packageName; PackageManager = "Chocolatey" }
     }
     catch {
         Write-Log ("chocolatey Error installing {0}: {1}" -f $packageName, $_.Exception.Message) -Level Error
@@ -223,6 +378,27 @@ function Create-SymbolicLink {
         if (-not (Test-Path $parentDir)) {
             New-Item -ItemType Directory -Path $parentDir -Force | Out-Null
             Write-Log "Created parent directory: $parentDir" -Level Info
+        }
+
+        # Handle wildcard paths (e.g., Visual Studio installation paths)
+        if ($destPath -match '\*') {
+            $parentPath = Split-Path $destPath -Parent
+            $filePattern = Split-Path $destPath -Leaf
+            
+            # Try to find matching directories
+            $matchedPaths = @()
+            if (Test-Path $parentPath) {
+                $matchedPaths = Get-ChildItem $parentPath -Directory | Where-Object { $_.Name -like $filePattern.Replace('*', '*') }
+            }
+            
+            if ($matchedPaths.Count -gt 0) {
+                # Use the first match and replace the wildcard part
+                $destPath = Join-Path $matchedPaths[0].FullName (Split-Path (Split-Path $destPath -Leaf) -Leaf)
+                Write-Log "Expanded wildcard path to: $destPath" -Level Info
+            } else {
+                Write-Log "Could not resolve wildcard path: $destPath" -Level Warning
+                return $false
+            }
         }
 
         # Handle existing destination
