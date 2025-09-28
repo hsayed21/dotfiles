@@ -40,12 +40,178 @@ if (-not ($Package -or $Mapping -or $Environment -or $PackageManager -or $PowerS
     $Mapping = $true
 }
 
+# Check to see if we are currently running "as Administrator"
+if (!(Verify-Elevated)) {
+   $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
+   $newProcess.Arguments = $myInvocation.MyCommand.Definition;
+   $newProcess.Verb = "runas";
+   [System.Diagnostics.Process]::Start($newProcess);
+
+   exit
+}
+
 . .\_helper\_function.ps1
 #Requires -RunAsAdministrator
 
 # Initialize logging
 Initialize-Log
 Write-Log "Starting setup process..." -Level Info
+
+# Function to manage Zen browser profiles
+function Manage-ZenProfiles {
+    param(
+        [string]$ProfilesIniPath = "$Env:APPDATA\zen\profiles.ini"
+    )
+
+    Write-Log "Managing Zen browser profiles..." -Level Info
+
+    # Create the zen directory if it doesn't exist
+    $zenDir = Split-Path $ProfilesIniPath -Parent
+    if (-not (Test-Path $zenDir)) {
+        New-Item -Path $zenDir -ItemType Directory -Force | Out-Null
+        Write-Log "Created Zen directory: $zenDir" -Level Info
+    }
+
+    # Initialize profiles content
+    $profilesContent = @()
+    $hasMainDefault = $false
+    $hasInstallSection = $false
+    $profileCount = 0
+
+    # Read existing profiles.ini if it exists
+    if (Test-Path $ProfilesIniPath) {
+        Write-Log "Reading existing profiles.ini..." -Level Info
+        $existingContent = Get-Content $ProfilesIniPath -Raw
+
+        # Check if main.Default profile exists
+        if ($existingContent -match 'Path=Profiles/main\.Default') {
+            $hasMainDefault = $true
+        }
+
+        # Check if Install section exists
+        if ($existingContent -match '\[Install[^\]]*\]') {
+            $hasInstallSection = $true
+        }
+
+        # Count existing profiles
+        $profileMatches = [regex]::Matches($existingContent, '\[Profile\d+\]')
+        $profileCount = $profileMatches.Count
+
+        $profilesContent = $existingContent -split "`r?`n"
+    }
+
+    $needsUpdate = $false
+
+    # Add Install section if missing or update it
+    if (-not $hasInstallSection) {
+        Write-Log "Adding Install section with main.Default as default..." -Level Info
+        $installSection = @(
+            "[InstallF0DC299D809B9700]",
+            "Default=Profiles/main.Default",
+            "Locked=1",
+            ""
+        )
+        $profilesContent = $installSection + $profilesContent
+        $needsUpdate = $true
+    } else {
+        # Update existing Install section to ensure main.Default is default
+        for ($i = 0; $i -lt $profilesContent.Count; $i++) {
+            if ($profilesContent[$i] -match '^\[Install[^\]]*\]') {
+                # Find the Default line in this section
+                for ($j = $i + 1; $j -lt $profilesContent.Count; $j++) {
+                    if ($profilesContent[$j] -match '^Default=') {
+                        if ($profilesContent[$j] -ne "Default=Profiles/main.Default") {
+                            $profilesContent[$j] = "Default=Profiles/main.Default"
+                            $needsUpdate = $true
+                            Write-Log "Updated Install section to use main.Default" -Level Info
+                        }
+                        break
+                    } elseif ($profilesContent[$j] -match '^\[') {
+                        # Reached next section without finding Default, add it
+                        $profilesContent = $profilesContent[0..$i] + "Default=Profiles/main.Default" + $profilesContent[($i+1)..($profilesContent.Count-1)]
+                        $needsUpdate = $true
+                        Write-Log "Added Default=main.Default to existing Install section" -Level Info
+                        break
+                    }
+                }
+                break
+            }
+        }
+    }
+
+    # Add main.Default profile if missing
+    if (-not $hasMainDefault) {
+        Write-Log "Adding main.Default profile..." -Level Info
+
+        $mainProfileSection = @(
+            "[Profile$profileCount]",
+            "Name=Default",
+            "IsRelative=1",
+            "Path=Profiles/main.Default",
+            "Default=1",
+            ""
+        )
+
+        # Add before [General] section if it exists, otherwise at the end
+        $generalIndex = -1
+        for ($i = 0; $i -lt $profilesContent.Count; $i++) {
+            if ($profilesContent[$i] -match '^\[General\]') {
+                $generalIndex = $i
+                break
+            }
+        }
+
+        if ($generalIndex -ge 0) {
+            $profilesContent = $profilesContent[0..($generalIndex-1)] + $mainProfileSection + $profilesContent[$generalIndex..($profilesContent.Count-1)]
+        } else {
+            $profilesContent += $mainProfileSection
+        }
+        $needsUpdate = $true
+    } else {
+        # Ensure existing main.Default profile is set as default
+        $inMainProfile = $false
+        for ($i = 0; $i -lt $profilesContent.Count; $i++) {
+            if ($profilesContent[$i] -match '^\[Profile\d+\]') {
+                $inMainProfile = $false
+                # Check if this profile section contains main.Default
+                for ($j = $i + 1; $j -lt $profilesContent.Count; $j++) {
+                    if ($profilesContent[$j] -match '^Path=Profiles/main\.Default') {
+                        $inMainProfile = $true
+                        break
+                    } elseif ($profilesContent[$j] -match '^\[') {
+                        break
+                    }
+                }
+            } elseif ($inMainProfile -and $profilesContent[$i] -match '^Default=') {
+                if ($profilesContent[$i] -ne "Default=1") {
+                    $profilesContent[$i] = "Default=1"
+                    $needsUpdate = $true
+                    Write-Log "Set main.Default profile as default" -Level Info
+                }
+            }
+        }
+    }
+
+    # Add [General] section if missing
+    $hasGeneral = $profilesContent -match '^\[General\]'
+    if (-not $hasGeneral) {
+        Write-Log "Adding General section..." -Level Info
+        $profilesContent += @(
+            "[General]",
+            "StartWithLastProfile=1",
+            "Version=2"
+        )
+        $needsUpdate = $true
+    }
+
+    # Write the updated profiles.ini if changes were made
+    if ($needsUpdate) {
+        $profilesContent | Out-File $ProfilesIniPath -Encoding UTF8
+        Write-Log "Updated profiles.ini successfully" -Level Success
+    } else {
+        Write-Log "profiles.ini already properly configured" -Level Success
+    }
+}
 
 # Group packages by categories
 $packages = @{
@@ -61,7 +227,8 @@ $packages = @{
       @{ id = "Git.Git" }
     )
     Choco  = @(
-      @{ name = "dotnet-sdk" }
+      @{ name = "dotnet-sdk" },
+      @{ name = "delta" }
     )
   }
   Utilities   = @{
@@ -120,7 +287,8 @@ $packages = @{
   Browsers    = @{
     Winget = @(
       @{ name = "Google.Chrome" },
-      @{ name = "Mozilla.Firefox" }
+      @{ name = "Mozilla.Firefox" },
+      @{ name = "Zen-Team.Zen-Browser" }
     )
   }
   Fonts       = @{
@@ -352,6 +520,43 @@ $mappings = @(
   @{
     source = "$PWD\EpicPen\settings.json"
     dest   = "$Env:APPDATA\Epic Pen\settings.json"
+  },
+  # Zen Browser
+  @{
+    source = "$PWD\ZenBrowser\profiles.ini"
+    dest   = "$Env:APPDATA\zen\profiles.ini"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\prefs.js"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\prefs.js"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\extensions.json"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\extensions.json"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\extension-settings.json"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\extension-settings.json"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\extension-preferences.json"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\extension-preferences.json"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\compatibility.ini"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\compatibility.ini"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\places.sqlite"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\places.sqlite"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\zen-themes.json"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\zen-themes.json"
+  },
+  @{
+    source = "$PWD\ZenBrowser\profiles\main.Default\zen-keyboard-shortcuts.json"
+    dest   = "$Env:APPDATA\zen\Profiles\main.Default\zen-keyboard-shortcuts.json"
   }
 )
 
@@ -522,6 +727,9 @@ Write-Log "Windows Stuff..." -Level Info
 # Configuration/Mapping
 if ($runMappings) {
     Write-Log "Creating symbolic links..." -Level Info
+
+    # Manage Zen browser profiles before creating symlinks
+    # Manage-ZenProfiles
 
     # Process symlinks with progress and force
     $total = $mappings.Count
