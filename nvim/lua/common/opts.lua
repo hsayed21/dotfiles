@@ -175,8 +175,28 @@ local common_keymaps = {
 		vim.cmd('normal! y')
 		-- Return to original position
 		vim.fn.setpos('.', pos)
-	end, { desc = 'Yank and preserve cursor position' } }
+	end, { desc = 'Yank and preserve cursor position' } },
 
+  { "", "_", function() FeedKeysInt(vim.v.count1 .. "k$") end, { desc = "Move up k$ count times" } },
+  { "n", "@", function() FeedKeysInt("yl" .. vim.v.count1 .. "p") end, { desc = "Yank char and paste count times" } },
+  { "v", "@@", function() FeedKeysInt("ygv<Esc>" .. vim.v.count1 .. "p") end, { desc = "Yank visual and paste count times" } },
+  { "", "gm", function() FeedKeys(vim.v.count * 10 .. "gM") end, { desc = "gM with count*10" } },
+  { "n", "J", function() for i = 1, vim.v.count1 do FeedKeys("J") end end, { desc = "Join lines count times" } },
+  { "n", "<Esc>", function() Remove_highlighting(); FeedKeysInt("<Esc>") end, { desc = "Remove highlighting and escape" } },
+  { "n", "du", function() for i = 1, vim.v.count1 do FeedKeys("dd") end end, { desc = "Delete line count times" } },
+  { "v", "*", function() Search_for_selection('/', '') end, { desc = "Search for selection forward" } },
+  { "v", ",*", function() Search_for_selection('/', '/e') end, { desc = "Search for selection forward /e" } },
+  { "v", "#", function() Search_for_selection('?', '') end, { desc = "Search for selection backward" } },
+  { "v", ",#", function() Search_for_selection('?', '?e') end, { desc = "Search for selection backward ?e" } },
+  -- { "", ",f", function() Search_for_register('/', '') end },
+  -- { "", ",F", function() Search_for_register('?', '') end },
+  -- { "", ",,f", function() Search_for_register('/', '/e') end },
+  -- { "", ",,F", function() Search_for_register('?', '?e') end },
+  -- { "n", ",g", Move_default_to_other, { desc = "Move default to other" } },
+  { "n", "*", function() Search_for_current_word('/', '') end, { desc = "Search for current word forward" } },
+  { "n", ",*", function() Search_for_current_word('/', '/e') end, { desc = "Search for current word forward /e" } },
+  { "n", "#", function() Search_for_current_word('?', '') end, { desc = "Search for current word backward" } },
+  { "n", ",#", function() Search_for_current_word('?', '?e') end, { desc = "Search for current word backward ?e" } },
 }
 
 -- Apply common keymaps
@@ -215,8 +235,3 @@ for _, keymap in ipairs(common_keymaps) do
     vim.notify("Invalid keymap entry: " .. vim.inspect(keymap), vim.log.levels.WARN)
   end
 end
-
-return {
-  options = options,
-  keymaps = common_keymaps
-}
