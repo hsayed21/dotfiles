@@ -56,25 +56,26 @@ class ScoopManager extends PackageManagerBase {
         ; RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command " . Chr(34) . psCommand . Chr(34), &output)
         ; RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command '" . psCommand . "'", &output)
         psCommand := "iex '& {$(irm get.scoop.sh)} -RunAsAdmin'"
-        RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command " . Chr(34) . psCommand . Chr(34), &output)
+        res := RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command " . Chr(34) . psCommand . Chr(34), &output)
 
-        if instr(output, "Scoop was installed successfully")
-            Console.Instance.ShowSuccess("Scoop installed successfully")
-        else
-            Console.Instance.ShowWarning("Scoop installation may have failed or requires manual intervention")
+        if res != 0
+        {
+            Console.Instance.ShowError("Scoop installation command failed with exit code " . res)
+            return false
+        }
 
-        Console.Instance.ShowSuccess("Scoop install attempted")
+        Console.Instance.ShowSuccess("Scoop installed successfully")
         return true
     }
 
     IsInstalled() {
-        exitCode := RunWaitOne("scoops --version", &out)
+        exitCode := RunWaitOne("scoop --version", &out)
         return (exitCode = 0 && out != "")
     }
 
     IsPackageInstalled(PackageName, PackageId := "") {
-        result := Console.Instance.Run("scoop list",, &output)
-        if (!result.Success)
+        result := Console.Instance.RunSilent("scoop list",, &output)
+        if (!result)
             return { IsInstalled: false, InstalledName: "" }
 
         ; Create search terms
@@ -101,6 +102,47 @@ class ScoopManager extends PackageManagerBase {
 
         return { IsInstalled: false, InstalledName: "" }
     }
+
+    InstallPackage(Package) {
+        if (!this.ValidatePackage(Package)) {
+            return { Status: "Failed", PackageName: "Unknown", PackageManager: this.Name, Error: "Invalid package definition" }
+        }
+        packageName := this.GetDisplayName(Package)
+        packageId := Package.HasOwnProp("id") ? Package.id : ""
+        installCmd := this.Command . " install " . packageName
+        if (packageId && packageId != packageName) {
+            installCmd .= " --name " . packageId
+        }
+        if (Package.HasOwnProp("options")) {
+            installCmd .= " " . Package.options
+        }
+
+        Console.Instance.ShowStatus("Installing " . packageName . "...", "loading")
+        res := Console.Instance.Run(installCmd,, &output)
+        if (res) {
+            Console.Instance.ShowSuccess(packageName . " installed successfully")
+            return { Status: "Success", PackageName: packageName, PackageManager: this.Name }
+        } else {
+            Console.Instance.ShowError("Failed to install " . packageName . ". Exit code: " . res)
+            return { Status: "Failed", PackageName: packageName, PackageManager: this.Name, Error: "Exit code " . res }
+        }
+    }
+
+    AddBucket(BucketName) {
+        if (!BucketName || BucketName = "") {
+            Console.Instance.ShowError("Bucket name cannot be empty")
+            return false
+        }
+        Console.Instance.ShowStatus("Adding Scoop bucket: " . BucketName, "loading")
+        res := Console.Instance.RunSilent(this.Command . " bucket add " . BucketName)
+        if (res) {
+            Console.Instance.ShowSuccess("Bucket " . BucketName . " added successfully")
+            return true
+        } else {
+            Console.Instance.ShowError("Failed to add bucket " . BucketName . ". Exit code: " . res)
+            return false
+        }
+    }
 }
 
 class WingetManager extends PackageManagerBase {
@@ -118,13 +160,15 @@ class WingetManager extends PackageManagerBase {
         Console.Instance.ShowSuccess("Winget install attempted")
         return true
     }
+
     IsInstalled() {
-        return FileExist(A_WinDir . "\System32\winget.exe")
+        exitCode := RunWaitOne("winget --version", &out)
+        return (exitCode = 0 && out != "")
     }
 
     IsPackageInstalled(PackageName, PackageId := "") {
-        result := Console.Instance.Run("winget list --accept-source-agreements --disable-interactivity",, &output)
-        if (!result.Success)
+        result := Console.Instance.RunSilent("winget list --accept-source-agreements --disable-interactivity",, &output)
+        if (!result)
             return { IsInstalled: false, InstalledName: "" }
 
         ; Create search terms
@@ -144,12 +188,38 @@ class WingetManager extends PackageManagerBase {
 
         return { IsInstalled: false, InstalledName: "" }
     }
+
+    InstallPackage(Package) {
+        if (!this.ValidatePackage(Package)) {
+            return { Status: "Failed", PackageName: "Unknown", PackageManager: this.Name, Error: "Invalid package definition" }
+        }
+        packageName := this.GetDisplayName(Package)
+        packageId := Package.HasOwnProp("id") ? Package.id : ""
+        installCmd := this.Command . " install --accept-source-agreements --accept-package-agreements " . packageName
+        if (packageId && packageId != packageName) {
+            installCmd .= " --id " . packageId
+        }
+        if (Package.HasOwnProp("options")) {
+            installCmd .= " " . Package.options
+        }
+
+        Console.Instance.ShowStatus("Installing " . packageName . "...", "loading")
+        res := Console.Instance.Run(installCmd,, &output)
+        if (res) {
+            Console.Instance.ShowSuccess(packageName . " installed successfully")
+            return { Status: "Success", PackageName: packageName, PackageManager: this.Name }
+        } else {
+            Console.Instance.ShowError("Failed to install " . packageName . ". Exit code: " . res)
+            return { Status: "Failed", PackageName: packageName, PackageManager: this.Name, Error: "Exit code " . res }
+        }
+    }
 }
 
 class ChocolateyManager extends PackageManagerBase {
     __New() {
         super.__New("Chocolatey", "choco")
     }
+
     Install() {
         if (this.IsInstalled()) {
             Console.Instance.ShowSuccess("Chocolatey is already installed")
@@ -161,13 +231,16 @@ class ChocolateyManager extends PackageManagerBase {
         Console.Instance.ShowSuccess("Chocolatey install attempted")
         return true
     }
+
     IsInstalled() {
-        return FileExist("C:\\ProgramData\\chocolatey\\bin\\choco.exe")
+        exitCode := RunWaitOne("choco --version", &out)
+        return (exitCode = 0 && out != "")
+
     }
 
     IsPackageInstalled(PackageName, PackageId := "") {
-        result := Console.Instance.Run("choco list --local-only --limit-output",, &output)
-        if (!result.Success)
+        result := Console.Instance.RunSilent("choco list --local-only --limit-output",, &output)
+        if (!result)
             return { IsInstalled: false, InstalledName: "" }
 
         ; Create search terms
@@ -186,6 +259,31 @@ class ChocolateyManager extends PackageManagerBase {
         }
 
         return { IsInstalled: false, InstalledName: "" }
+    }
+
+    InstallPackage(Package) {
+        if (!this.ValidatePackage(Package)) {
+            return { Status: "Failed", PackageName: "Unknown", PackageManager: this.Name, Error: "Invalid package definition" }
+        }
+        packageName := this.GetDisplayName(Package)
+        packageId := Package.HasOwnProp("id") ? Package.id : ""
+        installCmd := this.Command . " install -y " . packageName
+        if (packageId && packageId != packageName) {
+            installCmd .= " --id=" . packageId
+        }
+        if (Package.HasOwnProp("options")) {
+            installCmd .= " " . Package.options
+        }
+
+        Console.Instance.ShowStatus("Installing " . packageName . "...", "loading")
+        res := Console.Instance.Run(installCmd,, &output)
+        if (res) {
+            Console.Instance.ShowSuccess(packageName . " installed successfully")
+            return { Status: "Success", PackageName: packageName, PackageManager: this.Name }
+        } else {
+            Console.Instance.ShowError("Failed to install " . packageName . ". Exit code: " . res)
+            return { Status: "Failed", PackageName: packageName, PackageManager: this.Name, Error: "Exit code " . res }
+        }
     }
 }
 

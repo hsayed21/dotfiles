@@ -66,6 +66,9 @@ class SetupConfig {
                 { name: "sublimetext4" },
                 { name: "yasb" },
                 { name: "translucenttb" }
+            ],
+            "SourceForge", [
+                { project: "globonote/files/globonote", file: "globonote-setup.exe"}
             ]
         )
 
@@ -102,6 +105,8 @@ class SetupConfig {
      */
     static GetMappings() {
         workingDir := A_WorkingDir
+        Home := "C:\Users\" . A_UserName
+
         ; Ensure A_AppDataCommon is defined (some AHk runtimes/tools may not expose it)
         mappings := [
             ; nvim
@@ -120,7 +125,7 @@ class SetupConfig {
             },
             {
                 source: workingDir . "\vscode\extensions.json",
-                dest: A_MyDocuments . "\.vscode-insiders\extensions\extensions.json"
+                dest: Home . "\.vscode-insiders\extensions\extensions.json"
             },
             {
                 source: workingDir . "\vscode\copilot\prompts",
@@ -139,11 +144,11 @@ class SetupConfig {
             ; ShareX
             {
                 source: workingDir . "\ShareX\ApplicationConfig.json",
-                dest: A_MyDocuments . "\ShareX\ApplicationConfig.json"
+                dest: Home . "\ShareX\ApplicationConfig.json"
             },
             {
                 source: workingDir . "\ShareX\HotkeysConfig.json",
-                dest: A_MyDocuments . "\ShareX\HotkeysConfig.json"
+                dest: Home . "\ShareX\HotkeysConfig.json"
             },
             ; Everything
             {
@@ -167,35 +172,35 @@ class SetupConfig {
             ; elevenclock
             {
                 source: workingDir . "\elevenclock\CustomClockStrings",
-                dest: A_MyDocuments . "\.elevenclock\CustomClockStrings"
+                dest: Home . "\.elevenclock\CustomClockStrings"
             },
             {
                 source: workingDir . "\elevenclock\PreferredLanguage",
-                dest: A_MyDocuments . "\.elevenclock\PreferredLanguage"
+                dest: Home . "\.elevenclock\PreferredLanguage"
             },
             {
                 source: workingDir . "\elevenclock\CustomClockClickAction",
-                dest: A_MyDocuments . "\.elevenclock\CustomClockClickAction"
+                dest: Home . "\.elevenclock\CustomClockClickAction"
             },
             {
                 source: workingDir . "\elevenclock\CustomClockDoubleClickAction",
-                dest: A_MyDocuments . "\.elevenclock\CustomClockDoubleClickAction"
+                dest: Home . "\.elevenclock\CustomClockDoubleClickAction"
             },
             {
                 source: workingDir . "\elevenclock\ClockFixedHeight",
-                dest: A_MyDocuments . "\.elevenclock\ClockFixedHeight"
+                dest: Home . "\.elevenclock\ClockFixedHeight"
             },
             {
                 source: workingDir . "\elevenclock\ClockYOffset",
-                dest: A_MyDocuments . "\.elevenclock\ClockYOffset"
+                dest: Home . "\.elevenclock\ClockYOffset"
             },
             {
                 source: workingDir . "\elevenclock\ClockXOffset",
-                dest: A_MyDocuments . "\.elevenclock\ClockXOffset"
+                dest: Home . "\.elevenclock\ClockXOffset"
             },
             {
                 source: workingDir . "\elevenclock\UseCustomFontSize",
-                dest: A_MyDocuments . "\.elevenclock\UseCustomFontSize"
+                dest: Home . "\.elevenclock\UseCustomFontSize"
             },
             ; voicemeeter
             {
@@ -204,11 +209,11 @@ class SetupConfig {
             },
             {
                 source: workingDir . "\VoicemeeterBanana\VoicemeeterBanana_LastSettings.xml",
-                dest: A_MyDocuments . "\Voicemeeter\VoicemeeterBanana_LastSettings.xml"
+                dest: Home . "\Voicemeeter\VoicemeeterBanana_LastSettings.xml"
             },
             {
                 source: workingDir . "\VoicemeeterBanana\MacroButtonConfig.xml",
-                dest: A_MyDocuments . "\Voicemeeter\MacroButtonConfig.xml"
+                dest: Home . "\Voicemeeter\MacroButtonConfig.xml"
             },
             ; EqualizerAPO
             {
@@ -251,11 +256,11 @@ class SetupConfig {
             ; git
             {
                 source: workingDir . "\git\.gitconfig-work",
-                dest: A_MyDocuments . "\git\.gitconfig-work"
+                dest: Home . "\git\.gitconfig-work"
             },
             {
                 source: workingDir . "\git\.gitconfig",
-                dest: A_MyDocuments . "\git\.gitconfig"
+                dest: Home . "\git\.gitconfig"
             },
             ; WindowsTerminal
             {
@@ -269,7 +274,7 @@ class SetupConfig {
             ; glazewm (tiling window manager for Windows inspired by i3wm)
             {
                 source: workingDir . "\.glzr",
-                dest: A_MyDocuments . "\.glzr"
+                dest: Home . "\.glzr"
             },
             ; AltSnap
             {
@@ -279,7 +284,7 @@ class SetupConfig {
             ; wezterm
             {
                 source: workingDir . "\wezterm\.wezterm.lua",
-                dest: A_MyDocuments . "\.wezterm.lua"
+                dest: Home . "\.wezterm.lua"
             },
             ; FlowLauncher
             {
@@ -289,7 +294,7 @@ class SetupConfig {
             ; globonote
             {
                 source: workingDir . "\.globonote",
-                dest: A_MyDocuments . "\.globonote"
+                dest: Home . "\.globonote"
             },
             ; Directory Opus
             {
@@ -299,17 +304,17 @@ class SetupConfig {
             ; editorconfig
             {
                 source: workingDir . "\vscode\.editorconfig",
-                dest: A_MyDocuments . "\.editorconfig"
+                dest: Home . "\.editorconfig"
             },
             ; Prettier
             {
                 source: workingDir . "\vscode\.prettierrc",
-                dest: A_MyDocuments . "\.prettierrc"
+                dest: Home . "\.prettierrc"
             },
             ; yasb
             {
                 source: workingDir . "\yasb",
-                dest: A_MyDocuments . "\.config\yasb"
+                dest: Home . "\.config\yasb"
             },
             ; Epic Pen
             {
@@ -317,10 +322,6 @@ class SetupConfig {
                 dest: A_AppData . "\Epic Pen\settings.json"
             },
             ; Zen Browser
-            {
-                source: workingDir . "\ZenBrowser\profiles.ini",
-                dest: A_AppData . "\zen\profiles.ini"
-            },
             {
                 source: workingDir . "\ZenBrowser\profiles\main.Default\prefs.js",
                 dest: A_AppData . "\zen\Profiles\main.Default\prefs.js"
@@ -336,10 +337,6 @@ class SetupConfig {
             {
                 source: workingDir . "\ZenBrowser\profiles\main.Default\extension-preferences.json",
                 dest: A_AppData . "\zen\Profiles\main.Default\extension-preferences.json"
-            },
-            {
-                source: workingDir . "\ZenBrowser\profiles\main.Default\compatibility.ini",
-                dest: A_AppData . "\zen\Profiles\main.Default\compatibility.ini"
             },
             {
                 source: workingDir . "\ZenBrowser\profiles\main.Default\places.sqlite",
@@ -604,5 +601,51 @@ class SetupConfig {
         }
 
         return profiles
+    }
+
+    static GetDefaultApps() {
+        return  [
+            "Microsoft.3DBuilder",
+            "AdobeSystemsIncorporated.AdobeCreativeCloudExpress",
+            "Microsoft.WindowsAlarms",
+            "AmazonVideo.PrimeVideo",
+            "*.AutodeskSketchBook",
+            "Microsoft.BingFinance",
+            "Microsoft.BingNews",
+            "Microsoft.BingSports",
+            "Microsoft.BingWeather",
+            "king.com.BubbleWitch3Saga",
+            "Microsoft.WindowsCommunicationsApps",
+            "king.com.CandyCrushSodaSaga",
+            "Clipchamp.Clipchamp",
+            "Microsoft.549981C3F5F10",
+            "Disney.37853FC22B2CE",
+            "*.DisneyMagicKingdoms",
+            "DolbyLaboratories.DolbyAccess",
+            "Facebook.Facebook*",
+            "Microsoft.MicrosoftOfficeHub",
+            "Facebook.Instagram*",
+            "Microsoft.WindowsMaps",
+            "*.MarchofEmpires",
+            "Microsoft.Messaging",
+            "Microsoft.OneConnect",
+            "Microsoft.Office.OneNote",
+            "Microsoft.People",
+            "Microsoft.Print3D",
+            "Microsoft.SkypeApp",
+            "*.SlingTV",
+            "Microsoft.MicrosoftSolitaireCollection",
+            "SpotifyAB.SpotifyMusic",
+            "Microsoft.MicrosoftStickyNotes",
+            "Microsoft.Office.Sway",
+            "*.TikTok",
+            "*.Twitter",
+            "Microsoft.WindowsSoundRecorder",
+            "Microsoft.XboxGamingOverlay",
+            "Microsoft.GamingApp",
+            "Microsoft.YourPhone",
+            "Microsoft.ZuneMusic",
+            "Microsoft.ZuneVideo",
+        ]
     }
 }

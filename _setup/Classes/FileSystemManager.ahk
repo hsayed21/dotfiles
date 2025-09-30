@@ -1,4 +1,5 @@
 #Include Console.ahk
+#Include PackageInstaller.ahk
 
 class FileSystemManager {
     static CreateSymbolicLink(SourcePath, DestPath, Force := false) {
@@ -54,7 +55,7 @@ class FileSystemManager {
             isDirectory := DirExist(SourcePath)
             command := 'mklink ' . (isDirectory ? '/D ' : '') . '"' . DestPath . '" "' . SourcePath . '"'
 
-            result := Console.Instance.Run(command, "Creating symlink")
+            result := Console.Instance.RunSilent(command)
             return result
         } catch as err {
             Console.Instance.ShowError("Failed to create symlink: " . err.Message)
@@ -62,35 +63,83 @@ class FileSystemManager {
         }
     }
 
-    static IsSymbolicLink(Path) {
+    static isSymbolicLink(path) {
         try {
-            result := Console.Instance.Run('dir "' . Path . '" /AL',, &output)
-            return result && InStr(output, "<SYMLINK>")
+            attrs := FileGetAttrib(path)
+            return InStr(attrs, "L") > 0
         } catch {
             return false
         }
     }
 
-    static GetSymlinkTarget(Path) {
-        try {
-            result := Console.Instance.Run('dir "' . Path . '" /AL',, &output)
-            if (result) {
-                lines := StrSplit(output, "`n")
-                for line in lines {
-                    if (InStr(line, "<SYMLINK>")) {
-                        bracketPos := InStr(line, "[")
-                        if (bracketPos > 0) {
-                            target := SubStr(line, bracketPos + 1)
-                            target := SubStr(target, 1, InStr(target, "]") - 1)
-                            return target
-                        }
-                    }
-                }
-            }
-        } catch {
+    static GetSymlinkTarget(path) {
+        ; Open file/directory handle with backup semantics for directories
+        hFile := DllCall("CreateFileW"
+            , "str", path
+            , "uint", 0 ; GENERIC_READ not needed, query only
+            , "uint", 0x00000007 ; FILE_SHARE_READ|WRITE|DELETE
+            , "ptr", 0
+            , "uint", 3 ; OPEN_EXISTING
+            , "uint", 0x02000000 ; FILE_FLAG_BACKUP_SEMANTICS
+            , "ptr", 0
+            , "ptr")
+
+        if (hFile = -1 || hFile = 0) {
+            err := A_LastError
+            throw Error("Failed to open path '" path "'. Win32 error: " err)
         }
-        return ""
+
+        ; Use try/finally to ensure handle cleanup
+        try {
+            ; First call to get required buffer size
+            requiredSize := DllCall("GetFinalPathNameByHandleW"
+                , "ptr", hFile
+                , "ptr", 0
+                , "uint", 0
+                , "uint", 0
+                , "uint")
+
+            if (requiredSize = 0) {
+                err := A_LastError
+                throw Error("Failed to get path size. Win32 error: " err)
+            }
+
+            ; Allocate buffer (size in characters, WCHAR = 2 bytes)
+            buf := Buffer(requiredSize * 2, 0)
+
+            ; Get actual path
+            len := DllCall("GetFinalPathNameByHandleW"
+                , "ptr", hFile
+                , "ptr", buf
+                , "uint", requiredSize
+                , "uint", 0
+                , "uint")
+
+            if (len = 0 || len >= requiredSize) {
+                err := A_LastError
+                throw Error("Failed to resolve symlink. Win32 error: " err)
+            }
+
+            result := StrGet(buf, "UTF-16")
+
+            ; Strip \\?\ prefix
+            if (SubStr(result, 1, 4) = "\\?\") {
+                result := SubStr(result, 5)
+            }
+
+            ; Convert \\?\UNC\server\share to \\server\share
+            if (SubStr(result, 1, 8) = "\\?\UNC\") {
+                result := "\\" SubStr(result, 9)
+            }
+
+            return result
+
+        } finally {
+            ; Always close handle even if error occurs
+            DllCall("CloseHandle", "ptr", hFile)
+        }
     }
+
 
     static ExpandWildcardPath(WildcardPath) {
         try {
@@ -137,18 +186,6 @@ class FileSystemManager {
             return false
         }
     }
-
-    static EnsureDirectory(DirPath) {
-        if (DirExist(DirPath)) {
-            return true
-        }
-        try {
-            DirCreate(DirPath)
-            return true
-        } catch {
-            return false
-        }
-    }
 }
 
 class DotfileMapper {
@@ -166,74 +203,16 @@ class DotfileMapper {
     }
 
     ProcessMappings(Force := true) {
-        consoleInstance := Console.Instance
-        consoleInstance.InitProgress(this.Mappings.Length, "Processing Symbolic Links")
-
-        successful := 0
-        failed := 0
-
         for index, mapping in this.Mappings {
-            consoleInstance.UpdateProgress(1, "Mapping " . index . "/" . this.Mappings.Length)
-
             if (FileSystemManager.CreateSymbolicLink(mapping.source, mapping.dest, Force)) {
-                successful++
+                Console.Instance.ShowSuccess("Created symlink: " . mapping.source . " -> " . mapping.dest)
             } else {
-                failed++
-                consoleInstance.ShowError("Failed: " . mapping.source . " -> " . mapping.dest)
+                Console.Instance.ShowError("Failed: " . mapping.source . " -> " . mapping.dest)
             }
         }
 
-        consoleInstance.CompleteProgress("Processed " . successful . "/" . this.Mappings.Length . " mappings successfully")
+        ; Special handling for Zen browser profiles
+        PackageInstaller.ManageZenProfiles()
 
-        return {
-            Total: this.Mappings.Length,
-            Successful: successful,
-            Failed: failed
-        }
-    }
-
-    ValidateMappings() {
-        results := []
-        for mapping in this.Mappings {
-            validation := {
-                Source: mapping.source,
-                Dest: mapping.dest,
-                SourceExists: FileExist(mapping.source) || DirExist(mapping.source),
-                DestExists: FileExist(mapping.dest) || DirExist(mapping.dest),
-                IsSymlink: false,
-                TargetCorrect: false
-            }
-
-            if (validation.DestExists) {
-                validation.IsSymlink := FileSystemManager.IsSymbolicLink(mapping.dest)
-                if (validation.IsSymlink) {
-                    target := FileSystemManager.GetSymlinkTarget(mapping.dest)
-                    validation.TargetCorrect := (target = mapping.source)
-                }
-            }
-            results.Push(validation)
-        }
-        return results
-    }
-
-    ReportStatus() {
-        consoleInstance := Console.Instance
-        validations := this.ValidateMappings()
-
-        consoleInstance.ShowSection("Mapping Status Report")
-
-        for validation in validations {
-            if (validation.TargetCorrect) {
-                consoleInstance.ShowSuccess(validation.Dest . " -> " . validation.Source)
-            } else if (validation.IsSymlink) {
-                consoleInstance.ShowWarning(validation.Dest . " (wrong target)")
-            } else if (validation.DestExists) {
-                consoleInstance.ShowWarning(validation.Dest . " (exists, not symlink)")
-            } else if (!validation.SourceExists) {
-                consoleInstance.ShowError(validation.Dest . " (source missing)")
-            } else {
-                consoleInstance.ShowInfo(validation.Dest . " (not created)")
-            }
-        }
     }
 }

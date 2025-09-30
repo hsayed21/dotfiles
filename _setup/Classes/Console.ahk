@@ -102,12 +102,26 @@ class Console {
         if (description) {
             this.WriteColored("🔄 " . description, "Progress")
         }
+        SetFgColor(Cyan)
         this.WriteColored("   ➤ " . command, "Command")
+        SetFgColor(White)
     }
 
     Run(command, description := "", &output := "") {
         this.ShowCommand(command, description)
-        RunCommand(command,, &output)
+        return RunCommand(command,, &output)
+    }
+
+    RunSilent(command, &output := "") {
+        return RunCommandSilent(command, , &output)
+    }
+
+    RunPowerShellSilent(command, &output := "") {
+        return RunPowerShellSilent(command,, &output)
+    }
+
+    RunPowerShellFile(command, &output := "") {
+        return RunPowerShellFile(command,, &output)
     }
 
     InitProgress(maxSteps, title := "Progress") {

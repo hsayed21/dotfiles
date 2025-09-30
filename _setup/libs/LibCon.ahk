@@ -1230,11 +1230,11 @@
 		}
 
 		; Show the command being executed
-		if (showCommand) {
-			SetFgColor(Cyan)
-			puts("➤ " . command)
-			SetFgColor(White)
-		}
+		; if (showCommand) {
+		; 	SetFgColor(Cyan)
+		; 	puts("➤ " . command)
+		; 	SetFgColor(White)
+		; }
 
 		; Save current directory
 		originalDir := A_WorkingDir
@@ -1255,36 +1255,36 @@
 			result := RunWaitOne(fullCommand, &output)
 
 			; Read and display the output
-				try {
+				; try {
 					; output := FileRead(tempFile)
-					if (output) {
-						; Display output line by line
-						lines := StrSplit(output, "`n")
-						for index, line in lines {
-							if (Trim(line)) {
-								puts(line)
-							}
-						}
-					}
-				}
-				 catch {
-					; If file read fails, show error
-					SetFgColor(Red)
-					puts("Error: Could not read command output")
-					SetFgColor(White)
-				}
+					; if (output) {
+					; 	; Display output line by line
+					; 	lines := StrSplit(output, "`n")
+					; 	for index, line in lines {
+					; 		if (Trim(line)) {
+					; 			puts(line)
+					; 		}
+					; 	}
+					; }
+				; }
+				;  catch {
+				; 	; If file read fails, show error
+				; 	SetFgColor(Red)
+				; 	puts("Error: Could not read command output")
+				; 	SetFgColor(White)
+				; }
 
 			; Show result
-			if (result = 0) {
-				SetFgColor(Green)
+			; if (result = 0) {
+				; SetFgColor(Green)
 				; puts("✅ Command completed successfully")
-			} else {
-				SetFgColor(Red)
-				puts("❌ Command failed with exit code: " . result)
-			}
-			SetFgColor(White)
+			; } else {
+				; SetFgColor(Red)
+				; puts("❌ Command failed with exit code: " . result)
+			; }
+			; SetFgColor(White)
 
-			return result = 0
+			return result = 0 ; Success if exit code is 0
 
 		} catch as err {
 			SetFgColor(Red)
@@ -1298,6 +1298,54 @@
 		}
 	}
 
+	RunCommandSilent(command, workingDir := "", &output := "") {
+		; Execute command and redirect output to temp file
+		fullCommand := A_ComSpec . ' /c "' . command . '"'
+		result := RunWaitOne(fullCommand, &output)
+		return result = 0
+	}
+
+	; RunPowerShellSilent(command, workingDir := "", &output := "") {
+	; 	; Execute PowerShell command and redirect output to temp file
+	; 	fullCommand := "powershell -NoProfile -Command '" . command . "'"
+	; 	result := RunWaitOne(fullCommand, &output)
+	; 	return result = 0
+	; }
+
+	RunPowerShellSilent(command, workingDir := "", &output := "", usePwsh := true) {
+		; Choose PowerShell version
+		psExe := usePwsh ? "pwsh.exe" : "powershell.exe"
+
+		; Don't escape single quotes when wrapping in double quotes
+		escapedCommand := StrReplace(command, '"', '""') ; Only escape double quotes by doubling them
+
+		; Build PowerShell command with proper quoting
+		fullCommand := psExe . ' -NoProfile -ExecutionPolicy Bypass -Command "' . escapedCommand . '"'
+
+		; Set working directory if provided
+		if (workingDir != "") {
+			fullCommand := psExe . ' -NoProfile -ExecutionPolicy Bypass -Command "Set-Location \"' . workingDir . '\"; ' . escapedCommand . '"'
+		}
+
+		result := RunWaitOne(fullCommand, &output)
+		return result = 0
+	}
+
+	RunPowerShellFile(psFilePath, &output := "", usePwsh := true) {
+		if (!FileExist(psFilePath)) {
+			output := "Error: PowerShell script file not found - " . psFilePath
+			return false
+		}
+
+		; Choose PowerShell version
+		psExe := usePwsh ? "pwsh.exe" : "powershell.exe"
+
+		; Build command to execute the PowerShell script file
+		fullCommand := psExe . ' -NoProfile -ExecutionPolicy Bypass -File "' . psFilePath . '"'
+
+		result := RunWaitOne(fullCommand, &output)
+		return result = 0
+	}
 	; Execute command with live streaming output (alternative method)
 	RunCommandLive(command, workingDir := "", showCommand := true) {
 		global Stdout
@@ -1423,26 +1471,42 @@
 		return 0
 	}
 
-	RunWaitOne(command, &output:="") {
-		shell := ComObject("WScript.Shell")
-		; Execute a single command via cmd.exe
-		exec := shell.Exec(A_ComSpec " /C " command)
-		; Read and return the command's output
-		; output := Stdout()
-		output := StdOut()
-		; err := StdErr()
 
-		return exec.ExitCode ; 0 on success, non-zero on error
+RunWaitOne(command, &output := "") {
+	shell := ComObject("WScript.Shell")
 
-		StdOut() => StdOutOnly() || StdErr()
+	try {
+		; Execute command and capture both stdout and stderr
+		exec := shell.Exec(command)
 
-		StdOutOnly() {
-				return Trim(exec.StdOut.ReadAll(), "`r`n`t ")
+		; Wait for the process to complete and read all output
+		while (exec.Status = 0) {
+			Sleep(10)
 		}
 
-		StdErr() {
-				return Trim(exec.StdErr.ReadAll(), "`r`n`t ")
+		; Get output from both streams
+		stdout := ""
+		stderr := ""
+
+		if (!exec.StdOut.AtEndOfStream) {
+			stdout := exec.StdOut.ReadAll()
 		}
 
+		if (!exec.StdErr.AtEndOfStream) {
+			stderr := exec.StdErr.ReadAll()
+		}
+
+		; Combine outputs, prioritize stderr if present
+		if (stderr != "") {
+			output := Trim(stderr, "`r`n`t ")
+		} else {
+			output := Trim(stdout, "`r`n`t ")
+		}
+
+		return exec.ExitCode
+
+	} catch as e {
+		output := "Error executing command: " . e.message
+		return -1
 	}
-;}
+}
