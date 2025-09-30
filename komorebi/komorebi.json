@@ -5,7 +5,7 @@
     "cross_monitor_move_behaviour": "Insert",
     "default_workspace_padding": 4,
     "default_container_padding": 4,
-    "float_override": false,
+    "float_override": true,
     "float_override_placement": "CenterAndResize",
     "floating_layer_behaviour": "Float",
     "border": true,

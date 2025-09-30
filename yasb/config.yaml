@@ -2,7 +2,7 @@
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true
-debug: false
+debug: true
 # komorebi:
 #     start_command: "komorebic stop && komorebic start"
 #     stop_command: "komorebic stop"
@@ -10,7 +10,8 @@ debug: false
 bars:
     primary-bar:
         enabled: true
-        screens: [ '\\.\DISPLAY1' ]
+        # screens: [ '\\.\DISPLAY1' ]
+        screens: [ "LCDTV16" ]
         class_name: "yasb-bar"
         alignment:
             position: "top"
@@ -35,7 +36,7 @@ bars:
             top: 2
             left: 2
             bottom: 0
-            right: 115  # leave space to fix taskbar overlap issue
+            right: 102  # leave space to fix taskbar overlap issue
         widgets:
             left: [ "home", "glazewm_workspaces", "glazewm_tiling_direction", "glazewm_binding_mode", "active_window" ]
             center: [ "clock", "apps" ]
@@ -49,7 +50,7 @@ bars:
                 ]
     secondary-bar:
         enabled: true
-        screens: [ "LCDTV16" ]
+        screens: [ "BenQ GW2780" ]
         class_name: "yasb-bar"
         alignment:
             position: "top"

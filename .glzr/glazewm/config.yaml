@@ -92,7 +92,7 @@ window_effects:
 window_behavior:
   # New windows are created in this state whenever possible
   # Allowed values: "tiling", "floating"
-  initial_state: "tiling"
+  initial_state: "floating"
 
   # Sets the default options for when a new window is created
   state_defaults:

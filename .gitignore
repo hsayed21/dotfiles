@@ -20,8 +20,7 @@ sensitive-patterns.json
 backups/
 vscode/copilot/
 
-
-#start-assume-unchanged
-# DirectoryOpus/
-# FlowLauncher/
-#end-assume-unchanged
+ZenBrowser/Profiles/main.Default/places.sqlite
+ZenBrowser/Profiles/main.Default/extensions.json
+ZenBrowser/Profiles/main.Default/extension-settings.json
+ZenBrowser/Profiles/main.Default/extension-preferences.json
