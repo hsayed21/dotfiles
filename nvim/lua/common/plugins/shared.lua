@@ -318,6 +318,25 @@ return {
 			-- { mode = { 'o', 'x' }, 'a|', function() require('various-textobjs').shellPipe('outer') end },
 			-- { mode = { 'o', 'x' }, 'ix', function() require('various-textobjs').htmlAttribute(true) end },
 			-- { mode = { 'o', 'x' }, 'ax', function() require('various-textobjs').htmlAttribute(false) end },
+			-- Percent sign %
+			{ mode = {"v"}, "i%", "T%ot%" },
+			{ mode = { "v" }, "a%", "F%of%" },
+			{ mode = { "o"}, "i%", function() Cmd("normal vT%ot%") end },
+			{ mode = { "o" }, "a%", function() Cmd("normal vF%of%") end },
+
+			-- Markdown heading
+			{ mode = { "v" }, "ir", "?^#<cr>oNk" },
+			{ mode = { "v" }, "iR", "?^#<cr>koNk" },
+
+			-- Exclusive previous / next blank line
+			{ mode = {"n", "v"}, "]}", "}k" },
+			{ mode = { "n", "v"}, "[{", "{j" },
+			{ mode = { "o" }, "]}", function() Cmd("normal V}k") end },
+			{ mode = { "o" }, "[{", function() Cmd("normal V{j") end },
+
+			-- Last operated on text
+      { mode = { "v" }, "io", "`[o`]" },
+
 			{ mode = { "x" }, "im", "viiok" },
 			{ mode = { "x" }, "am", "viijok" },
 			{ mode = { "x" }, "iM", "viio2k" },

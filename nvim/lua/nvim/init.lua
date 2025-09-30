@@ -26,12 +26,10 @@ end
 require("nvim.keymaps")
 
 -- Load common utilities and features
-require("common.utils.autocmds")
 require("common.utils.functions")
-require("common.utils.features")
+require("common.utils.autocmds")
 require("common.utils.treesitter").setup()
-require("common.registers.registers")
-require("common.registers.text-objects")
+require("common.utils.registers")
 
 -- Custom user command for keymap listing (nvim-specific)
 vim.api.nvim_create_user_command("KeymapListClean", function()
