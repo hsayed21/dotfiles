@@ -860,7 +860,7 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "",
   "vscode-neovim.neovimExecutablePaths.linux": "",
   "vscode-neovim.neovimInitVimPaths.darwin": "",
-  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\HS\\AppData\\Local\\nvim\\init.lua",
+  "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\hsayed\\AppData\\Local\\nvim\\init.lua",
   "vscode-neovim.revealCursorScrollLine": true,
   "vscode_custom_css.imports": [
     "file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"
@@ -2157,7 +2157,6 @@
   "find-it-faster.findWithinFiles.fuzzRipgrepQuery": true,
   "find-it-faster.findWithinFiles.showPreview": false,
   "find-it-faster.general.killTerminalAfterUse": true,
-  "window.customTitleBarVisibility": "never",
   "application.experimental.rendererProfiling": true,
   "editor.renderWhitespace": "boundary",
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
@@ -2175,7 +2174,9 @@
   "github.copilot.chat.editor.temporalContext.enabled": true,
   "AHK++.v2.formatter": {
     "maxPreserveNewlines": 2,
-    "wrapLineLength": 120
+    "wrapLineLength": 120,
+    "switchCaseAlignment": true,
+    "arrayStyle": "expand"
   },
   // "workbench.editor.limit.enabled": true,
   // "workbench.editor.limit.value": 3,

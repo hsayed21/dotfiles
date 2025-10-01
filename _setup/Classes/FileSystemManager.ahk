@@ -34,7 +34,7 @@ class FileSystemManager {
             }
 
             if (Force) {
-                FileSystemManager.BackupExistingConfig(DestPath)
+                ; FileSystemManager.BackupExistingConfig(DestPath)
                 try {
                     if (DirExist(DestPath)) {
                         DirDelete(DestPath, true)
@@ -84,13 +84,14 @@ class FileSystemManager {
             , "ptr", 0
             , "ptr")
 
-        if (hFile = -1 || hFile = 0) {
-            err := A_LastError
-            throw Error("Failed to open path '" path "'. Win32 error: " err)
-        }
-
         ; Use try/finally to ensure handle cleanup
         try {
+
+             if (hFile = -1 || hFile = 0) {
+                err := A_LastError
+                throw Error("Failed to open path '" path "'. Win32 error: " err)
+            }
+
             ; First call to get required buffer size
             requiredSize := DllCall("GetFinalPathNameByHandleW"
                 , "ptr", hFile
@@ -134,7 +135,12 @@ class FileSystemManager {
 
             return result
 
-        } finally {
+        }
+        catch as err
+        {
+            return false
+        }
+        finally {
             ; Always close handle even if error occurs
             DllCall("CloseHandle", "ptr", hFile)
         }

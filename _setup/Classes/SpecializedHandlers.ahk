@@ -36,9 +36,9 @@ class PowerShellModuleManager {
         }
 
         ; Import concfg and copy theme
-        Console.Instance.RunPowerShellSilent('concfg import "' . A_WorkingDir . '\\WindowsTerminal\\concfg.json" -y')
+        Console.Instance.RunPowerShellSilent('concfg import "' . A_WorkingDir . '\WindowsTerminal\concfg.json" -y')
         Console.Instance.RunPowerShellSilent('Copy-Item -Path "' . A_WorkingDir .
-            '\\WindowsTerminal\\kali.theme.json" -Destination $Env:LOCALAPPDATA\\kali.theme.json -Force')
+            '\WindowsTerminal\kali.theme.json" -Destination $Env:LOCALAPPDATA\kali.theme.json -Force')
         Console.Instance.RunPowerShellFile(A_WorkingDir .
             '\WindowsTerminal\fix warning screen reader for powershell.ps1')
 
@@ -119,7 +119,8 @@ class VSCodeExtensionsManager {
     static OtherExtensions() {
         exts := [
             { url: "https://github.com/hsayed21/vscode-fold/releases/download/v1/vscode-fold-1.4.3.vsix", name: "vscode-fold-1.4.3.vsix" },
-            { url: "https://github.com/hsayed21/vscode-harpoon/releases/download/v1/vscode-harpoon-1.6.0.vsix", name: "vscode-harpoon-1.6.0.vsix" }
+            { url: "https://github.com/hsayed21/vscode-harpoon/releases/download/v1/vscode-harpoon-1.6.0.vsix",
+                name: "vscode-harpoon-1.6.0.vsix" }
         ]
 
         tempDir := A_Temp . "\temp_vscode_ext"
@@ -132,14 +133,16 @@ class VSCodeExtensionsManager {
             tempPath := tempDir . "\" . ext.name
             result := Console.Instance.RunSilent('curl -L -o "' . tempPath . '" "' . ext.url . '"', &curlOut)
             if (!result || !FileExist(tempPath)) {
-                Console.Instance.ShowWarning("Failed to download VS Code extension: " . ext.name . " Error: " . curlOut)
+                Console.Instance.ShowWarning("Failed to download VS Code extension: " . ext.name . " Error: " . curlOut
+                )
                 continue
             }
             result := Console.Instance.RunSilent('code-insiders --install-extension "' . tempPath . '"', &installOut)
             if (result) {
                 Console.Instance.ShowSuccess("Installed VS Code extension: " . ext.name)
             } else {
-                Console.Instance.ShowWarning("Failed to install VS Code extension: " . ext.name . " Error: " . installOut)
+                Console.Instance.ShowWarning("Failed to install VS Code extension: " . ext.name . " Error: " .
+                    installOut)
             }
             FileDelete(tempPath)
         }
@@ -192,20 +195,22 @@ class RegistryManager {
         Console.Instance.ShowSection("Configuring Console")
         RegistryHelper.BatchSetRegistry([
             ;# Make 'Source Code Pro' an available Console font
-            { path: 'HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Console\\TrueTypeFont', name: '000', value: 'Source Code Pro',
-                type: 'REG_SZ' },
+            {
+                path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont',
+                value: { name: '000', value: 'Source Code Pro' }
+            },
             {
                 paths: [
-                    'HKCU\\Console',
-                    'HKCU\\Console\\%SystemRoot%_System32_bash.exe',
-                    'HKCU\\Console\\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe',
-                    'HKCU\\Console\\%SystemRoot%_SysWOW64_WindowsPowerShell_v1.0_powershell.exe',
-                    'HKCU\\Console\\Windows PowerShell (x86)',
-                    'HKCU\\Console\\Windows PowerShell'
+                    'HKCU\Console',
+                    'HKCU\Console\%SystemRoot%_System32_bash.exe',
+                    'HKCU\Console\%SystemRoot%_System32_WindowsPowerShell_v1.0_powershell.exe',
+                    'HKCU\Console\%SystemRoot%_SysWOW64_WindowsPowerShell_v1.0_powershell.exe',
+                    'HKCU\Console\Windows PowerShell (x86)',
+                    'HKCU\Console\Windows PowerShell'
                 ],
                 values: [
                     ;# Name of display font
-                    { name: 'FaceName', value: 'Source Code Pro', type: 'REG_SZ' },
+                    { name: 'FaceName', value: 'Source Code Pro' },
                     ;# Font Family: Raster: 0, TrueType: 54
                     { name: 'FontFamily', value: 54 },
                     ;# Boldness of font: Raster=(Normal: 0, Bold: 1), TrueType=(100-900, Normal: 400)
@@ -235,11 +240,12 @@ class RegistryManager {
                 ]
             }
         ])
-        ; Console.Instance.RunPowerShell(
+        Console.Instance.ShowSuccess("Registry keys and values set successfully.")
+        ; Console.Instance.RunPowerShellSilent(
         ;     'Set-PSReadlineOption -Colors @{"Default"="#e8e8d3";"Comment"="#888888";"Keyword"="#8197bf";"String"="#99ad6a";"Operator"="#c6b6ee";"Variable"="#c6b6ee";"Command"="#8197bf";"Parameter"="#e8e8d3";"Type"="#fad07a";"Number"="#cf6a4c";"Member"="#fad07a";"Emphasis"="#f0a0c0";"Error"="#902020"}'
         ; )
         ;# Remove property overrides from PowerShell and Bash shortcuts
-        Console.Instance.RunPowerShell('Reset-AllPowerShellShortcuts; Reset-AllBashShortcuts')
+        ; Console.Instance.RunPowerShellSilent('Reset-AllPowerShellShortcuts; Reset-AllBashShortcuts')
     }
     /**
      * Configure Disk Cleanup (CleanMgr.exe)
@@ -249,16 +255,16 @@ class RegistryManager {
         RegistryHelper.BatchSetRegistry([
             {
                 paths: [
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Downloaded Program Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Internet Cache Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Old ChkDsk Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\RetailDemo Offline Content",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Setup Log Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Temporary Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Temporary Setup Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Thumbnail Cache",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Update Cleanup",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Defender"
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Downloaded Program Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Internet Cache Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Old ChkDsk Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\RetailDemo Offline Content",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Setup Log Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Temporary Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Temporary Setup Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Thumbnail Cache",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Update Cleanup",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Defender"
                 ],
                 values: [
                     { name: 'StateFlags6174', value: 2 }
@@ -266,28 +272,29 @@ class RegistryManager {
             },
             {
                 paths: [
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\BranchCache",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Offline Pages Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Previous Installations",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Recycle Bin",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Service Pack Cleanup",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\System error memory dump files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\System error minidump files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Upgrade Discarded Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\User file versions",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Error Reporting Archive Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Error Reporting Queue Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Error Reporting System Archive Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Error Reporting System Queue Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Error Reporting Temp Files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows ESD installation files",
-                    "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VolumeCaches\\Windows Upgrade Log Files"
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\BranchCache",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Offline Pages Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Previous Installations",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Recycle Bin",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Service Pack Cleanup",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\System error memory dump files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\System error minidump files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Upgrade Discarded Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\User file versions",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Error Reporting Archive Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Error Reporting Queue Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Error Reporting System Archive Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Error Reporting System Queue Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Error Reporting Temp Files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows ESD installation files",
+                    "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\Windows Upgrade Log Files"
                 ],
                 values: [
                     { name: 'StateFlags6174', value: 0 }
                 ]
             }
         ])
+        Console.Instance.ShowSuccess("Registry keys and values set successfully.")
     }
     /**
      * Configure Security and Identity
@@ -298,33 +305,33 @@ class RegistryManager {
         RegistryHelper.BatchSetRegistry([
             ;# General: Don't let apps use advertising ID for experiences across apps: Allow: 1, Disallow: 0
             {
-                path: 'HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo',
+                path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo',
                 value: { name: 'Enabled', value: 0 }
             },
             ;# General: Disable Application launch tracking: Enable: 1, Disable: 0
             {
-                path: 'HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced',
+                path: 'HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced',
                 value: { name: 'Start-TrackProgs', value: 0 }
             },
             ;# General: Disable SmartScreen Filter for Store Apps: Enable: 1, Disable: 0
             {
-                path: 'HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppHost',
+                path: 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\AppHost',
                 value: { name: 'EnableWebContentEvaluation', value: 0 }
             },
             ;# General: Disable key logging & transmission to Microsoft: Enable: 1, Disable: 0
             ;# Disabled when Telemetry is set to Basic
             {
-                path: 'HKCU\\SOFTWARE\\Microsoft\\Input\\TIPC',
+                path: 'HKCU\SOFTWARE\Microsoft\Input\TIPC',
                 value: { name: 'Enabled', value: 0 }
             },
             ;# General: Opt-out from websites from accessing language list: Opt-in: 0, Opt-out 1
             {
-                path: 'HKCU\\Control Panel\\International\\User Profile',
+                path: 'HKCU\Control Panel\International\User Profile',
                 value: { name: 'HttpAcceptLanguageOptOut', value: 1 }
             },
             {
                 paths: [
-                    'HKLM\\SOFTWARE\\Microsoft\Windows\CurrentVersion\SmartGlass'
+                    'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\SmartGlass'
                 ],
                 values: [
                     ;# General: Disable SmartGlass: Enable: 1, Disable: 0
@@ -335,12 +342,13 @@ class RegistryManager {
             },
             {
                 paths: [
-                    'HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager'
+                    'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager'
                 ],
                 values: [
                     ;# General: Disable suggested content in settings app: Enable: 1, Disable: 0
                     { name: 'SubscribedContent-338393Enabled', value: 0 },
-                    { name: 'SubscribedContent-338394Enabled', value: 0 },
+                    { name: 'SubscribedContent-338394Enabled',
+                        value: 0 },
                     { name: 'SubscribedContent-338396Enabled', value: 0 },
                     ;# General: Disable tips and suggestions for welcome and what's new: Enable: 1, Disable: 0
                     { name: 'SubscribedContent-310093Enabled', value: 0 },
@@ -352,7 +360,7 @@ class RegistryManager {
             },
             ;# Start Menu: Disable search entries: Enable: 0, Disable: 1
             {
-                path: 'HKCU\\Software\\Policies\\Microsoft\\Windows\\Explorer',
+                path: 'HKCU\Software\Policies\Microsoft\Windows\Explorer',
                 value: { name: 'DisableSearchBoxSuggestions', value: 1 }
             },
             ;# Camera: Don't let apps use camera: Allow, Deny
@@ -444,7 +452,7 @@ class RegistryManager {
                 values: [
                     { name: "Value", value: "Deny" }
                 ]
-            }, ,
+            },
             ;# Feedback: Windows should never ask for my feedback
             {
                 path: "HKCU\SOFTWARE\Microsoft\Siuf\Rules",
@@ -462,17 +470,17 @@ class RegistryManager {
             },
             ;# Turn Off Windows Narrator Hotkey: Enable: 1, Disable: 0
             {
-                path: 'HKCU\\SOFTWARE\\Microsoft\\Narrator\\NoRoam',
+                path: 'HKCU\SOFTWARE\Microsoft\Narrator\NoRoam',
                 value: { name: 'WinEnterLaunchEnabled', value: 0 }
             },
             ;# Disable "Window Snap" Automatic Window Arrangement: Enable: 1, Disable: 0
             {
-                path: 'HKCU\\Control Panel\\Desktop',
+                path: 'HKCU\Control Panel\Desktop',
                 value: { name: 'WindowArrangementActive', value: 0 }
             },
             {
                 paths: [
-                    'HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced'
+                    'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
                 ],
                 values: [
                     ;# Disable automatic fill to space on Window Snap: Enable: 1, Disable: 0
@@ -485,11 +493,11 @@ class RegistryManager {
             },
             ;# Disable auto-correct: Enable: 1, Disable: 0
             {
-                path: 'HKCU\\SOFTWARE\\Microsoft\\TabletTip\\1.7',
+                path: 'HKCU\SOFTWARE\Microsoft\TabletTip\1.7',
                 value: { name: 'EnableAutocorrection', value: 0 }
             },
             {
-                path: 'HKLM\\SOFTWARE\\Microsoft\\WindowsUpdate\\UX\\Settings',
+                path: 'HKLM\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings',
                 values: [
                     ;# Disable automatic reboot after install: Enable: 1, Disable: 0
                     { name: 'IsExpedited', value: 0 },
@@ -500,12 +508,13 @@ class RegistryManager {
                 ]
             }
         ])
+        Console.Instance.ShowSuccess("Registry keys and values set successfully.")
 
         ;Windows Defender
         ;# Disable Cloud-Based Protection: Enabled Advanced: 2, Enabled Basic: 1, Disabled: 0
-        Console.Instance.RunPowerShell('Set-MpPreference -MAPSReporting 0')
+        Console.Instance.RunPowerShellSilent('Set-MpPreference -MAPSReporting 0')
         ;# Disable automatic sample submission: Prompt: 0, Auto Send Safe: 1, Never: 2, Auto Send All: 3
-        Console.Instance.RunPowerShell('Set-MpPreference -SubmitSamplesConsent 2')
+        Console.Instance.RunPowerShellSilent('Set-MpPreference -SubmitSamplesConsent 2')
 
     }
 
@@ -518,25 +527,25 @@ class RegistryManager {
             ;# Sound: Disable Startup Sound: Enable: 0, Disable: 1
             {
                 paths: [
-                    'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System',
-                    'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI\\BootAnimation',
+                    'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System',
+                    'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\BootAnimation',
                 ],
                 values: [
                     { name: 'DisableStartupSound', value: 1 }
                 ]
             },
             {
-                path: 'HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\EditionOverrides',
+                path: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\EditionOverrides',
                 value: { name: 'UserSetting_DisableStartupSound', value: 1 }
             },
             ;# SSD: Disable SuperFetch: Enable: 1, Disable: 0
             {
-                path: 'HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\\PrefetchParameters',
+                path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters',
                 value: { name: 'EnableSuperfetch', value: 0 }
             },
             ;# Network: Disable WiFi Sense: Enable: 1, Disable: 0
             {
-                path: 'HKLM\\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config',
+                path: 'HKLM\SOFTWARE\Microsoft\WcmSvc\wifinetworkmanager\config',
                 value: { name: 'AutoConnectAllowedOEM', value: 0 }
             },
             ;# Enable Custom Background on the Login / Lock Screen
@@ -547,7 +556,9 @@ class RegistryManager {
             ;     value: { name: "LockScreenImage", value: "C:\someDirectory\someImage.jpg" }
             ; },
         ])
-        Console.Instance.RunPowerShell('powercfg /hibernate off')
+        Console.Instance.ShowSuccess("Registry keys and values set successfully.")
+
+        Console.Instance.RunPowerShellSilent('powercfg /hibernate off')
         ; (Optional) Set standby delay, disable WiFi Sense, etc. (commented in .ps1)
     }
 
@@ -596,7 +607,7 @@ class RegistryManager {
                 values: [
                     { name: "ShowTaskViewButton", value: 0 }, ; Task View
                     { name: "TaskbarDa", value: 0 }, ; Widgets
-                    { name: "TaskbarMn", value: 0 } ; Chat
+                    { name: "TaskbarMn", value: 0 } ; Chat]
                 ]
             },
             ;# Taskbar: Show colors on Taskbar, Start, and SysTray: Disabled: 0, Taskbar, Start, & SysTray: 1, Taskbar Only: 2
@@ -610,9 +621,10 @@ class RegistryManager {
                 value: { name: "ColorPrevalence", value: 0 }
             },
         ])
+        Console.Instance.ShowSuccess("Registry keys and values set successfully.")
 
-        Console.Instance.RunPowerShell('reg import "' . A_WorkingDir .
-            '\\ExplorerPatcher\\ExplorerPatcher_22621.1413.54.5.reg" *>&1 | Out-Null')
+        Console.Instance.RunPowerShellSilent('reg import "' . A_WorkingDir .
+            '\ExplorerPatcher\ExplorerPatcher_22621.1413.54.5.reg" *>&1 | Out-Null')
     }
 
     /**
@@ -624,12 +636,16 @@ class RegistryManager {
         apps := SetupConfig.GetDefaultApps()
         for _, app in apps {
             appId := app
+            Console.Instance.ShowStatus("Removing bloatware: " . appId . "...", "loading")
             ; Remove AppxPackage
-            Console.Instance.RunPowerShellSilent('Get-AppxPackage "' . appId .
-                '" -AllUsers | Remove-AppxPackage -AllUsers')
+            res1 := Console.Instance.RunPowerShellSilent('Get-AppxPackage "' . appId .
+                '" -AllUsers | Remove-AppxPackage -AllUsers', &output)
             ; Remove AppXProvisionedPackage
-            Console.Instance.RunPowerShell('Get-AppXProvisionedPackage -Online | Where DisplayName -like "' . appId .
-                '" | Remove-AppxProvisionedPackage -Online -AllUsers | Out-Null')
+            res2 := Console.Instance.RunPowerShellSilent('Get-AppXProvisionedPackage -Online | Where DisplayName -like "' . appId .
+                '" | Remove-AppxProvisionedPackage -Online -AllUsers | Out-Null', &output)
+
+            if (res1 || res2)
+                Console.Instance.ShowSuccess(appId . " removed successfully.")
         }
 
         ; Disable Windows Media Player
@@ -641,14 +657,16 @@ class RegistryManager {
         RegistryHelper.BatchSetRegistry([
             {
                 paths: [
-                    'HKLM\\Software\Policies\Microsoft\Windows\CloudContent'
+                    'HKLM\Software\Policies\Microsoft\Windows\CloudContent'
                 ],
                 values: [
-                    { name: 'DisableWindowsConsumerFeatures', value: 1 } { name: 'DisableCloudOptimizedContent', value: 1 } { name: 'DisableConsumerAccountStateContent',
-                        value: 1 }
+                    { name: 'DisableWindowsConsumerFeatures', value: 1 },
+                    { name: 'DisableCloudOptimizedContent', value: 1 },
+                    { name: 'DisableConsumerAccountStateContent', value: 1 }
                 ]
             }
         ])
+        Console.Instance.ShowSuccess("Registry keys and values set successfully.")
     }
 
     /**
@@ -657,29 +675,26 @@ class RegistryManager {
     static ConfigureOtherStuff() {
         Console.Instance.ShowSection("Configuring Other Stuff ")
         ; Opt-In to Microsoft Update (COM object)
-        Console.Instance.RunPowerShellSilent(
-            '$MU = New-Object -ComObject Microsoft.Update.ServiceManager -Strict; $MU.AddService2("7971f918-a847-4430-9279-4a52d1efe18d",7,"") | Out-Null; Remove-Variable MU'
-        )
+        ; Console.Instance.RunPowerShellSilent( '$MU = New-Object -ComObject Microsoft.Update.ServiceManager -Strict; $MU.AddService2("7971f918-a847-4430-9279-4a52d1efe18d",7,"") | Out-Null; Remove-Variable MU')
 
         ; Set Computer Name (example: "hsayed")
-        Console.Instance.RunPowerShell('(Get-WmiObject Win32_ComputerSystem).Rename("hsayed") | Out-Null')
+        Console.Instance.RunPowerShellSilent('(Get-WmiObject Win32_ComputerSystem).Rename("hsayed") | Out-Null')
         ; Optionally set display name for account (commented in .ps1)
         ; Enable Developer Mode (commented in .ps1)
-        ; Console.Instance.RunPowerShell('Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1')
+        ; Console.Instance.RunPowerShellSilent('Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1')
         ; Disable WSL (can be enabled by EnableWSL)
-        Console.Instance.RunPowerShell(
+        Console.Instance.RunPowerShellSilent(
             'Disable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null'
         )
 
+        Console.Instance.ShowSuccess("Other Stuff configured successfully.")
+
         ; VS Code context menu
-        Console.Instance.RunPowerShell('reg import "' . A_WorkingDir .
-            '\\vscode\\vscode contextmenu with profile.reg" *>&1 | Out-Null')
+        ; Console.Instance.RunPowerShellSilent('reg import "' . A_WorkingDir . '\vscode\vscode contextmenu with profile.reg" *>&1 | Out-Null')
 
-
-
-            ; # vs2022
-            ; # & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
-            ; # Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully." Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
+        ; # vs2022
+        ; # & "$Env:ProgramFiles\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\devenv.exe" /ResetSettings ($currentPath + "\VS2022\VS2022_Config.vssettings")
+        ; # Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully." Show-SuccessMessage -Message "VS2022 Settings has been Restored successfully."
     }
 
     /**

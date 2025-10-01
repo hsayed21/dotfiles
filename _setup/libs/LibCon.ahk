@@ -1471,42 +1471,37 @@
 		return 0
 	}
 
-
 RunWaitOne(command, &output := "") {
-	shell := ComObject("WScript.Shell")
+    shell := ComObject("WScript.Shell")
+    try {
+        exec := shell.Exec(A_ComSpec . " /C " . command)
 
-	try {
-		; Execute command and capture both stdout and stderr
-		exec := shell.Exec(command)
+        ; Wait for process to complete while reading output
+        stdout := ""
+        stderr := ""
 
-		; Wait for the process to complete and read all output
-		while (exec.Status = 0) {
-			Sleep(10)
-		}
+        ; Read all available output while process is running
+        while (exec.Status = 0) {
+            if (!exec.StdOut.AtEndOfStream)
+                stdout .= exec.StdOut.ReadAll()
+            if (!exec.StdErr.AtEndOfStream)
+                stderr .= exec.StdErr.ReadAll()
+            Sleep(10)
+        }
 
-		; Get output from both streams
-		stdout := ""
-		stderr := ""
+        ; Read any remaining output after process completes
+        if (!exec.StdOut.AtEndOfStream)
+            stdout .= exec.StdOut.ReadAll()
+        if (!exec.StdErr.AtEndOfStream)
+            stderr .= exec.StdErr.ReadAll()
 
-		if (!exec.StdOut.AtEndOfStream) {
-			stdout := exec.StdOut.ReadAll()
-		}
+        ; Combine outputs (stderr takes priority if present)
+        output := Trim((stderr != "" ? stderr : stdout), "`r`n`t ")
 
-		if (!exec.StdErr.AtEndOfStream) {
-			stderr := exec.StdErr.ReadAll()
-		}
+        return exec.ExitCode
 
-		; Combine outputs, prioritize stderr if present
-		if (stderr != "") {
-			output := Trim(stderr, "`r`n`t ")
-		} else {
-			output := Trim(stdout, "`r`n`t ")
-		}
-
-		return exec.ExitCode
-
-	} catch as e {
-		output := "Error executing command: " . e.message
-		return -1
-	}
+    } catch as e {
+        output := "Error executing command: " . e.Message
+        return -1
+    }
 }

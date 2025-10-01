@@ -40,10 +40,10 @@ class Console {
 
     ShowWelcome() {
         SetFgColor(Console.Colors.Section)
-        puts("╔══════════════════════════════════════════════════════════════╗")
-        puts("║                      AutoHotkey Setup Console                ║")
-        puts("║                    Enhanced User Experience                  ║")
-        puts("╚══════════════════════════════════════════════════════════════╝")
+        puts("╔═════════════════════════════════════════════════════╗")
+        puts("║                      Dotfiles Setup                 ║")
+        puts("║                       Made with ♥︎                   ║")
+        puts("╚═════════════════════════════════════════════════════╝")
         SetFgColor(Console.Colors.Info)
         NewLine(1)
     }
@@ -81,7 +81,7 @@ class Console {
 
     ShowSuccess(message) {
         this.WriteColored("✅ " . message, "Success")
-        this.PlaySound("success")
+        ; this.PlaySound("success")
     }
 
     ShowInfo(message) {
@@ -90,12 +90,12 @@ class Console {
 
     ShowWarning(message) {
         this.WriteColored("⚠️  " . message, "Warning")
-        this.PlaySound("warning")
+        ; this.PlaySound("warning")
     }
 
     ShowError(message) {
         this.WriteColored("❌ " . message, "Error")
-        this.PlaySound("error")
+        ; this.PlaySound("error")
     }
 
     ShowCommand(command, description := "") {
@@ -146,7 +146,7 @@ class Console {
     CompleteProgress(message := "All tasks completed successfully! 🎉") {
         this.currentProgress := this.maxProgress
         this.UpdateProgress(0, message)
-        this.PlaySound("complete")
+        ; this.PlaySound("complete")
         NewLine(1)
     }
 

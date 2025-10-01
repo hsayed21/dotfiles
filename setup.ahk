@@ -1,5 +1,3 @@
-k
-
 #Requires AutoHotkey >=2.0-
 
 #SingleInstance Off
@@ -134,4 +132,4 @@ try {
 } catch as err {
     MsgBox("Setup failed with error:`n`n" . err.Message, "Setup Error", "Icon!")
 }
-; Pause()
+Pause()

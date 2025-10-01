@@ -14,27 +14,23 @@ class PackageInstaller {
         this.Managers["Chocolatey"] := ChocolateyManager()
     }
 
-    IsPackageInstalled(packageName, packageId := "") {
-        searchNames := [packageName]
-        if (packageId && packageId != packageName) {
-            searchNames.Push(packageId)
-        }
-        if (InStr(packageName, "/")) {
-            parts := StrSplit(packageName, "/")
+    IsPackageInstalled(package) {
+
+        if (InStr(package, "/")) {
+            parts := StrSplit(package, "/")
             if (parts.Length >= 2) {
-                searchNames.Push(parts[2])
+                package := parts[2]
             }
         }
+
         for _, manager in this.Managers {
             if (manager.IsInstalled()) {
-                for searchName in searchNames {
-                    result := manager.IsPackageInstalled(searchName)
-                    if (result.IsInstalled) {
-                        return {
-                            IsInstalled: true,
-                            PackageManager: manager.Name,
-                            InstalledName: result.InstalledName
-                        }
+                result := manager.IsPackageInstalled(package)
+                if (result.IsInstalled) {
+                    return {
+                        IsInstalled: true,
+                        PackageManager: manager.Name,
+                        InstalledName: result.InstalledName
                     }
                 }
             }
@@ -49,18 +45,16 @@ class PackageInstaller {
             EnvGet("LOCALAPPDATA") . "\Programs"          ; Local Programs
         ]
 
-        for searchName in searchNames {
-            for basePath in basePaths {
-                if !DirExist(basePath)  ; skip if base path doesn’t exist
-                    continue
+        for basePath in basePaths {
+            if !DirExist(basePath)  ; skip if base path doesn’t exist
+                continue
 
-                loop files basePath "\*", "D" { ; D = only directories
-                    if InStr(A_LoopFileName, searchName) {
-                        return {
-                            IsInstalled: true,
-                            PackageManager: "Local",
-                            InstalledName: searchName,
-                        }
+            loop files basePath "\*", "D" { ; D = only directories
+                if InStr(A_LoopFileName, package) {
+                    return {
+                        IsInstalled: true,
+                        PackageManager: "Local",
+                        InstalledName: package,
                     }
                 }
             }
@@ -127,9 +121,8 @@ class PackageInstaller {
 
                     for package in packageList {
                         packageName := manager.GetDisplayName(package)
-                        packageId := package.HasOwnProp("id") ? package.id : ""
 
-                        installCheck := this.IsPackageInstalled(packageName, packageId)
+                        installCheck := this.IsPackageInstalled(packageName)
                         if (installCheck.IsInstalled) {
                             Console.Instance.ShowSuccess(packageName . " already installed via " . installCheck.PackageManager)
                             this.Stats.AddSkip(packageName, managerName, "Already installed via " . installCheck.PackageManager)

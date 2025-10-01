@@ -34,7 +34,6 @@ github.copilot
 github.copilot-chat
 hossaini.bootstrap-intellisense
 hsayed.json-i18n-key
-hsayed.saveall
 intellsmi.comment-translate
 inu1255.easy-snippet
 joelrobichaud.vscode-task-notifier
@@ -84,7 +83,6 @@ tobias-z.vscode-harpoon
 tombonnike.vscode-status-bar-format-toggle
 tomoki1207.pdf
 tyriar.sort-lines
-undefined_publisher.vscode-profile-selector
 visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
 wenfangdu.snippet-generator

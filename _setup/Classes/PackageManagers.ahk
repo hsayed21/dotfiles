@@ -56,7 +56,8 @@ class ScoopManager extends PackageManagerBase {
         ; RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command " . Chr(34) . psCommand . Chr(34), &output)
         ; RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command '" . psCommand . "'", &output)
         psCommand := "iex '& {$(irm get.scoop.sh)} -RunAsAdmin'"
-        res := RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command " . Chr(34) . psCommand . Chr(34), &output)
+        ; res := RunWaitOne("powershell -NoProfile -ExecutionPolicy Bypass -Command " . Chr(34) . psCommand . Chr(34), &output)
+        res := Console.Instance.RunPowerShellSilent(psCommand, &output)
 
         if res != 0
         {
@@ -69,38 +70,23 @@ class ScoopManager extends PackageManagerBase {
     }
 
     IsInstalled() {
-        exitCode := RunWaitOne("scoop --version", &out)
-        return (exitCode = 0 && out != "")
+        res := Console.Instance.RunSilent("scoop --version", &out)
+        return (res && out != "")
     }
 
-    IsPackageInstalled(PackageName, PackageId := "") {
-        result := Console.Instance.RunSilent("scoop list",, &output)
+    IsPackageInstalled(Package) {
+        ; Handle bucket/package format (e.g., "extras/altsnap" -> "altsnap")
+        if (InStr(Package, "/")) {
+            parts := StrSplit(Package, "/")
+            if (parts.Length >= 2)
+                Package := parts[2]
+        }
+
+        result := Console.Instance.RunSilent("scoop which " . '"' . Package . '"', &output)
         if (!result)
             return { IsInstalled: false, InstalledName: "" }
 
-        ; Create search terms
-        searchNames := [PackageName]
-        if (PackageId && PackageId != PackageName)
-            searchNames.Push(PackageId)
-
-        ; Handle bucket/package format (e.g., "extras/altsnap" -> "altsnap")
-        if (InStr(PackageName, "/")) {
-            parts := StrSplit(PackageName, "/")
-            if (parts.Length >= 2)
-                searchNames.Push(parts[2])
-        }
-
-        ; Check each search term
-        for searchName in searchNames {
-            if (InStr(output, searchName)) {
-                return {
-                    IsInstalled: true,
-                    InstalledName: searchName
-                }
-            }
-        }
-
-        return { IsInstalled: false, InstalledName: "" }
+        return { IsInstalled: true, InstalledName: Package }
     }
 
     InstallPackage(Package) {
@@ -162,31 +148,20 @@ class WingetManager extends PackageManagerBase {
     }
 
     IsInstalled() {
-        exitCode := RunWaitOne("winget --version", &out)
-        return (exitCode = 0 && out != "")
+        res := Console.Instance.RunSilent("winget --version", &out)
+        return (res && out != "")
     }
 
-    IsPackageInstalled(PackageName, PackageId := "") {
-        result := Console.Instance.RunSilent("winget list --accept-source-agreements --disable-interactivity",, &output)
+    IsPackageInstalled(Package) {
+        result := Console.Instance.RunSilent("winget list --name " . '"' . Package . '"')
         if (!result)
-            return { IsInstalled: false, InstalledName: "" }
-
-        ; Create search terms
-        searchNames := [PackageName]
-        if (PackageId && PackageId != PackageName)
-            searchNames.Push(PackageId)
-
-        ; Check each search term
-        for searchName in searchNames {
-            if (InStr(output, searchName)) {
-                return {
-                    IsInstalled: true,
-                    InstalledName: searchName
-                }
-            }
+        {
+            result := Console.Instance.RunSilent("winget list --id " . '"' . Package . '"')
+            if (!result)
+                return { IsInstalled: false, InstalledName: "" }
         }
 
-        return { IsInstalled: false, InstalledName: "" }
+        return { IsInstalled: true, InstalledName: Package }
     }
 
     InstallPackage(Package) {
@@ -233,28 +208,20 @@ class ChocolateyManager extends PackageManagerBase {
     }
 
     IsInstalled() {
-        exitCode := RunWaitOne("choco --version", &out)
-        return (exitCode = 0 && out != "")
-
+         res := Console.Instance.RunSilent("choco --version", &out)
+        return (res && out != "")
     }
 
-    IsPackageInstalled(PackageName, PackageId := "") {
-        result := Console.Instance.RunSilent("choco list --local-only --limit-output",, &output)
+    IsPackageInstalled(Package) {
+        result := Console.Instance.RunSilent("choco list --local-only --limit-output", &output)
         if (!result)
             return { IsInstalled: false, InstalledName: "" }
 
-        ; Create search terms
-        searchNames := [PackageName]
-        if (PackageId && PackageId != PackageName)
-            searchNames.Push(PackageId)
 
-        ; Check each search term
-        for searchName in searchNames {
-            if (InStr(output, searchName)) {
-                return {
-                    IsInstalled: true,
-                    InstalledName: searchName
-                }
+        if (InStr(output, Package)) {
+            return {
+                IsInstalled: true,
+                InstalledName: Package
             }
         }
 
@@ -294,8 +261,8 @@ class SourceForgeManager extends PackageManagerBase {
     Install() {
         return FileExist("C:\\Windows\\System32\\curl.exe")
     }
-    IsPackageInstalled(PackageName, PackageId := "") {
-        return FileExist("C:\\Program Files\\" . PackageName) || FileExist("C:\\Program Files (x86)\\" . PackageName)
+    IsPackageInstalled(Package) {
+        return FileExist("C:\\Program Files\\" . Package) || FileExist("C:\\Program Files (x86)\\" . Package)
     }
     InstallPackage(Package) {
         console := Console.Instance

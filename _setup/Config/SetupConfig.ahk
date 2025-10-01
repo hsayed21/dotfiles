@@ -18,9 +18,12 @@ class SetupConfig {
             "Winget", [
                 { name: "Microsoft.VisualStudioCode" },
                 { name: "Microsoft.WindowsTerminal" },
+                { id: "Microsoft.VisualStudio.2022.Community" },
                 { id: "Neovim.Neovim.Nightly" },
                 { id: "GitHub.cli" },
-                { id: "Git.Git" }
+                { id: "Git.Git" },
+                { id: "Postman.Postman" },
+                { id: "PostgreSQL.PostgreSQL.16" }
             ],
             "Chocolatey", [
                 { name: "dotnet-sdk" },
@@ -68,7 +71,7 @@ class SetupConfig {
                 { name: "translucenttb" }
             ],
             "SourceForge", [
-                { project: "globonote/files/globonote", file: "globonote-setup.exe"}
+                ; { project: "globonote/files/globonote", file: "globonote-setup.exe"}
             ]
         )
 
@@ -106,13 +109,14 @@ class SetupConfig {
     static GetMappings() {
         workingDir := A_WorkingDir
         Home := "C:\Users\" . A_UserName
+        LocalAppData := EnvGet("LOCALAPPDATA")
 
         ; Ensure A_AppDataCommon is defined (some AHk runtimes/tools may not expose it)
         mappings := [
             ; nvim
             {
                 source: workingDir . "\nvim",
-                dest: A_AppData . "\..\Local\nvim"
+                dest: LocalAppData . "\nvim"
             },
             ; vscode
             {
@@ -134,12 +138,12 @@ class SetupConfig {
             ; vs2022
             {
                 source: workingDir . "\VS2022\CurrentSettings.vssettings",
-                dest: A_AppData . "\..\Local\Microsoft\VisualStudio\17.0_*\Settings\CurrentSettings.vssettings"
+                dest: LocalAppData . "\Microsoft\VisualStudio\17.0_*\Settings\CurrentSettings.vssettings"
             },
             ; lazygit
             {
                 source: workingDir . "\lazygit\config.yml",
-                dest: A_AppData . "\..\Local\lazygit\config.yml"
+                dest: LocalAppData . "\lazygit\config.yml"
             },
             ; ShareX
             {
@@ -265,7 +269,7 @@ class SetupConfig {
             ; WindowsTerminal
             {
                 source: workingDir . "\WindowsTerminal\settings.json",
-                dest: A_AppData . "\..\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+                dest: LocalAppData . "\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
             },
             {
                 source: workingDir . "\WindowsTerminal\Microsoft.PowerShell_profile.ps1",
