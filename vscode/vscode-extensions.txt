@@ -51,11 +51,13 @@ github.copilot-chat
 golang.go
 hossaini.bootstrap-intellisense
 hsayed.json-i18n-key
+hsayed.neovim-keymaps-list
 hsayed.saveall
 huizhou.githd
 humao.rest-client
 intellsmi.comment-translate
 inu1255.easy-snippet
+jellyedwards.gitsweep
 jesschadwick.nuget-reverse-package-search
 jflbr.jwt-decoder
 jmarzka.open-folder-in-new-instance
@@ -67,6 +69,7 @@ joshmu.periscope
 joy-yu.css-snippets
 jpcrs.binocular
 k--kato.docomment
+kaiwood.center-editor-window
 kdcro101.favorites
 kennylong.kubernetes-yaml-formatter
 khanhtungmtp.csharptots

@@ -2296,5 +2296,7 @@
     "gitlens.graph.layout": "editor",
     "gitlens.graph.onlyFollowFirstParent": true,
     "gitlens.graph.dimMergeCommits": true,
-    "editor.stickyScroll.enabled": false
+    "editor.stickyScroll.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "window.customTitleBarVisibility": "never"
 }

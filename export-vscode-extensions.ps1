@@ -6,7 +6,7 @@ $currentExtensionsOutputPath = Join-Path -Path $vscodeFolderPath -ChildPath "cur
 Write-Host "Exporting VSCode extensions..."
 
 try {
-    $extensions = code --list-extensions
+    $extensions = code-insiders --list-extensions
     $uniqueExtensions = $extensions | Sort-Object -Unique
 
     # Always write current extensions to the current-extensions file
