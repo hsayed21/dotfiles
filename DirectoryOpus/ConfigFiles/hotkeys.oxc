@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<hotkeys done_def="closelister,parent,root,pathentry,delete,deleteforce,newlister,rename,properties,autosize,refreshthumbs,refreshthumbs1,nexttab,nexttab1,prevtab,prevtab1,nexttabdest,nexttabdest1,prevtabdest,prevtabdest1,closetab,appcmd_back,appcmd_forward,appcmd_refresh,appcmd_nexttab,appcmd_prevtab,prevfilter,prevfilter1,zoom_in,zoom_out,zoom_reset">
+	<key defkey="newlister" disable="no" hotkey="win+shift+E" hotkey_type="global">
+		<label>New Lister</label>
+		<tip>Open a new Lister</tip>
+		<function type="normal">
+			<instruction>go new</instruction>
+		</function>
+	</key>
+	<key defkey="appcmd_back" disable="no" hotkey="app+0x1" hotkey_type="local">
+		<label>Back</label>
+		<tip>Go back to the previous folder in the history</tip>
+		<function type="normal">
+			<instruction>go back whendual=checkmouse,deffocus</instruction>
+		</function>
+	</key>
+	<key defkey="appcmd_forward" disable="no" hotkey="app+0x2" hotkey_type="local">
+		<label>Forward</label>
+		<tip>Go forward to the next folder in the history</tip>
+		<function type="normal">
+			<instruction>go forward whendual=checkmouse,deffocus</instruction>
+		</function>
+	</key>
+	<key defkey="appcmd_nexttab" disable="no" hotkey="ctrl+shift+app+0x2" hotkey_type="local">
+		<label>Next Tab</label>
+		<tip>Select the next Tab in the current file display</tip>
+		<function type="normal">
+			<instruction>go tabselect +1</instruction>
+		</function>
+	</key>
+	<key defkey="appcmd_prevtab" disable="no" hotkey="ctrl+shift+app+0x1" hotkey_type="local">
+		<label>Previous Tab</label>
+		<tip>Select the previous Tab in the current file display</tip>
+		<function type="normal">
+			<instruction>go tabselect -1</instruction>
+		</function>
+	</key>
+	<key defkey="appcmd_refresh" disable="no" hotkey="app+0x3" hotkey_type="local">
+		<label>Refresh</label>
+		<tip>Refresh the contents of the current folder</tip>
+		<function type="normal">
+			<instruction>go refresh</instruction>
+		</function>
+	</key>
+	<key defkey="autosize" disable="no" hotkey="ctrl+num+" hotkey_type="local">
+		<label>Autosize Columns</label>
+		<tip>Autosize Details/Power-mode Lister columns</tip>
+		<function type="normal">
+			<instruction>set autosizecolumns</instruction>
+		</function>
+	</key>
+	<key defkey="closelister" disable="no" hotkey="shift+escape" hotkey_type="local">
+		<label>Close Lister</label>
+		<tip>Close the current Lister</tip>
+		<function type="normal">
+			<instruction>close</instruction>
+		</function>
+	</key>
+	<key defkey="closetab" disable="no" hotkey="ctrl+f4" hotkey_type="local">
+		<label>Close Tab</label>
+		<tip>Close the current Folder Tab</tip>
+		<function type="normal">
+			<instruction>go tabclose</instruction>
+		</function>
+	</key>
+	<key defkey="delete" disable="no" hotkey="delete" hotkey_type="local">
+		<label>Delete</label>
+		<tip>Delete selected files and folders</tip>
+		<function type="normal">
+			<instruction>delete</instruction>
+		</function>
+	</key>
+	<key defkey="deleteforce" disable="no" hotkey="shift+delete" hotkey_type="local">
+		<label>Delete Force</label>
+		<tip>Force delete of selected files and folders</tip>
+		<function type="normal">
+			<instruction>delete shift</instruction>
+		</function>
+	</key>
+	<key defkey="nexttab" disable="no" hotkey="ctrl+right" hotkey_type="local">
+		<label>Next Tab</label>
+		<tip>Select the next Tab in the current file display</tip>
+		<function type="normal">
+			<instruction>go tabselect +1</instruction>
+		</function>
+	</key>
+	<key defkey="nexttab1" disable="no" hotkey="ctrl+pagedown" hotkey_type="local">
+		<label>Next Tab</label>
+		<tip>Select the next Tab in the current file display</tip>
+		<function type="normal">
+			<instruction>go tabselect +1</instruction>
+		</function>
+	</key>
+	<key defkey="nexttabdest" disable="no" hotkey="ctrl+shift+right" hotkey_type="local">
+		<label>Next Tab (Dest)</label>
+		<tip>Select the next Tab in the destination file display</tip>
+		<function type="normal">
+			<instruction>go tabselect +1 openindual</instruction>
+		</function>
+	</key>
+	<key defkey="nexttabdest1" disable="no" hotkey="ctrl+shift+pagedown" hotkey_type="local">
+		<label>Next Tab (Dest)</label>
+		<tip>Select the next Tab in the destination file display</tip>
+		<function type="normal">
+			<instruction>go tabselect +1 openindual</instruction>
+		</function>
+	</key>
+	<key defkey="parent" disable="no" hotkey="backspace" hotkey_type="local">
+		<label>Go Up</label>
+		<tip>Go up one level in the Folder Tree</tip>
+		<function type="normal">
+			<instruction>go up back</instruction>
+		</function>
+	</key>
+	<key defkey="pathentry" disable="no" hotkey="shift+enter" hotkey_type="local">
+		<label>Path Entry</label>
+		<tip>Active direct path entry field</tip>
+		<function type="normal">
+			<instruction>go pathentry</instruction>
+		</function>
+	</key>
+	<key defkey="prevfilter" disable="no" hotkey="ctrl+shift+8" hotkey_type="local">
+		<label>Restore Filter</label>
+		<tip>Restore the previous Quick filter applied in the current file display</tip>
+		<function type="normal">
+			<instruction>set quickfilter=!prev</instruction>
+		</function>
+	</key>
+	<key defkey="prevfilter1" disable="no" hotkey="ctrl+num*" hotkey_type="local">
+		<label>Restore Filter</label>
+		<tip>Restore the previous Quick filter applied in the current file display</tip>
+		<function type="normal">
+			<instruction>set quickfilter=!prev</instruction>
+		</function>
+	</key>
+	<key defkey="prevtab" disable="no" hotkey="ctrl+left" hotkey_type="local">
+		<label>Previous Tab</label>
+		<tip>Select the previous Tab in the current file display</tip>
+		<function type="normal">
+			<instruction>go tabselect -1</instruction>
+		</function>
+	</key>
+	<key defkey="prevtab1" disable="no" hotkey="ctrl+pageup" hotkey_type="local">
+		<label>Previous Tab</label>
+		<tip>Select the previous Tab in the current file display</tip>
+		<function type="normal">
+			<instruction>go tabselect -1</instruction>
+		</function>
+	</key>
+	<key defkey="prevtabdest" disable="no" hotkey="ctrl+shift+left" hotkey_type="local">
+		<label>Previous Tab (Dest)</label>
+		<tip>Select the previous Tab in the destination file display</tip>
+		<function type="normal">
+			<instruction>go tabselect -1 openindual</instruction>
+		</function>
+	</key>
+	<key defkey="prevtabdest1" disable="no" hotkey="ctrl+shift+pageup" hotkey_type="local">
+		<label>Previous Tab (Dest)</label>
+		<tip>Select the previous Tab in the destination file display</tip>
+		<function type="normal">
+			<instruction>go tabselect -1 openindual</instruction>
+		</function>
+	</key>
+	<key defkey="properties" disable="no" hotkey="alt+enter" hotkey_type="local">
+		<label>Properties</label>
+		<tip>View properties for selected files and folders</tip>
+		<function type="normal">
+			<instruction>properties</instruction>
+		</function>
+	</key>
+	<key defkey="refreshthumbs" disable="no" hotkey="shift+f5" hotkey_type="local">
+		<label>Refresh Thumbnails</label>
+		<tip>Delete the thumbnail cache and regenerate thumbnails for the current folder</tip>
+		<function type="normal">
+			<instruction>go refreshthumbs</instruction>
+		</function>
+	</key>
+	<key defkey="refreshthumbs1" disable="no" hotkey="ctrl+f5" hotkey_type="local">
+		<label>Refresh Thumbnails</label>
+		<tip>Delete the thumbnail cache and regenerate thumbnails for the current folder</tip>
+		<function type="normal">
+			<instruction>go refreshthumbs</instruction>
+		</function>
+	</key>
+	<key defkey="rename" disable="no" hotkey="f2" hotkey_type="local">
+		<label>Inline Rename</label>
+		<tip>Begin inline rename of selected item</tip>
+		<function type="normal">
+			<instruction>rename inline</instruction>
+		</function>
+	</key>
+	<key defkey="root" disable="no" hotkey="ctrl+backspace" hotkey_type="local">
+		<label>Go Root</label>
+		<tip>Load the root folder of the current folder</tip>
+		<function type="normal">
+			<instruction>go root</instruction>
+		</function>
+	</key>
+	<key defkey="zoom_in" disable="no" hotkey="187,2" hotkey_type="local">
+		<label>Zoom In</label>
+		<tip>Increase the font or thumbnail size</tip>
+		<function type="normal">
+			<instruction>@if:Set view=thumbnails</instruction>
+			<instruction>Show THUMBNAILSIZE=+32</instruction>
+			<instruction>@if:else</instruction>
+			<instruction>Set FONTSCALE=+10</instruction>
+		</function>
+	</key>
+	<key defkey="zoom_out" disable="no" hotkey="189,2" hotkey_type="local">
+		<label>Zoom Out</label>
+		<tip>Decrease the font or thumbnail size</tip>
+		<function type="normal">
+			<instruction>@if:Set view=thumbnails</instruction>
+			<instruction>Show THUMBNAILSIZE=-32</instruction>
+			<instruction>@if:else</instruction>
+			<instruction>Set FONTSCALE=-10</instruction>
+		</function>
+	</key>
+	<key defkey="zoom_reset" disable="no" hotkey="ctrl+0" hotkey_type="local">
+		<label>Zoom Reset</label>
+		<tip>Reset the font or thumbnail size</tip>
+		<function type="normal">
+			<instruction>@if:Set view=thumbnails</instruction>
+			<instruction>Show THUMBNAILSIZE=reset</instruction>
+			<instruction>@if:else</instruction>
+			<instruction>Set FONTSCALE=100</instruction>
+		</function>
+	</key>
+</hotkeys>

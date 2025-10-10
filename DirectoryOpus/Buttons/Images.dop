@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<toolbar>
+<toolbar version="12.28">
+	<wallpaper enabled="yes" inheritable="yes" type="share">
+		<std_type>toolbar</std_type>
+	</wallpaper>
 	<buttons backcol="none" display="label" textcol="none" type="menu">
 		<button backcol="none" display="label" field_type="label" label_pos="right" size="full" textcol="none">
 			<label>Rotate</label>
@@ -7,21 +10,21 @@
 				<instruction>Set LABEL</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
 			<label>Rotate Left</label>
 			<tip>Rotate selected images 90 degrees to the left</tip>
 			<icon1>#rotateleft</icon1>
 			<function type="normal">
-				<instruction>Image ROTATE=270 HERE REPLACE PRESERVEDATE</instruction>
+				<instruction>Image ROTATE=270 HERE REPLACE</instruction>
 				<instruction>@nodeselect</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" separate="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" separate="yes" textcol="none">
 			<label>Rotate Right</label>
 			<tip>Rotate selected images 90 degrees to the right</tip>
 			<icon1>#rotateright</icon1>
 			<function type="normal">
-				<instruction>Image ROTATE=90 HERE REPLACE PRESERVEDATE</instruction>
+				<instruction>Image ROTATE=90 HERE REPLACE</instruction>
 				<instruction>@nodeselect</instruction>
 			</function>
 		</button>
@@ -56,19 +59,12 @@
 					<instruction>@nodeselect</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+			<button backcol="none" display="label" label_pos="right" textcol="none">
 				<label>&amp;BMP</label>
 				<tip>Convert selected images to Bitmap format</tip>
 				<function type="normal">
 					<instruction>Image HERE CONVERT=bmp</instruction>
 					<instruction>@nodeselect</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="label" label_pos="right" textcol="none">
-				<label>&amp;Image Conversion Presets</label>
-				<tip>List of Image Conversion presets</tip>
-				<function type="normal">
-					<instruction>Image CONVERT PRESET=!list</instruction>
 				</function>
 			</button>
 		</button>
@@ -77,7 +73,7 @@
 			<tip>Shows currently selected pictures</tip>
 			<icon1>#show</icon1>
 			<function type="normal">
-				<instruction>Show AUTOFILELIST</instruction>
+				<instruction>Show NOUSEEXISTING AUTOFILELIST</instruction>
 				<instruction>@nodeselect</instruction>
 			</function>
 		</button>
@@ -90,7 +86,7 @@
 				<instruction>@nodeselect</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
 			<label>Sort by name</label>
 			<tip>Sort the list alphabetically (by name)</tip>
 			<icon1>#sort_alpha</icon1>
@@ -98,7 +94,7 @@
 				<instruction>Set SORTBY=name</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
 			<label>Sort by date</label>
 			<tip>Sort the list by last modified date</tip>
 			<icon1>#sort_date</icon1>
@@ -106,7 +102,7 @@
 				<instruction>Set SORTBY=+modified</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" separate="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" separate="yes" textcol="none">
 			<label>Sort by date taken</label>
 			<tip>Sort photos by the date and time taken</tip>
 			<icon1>#sort_shooting</icon1>
@@ -114,9 +110,8 @@
 				<instruction>Set SORTBY=+datetaken</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="label" dpi="150" field_type="thumbnailsize" label_pos="right" size="180" textcol="none">
+		<button backcol="none" display="label" dpi="100" field_type="thumbnailsize" label_pos="right" size="120" textcol="none">
 			<label>Thumbnail size</label>
-			<tip>Displays a slider control letting you dynamically adjust the thumbnail size in the current Lister</tip>
 			<function type="normal">
 				<instruction>Show THUMBNAILSIZE=field</instruction>
 			</function>
@@ -130,5 +125,4 @@
 			</function>
 		</button>
 	</buttons>
-	<default_info hash="0xf430ac8e,0xfb1248c3,0x1b3d5ada,0x58d7d67b,0xb7801aa0" type="Images" version="13.0" />
 </toolbar>

@@ -1,10 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<hotkeys done_def="newlister">
+<hotkeys done_def="newlister,taskmanager">
 	<key defkey="newlister" hotkey="win+shift+E">
 		<label>New Lister</label>
 		<tip>Open a new Lister</tip>
 		<function type="normal">
 			<instruction>go new</instruction>
+		</function>
+	</key>
+	<key defkey="taskmanager" hotkey="ctrl+shift+f1">
+		<label>Task Manager</label>
+		<tip>Displays information about running scripts and other background tasks</tip>
+		<function type="normal">
+			<instruction>help taskmanager</instruction>
 		</function>
 	</key>
 </hotkeys>

@@ -1,32 +1,36 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<toolbar>
-	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
+<toolbar version="12.28">
+	<wallpaper enabled="yes" inheritable="yes" type="share">
+		<std_type>toolbar</std_type>
+	</wallpaper>
 	<buttons backcol="none" display="label" textcol="none" type="menu">
 		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
 			<label>&amp;File</label>
-			<button backcol="none" display="both" hotkey="ctrl+E" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
-				<label>&amp;Open New Lister</label>
+			<button backcol="none" display="both" hotkey="ctrl+E" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Open New Lister\tCtrl+E</label>
 				<tip>Open a new Lister</tip>
 				<icon1>#newlister</icon1>
 				<function type="normal">
 					<instruction>Go NEW</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>&amp;Undo Close Lister</label>
-				<tip>Reopen the last closed Lister</tip>
-				<icon1>#newlister</icon1>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Lister Context Menu</label>
+				<tip>Marks the place in a menu where the Windows Shell Lister context menu items are to be displayed</tip>
 				<function type="normal">
-					<instruction>Go UNDOCLOSELISTER</instruction>
+					<instruction>FileType CONTEXTMENU=Directory\Background</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Close Lister</label>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;File Menu Marker</label>
+				<tip>Marks the place in a menu where Namespace-specific menu items from the &apos;File&apos; menu are to be displayed</tip>
+				<function type="normal">
+					<instruction>Marker MENU=File</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Close Lister\tAlt+F4</label>
 				<tip>Close the current Lister</tip>
-				<hotkeys>
-					<key>alt+f4</key>
-					<key>shift+escape</key>
-				</hotkeys>
 				<icon1>#closelister</icon1>
 				<function type="normal">
 					<instruction>Close</instruction>
@@ -43,9 +47,9 @@
 		</button>
 		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
 			<label>&amp;Edit</label>
-			<button backcol="none" display="both" hotkey="ctrl+Z" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Undo</label>
-				<tip>Undo the previous file action (copy, delete, rename, move, etc.)</tip>
+			<button backcol="none" display="both" hotkey="ctrl+Z" label_pos="right" textcol="none">
+				<label>&amp;Undo\tCtrl+Z</label>
+				<tip>Undo the previous file action (copy, delete, rename, move, etc)</tip>
 				<icon1>#undo</icon1>
 				<function type="normal">
 					<instruction>Undo</instruction>
@@ -71,16 +75,16 @@
 					</function>
 				</button>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+X" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Cut</label>
+			<button backcol="none" display="both" hotkey="ctrl+X" label_pos="right" textcol="none">
+				<label>&amp;Cut\tCtrl+X</label>
 				<tip>Cut selected files and folders to the clipboard (originals will be deleted when you Paste them)</tip>
 				<icon1>#clipcut</icon1>
 				<function type="normal">
 					<instruction>Clipboard CUT</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>C&amp;opy</label>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>C&amp;opy\tCtrl+C</label>
 				<tip>Copy selected files and folders to the clipboard</tip>
 				<hotkeys>
 					<key>ctrl+C</key>
@@ -91,8 +95,8 @@
 					<instruction>Clipboard COPY</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
-				<label>&amp;Paste</label>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Paste\tCtrl+V</label>
 				<tip>Paste files and folders on the clipboard to the destination folder\n\n%1</tip>
 				<hotkeys>
 					<key>ctrl+V</key>
@@ -103,16 +107,16 @@
 					<instruction>Clipboard PASTE</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+shift+N" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>Cop&amp;y File Names</label>
+			<button backcol="none" display="both" hotkey="ctrl+shift+N" label_pos="right" textcol="none">
+				<label>Cop&amp;y File Names\tCtrl+Shift+N</label>
 				<tip>Copies the names of all selected files to the clipboard</tip>
 				<icon1>#copyfilenames</icon1>
 				<function type="normal">
 					<instruction>Clipboard COPYNAMES=nopaths</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+shift+C" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>Copy &amp;Full Pathnames</label>
+			<button backcol="none" display="both" hotkey="ctrl+shift+C" label_pos="right" textcol="none">
+				<label>Copy &amp;Full Pathnames\tCtrl+Shift+C</label>
 				<tip>Copies the full pathnames of all selected files to the clipboard</tip>
 				<icon1>#copyfilenames</icon1>
 				<function type="normal">
@@ -144,56 +148,39 @@
 					</function>
 				</button>
 				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>&amp;MD5 Checksums</label>
+					<tip>Copies the MD5 checksums of all selected files to the clipboard</tip>
+					<function type="normal">
+						<instruction>Clipboard COPYNAMES=hash</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>M&amp;D5 Checksums (Alternate)</label>
+					<tip>Copies the MD5 checksums of all selected files to the clipboard (alternate format)</tip>
+					<function type="normal">
+						<instruction>Clipboard COPYNAMES=hash2</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>SH&amp;A-1 Checksums</label>
+					<tip>Copies the SHA-1 checksums of all selected files to the clipboard</tip>
+					<function type="normal">
+						<instruction>Clipboard COPYNAMES=hash4</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" textcol="none">
+					<label>SHA-&amp;1 Checksums (Alternate)</label>
+					<tip>Copies the SHA-1 checksums of all selected files to the clipboard (alternate format)</tip>
+					<function type="normal">
+						<instruction>Clipboard COPYNAMES=hash5</instruction>
+					</function>
+				</button>
+				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
 					<label>&amp;Copy Full Pathnames (Double Backslashes)</label>
 					<tip>Copy full paths, and turn \\ into \\\\ for easy pasting into various programming languages</tip>
 					<function type="normal">
 						<instruction>Clipboard COPYNAMES=unc REGEXP (.*)\\(.*)# \1|\2 (.*)[|](.*)# \1\\\\\2</instruction>
 					</function>
-				</button>
-				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none" type="menu">
-					<label>Ch&amp;ecksums</label>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>&amp;MD5</label>
-						<tip>Copies the MD5 checksums of all selected files to the clipboard</tip>
-						<function type="normal">
-							<instruction>Clipboard COPYNAMES=hash:md5</instruction>
-						</function>
-					</button>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>M&amp;D5 (Alternate)</label>
-						<tip>Copies the MD5 checksums of all selected files to the clipboard (alternate format)</tip>
-						<function type="normal">
-							<instruction>Clipboard COPYNAMES=hash:md5,fmt:2</instruction>
-						</function>
-					</button>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>&amp;SHA-1</label>
-						<tip>Copies the SHA-1 checksums of all selected files to the clipboard</tip>
-						<function type="normal">
-							<instruction>Clipboard COPYNAMES=hash:sha1</instruction>
-						</function>
-					</button>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>S&amp;HA-1 (Alternate)</label>
-						<tip>Copies the SHA-1 checksums of all selected files to the clipboard (alternate format)</tip>
-						<function type="normal">
-							<instruction>Clipboard COPYNAMES=hash:sha1,fmt:2</instruction>
-						</function>
-					</button>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>&amp;BLAKE3</label>
-						<tip>Copies the BLAKE3 checksums of all selected files to the clipboard</tip>
-						<function type="normal">
-							<instruction>Clipboard COPYNAMES=hash:blake3</instruction>
-						</function>
-					</button>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>B&amp;LAKE3 (Alternate)</label>
-						<tip>Copies the BLAKE3 checksums of all selected files to the clipboard (alternate format)</tip>
-						<function type="normal">
-							<instruction>Clipboard COPYNAMES=hash:blake3,fmt:2</instruction>
-						</function>
-					</button>
 				</button>
 				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
 					<label>&amp;Folder Path</label>
@@ -210,8 +197,8 @@
 					</function>
 				</button>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+K" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>C&amp;alculate Folder Sizes</label>
+			<button backcol="none" display="both" hotkey="ctrl+K" label_pos="right" textcol="none">
+				<label>C&amp;alculate Folder Sizes\tCtrl+K</label>
 				<tip>Calculate the byte sizes of selected folders</tip>
 				<icon1>#getsizes</icon1>
 				<function type="normal">
@@ -272,52 +259,43 @@
 				<icon1>#filecommands</icon1>
 				<function type="normal">
 					<instruction>@nodeselect</instruction>
-					<instruction>GetSizes HASH=md5</instruction>
+					<instruction>GetSizes MD5</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
 				<label>Calculat&amp;e SHA-1 Checksums</label>
 				<tip>Calculate and display the SHA-1 checksums of all selected files</tip>
 				<icon1>#filecommands</icon1>
 				<function type="normal">
 					<instruction>@nodeselect</instruction>
-					<instruction>GetSizes HASH=sha1</instruction>
+					<instruction>GetSizes SHA</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>Calculate &amp;BLAKE3 Checksums</label>
-				<tip>Calculate and display the BLAKE3 checksums of all selected files</tip>
-				<icon1>#filecommands</icon1>
-				<function type="normal">
-					<instruction>@nodeselect</instruction>
-					<instruction>GetSizes HASH=blake3</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" hotkey="ctrl+A" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Select All</label>
+			<button backcol="none" display="both" hotkey="ctrl+A" label_pos="right" textcol="none">
+				<label>&amp;Select All\tCtrl+A</label>
 				<tip>Select all the files and folders in the active Lister</tip>
 				<icon1>#selectall</icon1>
 				<function type="normal">
 					<instruction>Select ALL</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+S" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>Select by Patte&amp;rn</label>
+			<button backcol="none" display="both" hotkey="ctrl+S" label_pos="right" textcol="none">
+				<label>Select &amp;by Pattern\tCtrl+S</label>
 				<tip>Select files and folders in the active Lister by wildcard pattern</tip>
 				<icon1>#selectwild</icon1>
 				<function type="normal">
 					<instruction>Select</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+I" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Invert Selection</label>
+			<button backcol="none" display="both" hotkey="ctrl+I" label_pos="right" textcol="none">
+				<label>&amp;Invert Selection\tCtrl+I</label>
 				<tip>Invert the selection status of all files in the active Lister</tip>
 				<icon1>#selectinvert</icon1>
 				<function type="normal">
 					<instruction>Select INVERT</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
 				<label>Select Ot&amp;her</label>
 				<icon1>#advancedselect</icon1>
 				<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -330,65 +308,39 @@
 				</button>
 				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
 					<label>&amp;Select Same Extensions</label>
-					<tip>Select all files with the same extensions as the files already selected</tip>
+					<tip>Select all files with the same extensions as the files already selected.</tip>
 					<icon1>#advancedselect</icon1>
 					<function type="normal">
 						<instruction>Select SIMILAR</instruction>
 					</function>
 				</button>
 				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>S&amp;elect Empty Folders</label>
-					<tip>Select folders which contain no child files or folders</tip>
-					<icon1>#filterfolder</icon1>
-					<function type="normal">
-						<instruction>Select DESELECTNOMATCH FILTERDEF type match folders and foldercontent nomatch ( name match * )</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Se&amp;lect Zero-Byte Folders</label>
-					<tip>Select folders which are empty or only have empty files or similar folders below them</tip>
-					<icon1>#filterfolder</icon1>
-					<function type="normal">
-						<instruction>Select DESELECTNOMATCH FILTERDEF type match folders and size match = 0 bytes</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-					<label>Sele&amp;ct Expanded Folder Items</label>
-					<tip>Select everything below any currently expanded folders</tip>
-					<icon1>#folderexpanded</icon1>
-					<function type="normal">
-						<instruction>@enableif:Set EXPANDABLEFOLDERS=On</instruction>
-						<instruction>@nofilenamequoting</instruction>
-						<instruction>Select DESELECTNOMATCH FILTERDEF location match &quot;{sourcepath|escregex|escbackslash}.+&quot; regex</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Selec&amp;t Source Selection to Destination</label>
-					<tip>Select files in the destination with the same names as the files currently selected in the source</tip>
+					<label>S&amp;elect Source Selection to Destination</label>
+					<tip>Select files in the destination with the same names as the files currently selected in the source.</tip>
 					<icon1>#syncpane1</icon1>
 					<function type="normal">
 						<instruction>Select SOURCETODEST DESELECTNOMATCH</instruction>
 					</function>
 				</button>
 				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Select S&amp;ource All to Destination</label>
-					<tip>Select files in the destination with the same names as files that exist in the source</tip>
+					<label>Se&amp;lect Source All to Destination</label>
+					<tip>Select files in the destination with the same names as files that exist in the source.</tip>
 					<icon1>#syncpane1</icon1>
 					<function type="normal">
 						<instruction>Select SOURCETODEST=in DESELECTNOMATCH</instruction>
 					</function>
 				</button>
 				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Select So&amp;urce All to Destination (ignore extensions)</label>
-					<tip>Select files in the destination with the same name stems as files that exist in the source (extensions may differ)</tip>
+					<label>Sele&amp;ct Source All to Destination (ignore extensions)</label>
+					<tip>Select files in the destination with the same name stems as files that exist in the source. Extensions are allowed to differ.</tip>
 					<icon1>#syncpane1</icon1>
 					<function type="normal">
 						<instruction>Select SOURCETODEST=in,noext DESELECTNOMATCH</instruction>
 					</function>
 				</button>
 				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-					<label>Select Source-&amp;not-in-Destination</label>
-					<tip>Select those file names in the source which do not exist in the destination</tip>
+					<label>Selec&amp;t Source-not-in-Destination</label>
+					<tip>Select those file names in the source which do not exist in the destination.</tip>
 					<icon1>#syncpane1</icon1>
 					<function type="normal">
 						<instruction>Select DESTTOSOURCE=notin DESELECTNOMATCH</instruction>
@@ -402,7 +354,7 @@
 						<instruction>Select TOCHECKS</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<button backcol="none" display="both" label_pos="right" textcol="none">
 					<label>C&amp;heckboxes to Selection</label>
 					<tip>Set the selection to match the checkbox state</tip>
 					<icon1>#checkboxmode</icon1>
@@ -410,43 +362,42 @@
 						<instruction>Select FROMCHECKS </instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Select &amp;Duplicates...</label>
-					<tip>Select files located by the Duplicate Files finder</tip>
-					<icon1>#dupepane</icon1>
-					<function type="normal">
-						<instruction>Select DUPES</instruction>
-					</function>
-				</button>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>E&amp;dit Menu Marker</label>
+				<tip>Marks the place in a menu where Namespace-specific menu items from the &apos;Edit&apos; menu are to be displayed</tip>
+				<function type="normal">
+					<instruction>Marker MENU=Edit</instruction>
+				</function>
 			</button>
 		</button>
 		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
 			<label>FT&amp;P</label>
-			<button backcol="none" display="both" hotkey="ctrl+Q" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
-				<label>&amp;FTP Connect...</label>
+			<button backcol="none" display="both" hotkey="ctrl+Q" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;FTP Connect...\tCtrl+Q</label>
 				<tip>Connect to an FTP site</tip>
 				<icon1>#ftpconnect</icon1>
 				<function type="normal">
 					<instruction>Go FTP</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+shift+Q" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Address Book...</label>
-				<tip>Opens the FTP Address Book editor</tip>
-				<icon1>#ftpaddressbook</icon1>
-				<function type="normal">
-					<instruction>Prefs FTPSITES</instruction>
-				</function>
-			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>A&amp;dd to Address Book</label>
+				<label>&amp;Add to Address Book</label>
 				<tip>Add the current FTP site to the Address Book</tip>
 				<icon1>#ftpaddsite</icon1>
 				<function type="normal">
 					<instruction>Prefs ADDFTPSITE</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
+			<button backcol="none" display="both" hotkey="ctrl+shift+Q" label_pos="right" textcol="none">
+				<label>&amp;Edit Address Book...\tCtrl+Shift+Q</label>
+				<tip>Opens the FTP Address Book editor</tip>
+				<icon1>#ftpaddressbook</icon1>
+				<function type="normal">
+					<instruction>Prefs FTPSITES</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
 				<label>&amp;Site Properties</label>
 				<tip>Shows properties dialog for the current FTP site</tip>
 				<icon1>#ftpsiteproperties</icon1>
@@ -454,70 +405,42 @@
 					<instruction>Properties FTPSITE</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>D&amp;isplay FTP Logs</label>
-				<tip>Displays the logs of FTP activity</tip>
-				<icon1>#ftplog</icon1>
+			<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+				<label>FTP Addresses</label>
+				<tip>Shows a list of your FTP addresses</tip>
 				<function type="normal">
-					<instruction>Set UTILITY=FTPLog,Toggle</instruction>
+					<instruction>Go FTPSITELIST FTPSITEICONS USEQUALKEYS</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="label" label_pos="right" textcol="none">
-				<label>FTP Addresses</label>
-				<tip>Lists your FTP Address Book entries on a menu or toolbar</tip>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Display FTP Logs</label>
+				<tip>Displays the logs of FTP activity</tip>
+				<icon1>#logs</icon1>
 				<function type="normal">
-					<instruction>Go FTPSITELIST FTPSITEICONS USEQUALKEYS HEADING</instruction>
+					<instruction>Set UTILITY=FTPLog,Toggle</instruction>
 				</function>
 			</button>
 		</button>
 		<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
 			<label>&amp;Tools</label>
-			<button backcol="none" display="both" hotkey="ctrl+F" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>F&amp;ind Files</label>
+			<button backcol="none" display="both" hotkey="ctrl+F" label_pos="right" textcol="none">
+				<label>F&amp;ind Files\tCtrl+F</label>
 				<tip>Search for files by name, contents or other criteria</tip>
 				<icon1>#find</icon1>
 				<function type="normal">
 					<instruction>Set UTILITY=Find,Toggle</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
-				<label>Fi&amp;nd Presets</label>
-				<icon1>#findpresets</icon1>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>&amp;Find Empty Folders</label>
-					<tip>Find folders below the current location which contain no child files or folders</tip>
-					<icon1>#find</icon1>
-					<function type="normal">
-						<instruction>Find FILTERDEF type match folders and foldercontent nomatch ( name match * )</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-					<label>F&amp;ind Zero-Byte Folders</label>
-					<tip>Find folders below the current location which are empty or only have empty files or similar folders below them</tip>
-					<icon1>#find</icon1>
-					<function type="normal">
-						<instruction>Find FILTERDEF type match folders and size match = 0 bytes</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Fi&amp;nd Preset List</label>
-					<tip>Generates a list of your saved Find Presets, letting you quickly run them against the current folder</tip>
-					<icon1>#findpresets</icon1>
-					<function type="normal">
-						<instruction>Find PRESET=!list HERE</instruction>
-					</function>
-				</button>
-			</button>
-			<button backcol="none" display="both" hotkey="ctrl+Y" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>S&amp;ynchronize</label>
+			<button backcol="none" display="both" hotkey="ctrl+Y" label_pos="right" textcol="none">
+				<label>S&amp;ynchronize\tCtrl+Y</label>
 				<tip>Show or hide the Lister Synchronize Panel</tip>
 				<icon1>#syncpane</icon1>
 				<function type="normal">
 					<instruction>Set UTILITY=Sync,Toggle</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+U" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
-				<label>Fin&amp;d Duplicate Files</label>
+			<button backcol="none" display="both" hotkey="ctrl+U" label_pos="right" separate="yes" textcol="none">
+				<label>Find D&amp;uplicate Files\tCtrl+U</label>
 				<tip>Show or hide the Lister Duplicate File Finder Panel</tip>
 				<icon1>#dupepane</icon1>
 				<function type="normal">
@@ -527,21 +450,21 @@
 			<button backcol="none" display="both" label_pos="right" textcol="none">
 				<label>&amp;File Log</label>
 				<tip>Displays a log of file and folder operations</tip>
-				<icon1>#filelog</icon1>
+				<icon1>#logs</icon1>
 				<function type="normal">
 					<instruction>Set UTILITY=FileLog,Toggle</instruction>
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
 				<label>&amp;Script Log</label>
-				<tip>Displays a log of script and evaluator output</tip>
-				<icon1>#scriptlog</icon1>
+				<tip>Displays logs for scripts and other activities</tip>
+				<icon1>#script</icon1>
 				<function type="normal">
-					<instruction>Set UTILITY=ScriptLog,Toggle</instruction>
+					<instruction>Set UTILITY=OtherLog,Toggle</instruction>
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>Op&amp;us CLI / Ad-Hoc Script Editor</label>
+				<label>Opus C&amp;LI / Ad-Hoc Script Editor</label>
 				<tip>Opens a window where you can directly type and run Opus script code and commands</tip>
 				<icon1>#pathfield</icon1>
 				<function type="normal">
@@ -582,7 +505,7 @@
 					<tip>Convert, rotate and resize image files</tip>
 					<icon1>#imageconversion</icon1>
 					<function type="normal">
-						<instruction>Image HERE CONVERT</instruction>
+						<instruction>Image CONVERT HERE</instruction>
 					</function>
 				</button>
 				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
@@ -609,18 +532,11 @@
 							<instruction>Image HERE CONVERT=gif</instruction>
 						</function>
 					</button>
-					<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+					<button backcol="none" display="label" label_pos="right" textcol="none">
 						<label>&amp;Bitmap Image</label>
 						<tip>Convert selected images to BMP format</tip>
 						<function type="normal">
 							<instruction>Image HERE CONVERT=bmp</instruction>
-						</function>
-					</button>
-					<button backcol="none" display="label" label_pos="right" textcol="none">
-						<label>&amp;Image Conversion Presets</label>
-						<tip>List of Image Conversion presets</tip>
-						<function type="normal">
-							<instruction>Image CONVERT PRESET=!list</instruction>
 						</function>
 					</button>
 				</button>
@@ -668,7 +584,7 @@
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>Disconnect Networ&amp;k Drive...</label>
+				<label>&amp;Disconnect Network Drive...</label>
 				<tip>Disconnects from a network drive</tip>
 				<icon1>#disconnectnetworkdrive</icon1>
 				<function type="normal">
@@ -696,7 +612,7 @@
 				<tip>Opens a PowerShell prompt with the current folder set to the Lister&apos;s current path</tip>
 				<icon1>#cli</icon1>
 				<function type="normal">
-					<instruction>CLI DOSPROMPT=powershell</instruction>
+					<instruction>CLI DOSPROMPT=noadmin,powershell</instruction>
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -712,15 +628,22 @@
 				<tip>Opens a command prompt with the current folder set to the Lister&apos;s current path</tip>
 				<icon1>#cli</icon1>
 				<function type="normal">
-					<instruction>CLI DOSPROMPT</instruction>
+					<instruction>CLI DOSPROMPT=noadmin</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>Command Prompt &amp;Here (Admin)</label>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>Comma&amp;nd Prompt Here (Admin)</label>
 				<tip>Opens an elevated command prompt with the current folder set to the Lister&apos;s current path</tip>
 				<icon1>#cliadmin</icon1>
 				<function type="normal">
 					<instruction>CLI DOSPROMPT=admin</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="label" label_pos="right" textcol="none">
+				<label>Tools Menu Marker</label>
+				<tip>Marks the place in a menu where Namespace-specific menu items from the &apos;Tools&apos; menu are to be displayed</tip>
+				<function type="normal">
+					<instruction>Marker MENU=Tools</instruction>
 				</function>
 			</button>
 		</button>
@@ -735,8 +658,8 @@
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Customize Toolbars and Keys...</label>
-				<tip>Lets you customize toolbars, menus and keys</tip>
+				<label>&amp;Customize Toolbars...</label>
+				<tip>Lets you customize the toolbars and menus</tip>
 				<icon1>#customize</icon1>
 				<function type="normal">
 					<instruction>Prefs CUSTOMIZE</instruction>
@@ -745,19 +668,19 @@
 			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
 				<label>&amp;Toolbars</label>
 				<icon1>#toolbarlist</icon1>
-				<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
 					<label>&amp;Toolbar Sets</label>
 					<icon1>#toolbarlist</icon1>
 					<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
 						<label>Toolbar Set List</label>
-						<tip>Displays a list of your saved Toolbar Sets</tip>
+						<tip>Displays a list of your saved Toolbar Sets.</tip>
 						<function type="normal">
 							<instruction>Toolbar LIST=sets</instruction>
 						</function>
 					</button>
 					<button backcol="none" display="label" label_pos="right" textcol="none">
 						<label>&amp;Save Toolbar Set</label>
-						<tip>Save the current toolbars as a new Toolbar Set</tip>
+						<tip>Save the current toolbars as a new Toolbar Set.</tip>
 						<function type="normal">
 							<instruction>Toolbar SAVESET</instruction>
 						</function>
@@ -770,47 +693,37 @@
 						</function>
 					</button>
 				</button>
+				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
+					<label>Toolbar List</label>
+					<tip>Displays a list of your available toolbars</tip>
+					<function type="normal">
+						<instruction>Toolbar LIST</instruction>
+					</function>
+				</button>
 				<button backcol="none" display="both" label_pos="right" textcol="none">
 					<label>&amp;Set As Default Toolbar Set</label>
-					<tip>Save the current toolbars as the default Toolbar Set</tip>
+					<tip>Save the current toolbars as the default toolbar set.</tip>
 					<icon1>#savetoolbarstate</icon1>
 					<function type="normal">
 						<instruction>Toolbar SETDEFAULT</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
 					<label>&amp;Revert to Default Toolbar Set</label>
 					<tip>Revert the toolbars in this Lister to the Default Set</tip>
-					<icon1>#deftoolbar</icon1>
 					<function type="normal">
-						<instruction>Toolbar !default LOADSET=replace</instruction>
+						<instruction>Toolbar !default LOADSET=replace,nocontext</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
+				<button backcol="none" display="label" label_pos="right" textcol="none">
 					<label>&amp;Factory Reset Toolbars</label>
 					<tip>Resets your toolbars to the default factory settings</tip>
-					<icon1>#resettoolbars</icon1>
 					<function type="normal">
 						<instruction>Toolbar RESETDEFAULTS</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
-					<label>Available Toolbars</label>
-					<tip>Displays a list of your available toolbars</tip>
-					<function type="normal">
-						<instruction>Toolbar LIST HEADING</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>&amp;Choose Location Bar Toolbars...</label>
-					<tip>Add, remove or re-order the toolbars which appear in the Location Bar above each file display</tip>
-					<icon1>#toolbarlist</icon1>
-					<function type="normal">
-						<instruction>Prefs PAGE=fdbtoolbar</instruction>
-					</function>
-				</button>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
 				<label>&amp;File Types...</label>
 				<tip>Opens the file types editor</tip>
 				<icon1>#filetype</icon1>
@@ -819,27 +732,11 @@
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Scripts...</label>
-				<tip>Opens the Script Management dialog</tip>
-				<icon1>#script</icon1>
-				<function type="normal">
-					<instruction>Prefs SCRIPTS</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>&amp;Install Script...</label>
-				<tip>Install a script someone has shared with you</tip>
-				<icon1>#installscript</icon1>
-				<function type="normal">
-					<instruction>Prefs SCRIPTINSTALL</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>S&amp;et Lister Defaults</label>
-				<tip>Save an existing Lister&apos;s configuration as the default settings</tip>
+				<label>&amp;Set As Default Lister</label>
+				<tip>Save the current Lister&apos;s configuration as the Default Lister settings</tip>
 				<icon1>#setdefaultlister</icon1>
 				<function type="normal">
-					<instruction>Prefs SETLISTERDEFAULTS</instruction>
+					<instruction>Prefs SETDEFAULTLISTER</instruction>
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
@@ -861,7 +758,7 @@
 						<instruction>Prefs LAYOUTSAVE=single</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
+				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
 					<label>S&amp;ave All Listers...</label>
 					<tip>Save all open Listers as a Lister Layout</tip>
 					<icon1>#savealllisters</icon1>
@@ -869,29 +766,20 @@
 						<instruction>Prefs LAYOUTSAVE</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
+				<button backcol="none" display="label" label_pos="right" textcol="none">
 					<label>Saved Layouts</label>
 					<tip>Displays a list of your saved Lister Layouts</tip>
-					<icon1>#layoutlist</icon1>
 					<function type="normal">
-						<instruction>Prefs LAYOUTLIST SHOWICONS HEADING</instruction>
+						<instruction>Prefs LAYOUTLIST</instruction>
 					</function>
 				</button>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Dark Mode</label>
-				<tip>Toggle between dark and light colors</tip>
-				<icon1>#darklightmode</icon1>
-				<function type="normal">
-					<instruction>Set DARKMODE=togglesmart</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>Liste&amp;r Themes...</label>
-				<tip>Load or save themes which change things like colors and fonts</tip>
+				<label>L&amp;ister Themes...</label>
+				<tip>Load or Save Lister Themes</tip>
 				<icon1>#themes</icon1>
 				<function type="normal">
-					<instruction>Prefs PAGE=themes</instruction>
+					<instruction>Prefs THEMES</instruction>
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -950,9 +838,8 @@
 				<tip>Displays the details of each item along with a column that shows thumbnails</tip>
 				<icon1>#thumbtails</icon1>
 				<function type="normal">
-					<instruction>@disableifpath:shell</instruction>
 					<instruction>Set VIEW=Details</instruction>
-					<instruction>Set COLUMNSADD=thumbnail(0,{dpi|96})</instruction>
+					<instruction>Set COLUMNSADD=thumbnail(0,96)</instruction>
 					<instruction>@toggle:if&amp;COLUMNSTOGGLE=thumbnail</instruction>
 				</function>
 			</button>
@@ -980,9 +867,8 @@
 					<instruction>Set VIEW=Tiles</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
 				<label>&amp;Sort By</label>
-				<icon1>#sort_alpha</icon1>
 				<button backcol="none" display="label" label_pos="right" textcol="none">
 					<label>Sortable Columns</label>
 					<tip>Displays a list of the current columns allowing you to change the sort order</tip>
@@ -991,9 +877,8 @@
 					</function>
 				</button>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+			<button backcol="none" display="label" label_pos="right" textcol="none" type="menu">
 				<label>&amp;Group By</label>
-				<icon1>#groupby</icon1>
 				<button backcol="none" display="label" label_pos="right" separate="yes" textcol="none">
 					<label>Groupable Columns</label>
 					<tip>Displays a list of the current columns allowing you to change the grouping</tip>
@@ -1017,7 +902,7 @@
 				</button>
 			</button>
 		</button>
-		<button backcol="none" display="icon" hotkey="ctrl+shift+D" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" hotkey="ctrl+shift+D" label_pos="right" textcol="none">
 			<label>Details</label>
 			<tip>Displays the details of each item</tip>
 			<icon1>#detailsmode</icon1>
@@ -1027,18 +912,17 @@
 				<instruction>@toggle:if&amp;!COLUMNSTOGGLE=thumbnail</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" hotkey="ctrl+shift+H" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" hotkey="ctrl+shift+H" label_pos="right" textcol="none">
 			<label>Details + Thumbnails</label>
 			<tip>Displays the details of each item along with a column that shows thumbnails</tip>
 			<icon1>#thumbtails</icon1>
 			<function type="normal">
-				<instruction>@disableifpath:shell</instruction>
 				<instruction>Set VIEW=Details</instruction>
-				<instruction>Set COLUMNSADD=thumbnail(0,{dpi|96})</instruction>
+				<instruction>Set COLUMNSADD=thumbnail(0,96)</instruction>
 				<instruction>@toggle:if&amp;COLUMNSTOGGLE=thumbnail</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" hotkey="ctrl+shift+M" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" hotkey="ctrl+shift+M" label_pos="right" separate="yes" textcol="none">
 			<label>Thumbnails</label>
 			<tip>Displays thumbnails of image files</tip>
 			<icon1>#thumbnails</icon1>
@@ -1046,25 +930,17 @@
 				<instruction>Set VIEW=Thumbnails</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" separate="yes" textcol="none">
-			<label>Power</label>
-			<tip>Displays the details of each item (with more customization options than details mode)</tip>
-			<icon1>#powermode</icon1>
-			<function type="normal">
-				<instruction>Set VIEW=Power</instruction>
-			</function>
-		</button>
 		<button backcol="none" display="label" dropdown_glyph="yes" label_pos="right" textcol="none" type="menu">
 			<label>F&amp;older</label>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Folder Format...</label>
+				<label>&amp;Folder Options...</label>
 				<tip>Edit the appearance and settings of the current folder</tip>
 				<icon1>#format</icon1>
 				<function type="normal">
-					<instruction>Properties FOLDERFORMAT</instruction>
+					<instruction>Properties FOLDEROPTIONS</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
 				<label>F&amp;older Formats</label>
 				<icon1>#folderformatslist</icon1>
 				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
@@ -1075,28 +951,19 @@
 						<instruction>Prefs PAGE=folderformats</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
+				<button backcol="none" display="label" label_pos="right" textcol="none">
 					<label>Folder Formats</label>
 					<tip>Shows a list of your Favorite folder formats</tip>
-					<icon1>#folderformatslist</icon1>
 					<function type="normal">
-						<instruction>Set FORMATLIST=icons</instruction>
+						<instruction>Properties FORMATLIST</instruction>
 					</function>
 				</button>
 			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>Fo&amp;rmat Lock</label>
-				<tip>Lock or unlock the current format in the Lister</tip>
-				<icon1>#formatlock</icon1>
-				<function type="normal">
-					<instruction>Set FORMATLOCK=Toggle</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
 				<label>Fo&amp;lder Tabs</label>
 				<icon1>#foldertabs</icon1>
-				<button backcol="none" display="both" hotkey="ctrl+T" hotkey_label="yes" label_pos="right" textcol="none">
-					<label>&amp;New Tab for Current</label>
+				<button backcol="none" display="both" hotkey="ctrl+T" label_pos="right" textcol="none">
+					<label>&amp;New Tab for Current\tCtrl+T</label>
 					<tip>Open a new tab showing the current folder</tip>
 					<icon1>#newtab</icon1>
 					<function type="normal">
@@ -1111,8 +978,8 @@
 						<instruction>Go UP NEWTAB</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Ne&amp;w Tabs for Selected</label>
+				<button backcol="none" display="both" hotkey="ctrl+shift+T" label_pos="right" textcol="none">
+					<label>Ne&amp;w Tabs for Selected\tCtrl+Shift+T</label>
 					<tip>Open a new tab for each of the selected folders (or shortcuts to folders)</tip>
 					<icon1>#duplicatetab</icon1>
 					<function type="normal">
@@ -1127,64 +994,115 @@
 						<instruction>Go OPENCONTAINER NEWTAB=findexisting,nofocus</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
-					<label>&amp;Close Tab</label>
+				<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+					<label>T&amp;ab Groups</label>
+					<icon1>#foldertabgrouplist</icon1>
+					<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+						<label>&amp;Manage Tab Groups</label>
+						<tip>Open an interactive list of your Folder Tab Groups</tip>
+						<icon1>#prefs</icon1>
+						<function type="normal">
+							<instruction>Prefs PAGE=tabgroups</instruction>
+						</function>
+					</button>
+					<button backcol="none" display="label" label_pos="right" textcol="none">
+						<label>Tab Group List</label>
+						<tip>Displays a list of your Folder Tab Groups</tip>
+						<function type="normal">
+							<instruction>Go TABGROUPLIST USEQUALKEYS</instruction>
+						</function>
+					</button>
+				</button>
+				<button backcol="none" display="both" hotkey="ctrl+W" label_pos="right" textcol="none">
+					<label>&amp;Close Tab\tCtrl+W</label>
 					<tip>Close the current Folder Tab</tip>
-					<hotkeys>
-						<key>ctrl+W</key>
-						<key>ctrl+f4</key>
-					</hotkeys>
 					<icon1>#closetab</icon1>
 					<function type="normal">
 						<instruction>Go TABCLOSE</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" hotkey_label="yes" label_pos="right" separate="yes" textcol="none">
-					<label>&amp;Undo Close Tab</label>
+				<button backcol="none" display="both" hotkey="ctrl+shift+W" label_pos="right" textcol="none">
+					<label>&amp;Undo Close Tab\tCtrl+Shift+W</label>
 					<tip>Reopen the last tab or tabs that were closed</tip>
-					<hotkeys>
-						<key>ctrl+shift+T</key>
-						<key>ctrl+shift+W</key>
-					</hotkeys>
 					<icon1>#undoclosetab</icon1>
 					<function type="normal">
 						<instruction>Go TABUNDOCLOSE</instruction>
 					</function>
 				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>&amp;Manage Tab Groups</label>
-					<tip>Open an interactive list of your Folder Tab Groups</tip>
-					<icon1>#prefs</icon1>
-					<function type="normal">
-						<instruction>Prefs PAGE=tabgroups</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>&amp;Save Tabs...</label>
-					<tip>Save the current tabs as a new Tab Group</tip>
-					<icon1>#newtab</icon1>
-					<function type="normal">
-						<instruction>Go TABGROUPSAVE</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>S&amp;ave Tabs (Both Sides)...</label>
-					<tip>Save the tabs in both file displays as a new dual display Tab Group</tip>
-					<icon1>#newtab</icon1>
-					<function type="normal">
-						<instruction>Go TABGROUPSAVE !both</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="both" label_pos="right" textcol="none">
-					<label>Saved Tab Groups</label>
-					<tip>Displays a list of your Folder Tab Groups</tip>
-					<icon1>#foldertabgrouplist</icon1>
-					<function type="normal">
-						<instruction>Go TABGROUPLIST=icons USEQUALKEYS HEADING</instruction>
-					</function>
-				</button>
 			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu">
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Check-Box Mode</label>
+				<tip>Toggle Check-Box Mode on or off</tip>
+				<icon1>#checkboxmode</icon1>
+				<function type="normal">
+					<instruction>Set CHECKBOXMODE=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>F&amp;ull-Row Selection</label>
+				<tip>Turn Full-Row Selection on or off</tip>
+				<icon1>#fullrowselection</icon1>
+				<function type="normal">
+					<instruction>Set FULLROWSELECT=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>&amp;Grid Lines</label>
+				<tip>Toggle grid lines on or off (Power / details mode only)</tip>
+				<icon1>#gridlines</icon1>
+				<function type="normal">
+					<instruction>Set GRIDLINESH=toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Show Everything</label>
+				<tip>Show everything in the current folder tab, ignoring both local and global filters, until toggled again.</tip>
+				<icon1>#clearfilters</icon1>
+				<function type="normal">
+					<instruction>Set SHOWEVERYTHING=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>S&amp;how System Files</label>
+				<tip>Toggle display of system files and folders (those with the H and S attributes set). Affects all windows and tabs.</tip>
+				<icon1>#showsystem</icon1>
+				<function type="normal">
+					<instruction>Set HIDESYSTEMFILES=Toggle INVERT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>Sho&amp;w Hidden Files</label>
+				<tip>Toggle display of hidden files (those with the H attribute set and the S attribute not set). Affects all windows and tabs.</tip>
+				<icon1>#showhidden</icon1>
+				<function type="normal">
+					<instruction>Set GLOBALHIDEHIDDEN=Toggle INVERT</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>F&amp;ilter by Name</label>
+				<tip>Enter a wildcard pattern to filter files visible in the current Lister</tip>
+				<icon1>#recursivefilter</icon1>
+				<function type="normal">
+					<instruction>Set QUICKFILTER</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>&amp;Navigation Lock</label>
+				<tip>Lock together the navigation of both sides of a dual-display Lister</tip>
+				<icon1>#navlock</icon1>
+				<function type="normal">
+					<instruction>Set NAVLOCK=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+				<label>Fo&amp;rmat Lock</label>
+				<tip>Lock or unlock the current format in the Lister</tip>
+				<icon1>#formatlock</icon1>
+				<function type="normal">
+					<instruction>Set FORMATLOCK=Toggle</instruction>
+				</function>
+			</button>
+			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
 				<label>Fl&amp;at View</label>
 				<icon1>#flatviewmixednofolders</icon1>
 				<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -1220,141 +1138,8 @@
 					</function>
 				</button>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Expandable Folders</label>
-				<tip>File display arrows which, when clicked, reveal the content of individual sub-folders</tip>
-				<icon1>#folderexpander</icon1>
-				<function type="normal">
-					<instruction>Set EXPANDABLEFOLDERS=Toggle CONFIRM</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>E&amp;xpand/Collapse All Folders</label>
-				<tip>Expand all folders directly below here, or collapse them if already expanded</tip>
-				<icon1>#folderexpanded</icon1>
-				<function type="normal">
-					<instruction>@enableif:enabled Set EXPANDABLEFOLDERS=Toggle</instruction>
-					<instruction>@toggle:disable</instruction>
-					<instruction>Set EXPANDABLEFOLDERS=On</instruction>
-					<instruction>Go * EXPANDBRANCH=wild,toggleall,top</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none" type="menu">
-				<label>Fr&amp;iendly Dates</label>
-				<icon1>#recentlistclear</icon1>
-				<button backcol="none" display="label" label_pos="right" textcol="none">
-					<label>&amp;Day names within one week</label>
-					<tip>If the date is within one week, shows day names (&quot;Today&quot;, &quot;Monday&quot;, etc.) instead of the date</tip>
-					<function type="normal">
-						<instruction>Set FRIENDLYDATES=normal</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="label" label_pos="right" textcol="none">
-					<label>&amp;Today only</label>
-					<tip>Shows &quot;Today&quot; for today&apos;s date</tip>
-					<function type="normal">
-						<instruction>Set FRIENDLYDATES=today</instruction>
-					</function>
-				</button>
-				<button backcol="none" display="label" label_pos="right" textcol="none">
-					<label>&amp;Off</label>
-					<tip>Turn friendly dates off</tip>
-					<function type="normal">
-						<instruction>Set FRIENDLYDATES=off</instruction>
-					</function>
-				</button>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Check-Box Mode</label>
-				<tip>Toggle Check-Box Mode on or off</tip>
-				<icon1>#checkboxmode</icon1>
-				<function type="normal">
-					<instruction>Set CHECKBOXMODE=Toggle CONFIRM</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>F&amp;ull-Row Selection</label>
-				<tip>Turn Full-Row Selection on or off</tip>
-				<icon1>#fullrowselection</icon1>
-				<function type="normal">
-					<instruction>Set FULLROWSELECT=Toggle,NameCol</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>&amp;Grid Lines</label>
-				<tip>Toggle grid lines on or off (Power / details mode only)</tip>
-				<icon1>#gridlines</icon1>
-				<function type="normal">
-					<instruction>Set GRIDLINESH=toggle CONFIRM</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Show Everything</label>
-				<tip>Show everything in the current folder tab, ignoring both local and global filters, until toggled again.</tip>
-				<icon1>#clearfilters</icon1>
-				<function type="normal">
-					<instruction>Set SHOWEVERYTHING=Toggle</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>S&amp;how System Files</label>
-				<tip>Toggle display of system files and folders (those with the H and S attributes set). Affects all windows and tabs.</tip>
-				<icon1>#showsystem</icon1>
-				<function type="normal">
-					<instruction>Set HIDESYSTEMFILES=Toggle INVERT</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>Sho&amp;w Hidden Files</label>
-				<tip>Toggle display of hidden files (those with the H attribute set and the S attribute not set). Affects all windows and tabs.</tip>
-				<icon1>#showhidden</icon1>
-				<function type="normal">
-					<instruction>Set GLOBALHIDEHIDDEN=Toggle INVERT</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
-				<label>Fil&amp;ter by Name</label>
-				<tip>Enter a wildcard pattern to filter files visible in the current Lister</tip>
-				<icon1>#recursivefilter</icon1>
-				<function type="normal">
-					<instruction>@label:=key=LanguageStr(&quot;key:fayt_filterbar&quot;); return (Len(key)&gt;0) ? (original_label+Chr(9)+key) : original_label;</instruction>
-					<instruction>Set QUICKFILTER</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>&amp;Navigation Lock</label>
-				<tip>Lock together the navigation of both sides of a dual-display Lister</tip>
-				<icon1>#navlock</icon1>
-				<function type="normal">
-					<instruction>Set NAVLOCK=Toggle</instruction>
-				</function>
-			</button>
 		</button>
-		<button backcol="none" display="both" label_pos="right" textcol="none">
-			<label>Flat Grouped</label>
-			<tip>Displays the contents of all sub-folders in the current file display (grouped by location)</tip>
-			<icon1>#flatviewgrouped</icon1>
-			<function type="normal">
-				<instruction>Set FLATVIEW=On,Grouped</instruction>
-			</function>
-		</button>
-		<button backcol="none" display="both" label_pos="right" textcol="none">
-			<label>Flat (No Folders)</label>
-			<tip>Displays the contents of all sub-folders in the current file display (but hides the folders themselves)</tip>
-			<icon1>#flatviewmixednofolders</icon1>
-			<function type="normal">
-				<instruction>Set FLATVIEW=On,MixedNoFolders</instruction>
-			</function>
-		</button>
-		<button backcol="none" display="both" label_pos="right" textcol="none">
-			<label>Flat Off</label>
-			<tip>Turns Flat View off and returns the folder display to normal</tip>
-			<icon1>#flatviewoff</icon1>
-			<function type="normal">
-				<instruction>Set FLATVIEW=Off</instruction>
-			</function>
-		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none" timed="yes" type="menu_button">
+		<button backcol="none" display="icon" label_pos="right" textcol="none" timed="yes" type="menu_button">
 			<label>&amp;Flat View</label>
 			<tip>Displays the contents of all sub-folders in the current file display</tip>
 			<icon1>#flatviewgrouped</icon1>
@@ -1403,7 +1188,7 @@
 				</function>
 			</button>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" separate="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" separate="yes" textcol="none">
 			<label>Navigation Lock</label>
 			<tip>Lock together the navigation of both sides of a dual-display Lister</tip>
 			<icon1>#navlock</icon1>
@@ -1413,40 +1198,40 @@
 		</button>
 		<button backcol="none" display="label" dropdown_glyph="yes" label_pos="right" textcol="none" type="menu">
 			<label>&amp;Lister</label>
-			<button backcol="none" display="both" hotkey="f6" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Dual Display</label>
+			<button backcol="none" display="both" hotkey="f6" label_pos="right" textcol="none">
+				<label>&amp;Dual Display\tF6</label>
 				<tip>Display two folders simultaneously in the one Lister</tip>
 				<icon1>#dualdisplay</icon1>
 				<function type="normal">
 					<instruction>Set DUAL=Toggle,Remember</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="alt+V" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Viewer Pane</label>
+			<button backcol="none" display="both" hotkey="f7" label_pos="right" textcol="none">
+				<label>&amp;Viewer Pane\tF7</label>
 				<tip>Show or hide the Lister Viewer Pane</tip>
 				<icon1>#viewerpane</icon1>
 				<function type="normal">
 					<instruction>Set VIEWPANE=Toggle</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+space" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Folder Tree</label>
+			<button backcol="none" display="both" hotkey="f8" label_pos="right" textcol="none">
+				<label>&amp;Folder Tree\tF8</label>
 				<tip>Show or hide the Folder Tree</tip>
 				<icon1>#foldertree</icon1>
 				<function type="normal">
 					<instruction>Set TREE=Toggle</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="shift+f8" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>D&amp;ual Folder Tree</label>
+			<button backcol="none" display="both" hotkey="shift+f8" label_pos="right" textcol="none">
+				<label>D&amp;ual Folder Tree\tShift+F8</label>
 				<tip>Show or hide the second Folder Tree</tip>
 				<icon1>#foldertree</icon1>
 				<function type="normal">
 					<instruction>Set TREE=Toggle,Right</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="f9" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Metadata Pane</label>
+			<button backcol="none" display="both" hotkey="f9" label_pos="right" textcol="none">
+				<label>&amp;Metadata Pane\tF9</label>
 				<tip>Show or hide the Metadata Pane</tip>
 				<icon1>#metapane</icon1>
 				<function type="normal">
@@ -1461,12 +1246,10 @@
 					<instruction>Set STATUSBAR=Toggle</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" hotkey="ctrl+shift+B" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>F&amp;avorites Bar</label>
-				<tip>Show or hide the Favorites Bar</tip>
-				<icon1>#favoritesbar</icon1>
+			<button backcol="none" display="label" field_type="label" label_pos="right" size="full" textcol="none">
+				<label>Lister Styles</label>
 				<function type="normal">
-					<instruction>Toolbar NAME=&quot;Favorites Bar&quot; STATE=top LOCAL=no TOGGLE</instruction>
+					<instruction>Set LABEL</instruction>
 				</function>
 			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
@@ -1474,11 +1257,11 @@
 				<tip>Displays a list of your Lister Styles</tip>
 				<icon1>#stylelist</icon1>
 				<function type="normal">
-					<instruction>Prefs STYLELIST HEADING SHOWICONS</instruction>
+					<instruction>Prefs STYLELIST</instruction>
 				</function>
 			</button>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
 			<label>Dual Horizontal</label>
 			<tip>Display two folders (one above the other)</tip>
 			<icon1>#dualhorizontal</icon1>
@@ -1486,7 +1269,7 @@
 				<instruction>Set DUAL=Toggle,Horiz,Remember,ToggleLayout</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
 			<label>Dual Vertical</label>
 			<tip>Display two folders side-by-side</tip>
 			<icon1>#dualdisplay</icon1>
@@ -1494,7 +1277,7 @@
 				<instruction>Set DUAL=Toggle,Vert,Remember,ToggleLayout</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" hotkey_label="yes" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
 			<label>Metadata Pane</label>
 			<tip>Show or hide the Metadata Pane</tip>
 			<icon1>#metapane</icon1>
@@ -1502,27 +1285,15 @@
 				<instruction>Set METAPANE=Toggle</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="icon" label_pos="right" no_label="yes" separate="yes" textcol="none" type="three_button">
+		<button backcol="none" display="icon" label_pos="right" separate="yes" textcol="none">
 			<label>Viewer Pane</label>
+			<tip>Show or hide the Lister Viewer Pane</tip>
 			<icon1>#viewerpane</icon1>
-			<button backcol="none" display="both" hotkey_label="yes" label_pos="right" textcol="none">
-				<label>&amp;Viewer Pane</label>
-				<tip>Show or hide the Lister Viewer Pane</tip>
-				<icon1>#viewerpane</icon1>
-				<function type="normal">
-					<instruction>Set VIEWPANE=Toggle</instruction>
-				</function>
-			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>Open &amp;Linked Viewer</label>
-				<tip>Opens a standalone viewer which acts like a detached viewer pane</tip>
-				<icon1>#viewerlink</icon1>
-				<function type="normal">
-					<instruction>Show LISTERLINK USEEXISTING=yes,avoid</instruction>
-				</function>
-			</button>
+			<function type="normal">
+				<instruction>Set VIEWPANE=Toggle</instruction>
+			</function>
 		</button>
-		<button backcol="none" display="icon" dpi="150" field_type="search" hotkey="f3" hotkey_label="yes" label_pos="right" no_label="yes" size="420" textcol="none">
+		<button backcol="none" dpi="100" field_type="search" hotkey="f3" label_pos="right" size="280" textcol="none">
 			<label>Search</label>
 			<tip>Displays a quick search field letting you search the current folder</tip>
 			<function type="normal">
@@ -1530,5 +1301,4 @@
 			</function>
 		</button>
 	</buttons>
-	<default_info hash="0xad34ca6a,0x1277f8e8,0x3aa59a1c,0x9cb5580e,0xbc6bc21" type="Menu" version="13.0" />
 </toolbar>

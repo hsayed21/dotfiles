@@ -12,14 +12,14 @@
 					<pathstring>C:\POSBANK\Backups</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\POPs Cloud ERP API">
+			<path label="C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP API">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP API</pathstring>
+					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP API</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\POPs Cloud ERP Front">
+			<path label="C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP Front">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP Front</pathstring>
+					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP Front</pathstring>
 				</dir>
 			</path>
 			<path label="C:\POSBANK\Projects\MenuTree-Frontend">

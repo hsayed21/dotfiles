@@ -9,7 +9,6 @@
 		<folder desktop="yes" id="13" root_item="network" shown="yes" />
 		<folder desktop="yes" id="14" root_item="recyclebin" shown="yes" />
 		<folder desktop="no" id="11" root_item="cloudstorage" shown="no" />
-		<folder desktop="no" id="15" root_item="linux" shown="yes" />
 		<folder desktop="no" id="1" root_item="collections" shown="no" />
 		<folder desktop="no" id="2" root_item="libraries" shown="yes" />
 		<folder desktop="no" id="8" root_item="ftp" shown="no" />

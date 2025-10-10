@@ -144,4 +144,12 @@
 			<instruction>Set FONTSCALE=100</instruction>
 		</function>
 	</key>
+	<key hotkey="ctrl+shift+E">
+		<label>Expand/Collapse All Folders</label>
+		<tip>Expand/Collapse All Folders</tip>
+		<function type="normal">
+			<instruction>Set EXPANDABLEFOLDERS=On</instruction>
+			<instruction>Go * EXPANDBRANCH=wild,toggleall,top</instruction>
+		</function>
+	</key>
 </hotkeys>

@@ -6,4 +6,10 @@
 	<toolbar type="top">
 		<file>Operations.dop</file>
 	</toolbar>
+	<toolbar type="top">
+		<file>Favorites Bar.dop</file>
+	</toolbar>
+	<toolbar type="top">
+		<file>Drives.dop</file>
+	</toolbar>
 </toolbars>

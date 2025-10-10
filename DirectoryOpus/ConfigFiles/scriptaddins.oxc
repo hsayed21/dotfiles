@@ -2,7 +2,7 @@
 <scriptaddins>
 	<disabled />
 	<idmap>
-		<script id="{98A4928C-4FFC-448B-8E80-9082C1EFC38C}" path="Copy_Tree_Structure.js" />
-		<script id="{EADEDED2-6F59-42DB-8D28-27DF401CA897}" path="MaxViewerPane.js" />
+		<script id="{EF94F415-C6DC-45CA-B441-A291D81508CE}" path="Copy_Tree_Structure.js" />
+		<script id="{C0CF8728-BC78-4E3E-BA5B-C152259B1296}" path="MaxViewerPane.js" />
 	</idmap>
 </scriptaddins>

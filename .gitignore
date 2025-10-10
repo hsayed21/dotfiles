@@ -29,3 +29,14 @@ FlowLauncher/Settings/Plugins/
 FlowLauncher/Settings/UserSelectedRecord.json
 FlowLauncher/Settings/MultipleTopMostRecord.json
 FlowLauncher/Settings/History.json
+
+DirectoryOpus/userdata.omd
+DirectoryOpus/FileTypes/
+DirectoryOpus/Formats/
+DirectoryOpus/Layouts/System/
+DirectoryOpus/Program State/programdata.xml
+DirectoryOpus/ConfigFiles/smartfav.osf
+DirectoryOpus/ConfigFiles/proxy.oxc
+DirectoryOpus/ConfigFiles/evalcols.oxc
+DirectoryOpus/ConfigFiles/archives.oxc
+DirectoryOpus/ConfigFiles/evalfilegroups.xml
