@@ -2298,5 +2298,13 @@
     "gitlens.graph.dimMergeCommits": true,
     "editor.stickyScroll.enabled": false,
     "chat.commandCenter.enabled": false,
-    "window.customTitleBarVisibility": "never"
+    "window.customTitleBarVisibility": "never",
+    "projectManager.git.baseFolders": [
+      "C:\\POSBANK\\Projects"
+    ],
+    "files.watcherExclude": {
+      "**/build/**": true,
+      "**/dist/**": true,
+      "**/node_modules/**": true
+    }
 }

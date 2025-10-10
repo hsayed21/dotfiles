@@ -72,25 +72,25 @@ m.native = function()
   })
 end
 
-m.vscode = function()
-  vim.api.nvim_create_autocmd("ModeChanged", {
-    pattern = "*",
-    callback = function()
-      local mode = vim.api.nvim_get_mode().mode
-      if mode == "i" then
-        require('vscode').action("neovim-ui-indicator.insert")
-      elseif mode == "v" then
-        require('vscode').action("neovim-ui-indicator.visual")
-      elseif mode == "n" then
-        require('vscode').action("neovim-ui-indicator.normal")
-      end
-    end,
-  })
-end
+-- m.vscode = function()
+--   vim.api.nvim_create_autocmd("ModeChanged", {
+--     pattern = "*",
+--     callback = function()
+--       local mode = vim.api.nvim_get_mode().mode
+--       if mode == "i" then
+--         require('vscode').action("neovim-ui-indicator.insert")
+--       elseif mode == "v" then
+--         require('vscode').action("neovim-ui-indicator.visual")
+--       elseif mode == "n" then
+--         require('vscode').action("neovim-ui-indicator.normal")
+--       end
+--     end,
+--   })
+-- end
 
 m.global()
 if vim.g.vscode then
-  m.vscode()
+  -- m.vscode()
 else
   m.native()
 end

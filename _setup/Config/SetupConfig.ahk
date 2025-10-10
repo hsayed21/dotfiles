@@ -41,7 +41,8 @@ class SetupConfig {
                 { name: "extras/unigetui" },
                 { name: "zig" },
                 { name: "Scoop-Search" },
-                { name: "extras/everythingtoolbar" }
+                { name: "extras/everythingtoolbar" },
+                { name: "extras/obsidian" }
             ],
             "Winget", [
                 { name: "Microsoft.PowerToys" },
@@ -51,7 +52,9 @@ class SetupConfig {
                 { id: "VB-Audio.Voicemeeter.Potato" },
                 { id: "7zip.7zip" },
                 { id: "ShareX.ShareX" },
-                { id: "wez.wezterm" }
+                { id: "wez.wezterm" },
+                { id: "AdrienAllard.FileConverter" },
+                { id: "clawSoft.clawPDF" }
             ],
             "Chocolatey", [
                 { name: "flow-launcher" },

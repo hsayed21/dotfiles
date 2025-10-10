@@ -2,6 +2,7 @@
 #Include Console.ahk
 #Include InstallationStats.ahk
 #Include PackageManagers.ahk
+#Include ..\Config\SetupConfig.ahk
 
 class PackageInstaller {
     Stats := InstallationStats()

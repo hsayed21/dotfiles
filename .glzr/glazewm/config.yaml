@@ -280,7 +280,7 @@ binding_modes:
   - name: "pause"
     keybindings:
       - commands: ["wm-disable-binding-mode --name pause"]
-        bindings: ["alt+shift+z"]
+        bindings: ["alt+ctrl+shift+z"]
 
 # =============================================================================
 # KEYBINDINGS
@@ -291,7 +291,7 @@ keybindings:
   - commands: ["wm-enable-binding-mode --name resize"]
     bindings: ["alt+shift+r"]
   - commands: ["wm-enable-binding-mode --name pause"]
-    bindings: ["alt+shift+z"]
+    bindings: ["alt+ctrl+shift+z"]
   - commands: ["wm-exit"]
     bindings: ["alt+ctrl+shift+k"]
   - commands: ["wm-reload-config"]

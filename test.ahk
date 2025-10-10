@@ -5,4 +5,27 @@
 ; exmaple registry operations
 ; RegWrite("1", "REG_DWORD", "HKEY_CURRENT_USER\Software\MyApp", "TestValue")
 
-msgbox(EnvGet("LOCALAPPDATA"))
+#Include _setup\Classes\FileSystemManager.ahk
+
+/**
+ * Get symbolic link mappings
+ * @returns {Array} Array of mapping objects
+ */
+GetMappings() {
+  workingDir := A_WorkingDir
+  Home := "C:\Users\" . A_UserName
+  LocalAppData := EnvGet("LOCALAPPDATA")
+
+  ; Ensure A_AppDataCommon is defined (some AHk runtimes/tools may not expose it)
+  mappings := [
+            {
+                source: workingDir . "\DirectoryOpus",
+                dest: A_AppData . "\GPSoftware\Directory Opus"
+            },
+          ]
+
+  return mappings
+}
+
+dot := DotfileMapper(GetMappings())
+dot.ProcessMappings()

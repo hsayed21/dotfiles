@@ -478,7 +478,7 @@
   },
   {
     "command": "workbench.view.scm",
-    "key": "alt+g"
+    "key": "ctrl+alt+g"
   },
   {
     "command": "editor.action.escapeFocusHover",
@@ -5518,7 +5518,7 @@
     "command": "-workbench.action.chat.open"
   },
   {
-    "key": "ctrl+alt+r",
+    "key": "ctrl+alt+e",
     "command": "workbench.action.chat.open",
     "when": "chatPanelParticipantRegistered || chatSetupInstalled"
   },
@@ -5716,11 +5716,6 @@
         "key": "shift+f",
         "command": "multiDiffEditor.expandAll",
         "when": "activeEditor == 'multiDiffEditor'"
-    },
-    {
-      "key": "ctrl+alt+e",
-      "command": "workbench.action.chat.openAgent",
-      "when": "!chatSetupDisabled && !chatSetupHidden"
     },
     {
       "key": "ctrl+numpad_subtract",

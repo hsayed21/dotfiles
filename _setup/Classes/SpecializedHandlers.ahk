@@ -116,6 +116,41 @@ class VSCodeExtensionsManager {
         return true
     }
 
+     static ReInstallExtensions(extListFile := "vscode/current-vscode-extensions.txt") {
+         Console.Instance.ShowSection("VS Code Extensions")
+         extFile := A_WorkingDir . "\" . extListFile
+         if (!FileExist(extFile)) {
+             Console.Instance.ShowWarning("VS Code extensions file list not found: " . extFile)
+             return false
+         }
+         extensions := []
+         extLines := FileRead(extFile)
+         for line in StrSplit(extLines, [
+             "`r",
+             "`n"
+         ]) {
+             ext := Trim(line)
+             if (ext != "")
+                 extensions.Push(ext)
+         }
+
+        for _, ext in extensions {
+             Console.Instance.ShowStatus("Installing VS Code extension: " . ext . "...", "loading")
+             Console.Instance.RunSilent("code-insiders --uninstall-extension " . ext, &installOut)
+             result := Console.Instance.RunSilent("code-insiders --install-extension " . ext, &installOut)
+             if (result) {
+                 Console.Instance.ShowSuccess("Installed VS Code extension: " . ext)
+             } else {
+                 Console.Instance.ShowWarning("Failed to install VS Code extension: " . ext . " Error: " . installOut)
+             }
+         }
+
+         ; Install other extensions from URLs
+         this.OtherExtensions()
+
+         return true
+     }
+
     static OtherExtensions() {
         exts := [
             { url: "https://github.com/hsayed21/vscode-fold/releases/download/v1/vscode-fold-1.4.3.vsix", name: "vscode-fold-1.4.3.vsix" },
