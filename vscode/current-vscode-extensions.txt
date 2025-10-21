@@ -7,7 +7,6 @@ angular.ng-template
 arturock.gitstash
 asvetliakov.vscode-neovim
 christian-kohler.path-intellisense
-coderabbit.coderabbit-vscode
 codezombiech.gitignore
 cschlosser.doxdocgen
 doggy8088.netcore-snippets

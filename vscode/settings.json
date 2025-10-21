@@ -1844,7 +1844,6 @@
   "whichkey.delay": 0,
   "whichkey.sortOrder": "alphabetically",
   "window.customMenuBarAltFocus": false,
-  "window.enableMenuBarMnemonics": false,
   "window.menuBarVisibility": "hidden",
   "window.openWithoutArgumentsInNewWindow": "off",
   "window.restoreFullscreen": true,
@@ -2147,7 +2146,6 @@
   "json-i18n-key.suggestExistingKeys": false,
   "workbench.sideBar.location": "right",
   "json-i18n-key.suggestSimilarKeysIfTheSameExist": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.activityBar.location": "top",
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
@@ -2296,15 +2294,39 @@
     "gitlens.graph.layout": "editor",
     "gitlens.graph.onlyFollowFirstParent": true,
     "gitlens.graph.dimMergeCommits": true,
-    "editor.stickyScroll.enabled": false,
     "chat.commandCenter.enabled": false,
     "window.customTitleBarVisibility": "never",
     "projectManager.git.baseFolders": [
       "C:\\POSBANK\\Projects"
     ],
     "files.watcherExclude": {
+      "**/node_modules/**": true,
+      "**/.git/**": true,
+      "**/.hg/**": true,
+      "**/.svn/**": true,
       "**/build/**": true,
       "**/dist/**": true,
-      "**/node_modules/**": true
-    }
+      "**/bin/**": true,
+      "**/obj/**": true,
+      "**/.DS_Store": true,
+      "**/Thumbs.db": true,
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/build": true,
+        "**/dist": true,
+        "**/bin": true,
+        "**/obj": true,
+        "**/bower_components": true,
+        "**/*.code-search": true
+    },
+    "typescript.tsserver.maxTsServerMemory": 4096,
+    "firefox.keepProfileChanges": true,
+    "firefox.profile": "default",
+    "firefox.port": 6000,
+    "window.enableMenuBarMnemonics": false,
+    "chat.tools.terminal.autoApprove": {
+      "New-Item": true
+    },
+    "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe"
 }
