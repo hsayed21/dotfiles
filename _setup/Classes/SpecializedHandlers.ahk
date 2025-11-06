@@ -594,6 +594,21 @@ class RegistryManager {
         Console.Instance.ShowSuccess("Registry keys and values set successfully.")
 
         Console.Instance.RunPowerShellSilent('powercfg /hibernate off')
+        ; # Set turn off disk timeout (in minutes / 0: never)
+        Console.Instance.RunPowerShellSilent('powercfg -change "disk-timeout-ac" 0')
+        Console.Instance.RunPowerShellSilent('powercfg -change "disk-timeout-dc" 0')
+        ; # Set hibernate timeout (in minutes / 0: never)
+        Console.Instance.RunPowerShellSilent('powercfg -change "hibernate-timeout-ac" 0')
+        Console.Instance.RunPowerShellSilent('powercfg -change "hibernate-timeout-dc" 0')
+        ; # Set sleep timeout (in minutes / 0: never)
+        Console.Instance.RunPowerShellSilent('powercfg -change "sleep-timeout-ac" 0')
+        Console.Instance.RunPowerShellSilent('powercfg -change "sleep-timeout-dc" 0')
+        ; # Set standby timeout (in minutes / 0: never)
+        Console.Instance.RunPowerShellSilent('powercfg -change "standby-timeout-ac" 0')
+        Console.Instance.RunPowerShellSilent('powercfg -change "standby-timeout-dc" 0')
+        ; # Set turn off screen timeout (in minutes / 0: never)
+        Console.Instance.RunPowerShellSilent('powercfg -change "monitor-timeout-ac" 10')
+        Console.Instance.RunPowerShellSilent('powercfg -change "monitor-timeout-dc" 10')
         ; (Optional) Set standby delay, disable WiFi Sense, etc. (commented in .ps1)
     }
 

@@ -153,7 +153,7 @@ local common_keymaps = {
   -- Insert mode helpers
   { "i", "<C-k>", "<C-o>O", { desc = "New line above" } },
   { "i", "<C-j>", "<C-o>o", { desc = "New line below" } },
-  { "i", "<C-e>", "<Backspace>", { desc = "Delete previous char" } },
+--   { "i", "<C-e>", "<Backspace>", { desc = "Delete previous char" } },
   { "i", "<C-r>", "<Delete>", { desc = "Delete next char" } },
   { "i", "<C-y>", "<C-o>C", { desc = "Delete to line end" } },
 

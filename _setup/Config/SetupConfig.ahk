@@ -49,6 +49,7 @@ class SetupConfig {
                 { name: "JanDeDobbeleer.OhMyPosh" },
                 { name: "GlazeWM" },
                 { name: "Zebar" },
+                { name: "nushell" },
                 { id: "VB-Audio.Voicemeeter.Potato" },
                 { id: "7zip.7zip" },
                 { id: "ShareX.ShareX" },

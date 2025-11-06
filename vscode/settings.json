@@ -226,7 +226,7 @@
   "editor.overviewRulerBorder": false,
   "editor.quickSuggestions": {
     "comments": "inline",
-    "other": true,
+    "other": "off",
     "strings": "inline"
   },
   "editor.quickSuggestionsDelay": 0,
@@ -1848,8 +1848,7 @@
   "window.openWithoutArgumentsInNewWindow": "off",
   "window.restoreFullscreen": true,
   "window.title": "${rootNameShort}${separator}vscode",
-  // "window.titleBarStyle": "custom",
-  "window.titleBarStyle": "native",
+  "window.titleBarStyle": "custom",
   "window.zoomLevel": 0.1,
   // Aura theme customisation
   "workbench.colorCustomizations": {
@@ -1860,9 +1859,13 @@
       "editorBracketMatch.background": "#3b1c04",
       // "editor.selectionBackground": "#cb0d0d50", // Current selection background.
 
-        "editor.wordHighlightBackground": "#ba3d0741"
+        "editor.wordHighlightBackground": "#ba3d0741",
         // "editor.wordHighlightBackground": "#ffff0034", // semi-transparent yellow
         // "editor.wordHighlightStrongBackground": "#FFA500CC" // stronger orange
+        "editorOverviewRuler.warningForeground": "#0000",
+        "editorOverviewRuler.errorForeground": "#0000",
+        "editorOverviewRuler.infoForeground": "#0000",
+        // "editorOverviewRuler.border": "#0000",
     },
     "[Aura Dark]": {
       "activityBar.background": "#110f17",
@@ -1904,7 +1907,8 @@
   "workbench.editorAssociations": {
     "*.md": "default"
   },
-  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+//   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.list.openMode": "doubleClick",
   "workbench.list.smoothScrolling": true,
   "workbench.quickOpen.closeOnFocusLost": false,
@@ -2156,7 +2160,6 @@
   "find-it-faster.findWithinFiles.showPreview": false,
   "find-it-faster.general.killTerminalAfterUse": true,
   "application.experimental.rendererProfiling": true,
-  "editor.renderWhitespace": "boundary",
   "chat.editing.alwaysSaveWithGeneratedChanges": true,
   "github.copilot.enable": {
     "*": true,
@@ -2201,7 +2204,6 @@
   ],
   "explorer.excludeGitIgnore": false,
   "editor.wordWrap": "on",
-  "breadcrumbs.enabled": false,
   "csharp.experimental.debug.hotReload": true,
   "editor.cursorSmoothCaretAnimation": "on",
   "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
@@ -2269,7 +2271,6 @@
     "gitlens.ai.vscode.model": "copilot:claude-sonnet-4",
     "gitlens.advanced.fileHistoryShowAllBranches": true,
     "gitlens.views.stashes.files.layout": "list",
-    "github.copilot.nextEditSuggestions.enabled": true,
     "terminal.integrated.fontSize": 11,
     "debug.onTaskErrors": "debugAnyway",
     "liveServer.settings.donotVerifyTags": true,
@@ -2295,7 +2296,6 @@
     "gitlens.graph.onlyFollowFirstParent": true,
     "gitlens.graph.dimMergeCommits": true,
     "chat.commandCenter.enabled": false,
-    "window.customTitleBarVisibility": "never",
     "projectManager.git.baseFolders": [
       "C:\\POSBANK\\Projects"
     ],
@@ -2328,5 +2328,72 @@
     "chat.tools.terminal.autoApprove": {
       "New-Item": true
     },
-    "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe"
+    "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe",
+    // "workbench.statusBar.visible": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.indent": 8,
+    "explorer.decorations.badges": false,
+    "git.decorations.enabled": false,
+    "custom-ui-style.electron": {
+        "titleBarStyle": "hiddenInset",
+        "trafficLightPosition": {
+        "x": 20,
+        "y": 16
+        }
+    },
+    "custom-ui-style.stylesheet": {
+        ".notification-toast": "box-shadow: none !important",
+        ".quick-input-widget.show-file-icons": "box-shadow: none !important",
+        ".quick-input-widget": "top: 25vh !important",
+        ".quick-input-list .scrollbar": "display: none",
+        ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
+        ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
+        ".quick-input-titlebar": "background: #100B15 !important",
+        ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
+        ".monaco-scrollable-element > .shadow.top": "display: none",
+        ".sidebar .title-label": "padding: 0 !important",
+        ".sidebar": "border: none !important",
+        ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
+        ".monaco-list-row.focused": "outline: none !important",
+        ".monaco-editor .scroll-decoration": "display: none",
+        // ".title-actions": "display: none !important",
+        ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
+        ".title .monaco-icon-label:after": "margin-right: 0",
+        ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 60px",
+        ".title .monaco-icon-label.file-icon": "margin: 0 60px",
+        ".monaco-editor .cursors-layer .cursor": "background-image: linear-gradient(135deg, #ffaffc 10%, #DA70D6 100%)"
+    },
+  "custom-ui-style.font.sansSerif": "Dank Mono",
+//   "editor.cursorStyle": "block",
+//   "editor.lineHeight": 2.5,
+//   "editor.tokenColorCustomizations": {
+//     "textMateRules": [
+//       {
+//         "scope": "comment",
+//         "settings": {
+//           "fontStyle": "italic"
+//         }
+//       }
+//     ]
+//   },
+  "editor.stickyScroll.enabled": false,
+  "editor.colorDecorators": false,
+  "editor.codeLens": false,
+  "editor.links": false,
+  "editor.matchBrackets": "never",
+//   "scm.diffDecorations": "none",
+  "editor.detectIndentation": false,
+  "editor.renderWhitespace": "none",
+  "editor.renderLineHighlight": "none",
+  "editor.occurrencesHighlight": "off",
+  "editor.selectionHighlight": false,
+//   "editor.scrollbar.horizontal": "hidden",
+//   "editor.scrollbar.vertical": "hidden",
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.snippetSuggestions": "top",
+  "emmet.triggerExpansionOnTab": true,
+  "update.mode": "none",
+  "debug.console.acceptSuggestionOnEnter": "on",
+  "debug.console.inputMode": "simple",
+  "github.copilot.nextEditSuggestions.enabled": false
 }

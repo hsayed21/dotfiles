@@ -1573,7 +1573,8 @@
     "args": "<C-b>",
     "command": "vscode-neovim.send",
     "key": "ctrl+b",
-    "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
+    "when": "editorTextFocus && neovim.init"
+    // "when": "editorTextFocus && neovim.init && neovim.mode != 'insert'"
   },
   {
     "args": "<C-k>",
@@ -5732,5 +5733,14 @@
     {
       "key": "ctrl+shift+s",
       "command": "workbench.action.files.saveFiles"
+    },
+    {
+        "key": "enter",
+        "command": "repl.action.acceptInput",
+        "when": "inDebugRepl && !editorTextFocus"
+    },
+    {
+      "key": "ctrl+b",
+      "command": "-workbench.action.toggleSidebarVisibility"
     }
 ]

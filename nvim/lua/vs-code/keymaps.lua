@@ -25,11 +25,12 @@ local vscode_keymaps = {
   -- Jump list navigation with centering
   { "n", "<C-o>", vscode_utils.navigation.jump_back_and_center, { desc = "Jump back centered" } },
   { "n", "<C-i>", vscode_utils.navigation.jump_forward_and_center, { desc = "Jump forward centered" } },
+  { "i", "<C-b>", "<C-o>^", { desc = "Beginning of line (insert mode)" } },
+  { "i", "<C-e>", "<C-o>$", { desc = "End of line (insert mode)" } },
 
   -- Scroll and center
   { { "n", "v" }, "zb", vscode_utils.navigation.scroll_down_and_center, { desc = "Scroll down and center" } },
   { { "n", "v" }, "zt", vscode_utils.navigation.scroll_up_and_center, { desc = "Scroll up and center" } },
-
 
   --[Formatting & Saving]--
   -- Save and format
@@ -59,7 +60,6 @@ local vscode_keymaps = {
   { "n", "<leader>pt", vscode_utils.search.find_files_with_type_sidebar_closed, { desc = "Find files with type" } },
   { "n", "<leader>sg", "workbench.action.quickTextSearch", { desc = "Find inside files" } },
   { "n", "<leader>sG", vscode_utils.search.find_inside_files_with_type, { desc = "Find inside files with type" } },
-
 
   --[Editor operations]--
   -- Core LSP functionality
@@ -106,11 +106,17 @@ local vscode_keymaps = {
   { 'n', '<leader>tw', ':%s/\\(\\S\\)\\([ \\t]\\{3,\\}\\)\\(\\/\\/\\|--\\|#\\|;\\|\\*\\*\\?\\|\\<REM\\>\\)/\\1  \\3/g<CR>',
 	{ desc = "Trim whitespace before comments" } },
 
-  { "n", "C-r", "redo", { desc = "Redo" } },
+  { "n", "<C-r>", "<C-r>", { desc = "Redo" } },
+--   { "n", "J", "mzJ`z", { desc = "Join lines keeping cursor position" } },
+--   { "v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" } },
+--   { "v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" } },
+
+  -- Better paste in visual mode (doesn't yank replaced text)
+  { "v", "p", '"_dP', { desc = "Paste without yanking" } },
+
   { "n", "<leader>sk", "neovim-keymaps-list.searchKeymaps", { desc = "Search keymaps" } },
   { "n", "<leader>ru", "typescript.removeUnusedImports", { desc = "Remove unused imports" } },
   { "n", "<leader>rc", "csharpOrganizeUsings.organize", { desc = "Remove unused Usings" } },
-
 
   --[Window Management]--
   -- Window splits
@@ -252,8 +258,8 @@ for _, keymap in ipairs(vscode_keymaps) do
   -- If rhs is a string, check if it's a VSCode command or Vim command
   if type(rhs) == "string" then
     -- VSCode commands typically contain dots (e.g., "editor.action.something")
-    -- Vim commands start with special characters like "+, ", etc.
-    if string.match(rhs, "^['\"+]") or string.match(rhs, "^:%s") or string.match(rhs, "^redo$") then
+    -- Vim commands start with special characters or are native vim keys
+    if string.match(rhs, "^['\"+<:]") or string.match(rhs, "^:%s") or string.match(rhs, "^redo$") or string.match(rhs, "^mz") then
       -- This is a Vim command, use it directly
       Map(keymap[1], keymap[2], rhs, keymap[4])
     else

@@ -182,10 +182,12 @@ widgets:
         options:
             #   label: "\uf017 {%a %d/%m/%Y %I:%M %p}
             label: "{%a %d/%m/%Y %I:%M %p}"
-            label_alt: "{%b %a %d/%m/%Y %I:%M:%S %p}"
+            label_alt: "🇧🇭 {%a %d/%m/%Y %I:%M:%S %p}"
             locale: ""
             update_interval: 1000
-            timezones: []
+            timezones:
+                - "Africa/Cairo"     # 🇪🇬 Egypt
+                - "Asia/Bahrain"     # 🇧🇭 Bahrain
             calendar:
                 blur: True
                 round_corners: True
@@ -193,9 +195,12 @@ widgets:
                 border_color: "System"
                 alignment: "center"
                 direction: "down"
+                show_holidays: true
+                show_week_numbers: true
+                country_code: "EG"
             callbacks:
                 on_left: "toggle_calendar"
-                on_middle: "toggle_label"
+                on_middle: "next_timezone"
                 on_right: "toggle_label"
             label_shadow:
                 enabled: true
