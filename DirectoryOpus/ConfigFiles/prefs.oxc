@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prefs opus_version_beta="0" opus_version_major="13" opus_version_minor="18" version="6">
-	<fileop flags1="0x8000500f086e7" flags2="0x400020000002" jobs_button_width="110" jobs_button_width2="110,0,100" secure_delete="3" upload_modified_time="20" />
-	<flags autorememberlimit="100" lowspace="10" misc="0x500200" privacy="0" settings1="0xc00000408309ba" settings2="0x21802000" settings3="0x1172018600011" settings4="0x2000204" settings5="0x600000020002000" settings6="0" settings7="512" settings8="0">
+	<fileop flags1="0x8000100f086c7" flags2="0x400020000002" jobs_button_width="110" jobs_button_width2="110,0,100" secure_delete="3" upload_modified_time="20" />
+	<flags autorememberlimit="100" lowspace="10" misc="0x100202" privacy="0" settings1="0xc00000408389b8" settings2="0x21802000" settings3="0x1166818600011" settings4="0x2000204" settings5="0x600000020002000" settings6="0" settings7="512" settings8="0">
 		<powermode button="left" cmdelay="1000" flags="0x9100" />
 		<powermode button="right" cmdelay="1000" flags="0xa400" />
 		<powermode button="middle" cmdelay="1000" flags="0x8004" />
@@ -25,7 +25,7 @@
 		<right>// Selected/total folder and file counts:{||}{i:dir} {sd} / {td} {||}{i:file} {sf} / {tf} {||}// Selected file extensions and counts:{||}{h!} {ft:sel,frame} {h!}{||}// Hidden item count, or &quot;Everything&quot; indicator when in Show Everything mode:{||}{h!} &lt;#%error_text&gt;&lt;b&gt;{hi} hidden&lt;/b&gt;&lt;/#&gt; {h!}{||}{h!} &lt;#%ok_text&gt;&lt;b&gt;{hse}&lt;/b&gt;&lt;/#&gt; {h!}{||}// Selected/Total music and video duration (if available):{||}{h!} {smp3} /{h!}{h!} {tmp3} {h!}{||}// Selected/total size in bytes:{||} {sba} / {tba} {rpad}{||}// Lister state (if applicable):{||}{h!} {ls} {h!}{||}// Format lock:{||} {fl} {||}// Free space count, and bar graph:{||}{h!} {df} {bg+w=50,f=2,g=3,t=n,c1=#68f040,c2=#f06840}{h!}</right>
 		<tortoise_set>Win10</tortoise_set>
 	</status>
-	<tree custom_gap="16" custom_gap_dpi="100" custom_indent="10" custom_indent_dpi="100" extra_height="1" extra_height_dpi="100">
+	<tree custom_gap="16" custom_gap_dpi="100">
 		<actions>
 			<lmb_alt enable="yes">Go NEWTAB</lmb_alt>
 			<lmb_ctrl enable="yes">Go OPENINDUAL</lmb_ctrl>
@@ -52,10 +52,7 @@
 		<named_color_bools />
 		<named_dwords />
 		<named_colors />
-		<fields fieldDefaults="1">
-			<field bg="none" fg="none" numeric_id="0x1034" styles="16" />
-			<field bg="none" fg="none" numeric_id="0x2001" styles="16" />
-		</fields>
+		<fields fieldDefaults="1" />
 	</colors>
 	<colors_dark version="13">
 		<gridlines>
@@ -82,12 +79,8 @@
 		<spacing_scheme />
 		<auto_backup>10</auto_backup>
 		<lister_title>%!%T - %!Directory Opus</lister_title>
-		<tab_homedir>
-			<pidl>?AAAAFAAfgMuFn2cgAoBAsptVQMwFqrYAAA==</pidl>
-			<tree>0x2000</tree>
-		</tab_homedir>
 	</layout>
-	<dblclk flags="0x10c0006">
+	<dblclk flags="0x80040e">
 		<layout />
 		<command />
 		<icon_layout />
@@ -135,13 +128,13 @@
 	<smartfav limit="10" points="0x5,0x5,0x5,0xa,0x8,0x8,0x3,0x5,0x8,0x5,0xa,0xa,0x8,0x5,0xa,0x8,0x8,0x0,0x0" size="100" thresh="40">
 		<exclude />
 	</smartfav>
-	<viewer customtitle="" dblclkcmd="" edgewidth="20" flags="0x282a1901" flags2="0" flags3="130" gamma="100" lbuttoncmd="" markedthumb="64,64,100" maxquicksize="50" mbuttoncmd="" minwidth="800,0,100" speed="10.000000" tagcol="Marked Pictures\%F">
+	<viewer customtitle="" dblclkcmd="" edgewidth="20" flags="0x202e1901" flags2="0" flags3="130" gamma="100" lbuttoncmd="" markedthumb="64,64,100" maxquicksize="50" mbuttoncmd="" minwidth="800,0,100" speed="10.000000" tagcol="Marked Pictures\%F">
 		<vpexclude />
 	</viewer>
-	<foldertab_size>0x640064</foldertab_size>
-	<foldertab_size2>0x800028</foldertab_size2>
-	<foldertab_size3>100,100,100</foldertab_size3>
-	<foldertab_size4>40,128,100</foldertab_size4>
+	<foldertab_size>0</foldertab_size>
+	<foldertab_size2>0</foldertab_size2>
+	<foldertab_size3>0,0,100</foldertab_size3>
+	<foldertab_size4>0,0,100</foldertab_size4>
 	<transanims disable="no" navback="default" navforward="default" navinto="default" navother="default" navup="default" prefspages="default" />
 	<jumplist flags="0xffff0210" />
 	<filters prefix="">

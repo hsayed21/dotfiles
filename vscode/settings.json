@@ -2190,8 +2190,7 @@
   ],
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": true,
-  "gitlens.ai.model": "gitkraken",
-  "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash",
+  "gitlens.ai.gitkraken.model": "gemini:gemini-2.5-flash",
   "gitlens.currentLine.enabled": false,
   "dotnet.formatting.organizeImportsOnFormat": true,
   "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body.",
@@ -2268,16 +2267,13 @@
     },
     "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}",
     "github.copilot.chat.codesearch.enabled": true,
-    "gitlens.ai.vscode.model": "copilot:claude-sonnet-4",
     "gitlens.advanced.fileHistoryShowAllBranches": true,
     "gitlens.views.stashes.files.layout": "list",
-    "terminal.integrated.fontSize": 11,
     "debug.onTaskErrors": "debugAnyway",
     "liveServer.settings.donotVerifyTags": true,
     "csharpOrganizeUsings.splitGroups": false,
     "editor.formatOnSave": false,
     "editor.autoIndentOnPaste": true,
-    "gitlens.views.launchpad.files.layout": "list",
     "gitlens.views.scm.grouped.default": "launchpad",
     "gitlens.views.scm.grouped.hiddenViews": {
       "commits": false,
@@ -2395,5 +2391,16 @@
   "update.mode": "none",
   "debug.console.acceptSuggestionOnEnter": "on",
   "debug.console.inputMode": "simple",
-  "github.copilot.nextEditSuggestions.enabled": false
+  "github.copilot.nextEditSuggestions.enabled": true,
+"terminal.integrated.fontSize": 15,
+"gitlens.gitCommands.skipConfirmations": [
+  "fetch:command",
+  "stash-push:command",
+  "launchpad:command"
+],
+"gitlens.ai.model": "vscode",
+"gitlens.ai.vscode.model": "copilot:gpt-5-mini",
+"gitlens.advanced.messages": {
+  "suppressGkRequestFailed500Warning": true
+}
 }

@@ -5742,5 +5742,9 @@
     {
       "key": "ctrl+b",
       "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+      "key": "ctrl+\\",
+      "command": "gitlens.showLaunchpad"
     }
 ]

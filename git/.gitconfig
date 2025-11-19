@@ -41,7 +41,7 @@
 [user]
 	email = hsayedhamed21@gmail.com
 	name = hsayed21
-	signingKey = 
+	signingKey =
 [init]
 	defaultBranch = main
 [gpg]
@@ -63,29 +63,28 @@
 [push]
 	default = current
 
-[includeIf "gitdir:C:/Posbank_Projects/POPs Cloud ERP Front/"]
+[includeIf "gitdir:C:/POSBANK/Projects/POPs Cloud ERP/POPs Cloud ERP Front/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/POPs Cloud ERP API/"]
+[includeIf "gitdir:C:/POSBANK/Projects/POPs Cloud ERP/POPs Cloud ERP API/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/POPs Retail Git/"]
+[includeIf "gitdir:C:/POSBANK/Projects/POPs Retail Git/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/POPs Restaurant 6.0.0.000/"]
+[includeIf "gitdir:C:/POSBANK/Projects/POPs Restaurant 6.0.0.000/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/POPs Public API/"]
+[includeIf "gitdir:C:/POSBANK/Projects/POPs Public API/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/POPs KDS/"]
+[includeIf "gitdir:C:/POSBANK/Projects/POPs KDS/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/MenuTree-Frontend/"]
+[includeIf "gitdir:C:/POSBANK/Projects/MenuTree-Frontend/"]
     path = C:/Users/hsayed/.gitconfig-work
 
-[includeIf "gitdir:C:/Posbank_Projects/MenuTree-Git/"]
+[includeIf "gitdir:C:/POSBANK/Projects/MenuTree-Git/"]
     path = C:/Users/hsayed/.gitconfig-work
 [difftool "vscode"]
 	cmd = "code --wait --diff  "
-
