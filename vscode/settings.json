@@ -1976,7 +1976,7 @@
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "lazygit-vscode.autoHideSideBar": true,
   "lazygit-vscode.autoMaximizeWindow": true,
   "terminal.integrated.mouseWheelZoom": true,
@@ -2190,7 +2190,7 @@
   ],
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": true,
-  "gitlens.ai.gitkraken.model": "gemini:gemini-2.5-flash",
+  "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash",
   "gitlens.currentLine.enabled": false,
   "dotnet.formatting.organizeImportsOnFormat": true,
   "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body.",
@@ -2399,8 +2399,21 @@
   "launchpad:command"
 ],
 "gitlens.ai.model": "vscode",
-"gitlens.ai.vscode.model": "copilot:gpt-5-mini",
+"gitlens.ai.vscode.model": "copilot:claude-opus-4.5",
 "gitlens.advanced.messages": {
   "suppressGkRequestFailed500Warning": true
-}
+},
+"vscodeGoogleTranslate.preferredLanguage": "English",
+"google-translate.firstLanguage": "en",
+"googleTranslateExt.replaceText": true,
+"vscodeGoogleTranslate.proxyHost": "120.0.0.1",
+"vscodeGoogleTranslate.proxyPort": "8080",
+"vscodeGoogleTranslate.proxyUsername": "admin",
+"vscodeGoogleTranslate.proxyPassword": "password",
+"breadcrumbs.enabled": false,
+"commentTranslate.targetLanguage": "en",
+"commentTranslate.sourceLanguage": "zh-CN",
+"powershell.promptToUpdatePowerShell": false,
+"commentTranslate.hover.variable": true,
+"commentTranslate.hover.string": true
 }

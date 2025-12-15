@@ -90,8 +90,8 @@
             }
         ]
     },
-    "current_scene": "PosBank(SecondScreen)",
-    "current_program_scene": "PosBank(SecondScreen)",
+    "current_scene": "Two",
+    "current_program_scene": "Two",
     "scene_order": [
         {
             "name": "Scene"
@@ -1106,7 +1106,7 @@
                             "y": 768.0
                         },
                         "align": 5,
-                        "bounds_type": 2,
+                        "bounds_type": 1,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
@@ -1116,11 +1116,11 @@
                         "id": 1,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 685.0,
+                            "x": 575.0,
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": 0.013020833022892475,
+                            "x": -0.2734375,
                             "y": -1.0
                         },
                         "scale": {
@@ -1132,11 +1132,11 @@
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 675.0,
+                            "x": 785.0,
                             "y": 768.0
                         },
                         "bounds_rel": {
-                            "x": 1.7578125,
+                            "x": 2.0442707538604736,
                             "y": 2.0
                         },
                         "scale_filter": "disable",
@@ -1161,7 +1161,7 @@
                             "y": 768.0
                         },
                         "align": 5,
-                        "bounds_type": 2,
+                        "bounds_type": 1,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
@@ -1171,11 +1171,11 @@
                         "id": 2,
                         "group_item_backup": false,
                         "pos": {
-                            "x": -3.0,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "pos_rel": {
-                            "x": -1.7786458730697632,
+                            "x": -1.7708333730697632,
                             "y": -1.0
                         },
                         "scale": {
@@ -1187,11 +1187,11 @@
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 686.0,
+                            "x": 584.0,
                             "y": 768.0
                         },
                         "bounds_rel": {
-                            "x": 1.7864583730697632,
+                            "x": 1.5208333730697632,
                             "y": 2.0
                         },
                         "scale_filter": "disable",

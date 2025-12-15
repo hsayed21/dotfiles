@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <prefs opus_version_beta="0" opus_version_major="13" opus_version_minor="18" version="6">
-	<fileop flags1="0x8000100f086c7" flags2="0x400020000002" jobs_button_width="110" jobs_button_width2="110,0,100" secure_delete="3" upload_modified_time="20" />
-	<flags autorememberlimit="100" lowspace="10" misc="0x100202" privacy="0" settings1="0xc00000408389b8" settings2="0x21802000" settings3="0x1166818600011" settings4="0x2000204" settings5="0x600000020002000" settings6="0" settings7="512" settings8="0">
+	<fileop flags1="0x8000100f086e7" flags2="0x400020000002" jobs_button_width="110" jobs_button_width2="110,0,100" secure_delete="3" upload_modified_time="20" />
+	<flags autorememberlimit="100" lowspace="10" misc="513" privacy="0" settings1="0xc00000408389b8" settings2="0x21802000" settings3="0x1166818600011" settings4="0x2000204" settings5="0x600000020002000" settings6="0" settings7="512" settings8="0">
 		<powermode button="left" cmdelay="1000" flags="0x9100" />
 		<powermode button="right" cmdelay="1000" flags="0xa400" />
 		<powermode button="middle" cmdelay="1000" flags="0x8004" />
