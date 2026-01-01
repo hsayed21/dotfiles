@@ -325,7 +325,7 @@
 				<instruction>Show VIEWERCMD=fullscreen</instruction>
 			</function>
 		</button>
-		<button backcol="none" label_pos="right" no_label="yes" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" no_label="yes" textcol="none">
 			<label>Close</label>
 			<tip>Close the viewer</tip>
 			<function type="normal">

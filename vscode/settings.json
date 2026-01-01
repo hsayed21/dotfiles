@@ -3,7 +3,6 @@
   "AutoHotkey2.CompletionCommitCharacters": {
     "Function": ".("
   },
-  "AutoHotkey2.Diagnostics.ParamsCheck": true,
   "AutoHotkey2.FormatOptions": {
     "indent_string": "    ",
     "keep_array_indentation": "",
@@ -57,7 +56,8 @@
     }
   },
   "[markdown]": {
-    "files.trimTrailingWhitespace": false
+    "files.trimTrailingWhitespace": false,
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
   "[plaintext]": {
     "editor.quickSuggestions": {
@@ -221,7 +221,7 @@
   "editor.minimap.scale": 2,
   "editor.minimap.showSlider": "always",
   "editor.mouseWheelScrollSensitivity": 1.7,
-  "editor.mouseWheelZoom": true,
+  "editor.mouseWheelZoom": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.overviewRulerBorder": false,
   "editor.quickSuggestions": {
@@ -1976,7 +1976,7 @@
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
   "files.insertFinalNewline": true,
-  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "lazygit-vscode.autoHideSideBar": true,
   "lazygit-vscode.autoMaximizeWindow": true,
   "terminal.integrated.mouseWheelZoom": true,
@@ -2204,7 +2204,7 @@
   "explorer.excludeGitIgnore": false,
   "editor.wordWrap": "on",
   "csharp.experimental.debug.hotReload": true,
-  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorSmoothCaretAnimation": "off",
   "javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
   "javascript.format.placeOpenBraceOnNewLineForFunctions": true,
   "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
@@ -2322,7 +2322,14 @@
     "firefox.port": 6000,
     "window.enableMenuBarMnemonics": false,
     "chat.tools.terminal.autoApprove": {
-      "New-Item": true
+      "New-Item": true,
+      "bun": true,
+      "npm start": true,
+      "npm run build": true,
+      "npm install": true,
+      "npm run dev": true,
+      "npm run test": true,
+      "npm run record:course": true
     },
     "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe",
     // "workbench.statusBar.visible": false,
@@ -2410,10 +2417,20 @@
 "vscodeGoogleTranslate.proxyPort": "8080",
 "vscodeGoogleTranslate.proxyUsername": "admin",
 "vscodeGoogleTranslate.proxyPassword": "password",
-"breadcrumbs.enabled": false,
 "commentTranslate.targetLanguage": "en",
 "commentTranslate.sourceLanguage": "zh-CN",
 "powershell.promptToUpdatePowerShell": false,
 "commentTranslate.hover.variable": true,
-"commentTranslate.hover.string": true
+"commentTranslate.hover.string": true,
+"itlegend.courseIds": [
+    "62f68a9c-6e49-4030-98e3-6c4d88b1b6ca",
+    "6c719fa0-70ea-41cc-bfb1-972482285d23",
+    "5da950a8-031d-4bae-95f5-ae26c34141a7",
+    "3447ff38-1809-4495-bfbd-6a3da119ca0a",
+    "229fe6ea-99c0-4e45-a873-82dc023cfcd0"
+],
+"editor.wordHighlight": false,
+"editor.wordHighlightStrong": false,
+"markdown.hover.enabled": false
+
 }

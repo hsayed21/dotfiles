@@ -37,7 +37,7 @@
         "id": "wasapi_input_capture",
         "versioned_id": "wasapi_input_capture",
         "settings": {
-            "device_id": "{0.0.1.00000000}.{b3a49368-4de3-423a-b9e6-0e1420eaa46c}"
+            "device_id": "{0.0.1.00000000}.{2398310b-e05e-4511-9209-ffdd68a577cb}"
         },
         "mixers": 255,
         "sync": 0,
@@ -948,7 +948,7 @@
                     {
                         "name": "MyVirtual",
                         "source_uuid": "256b2930-2b23-45f1-a62f-f41120501003",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -1377,11 +1377,12 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -12,
+    "scaling_level": -3,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
-        "type2": 3
+        "type2": 1,
+        "scene": "Scene"
     },
     "modules": {
         "scripts-tool": [],

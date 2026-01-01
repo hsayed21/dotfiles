@@ -90,95 +90,46 @@
             }
         ]
     },
-    "current_scene": "Scene",
-    "current_program_scene": "Scene",
+    "current_scene": "SceneA",
+    "current_program_scene": "SceneA",
     "scene_order": [
         {
-            "name": "Scene"
+            "name": "SceneA"
+        },
+        {
+            "name": "SceneB"
         }
     ],
-    "name": "Explain",
+    "name": "zTest",
     "sources": [
         {
             "prev_ver": 536870913,
-            "name": "Display1 (Main)",
-            "uuid": "e2839ae1-1ec3-4e5f-90f6-da6b332e6eb8",
-            "id": "monitor_capture",
-            "versioned_id": "monitor_capture",
-            "settings": {
-                "monitor_id": "\\\\?\\DISPLAY#IVO8544#4&16d11cb6&0&UID8388688#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870913,
-            "name": "Display2 (Second)",
-            "uuid": "9b044344-a253-4247-b5ef-1edd07b5a116",
-            "id": "monitor_capture",
-            "versioned_id": "monitor_capture",
-            "settings": {
-                "monitor_id": "\\\\?\\DISPLAY#___9000#4&16d11cb6&0&UID4145#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}"
-            },
-            "mixers": 0,
-            "sync": 0,
-            "flags": 0,
-            "volume": 1.0,
-            "balance": 0.5,
-            "enabled": true,
-            "muted": false,
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "hotkeys": {},
-            "deinterlace_mode": 0,
-            "deinterlace_field_order": 0,
-            "monitoring_type": 0,
-            "private_settings": {}
-        },
-        {
-            "prev_ver": 536870913,
-            "name": "Scene",
+            "name": "SceneA",
             "uuid": "883d285f-57d3-4744-afef-dcd6bd123a46",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 10,
+                "id_counter": 12,
                 "items": [
                     {
-                        "name": "Display2 (Second)",
-                        "source_uuid": "9b044344-a253-4247-b5ef-1edd07b5a116",
+                        "name": "window",
+                        "source_uuid": "5000db2c-e044-4e1f-a09f-9670b36ed311",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "align": 5,
-                        "bounds_type": 1,
+                        "bounds_type": 2,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 8,
+                        "id": 12,
                         "group_item_backup": false,
                         "pos": {
-                            "x": 1743.0,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "scale": {
@@ -186,8 +137,8 @@
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 1917.0,
-                            "y": 1680.0
+                            "x": 1360.0,
+                            "y": 768.0
                         },
                         "scale_filter": "disable",
                         "blend_method": "default",
@@ -199,15 +150,86 @@
                             "duration": 0
                         },
                         "private_settings": {}
-                    },
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.12": [],
+                "libobs.hide_scene_item.12": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870913,
+            "name": "window",
+            "uuid": "5000db2c-e044-4e1f-a09f-9670b36ed311",
+            "id": "window_capture",
+            "versioned_id": "window_capture",
+            "settings": {
+                "priority": 2,
+                "capture_audio": false,
+                "method": 0,
+                "cursor": false,
+                "compatibility": false,
+                "capture_cursor": true,
+                "window": "dotfiles+ahk - vscode [Administrator]:Chrome_WidgetWin_1:Code - Insiders.exe"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870913,
+            "name": "SceneB",
+            "uuid": "d94bb7b3-8afb-4bc5-96e8-47f2e8f6f820",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "id_counter": 2,
+                "custom_size": false,
+                "items": [
                     {
-                        "name": "Display1 (Main)",
-                        "source_uuid": "e2839ae1-1ec3-4e5f-90f6-da6b332e6eb8",
+                        "name": "Display Capture",
+                        "source_uuid": "a0b61472-c5a8-4717-8c58-06a2cc02a35f",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
                         "align": 5,
-                        "bounds_type": 1,
+                        "bounds_type": 0,
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 0,
@@ -225,45 +247,6 @@
                             "y": 1.0
                         },
                         "bounds": {
-                            "x": 1743.0,
-                            "y": 1680.0
-                        },
-                        "scale_filter": "disable",
-                        "blend_method": "default",
-                        "blend_type": "normal",
-                        "show_transition": {
-                            "duration": 0
-                        },
-                        "hide_transition": {
-                            "duration": 0
-                        },
-                        "private_settings": {}
-                    },
-                    {
-                        "name": "Desktop Audio",
-                        "source_uuid": "ba3da68e-e912-407e-8220-8d9b6d68bbe6",
-                        "visible": true,
-                        "locked": false,
-                        "rot": 0.0,
-                        "align": 5,
-                        "bounds_type": 0,
-                        "bounds_align": 0,
-                        "bounds_crop": false,
-                        "crop_left": 0,
-                        "crop_top": 0,
-                        "crop_right": 0,
-                        "crop_bottom": 0,
-                        "id": 9,
-                        "group_item_backup": false,
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "bounds": {
                             "x": 0.0,
                             "y": 0.0
                         },
@@ -279,8 +262,8 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Main",
-                        "source_uuid": "755b1461-3f61-4fdb-b904-c12fe1678356",
+                        "name": "notepad-capture",
+                        "source_uuid": "158a64a4-4976-4fe9-aef0-46fc18df5bc8",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
@@ -292,7 +275,7 @@
                         "crop_top": 0,
                         "crop_right": 0,
                         "crop_bottom": 0,
-                        "id": 10,
+                        "id": 2,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
@@ -332,19 +315,72 @@
             "push-to-talk-delay": 0,
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
-                "libobs.show_scene_item.8": [],
-                "libobs.hide_scene_item.8": [],
                 "libobs.show_scene_item.1": [],
                 "libobs.hide_scene_item.1": [],
-                "libobs.show_scene_item.9": [],
-                "libobs.hide_scene_item.9": [],
-                "libobs.show_scene_item.10": [],
-                "libobs.hide_scene_item.10": []
+                "libobs.show_scene_item.2": [],
+                "libobs.hide_scene_item.2": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,
             "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870913,
+            "name": "Display Capture",
+            "uuid": "a0b61472-c5a8-4717-8c58-06a2cc02a35f",
+            "id": "monitor_capture",
+            "versioned_id": "monitor_capture",
+            "settings": {
+                "monitor_id": "\\\\?\\DISPLAY#___9000#4&3a411dbb&0&UID214619#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870913,
+            "name": "notepad-capture",
+            "uuid": "158a64a4-4976-4fe9-aef0-46fc18df5bc8",
+            "id": "window_capture",
+            "versioned_id": "window_capture",
+            "settings": {
+                "window": "*fffgfgf - Notepad:Notepad:Notepad.exe"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
             "private_settings": {}
         }
     ],
