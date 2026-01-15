@@ -184,11 +184,11 @@
             "settings": {
                 "priority": 2,
                 "capture_audio": false,
+                "capture_cursor": true,
+                "window": "dotfiles+ahk - vscode [Administrator]:Chrome_WidgetWin_1:Code - Insiders.exe",
                 "method": 0,
                 "cursor": false,
-                "compatibility": false,
-                "capture_cursor": true,
-                "window": "dotfiles+ahk - vscode [Administrator]:Chrome_WidgetWin_1:Code - Insiders.exe"
+                "compatibility": false
             },
             "mixers": 255,
             "sync": 0,
@@ -415,7 +415,7 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -3,
+    "scaling_level": -12,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {

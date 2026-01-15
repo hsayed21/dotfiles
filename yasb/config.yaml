@@ -2,7 +2,7 @@
 # For more information about configuration options, please visit the Wiki https://github.com/amnweb/yasb/wiki
 watch_stylesheet: true
 watch_config: true
-debug: true
+debug: false
 # komorebi:
 #     start_command: "komorebic stop && komorebic start"
 #     stop_command: "komorebic stop"

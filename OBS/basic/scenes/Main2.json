@@ -90,8 +90,8 @@
             }
         ]
     },
-    "current_scene": "Two",
-    "current_program_scene": "Two",
+    "current_scene": "PosBank(SecondScreen)",
+    "current_program_scene": "PosBank(SecondScreen)",
     "scene_order": [
         {
             "name": "Scene"
@@ -1377,7 +1377,7 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -3,
+    "scaling_level": -12,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
