@@ -14,4 +14,13 @@
 			<instruction>help taskmanager</instruction>
 		</function>
 	</key>
+	<key>
+		<label>Delete</label>
+		<hotkeys>
+			<key disable="yes">delete</key>
+		</hotkeys>
+		<function type="normal">
+			<instruction>Delete </instruction>
+		</function>
+	</key>
 </hotkeys>

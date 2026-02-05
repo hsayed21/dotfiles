@@ -181,6 +181,7 @@ local vscode_keymaps = {
   { { "n", "t" }, "<leader>lg", "lazygit-vscode.toggle", { desc = "[Git] Toggle Lazygit" } },
   { "n", "<leader>gc", "gitSemanticCommit.semanticCommit", { desc = "[Git] Semantic Commits" } },
   { "n", "<leader>gl", "gitlens.showLaunchpad", { desc = "[Git] Show Launchpad" } },
+  { "n", "<leader>gib", "gitlens.gitCommands.rebase", { desc = "[Git] Interactive Rebase" } },
 
 
   --[Folding]--

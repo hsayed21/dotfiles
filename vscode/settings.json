@@ -26,7 +26,9 @@
   },
   "[ahk]": { },
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.trimTrailingWhitespace": false,
+    "files.trimFinalNewlines": false
   },
   "[git-commit]": {
     "editor.quickSuggestions": {
@@ -39,7 +41,9 @@
   },
   "[html]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "vscode.html-language-features"
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "files.trimTrailingWhitespace": false,
+    "files.trimFinalNewlines": false
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features",
@@ -69,7 +73,9 @@
   "[sql]": { },
   "[typescript]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "files.trimTrailingWhitespace": false,
+    "files.trimFinalNewlines": false
   },
   "accessibility.signals.lineHasInlineSuggestion": {
     "sound": "off"
@@ -1905,7 +1911,8 @@
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
-    "*.md": "default"
+    "*.md": "default",
+    "git-rebase-todo": "gitlens.rebase"
   },
 //   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.iconTheme": "material-icon-theme",
@@ -2223,7 +2230,9 @@
     "editor.formatOnType"
   ],
   "[csharp]": {
-    "editor.defaultFormatter": "ms-dotnettools.csharp"
+    "editor.defaultFormatter": "ms-dotnettools.csharp",
+    "files.trimTrailingWhitespace": false,
+    "files.trimFinalNewlines": false
   },
   "editor.inlineSuggest.edits.showCollapsed": true,
   "[aspnetcorerazor]": {
@@ -2289,8 +2298,6 @@
       "searchAndCompare": false
     },
     "gitlens.graph.layout": "editor",
-    "gitlens.graph.onlyFollowFirstParent": true,
-    "gitlens.graph.dimMergeCommits": true,
     "chat.commandCenter.enabled": false,
     "projectManager.git.baseFolders": [
       "C:\\POSBANK\\Projects"
@@ -2431,6 +2438,7 @@
 ],
 "editor.wordHighlight": false,
 "editor.wordHighlightStrong": false,
-"markdown.hover.enabled": false
+"markdown.hover.enabled": false,
+"gitlens.graph.dimMergeCommits": true
 
 }

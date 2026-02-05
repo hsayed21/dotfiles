@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <viewer>
-	<viewpane rotate="0" zoom="25" />
+	<viewpane rotate="0" zoom="fit" />
 	<standalone autoapplymeta="no" controlbar="no" markwidth="0" menu="yes" metawidth="0" savefilter=".jpg" selratio="0" statusbar="yes" zoom="fit" />
 </viewer>
