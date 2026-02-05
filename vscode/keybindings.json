@@ -5731,10 +5731,6 @@
       "command": "workbench.action.terminal.fontZoomReset"
     },
     {
-      "key": "ctrl+shift+s",
-      "command": "workbench.action.files.saveFiles"
-    },
-    {
         "key": "enter",
         "command": "repl.action.acceptInput",
         "when": "inDebugRepl && !editorTextFocus"
@@ -5746,5 +5742,9 @@
     {
       "key": "ctrl+\\",
       "command": "gitlens.showLaunchpad"
+    },
+    {
+      "key": "ctrl+shift+s",
+      "command": "extension.saveAllWithoutFormating"
     }
 ]

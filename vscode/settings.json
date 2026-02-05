@@ -187,10 +187,6 @@
     "source.addMissingImports": true,
     "source.oranizeImports": true
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "never",
-    "source.fixAll.eslint": "never"
-  },
   "editor.cursorBlinking": "solid",
   "editor.cursorSurroundingLinesStyle": "all",
   "editor.cursorWidth": 4,
@@ -1980,9 +1976,6 @@
   "fold.enableAutoFold": false,
   "githd.blameView.enabled": false,
   "editor.formatOnType": false,
-  "files.trimTrailingWhitespace": true,
-  "files.trimFinalNewlines": true,
-  "files.insertFinalNewline": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "lazygit-vscode.autoHideSideBar": true,
   "lazygit-vscode.autoMaximizeWindow": true,
@@ -2152,7 +2145,7 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // "vscode-neovim.neovimClean": true
-  "window.openFoldersInNewWindow": "on",
+  "window.openFoldersInNewWindow": "default",
   "diffEditor.experimental.showMoves": true,
   "json-i18n-key.suggestExistingKeys": false,
   "workbench.sideBar.location": "right",
@@ -2226,7 +2219,7 @@
   },
   "formattingToggle.affects": [
     "editor.formatOnPaste",
-    "editor.formatOnSave",
+    // "editor.formatOnSave",
     "editor.formatOnType"
   ],
   "[csharp]": {
@@ -2281,7 +2274,6 @@
     "debug.onTaskErrors": "debugAnyway",
     "liveServer.settings.donotVerifyTags": true,
     "csharpOrganizeUsings.splitGroups": false,
-    "editor.formatOnSave": false,
     "editor.autoIndentOnPaste": true,
     "gitlens.views.scm.grouped.default": "launchpad",
     "gitlens.views.scm.grouped.hiddenViews": {
@@ -2336,7 +2328,11 @@
       "npm install": true,
       "npm run dev": true,
       "npm run test": true,
-      "npm run record:course": true
+      "npm run record:course": true,
+      "Get-ChildItem \"c:\\POSBANK\\Projects\\POPs Cloud ERP\\POPs Cloud ERP API\\POPsERP.Contracts\\Data\\Entities\\\" -Filter \"*.cs\" | ForEach-Object { $content = Get-Content $_.FullName -Raw; if ($content -match 'public (partial )?class \\w+' -and $content -notmatch '/// <summary>') { $_.Name } } | Sort-Object": {
+        "approve": true,
+        "matchCommandLine": true
+      }
     },
     "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe",
     // "workbench.statusBar.visible": false,
@@ -2406,7 +2402,6 @@
   "debug.console.acceptSuggestionOnEnter": "on",
   "debug.console.inputMode": "simple",
   "github.copilot.nextEditSuggestions.enabled": true,
-"terminal.integrated.fontSize": 15,
 "gitlens.gitCommands.skipConfirmations": [
   "fetch:command",
   "stash-push:command",
@@ -2439,6 +2434,15 @@
 "editor.wordHighlight": false,
 "editor.wordHighlightStrong": false,
 "markdown.hover.enabled": false,
-"gitlens.graph.dimMergeCommits": true
-
+"gitlens.graph.dimMergeCommits": true,
+"files.trimTrailingWhitespaceInRegexAndStrings": false,
+"editor.codeActionsOnSave": {},
+"files.trimTrailingWhitespace": false,
+"files.insertFinalNewline": false,
+"files.trimFinalNewlines": false,
+"editor.formatOnSave": false,
+"git.replaceTagsWhenPull": true,
+"github.copilot.chat.agent.thinkingTool": true,
+"terminal.integrated.fontSize": 13,
+"nuget.includePrereleasePackageVersions": true
 }
