@@ -18,7 +18,35 @@
 				<instruction>Go DRIVEBUTTONS=cdrom,network,removable,hideempty</instruction>
 			</function>
 		</button>
-		<button backcol="none" display="label" dpi="100" field_type="spacer" label_pos="right" size="23" textcol="none">
+		<button backcol="none" display="label" dpi="100" field_type="spacer" label_pos="right" size="13" textcol="none">
+			<label>Spacer</label>
+			<icon1>#spacer</icon1>
+			<function type="normal">
+				<instruction>Set SPACER</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Desktop</label>
+			<icon1>#folder</icon1>
+			<function type="normal">
+				<instruction>Desktop_Reuse</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Downloads</label>
+			<icon1>#downloads</icon1>
+			<function type="normal">
+				<instruction>Downloads_Reuse2</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Downloads</label>
+			<icon1>#folder</icon1>
+			<function type="normal">
+				<instruction>Downloads_Reuse</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="label" dpi="100" field_type="spacer" label_pos="right" size="11" textcol="none">
 			<label>Spacer</label>
 			<icon1>#spacer</icon1>
 			<function type="normal">

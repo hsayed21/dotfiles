@@ -104,3 +104,24 @@ try {
 
 Set-PSReadLineKeyHandler -Chord "Tab" -Function "MenuComplete";
 
+
+################################################################################
+#                              Command Center                                  #
+################################################################################
+
+function switch-project {
+    param(
+        [Parameter(ValueFromRemainingArguments = $true)]
+        [string[]]$Args
+    )
+
+    if (-not $Args -or $Args.Count -eq 0) {
+        $Args = @($PWD.Path)
+    }
+
+    & "D:\_HS\source\Sha8al-Command-Center\switch-project.ps1" @Args
+}
+
+# Short alias (faster)
+Set-Alias swp switch-project
+

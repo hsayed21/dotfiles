@@ -213,7 +213,7 @@
   "editor.guides.bracketPairsHorizontal": false,
   "editor.guides.indentation": false,
   "editor.hideCursorInOverviewRuler": true,
-  "editor.indentSize": 4,
+  "editor.indentSize": 2,
   "editor.inlineSuggest.suppressSuggestions": true,
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
@@ -2190,7 +2190,7 @@
   ],
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": true,
-  "gitlens.ai.gitkraken.model": "gemini:gemini-2.0-flash",
+  "gitlens.ai.gitkraken.model": "gemini:gemini-2.5-flash",
   "gitlens.currentLine.enabled": false,
   "dotnet.formatting.organizeImportsOnFormat": true,
   "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body.",
@@ -2239,7 +2239,6 @@
   "prettier.endOfLine": "crlf",
   "prettier.printWidth": 110,
   "prettier.singleAttributePerLine": true,
-  "editor.guides.highlightActiveBracketPair": false,
   "prettier.requireConfig": true,
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell"
@@ -2292,7 +2291,10 @@
     "gitlens.graph.layout": "editor",
     "chat.commandCenter.enabled": false,
     "projectManager.git.baseFolders": [
-      "C:\\POSBANK\\Projects"
+      "C:\\POSBANK\\Projects",
+      "G:\\My Drive\\dotfiles",
+      "G:\\My Drive\\_MyAutohotkey",
+      "C:\\MyRep\\my_workspace"
     ],
     "files.watcherExclude": {
       "**/node_modules/**": true,
@@ -2407,7 +2409,7 @@
   "stash-push:command",
   "launchpad:command"
 ],
-"gitlens.ai.model": "vscode",
+"gitlens.ai.model": "gitkraken",
 "gitlens.ai.vscode.model": "copilot:claude-opus-4.5",
 "gitlens.advanced.messages": {
   "suppressGkRequestFailed500Warning": true

@@ -49,10 +49,10 @@ return {
 				incremental_selection = {
 					enable = true,
 					keymaps = {
-						init_selection = "<C-space>",
-						node_incremental = "<C-space>",
-						scope_incremental = false,
-						node_decremental = "<bs>",
+						init_selection = "<leader>ss",
+						node_incremental = "<leader>si",
+						scope_incremental = "<leader>sc",
+						node_decremental = "<leader>sd",
 					},
 				},
 				refactor = {
@@ -246,286 +246,85 @@ return {
 		end,
 	},
 		-- Various text objects
-	{
-		"chrisgrieser/nvim-various-textobjs",
-		-- event = "UIEnter",
-		-- opts = { useDefaultKeymaps = true },
-		keys = {
-			{
-				mode = { "o", "x" },
-				"ii",
-				function()
-					require("various-textobjs").indentation("inner", "inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"ai",
-				function()
-					require("various-textobjs").indentation("outer", "inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"iI",
-				function()
-					require("various-textobjs").indentation("inner", "inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"aI",
-				function()
-					require("various-textobjs").indentation("outer", "outer")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"R",
-				function()
-					require("various-textobjs").restOfIndentation()
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"iE",
-				function()
-					require("various-textobjs").entireBuffer()
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				".",
-				function()
-					require("various-textobjs").nearEoL()
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"iC",
-				function()
-					require("various-textobjs").mdFencedCodeBlock("inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"aC",
-				function()
-					require("various-textobjs").mdFencedCodeBlock("outer")
-				end,
-			},
-			-- { mode = { 'o', 'x' }, 'i|', function() require('various-textobjs').shellPipe('inner') end },
-			-- { mode = { 'o', 'x' }, 'a|', function() require('various-textobjs').shellPipe('outer') end },
-			-- { mode = { 'o', 'x' }, 'ix', function() require('various-textobjs').htmlAttribute(true) end },
-			-- { mode = { 'o', 'x' }, 'ax', function() require('various-textobjs').htmlAttribute(false) end },
-			-- Percent sign %
-			{ mode = {"v"}, "i%", "T%ot%" },
-			{ mode = { "v" }, "a%", "F%of%" },
-			{ mode = { "o"}, "i%", function() Cmd("normal vT%ot%") end },
-			{ mode = { "o" }, "a%", function() Cmd("normal vF%of%") end },
+  {
+    "chrisgrieser/nvim-various-textobjs",
+    event = "VeryLazy",
+    -- event = "UIEnter",
+    -- opts = { useDefaultKeymaps = true },
+    config = function()
+      require("various-textobjs").setup({
+        keymaps = {
+          useDefaults = false,
+          disabledDefaults = {},
+        },
+        forwardLooking = {
+          small = 2,
+          big = 0,
+        },
+        behavior = {
+          jumplist = true,
+        },
+        textobjs = {
+          indentation = {
+            blanksAreDelimiter = false,
+          },
+          subword = {
+            noCamelToPascalCase = true,
+          },
+          diagnostic = {
+            wrap = true,
+          },
+        },
+        notify = {
+          whenObjectNotFound = true,
+        },
+        debug = false,
+      })
 
-			-- Markdown heading
-			{ mode = { "v" }, "ir", "?^#<cr>oNk" },
-			{ mode = { "v" }, "iR", "?^#<cr>koNk" },
 
-			-- Exclusive previous / next blank line
-			{ mode = {"n", "v"}, "]}", "}k" },
-			{ mode = { "n", "v"}, "[{", "{j" },
-			{ mode = { "o" }, "]}", function() Cmd("normal V}k") end },
-			{ mode = { "o" }, "[{", function() Cmd("normal V{j") end },
+      -- Keymaps
+      Map({ "o", "x" }, "ii", "<cmd>lua require('various-textobjs').indentation('inner', 'inner')<CR>")
+      Map({ "o", "x" }, "ai", "<cmd>lua require('various-textobjs').indentation('outer', 'inner')<CR>")
+      Map({ "o", "x" }, "aI", "<cmd>lua require('various-textobjs').indentation('outer', 'outer')<CR>")
+      Map({ "o", "x" }, "R", "<cmd>lua require('various-textobjs').restOfIndentation()<CR>")
+      Map({ "o", "x" }, "ie", "<cmd>lua require('various-textobjs').entireBuffer()<CR>")
+      Map({ "o", "x" }, ".", "<cmd>lua require('various-textobjs').nearEoL()<CR>")
+      Map({ "o", "x" }, "gl", "<cmd>lua require('various-textobjs').url()<CR>")
+      Map({ "o", "x" }, "il", "<cmd>lua require('various-textobjs').lineCharacterwise('inner')<CR>")
+      Map({ "o", "x" }, "al", "<cmd>lua require('various-textobjs').lineCharacterwise('outer')<CR>")
+      Map({ "o", "x" }, "]}", "<cmd>normal! V}k<CR>" )
+      Map({ "o", "x" }, "[{", "<cmd>normal! V{j<CR>" )
+      Map({ "o", "x" }, "ix", "<cmd>lua require('various-textobjs').htmlAttribute(true)<CR>")
+      Map({ "o", "x" }, "ax", "<cmd>lua require('various-textobjs').htmlAttribute(false)<CR>")
+      -- value of key-value pairs
+      Map({ "o", "x" }, "iv", "<cmd>lua require('various-textobjs').value('inner')<CR>")
+      Map({ "o", "x" }, "av", "<cmd>lua require('various-textobjs').value('outer')<CR>")
+      -- key of key-value pairs
+      Map({ "o", "x" }, "ik", "<cmd>lua require('various-textobjs').key('inner')<CR>")
+      Map({ "o", "x" }, "ak", "<cmd>lua require('various-textobjs').key('outer')<CR>")
 
-			-- Last operated on text
-      { mode = { "v" }, "io", "`[o`]" },
+      Map("n", "gx", function()
+        require("various-textobjs").url() -- select URL
 
-			{ mode = { "x" }, "im", "viiok" },
-			{ mode = { "x" }, "am", "viijok" },
-			{ mode = { "x" }, "iM", "viio2k" },
-			{ mode = { "x" }, "aM", "viijo2k" },
-			{
-				mode = { "o" },
-				"im",
-				function()
-					Cmd("normal viiok")
-				end,
-			},
-			{
-				mode = { "o" },
-				"am",
-				function()
-					Cmd("normal viijok")
-				end,
-			},
-			{
-				mode = { "o" },
-				"iM",
-				function()
-					Cmd("normal viio2k")
-				end,
-			},
-			{
-				mode = { "o" },
-				"aM",
-				function()
-					Cmd("normal viijo2k")
-				end,
-			},
-			-- CamelCase
-			{
-				mode = { "o", "x" },
-				"iS",
-				function()
-					require("various-textobjs").subword("inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"aS",
-				function()
-					require("various-textobjs").subword("outer")
-				end,
-			},
-			-- value of key-value pairs
-			{
-				mode = { "o", "x" },
-				"iv",
-				function()
-					require("various-textobjs").value("inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"av",
-				function()
-					require("various-textobjs").value("outer")
-				end,
-			},
-			-- key of key-value pairs
-			{
-				mode = { "o", "x" },
-				"ik",
-				function()
-					require("various-textobjs").key("inner")
-				end,
-			},
-			{
-				mode = { "o", "x" },
-				"ak",
-				function()
-					require("various-textobjs").key("outer")
-				end,
-			},
-			-- numbers (conflict with tartgets.vim)
-			-- {
-			-- 	mode = { "o", "x" },
-			-- 	"in",
-			-- 	function()
-			-- 		require("various-textobjs").number("inner")
-			-- 	end,
-			-- },
-			-- {
-			-- 	mode = { "o", "x" },
-			-- 	"an",
-			-- 	function()
-			-- 		require("various-textobjs").number("outer")
-			-- 	end,
-			-- },
-			{
-				mode = { "o", "x" },
-				"gl",
-				function()
-					require("various-textobjs").url()
-				end,
-			},
-			-- line (conflict with tartgets.vim)
-			-- {
-			-- 	mode = { "o", "x" },
-			-- 	"il",
-			-- 	function()
-			-- 		require("various-textobjs").lineCharacterwise("inner")
-			-- 	end,
-			-- },
-			-- {
-			-- 	mode = { "o", "x" },
-			-- 	"al",
-			-- 	function()
-			-- 		require("various-textobjs").lineCharacterwise("outer")
-			-- 	end,
-			-- },
+        local foundURL = vim.fn.mode() == "v" -- only switches to visual mode when textobj found
+        if not foundURL then return end
 
-			{
-				"gx",
-				function()
-					-- select URL
-					require("various-textobjs").url()
+        local url = vim.fn.getregion(vim.fn.getpos("."), vim.fn.getpos("v"), { type = "v" })[1]
+        vim.ui.open(url) -- requires nvim 0.10
+        vim.cmd.normal { "v", bang = true } -- leave visual mode
+      end, { desc = "URL Opener" })
 
-					-- plugin only switches to visual mode when textobj found
-					local foundURL = vim.fn.mode():find("v")
+      -- Map({ "o", "x" }, "iC", "<cmd>lua require('various-textobjs').mdFencedCodeBlock('inner')<CR>")
+      -- Map({ "o", "x" }, "aC", "<cmd>lua require('various-textobjs').mdFencedCodeBlock('outer')<CR>")
 
-					-- if not found, search whole buffer via urlview.nvim instead
-					if not foundURL then
-						Cmd.UrlView("buffer")
-						return
-					end
+      -- Map({"o", "x"}, "im", function()
+      --   local vto = require("various-textobjs")
+      --   vto.indentation("inner", "inner")
+      --   vim.cmd("normal! jok")
+      -- end)
 
-					-- retrieve URL with the z-register as intermediary
-					Cmd.normal({ '"' .. THROWAWAY_REGISTER .. "y", bang = true })
-					local url = vim.fn.getreg(THROWAWAY_REGISTER)
-
-					-- open with the OS-specific shell command
-					local opener
-					if vim.fn.has("macunix") == 1 then
-						opener = "open"
-					elseif vim.fn.has("linux") == 1 then
-						opener = "xdg-open"
-					elseif vim.fn.has("win64") == 1 or vim.fn.has("win32") == 1 then
-						opener = "start"
-					end
-					local openCommand = string.format("%s '%s' >/dev/null 2>&1", opener, url)
-					os.execute(openCommand)
-				end,
-			},
-			{
-				"dsi",
-				function()
-					-- select inner indentation
-					require("various-textobjs").indentation("inner", "inner")
-
-					-- plugin only switches to visual mode when a textobj has been found
-					local notOnIndentedLine = vim.fn.mode():find("V") == nil
-					if notOnIndentedLine then
-						return
-					end
-
-					-- dedent indentation
-					Cmd.normal({ "<", bang = true })
-
-					-- delete surrounding lines
-					local endBorderLn = vim.api.nvim_buf_get_mark(0, ">")[1] + 1
-					local startBorderLn = vim.api.nvim_buf_get_mark(0, "<")[1] - 1
-					Cmd(tostring(endBorderLn) .. " delete") -- delete end first so line index is not shifted
-					Cmd(tostring(startBorderLn) .. " delete")
-				end,
-			},
-			{ "<Leader>dl", "dil'_dd", { remap = true } },
-		},
-		opts = {
-			lookForwardSmall = 2,
-			lookForwardBig = 0,
-			useDefaultKeymaps = false,
-		},
-
-		-- ## chrisgrieser/nvim-various-textobjs
-		-- aI => indent with full block outer
-		-- ii => indent with inner
-		-- R => restOfIndent (select to bottom)
-		-- . => select to before last char
-		-- iS => subword inner CamelCase
-		-- aS => subword outer CamelCase
-		-- iv => inner value of key-value pairs
-		-- av => outer value of key-value pairs
-		-- ik => inner key of key-value pairs
-		-- ak => outer key of key-value pairs
-	},
+    end,
+  },
 	-- Additional text objects
 	{
 		"wellle/targets.vim",
@@ -812,7 +611,7 @@ return {
 		"farmergreg/vim-lastplace",
 	},
 	-- CamelCase motion - works in both environments
-	{
+	--[[ {
 		"bkad/CamelCaseMotion",
 		init = function()
 			vim.g.camelcasemotion_key = ""
@@ -828,7 +627,7 @@ return {
 			-- Map text objects for camelCase
 			Map({ "o", "x" }, "iw", "<Plug>CamelCaseMotion_iw", { desc = "Inner camelCase word" })
 			Map({ "o", "x" }, "ib", "<Plug>CamelCaseMotion_ib", { desc = "Inner camelCase block" })
-			Map({ "o", "x" }, "ie", "<Plug>CamelCaseMotion_ie", { desc = "Inner camelCase end" })
+			-- Map({ "o", "x" }, "ie", "<Plug>CamelCaseMotion_ie", { desc = "Inner camelCase end" })
 
 			-- Custom shortcuts
 			Map("n", "vw", "v<Plug>CamelCaseMotion_ib", { desc = "Visual camelCase word" })
@@ -841,7 +640,37 @@ return {
 			Map("n", "cW", '"_ciw', { desc = "Change word" })
 			Map("n", "yW", 'yiw', { desc = "Yank word" })
 		end
-	},
+	} ]]
+  {
+    "chaoren/vim-wordmotion",
+    init = function()
+      -- This means 'w' is still fast,
+      -- but '<leader>w' does the sub-word jump.
+      -- vim.g.wordmotion_prefix = '<leader>'
+      vim.g.wordmotion_nomap = 1
+    end,
+    config = function()
+      local modes = { "n", "o", "x" }
+
+      -- Movement: Map 'w' to the plugin's sub-word motion
+      -- Note: This makes 'w' slower in VS Code due to the 'i' prefix conflict
+      Map(modes, "w", "<Plug>WordMotion_w")
+      Map(modes, "b", "<Plug>WordMotion_b")
+      Map(modes, "e", "<Plug>WordMotion_e")
+
+      -- Custom Shortcuts (Matching your old config)
+      Map("n", "dw", "d<Plug>WordMotion_iw", { desc = "Delete sub-word" })
+      Map("n", "cw", '"_c<Plug>WordMotion_iw', { desc = "Change sub-word" })
+      Map("n", "yw", "y<Plug>WordMotion_iw", { desc = "Yank sub-word" })
+      Map("n", "vw", "v<Plug>WordMotion_iw", { desc = "Visual sub-word" })
+
+      -- For entire word
+      Map("n", "dW", "diw", { desc = "Delete entire word" })
+      Map("n", "cW", "ciw", { desc = "Change entire word" })
+      Map("n", "yW", "yiw", { desc = "Yank entire word" })
+      Map("n", "vW", "viw", { desc = "Visual entire word" })
+    end
+  },
 
 	-- Highlighting current word - works in both environments
 	{

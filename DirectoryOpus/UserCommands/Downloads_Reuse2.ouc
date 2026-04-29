@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Downloads_Reuse2</label>
+	<user_label>Downloads</user_label>
+	<icon1>#downloads</icon1>
+	<function type="normal">
+		<instruction>Go /downloads NEWTAB=findexisting TOFRONT</instruction>
+	</function>
+</usercommand>

@@ -96,7 +96,7 @@ local vscode_keymaps = {
   { "v", "gs", vscode_utils.utils.codesnap_start, { desc = "Start code snapshot" } },
   { "n", "<leader>pp", "projectManager.listProjects", { desc = "List projects" } },
   { "n", "<leader>pn", "projectManager.listProjectsNewWindow", { desc = "List projects in new window" } },
-  { "n", "<leader>ss", "editor.action.toggleStickyScroll", { desc = "Toggle sticky scroll" } },
+  { "n", "<leader>st", "editor.action.toggleStickyScroll", { desc = "Toggle sticky scroll" } },
 
   --[Utility operations]--
   { 'v', '<leader>tw', function()
@@ -158,6 +158,8 @@ local vscode_keymaps = {
   { "n", "zg", vscode_utils.git.show_source_control, { desc = "[Git] Open Source Control" } },
   { "n", "]h", vscode_utils.git.next_change, { desc = "[Git] Preview Next Git Change" } },
   { "n", "[h", vscode_utils.git.prev_change, { desc = "[Git] Preview Previous Git Change" } },
+  { "n", "<leader>.", vscode_utils.git.last_change, { desc = "[Git] Goto Last Change" } },
+  { "n", "<leader>o", vscode_utils.git.open_working_file, { desc = "[Git] Open working file" } },
 
   -- Git operations
   { "n", "<leader>gpl,", "git.pull", { desc = "[Git] Pull" } },

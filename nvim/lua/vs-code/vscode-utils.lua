@@ -321,6 +321,8 @@ M.git = {
   -- Navigation
   next_change = function() M.notify("editor.action.dirtydiff.next") end,
   prev_change = function() M.notify("editor.action.dirtydiff.previous") end,
+  last_change = function() M.notify("workbench.action.navigateToLastEditLocation") end,
+  open_working_file = function() M.notify("gitlens.openWorkingFile") end,
 
   -- Advanced git operations with stage management
   stage_and_commit = function()

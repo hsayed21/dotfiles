@@ -45,5 +45,12 @@
 				<instruction>Copy_Path_With_Auto_Qoute</instruction>
 			</function>
 		</button>
+		<button backcol="none" display="both" label_pos="right" textcol="none">
+			<label>Download_Reuse</label>
+			<icon1>#usercommand</icon1>
+			<function type="normal">
+				<instruction>Download_Reuse</instruction>
+			</function>
+		</button>
 	</buttons>
 </toolbar>

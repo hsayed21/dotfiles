@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Desktop_Reuse</label>
+	<user_label>Desktop</user_label>
+	<icon1>#folder</icon1>
+	<function type="normal">
+		<instruction>Go /desktop NEWTAB=findexisting TOFRONT</instruction>
+	</function>
+</usercommand>

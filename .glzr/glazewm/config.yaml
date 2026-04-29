@@ -37,6 +37,18 @@ general:
     # Trigger for cursor jump
     trigger: "monitor_focus"
 
+  # How windows should be hidden when switching workspaces.
+  # - 'cloak': Recommended. Hides windows with no animation.
+  # - 'hide': Legacy method (v3.5 and earlier) that has a brief animation,
+  # but has stability issues with some apps.
+  hide_method: "cloak"
+
+  # Affects which windows get shown in the native Windows taskbar. Has no
+  # effect if `hide_method: 'hide'`.
+  # - 'true': Show all windows (regardless of workspace).
+  # - 'false': Only show windows from the currently shown workspaces.
+  show_all_in_taskbar: false
+
 # =============================================================================
 # VISUAL APPEARANCE
 # =============================================================================
@@ -44,13 +56,13 @@ gaps:
   # Whether to scale the gaps with the DPI of the monitor
   scale_with_dpi: true
   # Gap between adjacent windows (matching Komorebi's default_container_padding: 4)
-  inner_gap: "4px"
+  inner_gap: "2px"
   # Gap between windows and the screen edge (matching Komorebi's default_workspace_padding: 4)
   outer_gap:
     top: "4px"
-    right: "4px"
-    bottom: "4px"
-    left: "4px"
+    right: "0px"
+    bottom: "0px"
+    left: "0px"
 
 window_effects:
   # Visual effects to apply to the focused window
@@ -66,7 +78,7 @@ window_effects:
     # Change the corner style of the window's frame
     # ** Exclusive to Windows 11 due to API limitations
     corner_style:
-      enabled: true
+      enabled: false
       style: "rounded"    # Options: "square", "rounded", "small_rounded"
     # Add transparency effects
     transparency:
@@ -107,7 +119,7 @@ window_behavior:
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
       # maximize button, then it'll be fullscreen'ed normally instead
-      maximized: true
+      maximized: false
       # Whether to show fullscreen windows as always on top
       shown_on_top: false
 

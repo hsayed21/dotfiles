@@ -90,21 +90,6 @@
 				</dir>
 			</path>
 		</folder>
-		<path label="Desktop">
-			<dir>
-				<pathstring>C:\Users\hsayed\Desktop</pathstring>
-			</dir>
-		</path>
-		<path label="Downloads">
-			<dir>
-				<pathstring>C:\Users\hsayed\Downloads</pathstring>
-			</dir>
-		</path>
-		<path label="Downloads">
-			<dir>
-				<pathstring>D:\Current_User\Downloads</pathstring>
-			</dir>
-		</path>
 		<path label="Videos">
 			<dir>
 				<pathstring>C:\Users\hsayed\Videos</pathstring>
@@ -122,7 +107,7 @@
 		</path>
 		<path label="Angular in Arabic - The Complete Guide">
 			<dir>
-				<pathstring>C:\Users\hsayed\Downloads\Udeler\Angular in Arabic - The Complete Guide</pathstring>
+				<pathstring>D:\Courses\Angular in Arabic - The Complete Guide</pathstring>
 			</dir>
 		</path>
 		<path label="Burp">
