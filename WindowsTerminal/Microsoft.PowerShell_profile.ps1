@@ -125,3 +125,9 @@ function switch-project {
 # Short alias (faster)
 Set-Alias swp switch-project
 
+
+function claude-deepseek {
+    . $HOME\.claude-deepseek.ps1
+    claude
+}
+

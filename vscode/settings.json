@@ -240,7 +240,7 @@
   "editor.scrollbar.vertical": "auto",
   "editor.scrollbar.verticalScrollbarSize": 8,
   "editor.semanticHighlighting.enabled": true,
-  "editor.smoothScrolling": true,
+  "editor.smoothScrolling": false,
   "editor.suggest.insertMode": "replace",
   "editor.suggest.localityBonus": true,
   "editor.suggest.matchOnWordStartOnly": false,
@@ -673,36 +673,36 @@
   "files.eol": "\n",
   // Toggle excluded files
   "files.exclude": {
-    "**/.DS_Store": false,
-    "**/.env.example": false,
-    "**/.eslintrc.cjs": false,
-    "**/.git": false,
-    "**/.hg": false,
-    "**/.husky": false,
-    "**/.lintstagedrc.mjs": false,
-    "**/.markdownlint.json": false,
-    "**/.markdownlintignore": false,
-    "**/.next": false,
-    "**/.svn": false,
-    "**/.vs": false,
-    "**/bin": false,
-    "**/bun.lockb": false,
-    "**/cspell.json": false,
-    "**/CVS": false,
-    "**/dist": false,
-    "**/drizzle": false,
-    "**/drizzle.config.ts": false,
-    "**/migrate.ts": false,
-    "**/next-env.d.ts": false,
-    "**/next.config.js": false,
-    "**/node_modules": false,
-    "**/obj": false,
-    "**/package-lock.json": false,
-    "**/pnpm-lock.yaml": false,
-    "**/postcss.config.cjs": false,
-    "**/tailwind.config.ts": false,
-    "**/Thumbs.db": false
-  },
+		"**/.DS_Store": false,
+		"**/.env.example": false,
+		"**/.eslintrc.cjs": false,
+		"**/.git": false,
+		"**/.hg": false,
+		"**/.husky": false,
+		"**/.lintstagedrc.mjs": false,
+		"**/.markdownlint.json": false,
+		"**/.markdownlintignore": false,
+		"**/.next": false,
+		"**/.svn": false,
+		"**/.vs": false,
+		"**/bin": false,
+		"**/bun.lockb": false,
+		"**/cspell.json": false,
+		"**/CVS": false,
+		"**/dist": false,
+		"**/drizzle": false,
+		"**/drizzle.config.ts": false,
+		"**/migrate.ts": false,
+		"**/next-env.d.ts": false,
+		"**/next.config.js": false,
+		"**/node_modules": false,
+		"**/obj": false,
+		"**/package-lock.json": false,
+		"**/pnpm-lock.yaml": false,
+		"**/postcss.config.cjs": false,
+		"**/tailwind.config.ts": false,
+		"**/Thumbs.db": false
+	},
   "files.hotExit": "onExitAndWindowClose",
   "git.allowForcePush": true,
   "git.autoStash": true,
@@ -738,7 +738,7 @@
   },
   "material-icon-theme.files.color": "#90a4ae",
   "omnisharp.enableAsyncCompletion": true,
-  "omnisharp.enableRoslynAnalyzers": true,
+  "omnisharp.enableRoslynAnalyzers": false,
   "redhat.telemetry.enabled": false,
   "resmon.show.battery": false,
   "resmon.show.cpufreq": false,
@@ -1861,13 +1861,13 @@
       "editorBracketMatch.background": "#3b1c04",
       // "editor.selectionBackground": "#cb0d0d50", // Current selection background.
 
-        "editor.wordHighlightBackground": "#ba3d0741",
-        // "editor.wordHighlightBackground": "#ffff0034", // semi-transparent yellow
-        // "editor.wordHighlightStrongBackground": "#FFA500CC" // stronger orange
-        "editorOverviewRuler.warningForeground": "#0000",
-        "editorOverviewRuler.errorForeground": "#0000",
-        "editorOverviewRuler.infoForeground": "#0000",
-        // "editorOverviewRuler.border": "#0000",
+      "editor.wordHighlightBackground": "#ba3d0741",
+      // "editor.wordHighlightBackground": "#ffff0034", // semi-transparent yellow
+      // "editor.wordHighlightStrongBackground": "#FFA500CC" // stronger orange
+      "editorOverviewRuler.warningForeground": "#0000",
+      "editorOverviewRuler.errorForeground": "#0000",
+      "editorOverviewRuler.infoForeground": "#0000"
+      // "editorOverviewRuler.border": "#0000",
     },
     "[Aura Dark]": {
       "activityBar.background": "#110f17",
@@ -1910,7 +1910,7 @@
     "*.md": "default",
     "git-rebase-todo": "gitlens.rebase"
   },
-//   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  //   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.openMode": "doubleClick",
   "workbench.list.smoothScrolling": true,
@@ -1974,7 +1974,7 @@
   ],
   "workbench.editor.showTabs": "single",
   "fold.enableAutoFold": false,
-  "githd.blameView.enabled": false,
+  "githd.blameView.enabled": "disabled",
   "editor.formatOnType": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "lazygit-vscode.autoHideSideBar": true,
@@ -2146,7 +2146,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // "vscode-neovim.neovimClean": true
   "window.openFoldersInNewWindow": "default",
-  "diffEditor.experimental.showMoves": true,
   "json-i18n-key.suggestExistingKeys": false,
   "workbench.sideBar.location": "right",
   "json-i18n-key.suggestSimilarKeysIfTheSameExist": true,
@@ -2196,10 +2195,10 @@
   "gitlens.ai.generateCommitMessage.customInstructions": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body.",
   "gitlens.ai.generateCreatePullRequest.customInstructions": "Generate a clear and concise pull request title that summarizes the main purpose of the changes in plain language, under 72 characters. The description should include a short summary of what changed, why it was needed, and any important implementation details. Use bullet points for clarity. If applicable, include a \"Closes #issue-number\" at the end. Avoid unnecessary technical jargon or verbose explanations.",
   "github.copilot.chat.commitMessageGeneration.instructions": [
-        {
-            // "text": "Use conventional commit message format."
-            "text": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body."
-        }
+    {
+      // "text": "Use conventional commit message format."
+      "text": "Generate a commit message using the Conventional Commits format with Gitmoji: <emoji> <type>: <short summary>. Use one line only, max 72 characters. Use ✨ feat only for big or significant features. For general code changes or adding new code, use 🔨 chore. Choose the correct type otherwise: 🐞 fix for bug fixes, 📝 docs for documentation, ♻️ refactor for internal code improvements, ✅ test for tests, ⚡️ perf for performance boosts, 🤖 ci for CI/CD config, 🏗️ build for build tooling, 🎨 style for formatting. Be specific, concise, and avoid extra explanation or body."
+    }
   ],
   "explorer.excludeGitIgnore": false,
   "editor.wordWrap": "on",
@@ -2242,161 +2241,149 @@
   "prettier.requireConfig": true,
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell"
-   },
-    "pasteAndIndent.selectAfter": true,
-    "bookmarks.keepBookmarksOnLineDelete": true,
-    "json.schemas": [
-        {
-        "fileMatch": [
-            "komorebi.json"
-        ],
-        "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json"
-        },
-        {
-            "fileMatch": [
-                "komorebi.bar.json"
-            ],
-            "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json"
-        },
-        {
-            "fileMatch": ["with-glazevm.zebar.json"],
-            "url": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json"
-        }
-    ],
-    "workbench.view.showQuietly": {
-        "workbench.panel.output": true
+  },
+  "pasteAndIndent.selectAfter": true,
+  "bookmarks.keepBookmarksOnLineDelete": true,
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "komorebi.json"
+      ],
+      "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json"
     },
-    "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}",
-    "github.copilot.chat.codesearch.enabled": true,
-    "gitlens.advanced.fileHistoryShowAllBranches": true,
-    "gitlens.views.stashes.files.layout": "list",
-    "debug.onTaskErrors": "debugAnyway",
-    "liveServer.settings.donotVerifyTags": true,
-    "csharpOrganizeUsings.splitGroups": false,
-    "editor.autoIndentOnPaste": true,
-    "gitlens.views.scm.grouped.default": "launchpad",
-    "gitlens.views.scm.grouped.hiddenViews": {
-      "commits": false,
-      "worktrees": false,
-      "branches": false,
-      "remotes": false,
-      "stashes": false,
-      "tags": false,
-      "contributors": false,
-      "repositories": false,
-      "fileHistory": false,
-      "launchpad": false,
-      "searchAndCompare": false
+    {
+      "fileMatch": [
+        "komorebi.bar.json"
+      ],
+      "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json"
     },
-    "gitlens.graph.layout": "editor",
-    "chat.commandCenter.enabled": false,
-    "projectManager.git.baseFolders": [
-      "C:\\POSBANK\\Projects",
-      "G:\\My Drive\\dotfiles",
-      "G:\\My Drive\\_MyAutohotkey",
-      "C:\\MyRep\\my_workspace"
-    ],
-    "files.watcherExclude": {
-      "**/node_modules/**": true,
-      "**/.git/**": true,
-      "**/.hg/**": true,
-      "**/.svn/**": true,
-      "**/build/**": true,
-      "**/dist/**": true,
-      "**/bin/**": true,
-      "**/obj/**": true,
-      "**/.DS_Store": true,
-      "**/Thumbs.db": true,
-    },
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/build": true,
-        "**/dist": true,
-        "**/bin": true,
-        "**/obj": true,
-        "**/bower_components": true,
-        "**/*.code-search": true
-    },
-    "typescript.tsserver.maxTsServerMemory": 4096,
-    "firefox.keepProfileChanges": true,
-    "firefox.profile": "default",
-    "firefox.port": 6000,
-    "window.enableMenuBarMnemonics": false,
-    "chat.tools.terminal.autoApprove": {
-      "New-Item": true,
-      "bun": true,
-      "npm start": true,
-      "npm run build": true,
-      "npm install": true,
-      "npm run dev": true,
-      "npm run test": true,
-      "npm run record:course": true,
-      "Get-ChildItem \"c:\\POSBANK\\Projects\\POPs Cloud ERP\\POPs Cloud ERP API\\POPsERP.Contracts\\Data\\Entities\\\" -Filter \"*.cs\" | ForEach-Object { $content = Get-Content $_.FullName -Raw; if ($content -match 'public (partial )?class \\w+' -and $content -notmatch '/// <summary>') { $_.Name } } | Sort-Object": {
-        "approve": true,
-        "matchCommandLine": true
-      }
-    },
-    "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe",
-    // "workbench.statusBar.visible": false,
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.tree.indent": 8,
-    "explorer.decorations.badges": false,
-    "git.decorations.enabled": false,
-    "custom-ui-style.electron": {
-        "titleBarStyle": "hiddenInset",
-        "trafficLightPosition": {
-        "x": 20,
-        "y": 16
-        }
-    },
-    "custom-ui-style.stylesheet": {
-        ".notification-toast": "box-shadow: none !important",
-        ".quick-input-widget.show-file-icons": "box-shadow: none !important",
-        ".quick-input-widget": "top: 25vh !important",
-        ".quick-input-list .scrollbar": "display: none",
-        ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
-        ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
-        ".quick-input-titlebar": "background: #100B15 !important",
-        ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
-        ".monaco-scrollable-element > .shadow.top": "display: none",
-        ".sidebar .title-label": "padding: 0 !important",
-        ".sidebar": "border: none !important",
-        ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
-        ".monaco-list-row.focused": "outline: none !important",
-        ".monaco-editor .scroll-decoration": "display: none",
-        // ".title-actions": "display: none !important",
-        ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
-        ".title .monaco-icon-label:after": "margin-right: 0",
-        ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 60px",
-        ".title .monaco-icon-label.file-icon": "margin: 0 60px",
-        ".monaco-editor .cursors-layer .cursor": "background-image: linear-gradient(135deg, #ffaffc 10%, #DA70D6 100%)"
-    },
+    {
+      "fileMatch": [ "with-glazevm.zebar.json" ],
+      "url": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json"
+    }
+  ],
+  "workbench.view.showQuietly": {
+    "workbench.panel.output": true
+  },
+  "gitlens.blame.format": "${author} ${message|50?} ${agoOrDate|14-}",
+  "github.copilot.chat.codesearch.enabled": true,
+  "gitlens.advanced.fileHistoryShowAllBranches": true,
+  "gitlens.views.stashes.files.layout": "list",
+  "debug.onTaskErrors": "debugAnyway",
+  "liveServer.settings.donotVerifyTags": true,
+  "csharpOrganizeUsings.splitGroups": false,
+  "editor.autoIndentOnPaste": true,
+  "gitlens.views.scm.grouped.default": "launchpad",
+  "gitlens.views.scm.grouped.hiddenViews": {
+    "commits": false,
+    "worktrees": false,
+    "branches": false,
+    "remotes": false,
+    "stashes": false,
+    "tags": false,
+    "contributors": false,
+    "repositories": false,
+    "fileHistory": false,
+    "launchpad": false,
+    "searchAndCompare": false
+  },
+  "gitlens.graph.layout": "editor",
+  "chat.commandCenter.enabled": false,
+  "projectManager.git.baseFolders": [
+    "C:\\POSBANK\\Projects",
+    "G:\\My Drive\\dotfiles",
+    "G:\\My Drive\\_MyAutohotkey",
+    "C:\\MyRep\\my_workspace"
+  ],
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/.hg/**": true,
+    "**/.svn/**": true,
+    "**/build/**": true,
+    "**/dist/**": true,
+    "**/bin/**": true,
+    "**/obj/**": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/bin": true,
+    "**/obj": true,
+    "**/bower_components": true,
+    "**/*.code-search": true
+  },
+  "typescript.tsserver.maxTsServerMemory": 4096,
+  "firefox.keepProfileChanges": true,
+  "firefox.profile": "default",
+  "firefox.port": 6000,
+  "window.enableMenuBarMnemonics": false,
+  "chat.tools.terminal.autoApprove": {
+    "New-Item": true,
+    "bun": true,
+    "npm start": true,
+    "npm run build": true,
+    "npm install": true,
+    "npm run dev": true,
+    "npm run test": true,
+    "npm run record:course": true,
+    "Get-ChildItem \"c:\\POSBANK\\Projects\\POPs Cloud ERP\\POPs Cloud ERP API\\POPsERP.Contracts\\Data\\Entities\\\" -Filter \"*.cs\" | ForEach-Object { $content = Get-Content $_.FullName -Raw; if ($content -match 'public (partial )?class \\w+' -and $content -notmatch '/// <summary>') { $_.Name } } | Sort-Object": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  },
+  "python.defaultInterpreterPath": "c:\\Users\\hsayed\\scoop\\apps\\python\\3.13.7\\python.exe",
+  // "workbench.statusBar.visible": false,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.tree.indent": 8,
+  "explorer.decorations.badges": false,
+  "git.decorations.enabled": false,
+  "custom-ui-style.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 20,
+      "y": 16
+    }
+  },
+  "custom-ui-style.stylesheet": {
+    ".notification-toast": "box-shadow: none !important",
+    ".quick-input-widget.show-file-icons": "box-shadow: none !important",
+    ".quick-input-widget": "top: 25vh !important",
+    ".quick-input-list .scrollbar": "display: none",
+    ".monaco-action-bar.quick-input-inline-action-bar": "display: none",
+    ".editor-widget.find-widget": "box-shadow: none; border-radius: 4px",
+    ".quick-input-titlebar": "background: #100B15 !important",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title.title-border-bottom:after": "display: none",
+    ".monaco-scrollable-element > .shadow.top": "display: none",
+    ".sidebar .title-label": "padding: 0 !important",
+    ".sidebar": "border: none !important",
+    ".monaco-workbench .monaco-list:not(.element-focused):focus:before": "outline: none !important",
+    ".monaco-list-row.focused": "outline: none !important",
+    ".monaco-editor .scroll-decoration": "display: none",
+    // ".title-actions": "display: none !important",
+    ".title.show-file-icons .label-container .monaco-icon-label.file-icon": "justify-content: center; padding: 0 !important",
+    ".title .monaco-icon-label:after": "margin-right: 0",
+    ".monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container > .title-label": "padding-left: 60px",
+    ".title .monaco-icon-label.file-icon": "margin: 0 60px",
+    ".monaco-editor .cursors-layer .cursor": "background-image: linear-gradient(135deg, #ffaffc 10%, #DA70D6 100%)"
+  },
   "custom-ui-style.font.sansSerif": "Dank Mono",
-//   "editor.cursorStyle": "block",
-//   "editor.lineHeight": 2.5,
-//   "editor.tokenColorCustomizations": {
-//     "textMateRules": [
-//       {
-//         "scope": "comment",
-//         "settings": {
-//           "fontStyle": "italic"
-//         }
-//       }
-//     ]
-//   },
-  "editor.stickyScroll.enabled": false,
   "editor.colorDecorators": false,
   "editor.codeLens": false,
   "editor.links": false,
   "editor.matchBrackets": "never",
-//   "scm.diffDecorations": "none",
+  //   "scm.diffDecorations": "none",
   "editor.detectIndentation": false,
+  "editor.insertSpaces": false,
   "editor.renderWhitespace": "none",
   "editor.renderLineHighlight": "none",
   "editor.occurrencesHighlight": "off",
   "editor.selectionHighlight": false,
-//   "editor.scrollbar.horizontal": "hidden",
-//   "editor.scrollbar.vertical": "hidden",
+  //   "editor.scrollbar.horizontal": "hidden",
+  //   "editor.scrollbar.vertical": "hidden",
   "editor.suggestOnTriggerCharacters": false,
   "editor.snippetSuggestions": "top",
   "emmet.triggerExpansionOnTab": true,
@@ -2404,47 +2391,51 @@
   "debug.console.acceptSuggestionOnEnter": "on",
   "debug.console.inputMode": "simple",
   "github.copilot.nextEditSuggestions.enabled": true,
-"gitlens.gitCommands.skipConfirmations": [
-  "fetch:command",
-  "stash-push:command",
-  "launchpad:command"
-],
-"gitlens.ai.model": "gitkraken",
-"gitlens.ai.vscode.model": "copilot:claude-opus-4.5",
-"gitlens.advanced.messages": {
-  "suppressGkRequestFailed500Warning": true
-},
-"vscodeGoogleTranslate.preferredLanguage": "English",
-"google-translate.firstLanguage": "en",
-"googleTranslateExt.replaceText": true,
-"vscodeGoogleTranslate.proxyHost": "120.0.0.1",
-"vscodeGoogleTranslate.proxyPort": "8080",
-"vscodeGoogleTranslate.proxyUsername": "admin",
-"vscodeGoogleTranslate.proxyPassword": "password",
-"commentTranslate.targetLanguage": "en",
-"commentTranslate.sourceLanguage": "zh-CN",
-"powershell.promptToUpdatePowerShell": false,
-"commentTranslate.hover.variable": true,
-"commentTranslate.hover.string": true,
-"itlegend.courseIds": [
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "stash-push:command",
+    "launchpad:command"
+  ],
+  "gitlens.ai.model": "gitkraken",
+  "gitlens.ai.vscode.model": "copilot:claude-opus-4.5",
+  "gitlens.advanced.messages": {
+    "suppressGkRequestFailed500Warning": true
+  },
+  "vscodeGoogleTranslate.preferredLanguage": "English",
+  "google-translate.firstLanguage": "en",
+  "googleTranslateExt.replaceText": true,
+  "vscodeGoogleTranslate.proxyHost": "120.0.0.1",
+  "vscodeGoogleTranslate.proxyPort": "8080",
+  "vscodeGoogleTranslate.proxyUsername": "admin",
+  "vscodeGoogleTranslate.proxyPassword": "password",
+  "commentTranslate.targetLanguage": "en",
+  "commentTranslate.sourceLanguage": "zh-CN",
+  "powershell.promptToUpdatePowerShell": false,
+  "commentTranslate.hover.variable": true,
+  "commentTranslate.hover.string": true,
+  "itlegend.courseIds": [
     "62f68a9c-6e49-4030-98e3-6c4d88b1b6ca",
     "6c719fa0-70ea-41cc-bfb1-972482285d23",
     "5da950a8-031d-4bae-95f5-ae26c34141a7",
     "3447ff38-1809-4495-bfbd-6a3da119ca0a",
     "229fe6ea-99c0-4e45-a873-82dc023cfcd0"
-],
-"editor.wordHighlight": false,
-"editor.wordHighlightStrong": false,
-"markdown.hover.enabled": false,
-"gitlens.graph.dimMergeCommits": true,
-"files.trimTrailingWhitespaceInRegexAndStrings": false,
-"editor.codeActionsOnSave": {},
-"files.trimTrailingWhitespace": false,
-"files.insertFinalNewline": false,
-"files.trimFinalNewlines": false,
-"editor.formatOnSave": false,
-"git.replaceTagsWhenPull": true,
-"github.copilot.chat.agent.thinkingTool": true,
-"terminal.integrated.fontSize": 13,
-"nuget.includePrereleasePackageVersions": true
+  ],
+  "editor.wordHighlight": false,
+  "editor.wordHighlightStrong": false,
+  "markdown.hover.enabled": false,
+  "gitlens.graph.dimMergeCommits": true,
+  "files.trimTrailingWhitespaceInRegexAndStrings": false,
+  "editor.codeActionsOnSave": { },
+  "files.trimTrailingWhitespace": false,
+  "files.insertFinalNewline": false,
+  "files.trimFinalNewlines": false,
+  "editor.formatOnSave": false,
+  "git.replaceTagsWhenPull": true,
+  "github.copilot.chat.agent.thinkingTool": true,
+  "nuget.includePrereleasePackageVersions": true,
+  "github.copilot.selectedCompletionModel": "",
+  "google-translate.secondLanguage": "en",
+  "security.allowedUNCHosts": [
+    "wsl.localhost"
+  ]
 }

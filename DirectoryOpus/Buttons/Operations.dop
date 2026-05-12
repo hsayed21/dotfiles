@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<toolbar version="12.28">
-	<wallpaper enabled="yes" inheritable="yes" type="share">
-		<std_type>toolbar</std_type>
-	</wallpaper>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
 	<buttons backcol="none" display="label" textcol="none" type="menu">
 		<button backcol="none" display="both" hotkey="ctrl+1" label_pos="right" textcol="none" type="menu_button">
 			<label>&amp;Copy Files</label>
@@ -223,13 +221,21 @@
 				</function>
 			</button>
 		</button>
-		<button backcol="none" display="both" hotkey="ctrl+N" label_pos="right" separate="yes" textcol="none" type="menu_button">
+		<button backcol="none" display="both" hotkey="ctrl+N" label_pos="right" textcol="none" type="menu_button">
 			<label>Ne&amp;w Folder</label>
 			<tip>Create a new folder</tip>
 			<icon1>#makedir</icon1>
 			<function type="normal">
 				<instruction>CreateFolder</instruction>
 			</function>
+			<button backcol="none" display="both" label_pos="right" textcol="none">
+				<label>N&amp;ew Dated Folder</label>
+				<tip>Create a new folder and automatically name it using the current date and time</tip>
+				<icon1>#makedir</icon1>
+				<function type="normal">
+					<instruction>CreateFolder NAME=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
+				</function>
+			</button>
 			<button backcol="none" display="both" label_pos="right" textcol="none">
 				<label>Ne&amp;w Folder\tCtrl+N</label>
 				<tip>Create a new folder</tip>
@@ -262,14 +268,14 @@
 					<instruction>FileType NEWMENU</instruction>
 				</function>
 			</button>
-			<button backcol="none" display="both" label_pos="right" textcol="none">
-				<label>N&amp;ew Dated Folder</label>
-				<tip>Create a new folder and automatically name it using the current date and time</tip>
-				<icon1>#makedir</icon1>
-				<function type="normal">
-					<instruction>CreateFolder NAME=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
-				</function>
-			</button>
+		</button>
+		<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none">
+			<label>New Dated Folder</label>
+			<tip>Create a new folder and automatically name it using the current date and time</tip>
+			<icon1>#makedir</icon1>
+			<function type="normal">
+				<instruction>CreateFolder NAME=&quot;{date|yyyy-MM-dd} {time|HH-mm-ss}&quot;</instruction>
+			</function>
 		</button>
 		<button backcol="none" display="both" label_pos="right" separate="yes" textcol="none" type="menu_button">
 			<label>&amp;Delete</label>

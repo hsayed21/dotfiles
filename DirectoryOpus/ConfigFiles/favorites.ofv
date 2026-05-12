@@ -121,4 +121,9 @@
 			<pathstring>C:\Users\hsayed\Documents</pathstring>
 		</dir>
 	</path>
+	<path label="C:\Users\hsayed">
+		<dir>
+			<pathstring>C:\Users\hsayed</pathstring>
+		</dir>
+	</path>
 </favorites>
