@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Remove Git Lock",
+      "type": "shell",
+      "command": "if (Test-Path '${workspaceFolder}\\.git\\index.lock') { Remove-Item '${workspaceFolder}\\.git\\index.lock' -Force; Write-Host 'index.lock removed' }",
+      "options": { "shell": { "executable": "powershell" } },
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": { "reveal": "never" }
+    }
+  ]
+}

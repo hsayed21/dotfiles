@@ -128,6 +128,6 @@ Set-Alias swp switch-project
 
 function claude-deepseek {
     . $HOME\.claude-deepseek.ps1
-    claude
+    claude --allow-dangerously-skip-permissions
 }
 

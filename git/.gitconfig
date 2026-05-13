@@ -88,3 +88,5 @@
     path = C:/Users/hsayed/.gitconfig-work
 [difftool "vscode"]
 	cmd = "code --wait --diff  "
+[alias]
+	add = "!f() { lock=\"$(git rev-parse --git-dir)/index.lock\"; if [ -f \"$lock\" ]; then rm -f \"$lock\"; fi; git add \"$@\"; }; f"

@@ -1,15 +1,6 @@
 {
-  "model": "opus",
-  "enableAllProjectMcpServers": true,
-  "enabledPlugins": {
-    "pr-review@local": true,
-    "pr-review-toolkit@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true
-  },
-  "extraKnownMarketplaces": {},
-  "skipDangerousModePermissionPrompt": true,
   "permissions": {
-     "allow": [
+    "allow": [
       "mcp__azureDevOps__get_*",
       "mcp__azureDevOps__list_*",
       "mcp__azureDevOps__search_*",
@@ -22,11 +13,20 @@
       "WebFetch(*)",
       "WebSearch(*)"
     ],
+    "deny": [
+      "Bash(*.git*)",
+      "PowerShell(*.git*)",
+      "Write(*.git*)",
+      "Edit(*.git*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Read(.env)",
+      "Read(**/.env)"
+    ],
     "ask": [
       "mcp__azureDevOps__create_*",
       "mcp__azureDevOps__update_*",
       "mcp__azureDevOps__add_*",
-
       "Bash(rm *)",
       "Bash(git push *)",
       "Bash(git add *)",
@@ -37,7 +37,6 @@
       "Bash(git revert *)",
       "Bash(git clean *)",
       "Bash(git stash *)",
-
       "PowerShell(Remove-Item *)",
       "PowerShell(git push *)",
       "PowerShell(git add *)",
@@ -48,16 +47,15 @@
       "PowerShell(git revert *)",
       "PowerShell(git clean *)",
       "PowerShell(git stash *)"
-    ],
-    "deny": [
-      "Bash(*.git*)",
-      "PowerShell(*.git*)",
-      "Write(*.git*)",
-      "Edit(*.git*)",
-      "Bash(rm -rf /)",
-      "Bash(rm -rf ~)",
-      "Read(.env)",
-      "Read(**/.env)"
     ]
-  }
+  },
+  "model": "opus",
+  "enableAllProjectMcpServers": true,
+  "enabledPlugins": {
+    "pr-review@local": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {},
+  "skipDangerousModePermissionPrompt": true
 }
