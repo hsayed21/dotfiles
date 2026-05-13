@@ -51,11 +51,7 @@
   },
   "model": "opus",
   "enableAllProjectMcpServers": true,
-  "enabledPlugins": {
-    "pr-review@local": true,
-    "pr-review-toolkit@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true
-  },
+  "enabledPlugins": {},
   "extraKnownMarketplaces": {},
   "skipDangerousModePermissionPrompt": true
 }

@@ -1,597 +1,376 @@
 ---
 name: backend-patterns
-description: Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes.
+description: ASP.NET Core backend architecture — Minimal APIs, controllers, EF Core, MediatR, repository pattern, caching, background jobs, and server-side best practices.
 ---
 
-# Backend Development Patterns
+# ASP.NET Core Backend Patterns
 
-Backend architecture patterns and best practices for scalable server-side applications.
+Backend architecture patterns for scalable .NET server applications.
 
 ## When to Activate
 
-- Designing REST or GraphQL API endpoints
-- Implementing repository, service, or controller layers
-- Optimizing database queries (N+1, indexing, connection pooling)
-- Adding caching (Redis, in-memory, HTTP cache headers)
+- Designing REST API endpoints in ASP.NET Core
+- Implementing repository, service, or CQRS layers
+- Optimizing EF Core queries (N+1, indexing, projections)
+- Adding caching (IMemoryCache, Redis, HybridCache)
 - Setting up background jobs or async processing
-- Structuring error handling and validation for APIs
+- Structuring error handling and validation
 - Building middleware (auth, logging, rate limiting)
 
-## API Design Patterns
+## API Design
 
-### RESTful API Structure
+### Minimal APIs (Modern .NET 8+)
 
-```typescript
-// PASS: Resource-based URLs
-GET    /api/markets                 # List resources
-GET    /api/markets/:id             # Get single resource
-POST   /api/markets                 # Create resource
-PUT    /api/markets/:id             # Replace resource
-PATCH  /api/markets/:id             # Update resource
-DELETE /api/markets/:id             # Delete resource
-
-// PASS: Query parameters for filtering, sorting, pagination
-GET /api/markets?status=active&sort=volume&limit=20&offset=0
-```
-
-### Repository Pattern
-
-```typescript
-// Abstract data access logic
-interface MarketRepository {
-  findAll(filters?: MarketFilters): Promise<Market[]>
-  findById(id: string): Promise<Market | null>
-  create(data: CreateMarketDto): Promise<Market>
-  update(id: string, data: UpdateMarketDto): Promise<Market>
-  delete(id: string): Promise<void>
-}
-
-class SupabaseMarketRepository implements MarketRepository {
-  async findAll(filters?: MarketFilters): Promise<Market[]> {
-    let query = supabase.from('markets').select('*')
-
-    if (filters?.status) {
-      query = query.eq('status', filters.status)
-    }
-
-    if (filters?.limit) {
-      query = query.limit(filters.limit)
-    }
-
-    const { data, error } = await query
-
-    if (error) throw new Error(error.message)
-    return data
-  }
-
-  // Other methods...
-}
-```
-
-### Service Layer Pattern
-
-```typescript
-// Business logic separated from data access
-class MarketService {
-  constructor(private marketRepo: MarketRepository) {}
-
-  async searchMarkets(query: string, limit: number = 10): Promise<Market[]> {
-    // Business logic
-    const embedding = await generateEmbedding(query)
-    const results = await this.vectorSearch(embedding, limit)
-
-    // Fetch full data
-    const markets = await this.marketRepo.findByIds(results.map(r => r.id))
-
-    // Sort by similarity
-    return markets.sort((a, b) => {
-      const scoreA = results.find(r => r.id === a.id)?.score || 0
-      const scoreB = results.find(r => r.id === b.id)?.score || 0
-      return scoreA - scoreB
-    })
-  }
-
-  private async vectorSearch(embedding: number[], limit: number) {
-    // Vector search implementation
-  }
-}
-```
-
-### Middleware Pattern
-
-```typescript
-// Request/response processing pipeline
-export function withAuth(handler: NextApiHandler): NextApiHandler {
-  return async (req, res) => {
-    const token = req.headers.authorization?.replace('Bearer ', '')
-
-    if (!token) {
-      return res.status(401).json({ error: 'Unauthorized' })
-    }
-
-    try {
-      const user = await verifyToken(token)
-      req.user = user
-      return handler(req, res)
-    } catch (error) {
-      return res.status(401).json({ error: 'Invalid token' })
-    }
-  }
-}
-
-// Usage
-export default withAuth(async (req, res) => {
-  // Handler has access to req.user
+```csharp
+app.MapGet("/api/orders/{id:guid}", async (
+    Guid id,
+    OrderService service,
+    CancellationToken ct) =>
+{
+    var order = await service.FindByIdAsync(id, ct);
+    return order is null ? Results.NotFound() : Results.Ok(order);
 })
-```
+.WithName("GetOrder")
+.RequireAuthorization();
 
-## Database Patterns
+app.MapPost("/api/orders", async (
+    CreateOrderRequest request,
+    IValidator<CreateOrderRequest> validator,
+    OrderService service,
+    CancellationToken ct) =>
+{
+    var result = await validator.ValidateAsync(request, ct);
+    if (!result.IsValid)
+        return Results.ValidationProblem(result.ToDictionary());
 
-### Query Optimization
-
-```typescript
-// PASS: GOOD: Select only needed columns
-const { data } = await supabase
-  .from('markets')
-  .select('id, name, status, volume')
-  .eq('status', 'active')
-  .order('volume', { ascending: false })
-  .limit(10)
-
-// FAIL: BAD: Select everything
-const { data } = await supabase
-  .from('markets')
-  .select('*')
-```
-
-### N+1 Query Prevention
-
-```typescript
-// FAIL: BAD: N+1 query problem
-const markets = await getMarkets()
-for (const market of markets) {
-  market.creator = await getUser(market.creator_id)  // N queries
-}
-
-// PASS: GOOD: Batch fetch
-const markets = await getMarkets()
-const creatorIds = markets.map(m => m.creator_id)
-const creators = await getUsers(creatorIds)  // 1 query
-const creatorMap = new Map(creators.map(c => [c.id, c]))
-
-markets.forEach(market => {
-  market.creator = creatorMap.get(market.creator_id)
+    var order = await service.CreateAsync(request, ct);
+    return Results.Created($"/api/orders/{order.Id}", order);
 })
+.RequireAuthorization();
 ```
 
-### Transaction Pattern
+### Controller-Based APIs (Traditional)
 
-```typescript
-async function createMarketWithPosition(
-  marketData: CreateMarketDto,
-  positionData: CreatePositionDto
-) {
-  // Use Supabase transaction
-  const { data, error } = await supabase.rpc('create_market_with_position', {
-    market_data: marketData,
-    position_data: positionData
-  })
+```csharp
+[ApiController]
+[Route("api/[controller]")]
+[Authorize]
+public class OrdersController : ControllerBase
+{
+    private readonly OrderService _service;
 
-  if (error) throw new Error('Transaction failed')
-  return data
-}
+    public OrdersController(OrderService service) => _service = service;
 
-// SQL function in Supabase
-CREATE OR REPLACE FUNCTION create_market_with_position(
-  market_data jsonb,
-  position_data jsonb
-)
-RETURNS jsonb
-LANGUAGE plpgsql
-AS $$
-BEGIN
-  -- Start transaction automatically
-  INSERT INTO markets VALUES (market_data);
-  INSERT INTO positions VALUES (position_data);
-  RETURN jsonb_build_object('success', true);
-EXCEPTION
-  WHEN OTHERS THEN
-    -- Rollback happens automatically
-    RETURN jsonb_build_object('success', false, 'error', SQLERRM);
-END;
-$$;
-```
-
-## Caching Strategies
-
-### Redis Caching Layer
-
-```typescript
-class CachedMarketRepository implements MarketRepository {
-  constructor(
-    private baseRepo: MarketRepository,
-    private redis: RedisClient
-  ) {}
-
-  async findById(id: string): Promise<Market | null> {
-    // Check cache first
-    const cached = await this.redis.get(`market:${id}`)
-
-    if (cached) {
-      return JSON.parse(cached)
+    [HttpGet("{id:guid}")]
+    public async Task<ActionResult<OrderDto>> Get(Guid id, CancellationToken ct)
+    {
+        var order = await _service.FindByIdAsync(id, ct);
+        return order is null ? NotFound() : Ok(order);
     }
 
-    // Cache miss - fetch from database
-    const market = await this.baseRepo.findById(id)
+    [HttpPost]
+    public async Task<ActionResult<OrderDto>> Create(
+        CreateOrderRequest request,
+        CancellationToken ct)
+    {
+        var order = await _service.CreateAsync(request, ct);
+        return CreatedAtAction(nameof(Get), new { id = order.Id }, order);
+    }
+}
+```
 
-    if (market) {
-      // Cache for 5 minutes
-      await this.redis.setex(`market:${id}`, 300, JSON.stringify(market))
+## Consistent API Response
+
+```csharp
+public sealed record ApiResponse<T>(
+    bool Success,
+    T? Data = default,
+    string? Error = null,
+    object? Meta = null);
+
+// Success
+return Results.Ok(new ApiResponse<OrderDto>(true, Data: order));
+
+// Error
+return Results.NotFound(new ApiResponse<OrderDto>(false, Error: "Order not found"));
+```
+
+## Repository Pattern
+
+```csharp
+public interface IRepository<T> where T : class
+{
+    Task<IReadOnlyList<T>> FindAllAsync(CancellationToken ct);
+    Task<T?> FindByIdAsync(Guid id, CancellationToken ct);
+    Task<T> CreateAsync(T entity, CancellationToken ct);
+    Task<T> UpdateAsync(T entity, CancellationToken ct);
+    Task DeleteAsync(Guid id, CancellationToken ct);
+}
+
+public sealed class EfRepository<T> : IRepository<T> where T : class
+{
+    private readonly AppDbContext _db;
+
+    public EfRepository(AppDbContext db) => _db = db;
+
+    public async Task<IReadOnlyList<T>> FindAllAsync(CancellationToken ct) =>
+        await _db.Set<T>().AsNoTracking().ToListAsync(ct);
+
+    public async Task<T?> FindByIdAsync(Guid id, CancellationToken ct) =>
+        await _db.Set<T>().FindAsync([id], ct);
+
+    public async Task<T> CreateAsync(T entity, CancellationToken ct)
+    {
+        _db.Set<T>().Add(entity);
+        await _db.SaveChangesAsync(ct);
+        return entity;
     }
 
-    return market
-  }
-
-  async invalidateCache(id: string): Promise<void> {
-    await this.redis.del(`market:${id}`)
-  }
-}
-```
-
-### Cache-Aside Pattern
-
-```typescript
-async function getMarketWithCache(id: string): Promise<Market> {
-  const cacheKey = `market:${id}`
-
-  // Try cache
-  const cached = await redis.get(cacheKey)
-  if (cached) return JSON.parse(cached)
-
-  // Cache miss - fetch from DB
-  const market = await db.markets.findUnique({ where: { id } })
-
-  if (!market) throw new Error('Market not found')
-
-  // Update cache
-  await redis.setex(cacheKey, 300, JSON.stringify(market))
-
-  return market
-}
-```
-
-## Error Handling Patterns
-
-### Centralized Error Handler
-
-```typescript
-class ApiError extends Error {
-  constructor(
-    public statusCode: number,
-    public message: string,
-    public isOperational = true
-  ) {
-    super(message)
-    Object.setPrototypeOf(this, ApiError.prototype)
-  }
-}
-
-export function errorHandler(error: unknown, req: Request): Response {
-  if (error instanceof ApiError) {
-    return NextResponse.json({
-      success: false,
-      error: error.message
-    }, { status: error.statusCode })
-  }
-
-  if (error instanceof z.ZodError) {
-    return NextResponse.json({
-      success: false,
-      error: 'Validation failed',
-      details: error.errors
-    }, { status: 400 })
-  }
-
-  // Log unexpected errors
-  console.error('Unexpected error:', error)
-
-  return NextResponse.json({
-    success: false,
-    error: 'Internal server error'
-  }, { status: 500 })
-}
-
-// Usage
-export async function GET(request: Request) {
-  try {
-    const data = await fetchData()
-    return NextResponse.json({ success: true, data })
-  } catch (error) {
-    return errorHandler(error, request)
-  }
-}
-```
-
-### Retry with Exponential Backoff
-
-```typescript
-async function fetchWithRetry<T>(
-  fn: () => Promise<T>,
-  maxRetries = 3
-): Promise<T> {
-  let lastError: Error
-
-  for (let i = 0; i < maxRetries; i++) {
-    try {
-      return await fn()
-    } catch (error) {
-      lastError = error as Error
-
-      if (i < maxRetries - 1) {
-        // Exponential backoff: 1s, 2s, 4s
-        const delay = Math.pow(2, i) * 1000
-        await new Promise(resolve => setTimeout(resolve, delay))
-      }
-    }
-  }
-
-  throw lastError!
-}
-
-// Usage
-const data = await fetchWithRetry(() => fetchFromAPI())
-```
-
-## Authentication & Authorization
-
-### JWT Token Validation
-
-```typescript
-import jwt from 'jsonwebtoken'
-
-interface JWTPayload {
-  userId: string
-  email: string
-  role: 'admin' | 'user'
-}
-
-export function verifyToken(token: string): JWTPayload {
-  try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET!) as JWTPayload
-    return payload
-  } catch (error) {
-    throw new ApiError(401, 'Invalid token')
-  }
-}
-
-export async function requireAuth(request: Request) {
-  const token = request.headers.get('authorization')?.replace('Bearer ', '')
-
-  if (!token) {
-    throw new ApiError(401, 'Missing authorization token')
-  }
-
-  return verifyToken(token)
-}
-
-// Usage in API route
-export async function GET(request: Request) {
-  const user = await requireAuth(request)
-
-  const data = await getDataForUser(user.userId)
-
-  return NextResponse.json({ success: true, data })
-}
-```
-
-### Role-Based Access Control
-
-```typescript
-type Permission = 'read' | 'write' | 'delete' | 'admin'
-
-interface User {
-  id: string
-  role: 'admin' | 'moderator' | 'user'
-}
-
-const rolePermissions: Record<User['role'], Permission[]> = {
-  admin: ['read', 'write', 'delete', 'admin'],
-  moderator: ['read', 'write', 'delete'],
-  user: ['read', 'write']
-}
-
-export function hasPermission(user: User, permission: Permission): boolean {
-  return rolePermissions[user.role].includes(permission)
-}
-
-export function requirePermission(permission: Permission) {
-  return (handler: (request: Request, user: User) => Promise<Response>) => {
-    return async (request: Request) => {
-      const user = await requireAuth(request)
-
-      if (!hasPermission(user, permission)) {
-        throw new ApiError(403, 'Insufficient permissions')
-      }
-
-      return handler(request, user)
-    }
-  }
-}
-
-// Usage - HOF wraps the handler
-export const DELETE = requirePermission('delete')(
-  async (request: Request, user: User) => {
-    // Handler receives authenticated user with verified permission
-    return new Response('Deleted', { status: 200 })
-  }
-)
-```
-
-## Rate Limiting
-
-### Simple In-Memory Rate Limiter
-
-```typescript
-class RateLimiter {
-  private requests = new Map<string, number[]>()
-
-  async checkLimit(
-    identifier: string,
-    maxRequests: number,
-    windowMs: number
-  ): Promise<boolean> {
-    const now = Date.now()
-    const requests = this.requests.get(identifier) || []
-
-    // Remove old requests outside window
-    const recentRequests = requests.filter(time => now - time < windowMs)
-
-    if (recentRequests.length >= maxRequests) {
-      return false  // Rate limit exceeded
+    public async Task<T> UpdateAsync(T entity, CancellationToken ct)
+    {
+        _db.Set<T>().Update(entity);
+        await _db.SaveChangesAsync(ct);
+        return entity;
     }
 
-    // Add current request
-    recentRequests.push(now)
-    this.requests.set(identifier, recentRequests)
-
-    return true
-  }
-}
-
-const limiter = new RateLimiter()
-
-export async function GET(request: Request) {
-  const ip = request.headers.get('x-forwarded-for') || 'unknown'
-
-  const allowed = await limiter.checkLimit(ip, 100, 60000)  // 100 req/min
-
-  if (!allowed) {
-    return NextResponse.json({
-      error: 'Rate limit exceeded'
-    }, { status: 429 })
-  }
-
-  // Continue with request
+    public async Task DeleteAsync(Guid id, CancellationToken ct)
+    {
+        var entity = await FindByIdAsync(id, ct);
+        if (entity is not null)
+        {
+            _db.Set<T>().Remove(entity);
+            await _db.SaveChangesAsync(ct);
+        }
+    }
 }
 ```
 
-## Background Jobs & Queues
+## EF Core Best Practices
 
-### Simple Queue Pattern
+### Avoid N+1 Queries
 
-```typescript
-class JobQueue<T> {
-  private queue: T[] = []
-  private processing = false
-
-  async add(job: T): Promise<void> {
-    this.queue.push(job)
-
-    if (!this.processing) {
-      this.process()
-    }
-  }
-
-  private async process(): Promise<void> {
-    this.processing = true
-
-    while (this.queue.length > 0) {
-      const job = this.queue.shift()!
-
-      try {
-        await this.execute(job)
-      } catch (error) {
-        console.error('Job failed:', error)
-      }
-    }
-
-    this.processing = false
-  }
-
-  private async execute(job: T): Promise<void> {
-    // Job execution logic
-  }
+```csharp
+// BAD: N+1 — lazy loading in a loop
+var orders = await _db.Orders.ToListAsync(ct);
+foreach (var order in orders)
+{
+    order.Items = await _db.OrderItems.Where(i => i.OrderId == order.Id).ToListAsync(ct);
 }
 
-// Usage for indexing markets
-interface IndexJob {
-  marketId: string
+// GOOD: Eager loading with Include
+var orders = await _db.Orders
+    .Include(o => o.Items)
+    .ThenInclude(i => i.Product)
+    .AsNoTracking()
+    .ToListAsync(ct);
+
+// GOOD: Projection (most efficient)
+var orders = await _db.Orders
+    .Select(o => new OrderDto(
+        o.Id,
+        o.CustomerName,
+        o.Items.Select(i => new ItemDto(i.ProductId, i.Quantity, i.Price))))
+    .AsNoTracking()
+    .ToListAsync(ct);
+```
+
+### Always Use AsNoTracking for Reads
+
+```csharp
+// Read-only queries: ALWAYS AsNoTracking()
+var orders = await _db.Orders.AsNoTracking().ToListAsync(ct);
+
+// Only track when you plan to update
+var order = await _db.Orders.FindAsync([id], ct);
+order.Status = OrderStatus.Shipped;
+await _db.SaveChangesAsync(ct);
+```
+
+### Compiled Queries for Hot Paths
+
+```csharp
+private static readonly Func<AppDbContext, Guid, CancellationToken, Task<OrderDto?>>
+    GetOrderById = EF.CompileAsyncQuery(
+        (AppDbContext db, Guid id, CancellationToken ct) =>
+            db.Orders.Where(o => o.Id == id)
+                .Select(o => new OrderDto(o.Id, o.CustomerName, o.Status))
+                .FirstOrDefault());
+```
+
+## CQRS with MediatR
+
+```csharp
+// Query
+public sealed record GetOrdersQuery(Guid CustomerId) : IRequest<IReadOnlyList<OrderDto>>;
+
+public sealed class GetOrdersHandler : IRequestHandler<GetOrdersQuery, IReadOnlyList<OrderDto>>
+{
+    private readonly AppDbContext _db;
+    public GetOrdersHandler(AppDbContext db) => _db = db;
+
+    public async Task<IReadOnlyList<OrderDto>> Handle(
+        GetOrdersQuery request, CancellationToken ct) =>
+        await _db.Orders
+            .Where(o => o.CustomerId == request.CustomerId)
+            .AsNoTracking()
+            .Select(o => new OrderDto(o.Id, o.CustomerName, o.Status))
+            .ToListAsync(ct);
 }
 
-const indexQueue = new JobQueue<IndexJob>()
+// Command
+public sealed record CreateOrderCommand(
+    Guid CustomerId, List<OrderItemDto> Items) : IRequest<OrderDto>;
 
-export async function POST(request: Request) {
-  const { marketId } = await request.json()
+public sealed class CreateOrderHandler : IRequestHandler<CreateOrderCommand, OrderDto>
+{
+    private readonly AppDbContext _db;
+    public CreateOrderHandler(AppDbContext db) => _db = db;
 
-  // Add to queue instead of blocking
-  await indexQueue.add({ marketId })
-
-  return NextResponse.json({ success: true, message: 'Job queued' })
+    public async Task<OrderDto> Handle(CreateOrderCommand cmd, CancellationToken ct)
+    {
+        var order = new Order { Id = Guid.NewGuid(), CustomerId = cmd.CustomerId };
+        _db.Orders.Add(order);
+        await _db.SaveChangesAsync(ct);
+        return new OrderDto(order.Id, order.CustomerId, order.Status);
+    }
 }
 ```
 
-## Logging & Monitoring
+## Validation with FluentValidation
 
-### Structured Logging
-
-```typescript
-interface LogContext {
-  userId?: string
-  requestId?: string
-  method?: string
-  path?: string
-  [key: string]: unknown
-}
-
-class Logger {
-  log(level: 'info' | 'warn' | 'error', message: string, context?: LogContext) {
-    const entry = {
-      timestamp: new Date().toISOString(),
-      level,
-      message,
-      ...context
+```csharp
+public sealed class CreateOrderValidator : AbstractValidator<CreateOrderRequest>
+{
+    public CreateOrderValidator()
+    {
+        RuleFor(x => x.CustomerId).NotEmpty();
+        RuleFor(x => x.Items).NotEmpty().WithMessage("At least one item is required");
+        RuleForEach(x => x.Items).ChildRules(item =>
+        {
+            item.RuleFor(i => i.ProductId).NotEmpty();
+            item.RuleFor(i => i.Quantity).InclusiveBetween(1, 999);
+        });
     }
-
-    console.log(JSON.stringify(entry))
-  }
-
-  info(message: string, context?: LogContext) {
-    this.log('info', message, context)
-  }
-
-  warn(message: string, context?: LogContext) {
-    this.log('warn', message, context)
-  }
-
-  error(message: string, error: Error, context?: LogContext) {
-    this.log('error', message, {
-      ...context,
-      error: error.message,
-      stack: error.stack
-    })
-  }
 }
 
-const logger = new Logger()
+// Register
+builder.Services.AddValidatorsFromAssemblyContaining<CreateOrderValidator>();
+```
 
-// Usage
-export async function GET(request: Request) {
-  const requestId = crypto.randomUUID()
+## Options Pattern
 
-  logger.info('Fetching markets', {
-    requestId,
-    method: 'GET',
-    path: '/api/markets'
-  })
+```csharp
+public sealed class PaymentOptions
+{
+    public const string SectionName = "Payment";
+    public required string BaseUrl { get; init; }
+    public required string ApiKeySecretName { get; init; }
+}
 
-  try {
-    const markets = await fetchMarkets()
-    return NextResponse.json({ success: true, data: markets })
-  } catch (error) {
-    logger.error('Failed to fetch markets', error as Error, { requestId })
-    return NextResponse.json({ error: 'Internal error' }, { status: 500 })
-  }
+// Register
+builder.Services.Configure<PaymentOptions>(
+    builder.Configuration.GetSection(PaymentOptions.SectionName));
+
+// Use
+public class PaymentService
+{
+    public PaymentService(IOptions<PaymentOptions> options)
+    {
+        var config = options.Value;
+        // use config.BaseUrl, config.ApiKeySecretName
+    }
 }
 ```
 
-**Remember**: Backend patterns enable scalable, maintainable server-side applications. Choose patterns that fit your complexity level.
+## Caching
+
+```csharp
+// HybridCache (.NET 9+)
+public sealed class OrderService
+{
+    private readonly HybridCache _cache;
+    private readonly AppDbContext _db;
+
+    public async Task<OrderDto?> GetOrderAsync(Guid id, CancellationToken ct) =>
+        await _cache.GetOrCreateAsync(
+            $"order:{id}",
+            async ct =>
+            {
+                var order = await _db.Orders.AsNoTracking()
+                    .FirstOrDefaultAsync(o => o.Id == id, ct);
+                return order is null ? null : new OrderDto(order.Id, order.CustomerName, order.Status);
+            },
+            new HybridCacheEntryOptions { Expiration = TimeSpan.FromMinutes(5) },
+            cancellationToken: ct);
+}
+```
+
+## Middleware Pattern
+
+```csharp
+public sealed class ExceptionHandlingMiddleware
+{
+    private readonly RequestDelegate _next;
+    private readonly ILogger<ExceptionHandlingMiddleware> _logger;
+
+    public ExceptionHandlingMiddleware(RequestDelegate next,
+        ILogger<ExceptionHandlingMiddleware> logger) => (_next, _logger) = (next, logger);
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        try
+        {
+            await _next(context);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Unhandled exception: {Path}", context.Request.Path);
+            context.Response.StatusCode = 500;
+            await context.Response.WriteAsJsonAsync(
+                new ApiResponse<object>(false, Error: "An unexpected error occurred."));
+        }
+    }
+}
+
+// Register
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+```
+
+## Background Jobs
+
+```csharp
+// Simple background service
+public sealed class OrderProcessingService : BackgroundService
+{
+    private readonly IServiceScopeFactory _scopeFactory;
+    private readonly ILogger<OrderProcessingService> _logger;
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            using var scope = _scopeFactory.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            // Process pending orders...
+            await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
+        }
+    }
+}
+```
+
+## Input Validation at Boundaries
+
+```csharp
+// Always validate at API entry points
+app.MapPost("/api/orders", async (CreateOrderRequest request,
+    IValidator<CreateOrderRequest> validator, CancellationToken ct) =>
+{
+    var result = await validator.ValidateAsync(request, ct);
+    if (!result.IsValid)
+        return Results.ValidationProblem(result.ToDictionary());
+    // proceed...
+});
+
+// Never trust external data
+var sanitized = System.Net.WebUtility.HtmlEncode(userInput);
+```
