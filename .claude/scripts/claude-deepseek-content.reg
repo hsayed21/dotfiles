@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ClaudeDeepSeek]
+@="Open Claude DeepSeek Here"
+"Icon"="C:\\Program Files\\Git\\git-bash.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ClaudeDeepSeek\command]
+@="wt.exe -d \"%V\" C:\\Users\\hsayed\\claude-deepseek.cmd"
+
+[HKEY_CLASSES_ROOT\Directory\shell\ClaudeDeepSeek]
+@="Open Claude DeepSeek Here"
+"Icon"="C:\\Program Files\\Git\\git-bash.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\ClaudeDeepSeek\command]
+@="wt.exe -d \"%1\" C:\\Users\\hsayed\\claude-deepseek.cmd"

@@ -38,4 +38,4 @@ DirectoryOpus/ConfigFiles/proxy.oxc
 DirectoryOpus/ConfigFiles/evalcols.oxc
 DirectoryOpus/ConfigFiles/archives.oxc
 DirectoryOpus/ConfigFiles/evalfilegroups.xml
-.claude/.deepseek-token
+.claude/scripts/.deepseek-token

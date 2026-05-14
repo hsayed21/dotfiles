@@ -49,7 +49,7 @@
       "PowerShell(git stash *)"
     ]
   },
-  "model": "opus",
+  "model": "haiku",
   "enableAllProjectMcpServers": true,
   "enabledPlugins": {},
   "extraKnownMarketplaces": {},

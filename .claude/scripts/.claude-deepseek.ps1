@@ -13,7 +13,6 @@ if (Test-Path $tokenFilePath) {
     Write-Error "Token file not found at: $tokenFilePath"
     return
 }
-
 $env:ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
 $env:ANTHROPIC_MODEL="deepseek-v4-flash"
 $env:ANTHROPIC_DEFAULT_OPUS_MODEL="deepseek-v4-pro[1m]"
