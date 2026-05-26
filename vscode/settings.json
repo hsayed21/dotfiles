@@ -41,12 +41,14 @@
   },
   "[html]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "vscode.html-language-features",
+    // "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.trimTrailingWhitespace": false,
     "files.trimFinalNewlines": false
   },
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": false,
     "editor.quickSuggestions": {
       "strings": true
@@ -60,6 +62,7 @@
     }
   },
   "[markdown]": {
+    "editor.wordWrap": "on",
     "files.trimTrailingWhitespace": false,
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
   },
@@ -73,9 +76,13 @@
   "[sql]": { },
   "[typescript]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    // "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.trimTrailingWhitespace": false,
     "files.trimFinalNewlines": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "accessibility.signals.lineHasInlineSuggestion": {
     "sound": "off"
@@ -1866,8 +1873,18 @@
       // "editor.wordHighlightStrongBackground": "#FFA500CC" // stronger orange
       "editorOverviewRuler.warningForeground": "#0000",
       "editorOverviewRuler.errorForeground": "#0000",
-      "editorOverviewRuler.infoForeground": "#0000"
+      "editorOverviewRuler.infoForeground": "#0000",
       // "editorOverviewRuler.border": "#0000",
+     
+      // 1. Line Backgrounds: The overall background for the modified lines
+      "diffEditor.insertedLineBackground": "#24322444", // Subtle green for the whole line
+      "diffEditor.removedLineBackground": "#32242444",  // Subtle red for the whole line
+      // 2. Text Backgrounds: This highlights ONLY the exact new/modified words/characters
+      "diffEditor.insertedTextBackground": "#2e4d2ecc", // Stronger green block strictly on the changes
+      "diffEditor.removedTextBackground": "#4d2e2ecc",  // Stronger red block strictly on the changes
+      // 3. Remove the explicit borders entirely so VS Code doesn't outline every text segment
+      "diffEditor.insertedTextBorder": null,
+      "diffEditor.removedTextBorder": null
     },
     "[Aura Dark]": {
       "activityBar.background": "#110f17",
@@ -1907,9 +1924,9 @@
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
-    "*.md": "default",
-    "git-rebase-todo": "gitlens.rebase"
-  },
+		"*.md": "default",
+		"git-rebase-todo": "gitlens.rebase"
+	},
   //   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.openMode": "doubleClick",

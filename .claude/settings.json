@@ -49,9 +49,13 @@
       "PowerShell(git stash *)"
     ]
   },
-  "model": "haiku",
+  "model": "opus",
   "enableAllProjectMcpServers": true,
   "enabledPlugins": {},
   "extraKnownMarketplaces": {},
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash /c/Users/hsayed/.claude/statusline.sh"
+  }
 }

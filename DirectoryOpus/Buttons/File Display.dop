@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<toolbar version="12.28">
-	<wallpaper enabled="yes" inheritable="yes" type="share">
-		<std_type>toolbar</std_type>
-	</wallpaper>
+<toolbar>
+	<image_settings fill="none" fit="8" image="" inheritable="yes" opacity="100" use_custom="no" />
 	<buttons backcol="none" display="label" textcol="none" type="menu">
 		<button backcol="none" display="icon" hotkey="alt+left" label_pos="right" textcol="none" timed="yes" type="menu_button">
 			<label>&amp;Back</label>
@@ -182,7 +180,15 @@
 				</function>
 			</button>
 		</button>
-		<button backcol="none" field_type="path_treepath" label_pos="right" size="full" textcol="none">
+		<button backcol="none" display="icon" label_pos="right" textcol="none">
+			<label>Home</label>
+			<tip>Go home to %1</tip>
+			<icon1>#home</icon1>
+			<function type="normal">
+				<instruction>Go HOMEDIR USEQUALKEYS</instruction>
+			</function>
+		</button>
+		<button backcol="none" display="icon" field_type="path_treepath" label_pos="right" size="full" textcol="none">
 			<label>Location</label>
 			<tip>Displays the current folder path, and lets you move to a new folder by typing the path in (with drop-down recent list)</tip>
 			<template>driveroot,hidedesktopfolders,hidefavorites,size=0+0+0+3+3</template>

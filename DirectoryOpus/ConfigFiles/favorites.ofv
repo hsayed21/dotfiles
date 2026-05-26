@@ -2,24 +2,33 @@
 <favorites>
 	<folder label="Favorites Bar">
 		<folder label="POSBANK">
+			<folder>
+				<separator heading="Tools" />
+			</folder>
 			<path label="Snapos Dev Release">
 				<dir>
 					<pathstring>C:\POSBANK\Snapos Dev Release</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Backups">
+			<path label="G:\My Drive\POSBANK Tools">
 				<dir>
-					<pathstring>C:\POSBANK\Backups</pathstring>
+					<pathstring>G:\My Drive\POSBANK</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP API">
+			<folder>
+				<separator heading="Web App" />
+			</folder>
+			<path label="C:\POSBANK\Projects\POPs Cloud ERP">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP API</pathstring>
+					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP Front">
+			<folder>
+				<separator />
+			</folder>
+			<path label="C:\POSBANK\Projects\MenuTree-Git">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP\POPs Cloud ERP Front</pathstring>
+					<pathstring>C:\POSBANK\Projects\MenuTree-Git</pathstring>
 				</dir>
 			</path>
 			<path label="C:\POSBANK\Projects\MenuTree-Frontend">
@@ -27,11 +36,17 @@
 					<pathstring>C:\POSBANK\Projects\MenuTree-Frontend</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\MenuTree-Git">
+			<folder>
+				<separator />
+			</folder>
+			<path label="C:\POSBANK\Projects\POPs Cloud Git">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\MenuTree-Git</pathstring>
+					<pathstring>C:\POSBANK\Projects\POPs Cloud Git</pathstring>
 				</dir>
 			</path>
+			<folder>
+				<separator heading="Desktop" />
+			</folder>
 			<path label="C:\POSBANK\Projects\POPs Restaurant 6.0.0.000">
 				<dir>
 					<pathstring>C:\POSBANK\Projects\POPs Restaurant 6.0.0.000</pathstring>
@@ -42,11 +57,9 @@
 					<pathstring>C:\POSBANK\Projects\POPs Retail Git</pathstring>
 				</dir>
 			</path>
-			<path label="POSBANK Tools">
-				<dir>
-					<pathstring>G:\My Drive\POSBANK</pathstring>
-				</dir>
-			</path>
+			<folder>
+				<separator />
+			</folder>
 			<path label="C:\Program Files (x86)\POPs Retail">
 				<dir>
 					<pathstring>C:\Program Files (x86)\POPs Retail</pathstring>
@@ -57,8 +70,26 @@
 					<pathstring>C:\Program Files (x86)\POPs Restaurant</pathstring>
 				</dir>
 			</path>
+			<folder>
+				<separator heading="Agent" />
+			</folder>
+			<path label="C:\POSBANK\Projects\Support AI Agent">
+				<dir>
+					<pathstring>C:\POSBANK\Projects\Support AI Agent</pathstring>
+				</dir>
+			</path>
 		</folder>
 		<folder label="MyStaff">
+			<path label="G:\My Drive\dotfiles">
+				<dir>
+					<pathstring>G:\My Drive\dotfiles</pathstring>
+				</dir>
+			</path>
+			<path label="G:\My Drive\_MyAutohotkey">
+				<dir>
+					<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
+				</dir>
+			</path>
 			<path label="C:\MyRepo\vscode_dev">
 				<dir>
 					<pathstring>C:\MyRepo\vscode_dev</pathstring>
@@ -77,16 +108,6 @@
 			<path label="C:\MyRepo\hugo_theme\hsayed21.github.io">
 				<dir>
 					<pathstring>C:\MyRepo\hugo_theme\hsayed21.github.io</pathstring>
-				</dir>
-			</path>
-			<path label="G:\My Drive\dotfiles">
-				<dir>
-					<pathstring>G:\My Drive\dotfiles</pathstring>
-				</dir>
-			</path>
-			<path label="G:\My Drive\_MyAutohotkey">
-				<dir>
-					<pathstring>G:\My Drive\_MyAutohotkey</pathstring>
 				</dir>
 			</path>
 		</folder>
