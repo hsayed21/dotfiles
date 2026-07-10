@@ -13,9 +13,7 @@
   "AutoHotkey2.SymbolFoldingFromOpenBrace": false,
   "AutoHotkey2.Warn.VarUnset": false,
   "Lua.completion.keywordSnippet": "Disable",
-  "Lua.diagnostics.globals": [
-    "vim"
-  ],
+  "Lua.diagnostics.globals": ["vim"],
   "Lua.semantic.keyword": true,
   "Lua.window.progressBar": false,
   "Lua.window.statusBar": false,
@@ -24,7 +22,7 @@
     "editor.formatOnSave": false,
     "editor.formatOnType": false
   },
-  "[ahk]": { },
+  "[ahk]": {},
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.trimTrailingWhitespace": false,
@@ -34,9 +32,7 @@
     "editor.quickSuggestions": {
       "other": "inline"
     },
-    "editor.rulers": [
-      72
-    ],
+    "editor.rulers": [72],
     "workbench.editor.restoreViewState": false
   },
   "[html]": {
@@ -58,7 +54,7 @@
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua",
     "editor.quickSuggestions": {
-      "strings": "inline"
+      "strings": "off"
     }
   },
   "[markdown]": {
@@ -73,13 +69,15 @@
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "editor.unicodeHighlight.invisibleCharacters": false
   },
-  "[sql]": { },
+  "[sql]": {},
   "[typescript]": {
     "editor.formatOnSave": false,
     // "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.trimTrailingWhitespace": false,
-    "files.trimFinalNewlines": false
+    "files.trimFinalNewlines": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.snippetSuggestions": "none"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -138,7 +136,7 @@
     ".sidebar .title-label h2": "line-height: 2.8 !important",
     ".monaco-editor .scroll-decoration": "display: none !important",
     ".monaco-scrollable-element > .shadow.top": "display: none !important",
-    ".monaco-split-view2 > .monaco-scrollable-element > .split-view-container": "background: #191521 !important",
+    ".monaco-split-view2 > .monaco-scrollable-element > .split-view-container": "background: #191521 !important"
   },
   "breadcrumbs.filePath": "off",
   "cSpell.enableFiletypes": [
@@ -181,9 +179,7 @@
   "debug.console.fontSize": 12,
   "debug.inlineValues": "off",
   "debug.toolBarLocation": "docked",
-  "diffEditor.codeLens": true,
   "diffEditor.experimental.useVersion2": true,
-  "diffEditor.renderIndicators": false,
   "dotnet.codeLens.enableTestsCodeLens": false,
   "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -200,8 +196,8 @@
   "editor.find.cursorMoveOnType": false,
   "editor.find.seedSearchStringFromSelection": "never",
   "editor.foldingStrategy": "indentation",
-  "editor.fontFamily": "'JetBrainsMono NF', 'JetBrainsMono Nerd Font', 'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji', \"DejaVuSansM Nerd Font\"",
-  "editor.fontLigatures": true,
+  "editor.fontFamily": "'JetBrainsMono NF', 'JetBrainsMono Nerd Font', 'JetBrains Mono', 'DejaVuSansM Nerd Font', 'SauceCodePro Nerd Font', 'MesloLGM Nerd Font', Consolas, Hack, 'RobotoMono Nerd Font', 'Symbols Nerd Font', 'Twemoji', 'Segoe UI Emoji', \"DejaVuSansM Nerd Font\", 'Arial'",
+  "editor.fontLigatures": false,
   // Change font
   // "editor.fontFamily": "Geist Mono",
   // "scm.inputFontFamily": "Geist Mono",
@@ -225,7 +221,6 @@
   "editor.lineNumbers": "relative",
   "editor.linkedEditing": true,
   // ui
-  "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.scale": 2,
   "editor.minimap.showSlider": "always",
@@ -234,14 +229,14 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.overviewRulerBorder": false,
   "editor.quickSuggestions": {
-    "comments": "inline",
-    "other": "off",
-    "strings": "inline"
+    "comments": "off",
+    "other": "on",
+    "strings": "off"
   },
   "editor.quickSuggestionsDelay": 0,
   "editor.renderFinalNewline": "off",
   "editor.renderLineHighlightOnlyWhenFocus": true,
-  "editor.rulers": [ ],
+  "editor.rulers": [],
   "editor.scrollbar.horizontal": "auto",
   "editor.scrollbar.horizontalScrollbarSize": 14,
   "editor.scrollbar.vertical": "auto",
@@ -283,7 +278,7 @@
       },
       {
         "name": "red italic",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#EA6962"
@@ -291,7 +286,7 @@
       },
       {
         "name": "red bold",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#EA6962"
@@ -316,7 +311,7 @@
       },
       {
         "name": "orange italic",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#E78A4E"
@@ -324,7 +319,7 @@
       },
       {
         "name": "orange bold",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#E78A4E"
@@ -379,7 +374,7 @@
       },
       {
         "name": "yellow italic",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#D8A657"
@@ -399,7 +394,7 @@
       },
       {
         "name": "green bold",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#A9B665"
@@ -407,7 +402,7 @@
       },
       {
         "name": "green italic",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#A9B665"
@@ -415,11 +410,7 @@
       },
       {
         "name": "mint",
-        "scope": [
-          "entity.name.type.namespace.cs",
-          "string.quoted.double.json",
-          "entity.name.tag.html"
-        ],
+        "scope": ["entity.name.type.namespace.cs", "string.quoted.double.json", "entity.name.tag.html"],
         "settings": {
           "fontStyle": "",
           "foreground": "#89B482"
@@ -427,10 +418,7 @@
       },
       {
         "name": "mint bold",
-        "scope": [
-          "punctuation.definition.attribute.rust",
-          "punctuation.brackets.attribute.rust"
-        ],
+        "scope": ["punctuation.definition.attribute.rust", "punctuation.brackets.attribute.rust"],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#89B482"
@@ -438,11 +426,7 @@
       },
       {
         "name": "mint italic",
-        "scope": [
-          "markup.italic",
-          "support.function.ahk2",
-          "entity.name.function.shell"
-        ],
+        "scope": ["markup.italic", "support.function.ahk2", "entity.name.function.shell"],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#89B482"
@@ -450,10 +434,7 @@
       },
       {
         "name": "cyan",
-        "scope": [
-          "support.constant.lua",
-          "variable.other.object"
-        ],
+        "scope": ["support.constant.lua", "variable.other.object"],
         "settings": {
           "fontStyle": "",
           "foreground": "#7DAEA3"
@@ -461,7 +442,7 @@
       },
       {
         "name": "cyan bold",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#7DAEA3"
@@ -498,10 +479,7 @@
       },
       {
         "name": "purple italic",
-        "scope": [
-          "storage.modifier.mut.rust",
-          "keyword.other.base"
-        ],
+        "scope": ["storage.modifier.mut.rust", "keyword.other.base"],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#D3869B"
@@ -509,10 +487,7 @@
       },
       {
         "name": "purple bold",
-        "scope": [
-          "punctuation.definition.lifetime.rust",
-          "entity.name.type.lifetime.rust"
-        ],
+        "scope": ["punctuation.definition.lifetime.rust", "entity.name.type.lifetime.rust"],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#D3869B"
@@ -520,9 +495,7 @@
       },
       {
         "name": "purple underline",
-        "scope": [
-          "variable.other.fixed.fish"
-        ],
+        "scope": ["variable.other.fixed.fish"],
         "settings": {
           "fontStyle": "underline",
           "foreground": "#D3869B"
@@ -530,9 +503,7 @@
       },
       {
         "name": "purple bold underline",
-        "scope": [
-          "variable.other.special.fish"
-        ],
+        "scope": ["variable.other.special.fish"],
         "settings": {
           "fontStyle": "bold underline",
           "foreground": "#D3869B"
@@ -540,9 +511,7 @@
       },
       {
         "name": "white bold italic",
-        "scope": [
-          "variable.language.ahk2"
-        ],
+        "scope": ["variable.language.ahk2"],
         "settings": {
           "fontStyle": "bold italic",
           "foreground": "#D4BE98"
@@ -550,9 +519,7 @@
       },
       {
         "name": "white italic",
-        "scope": [
-          "string.other.option.fish"
-        ],
+        "scope": ["string.other.option.fish"],
         "settings": {
           "fontStyle": "italic",
           "foreground": "#D4BE98"
@@ -583,9 +550,7 @@
       },
       {
         "name": "white strikethrough",
-        "scope": [
-          "markup.strikethrough.markdown"
-        ],
+        "scope": ["markup.strikethrough.markdown"],
         "settings": {
           "fontStyle": "strikethrough",
           "foreground": "#D4BE98"
@@ -634,7 +599,7 @@
       },
       {
         "name": "grey bold",
-        "scope": [ ],
+        "scope": [],
         "settings": {
           "fontStyle": "bold",
           "foreground": "#928374"
@@ -649,12 +614,7 @@
   "editor.wordBasedSuggestionsMode": "allDocuments",
   "editor.wordWrapColumn": 170,
   "emmet.useInlineCompletions": true,
-  "errorLens.enabledDiagnosticLevels": [
-    "error",
-    "info",
-    "hint",
-    "warning"
-  ],
+  "errorLens.enabledDiagnosticLevels": ["error", "info", "hint", "warning"],
   "errorLens.messageBackgroundMode": "message",
   "errorLens.messageEnabled": true,
   "errorLens.onSave": true,
@@ -799,9 +759,7 @@
   "search.showLineNumbers": true,
   "security.workspace.trust.banner": "never",
   "security.workspace.trust.untrustedFiles": "open",
-  "settingsSync.ignoredSettings": [
-    "-window.zoomLevel"
-  ],
+  "settingsSync.ignoredSettings": ["-window.zoomLevel"],
   "task.quickOpen.history": 5,
   "task.quickOpen.skip": true,
   "terminal.integrated.commandsToSkipShell": [
@@ -818,12 +776,9 @@
   "terminal.integrated.enableMultiLinePasteWarning": "auto",
   "terminal.integrated.profiles.windows": {
     "Command Prompt": {
-      "args": [ ],
+      "args": [],
       "icon": "terminal-cmd",
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
-      ]
+      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"]
     },
     "Git Bash": {
       "source": "Git Bash"
@@ -871,9 +826,7 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "",
   "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\hsayed\\AppData\\Local\\nvim\\init.lua",
   "vscode-neovim.revealCursorScrollLine": true,
-  "vscode_custom_css.imports": [
-    "file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"
-  ],
+  "vscode_custom_css.imports": ["file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"],
   "vscode_custom_css.statusbar": false,
   "vscord.app.name": "Visual Studio Code",
   "whichkey.bindings": [
@@ -978,11 +931,7 @@
           "type": "command"
         },
         {
-          "commands": [
-            "editor.action.selectAll",
-            "editor.action.clipboardCopyAction",
-            "cancelSelection"
-          ],
+          "commands": ["editor.action.selectAll", "editor.action.clipboardCopyAction", "cancelSelection"],
           "key": "y",
           "name": "Copy buffer to clipboard",
           "type": "commands"
@@ -1875,16 +1824,36 @@
       "editorOverviewRuler.errorForeground": "#0000",
       "editorOverviewRuler.infoForeground": "#0000",
       // "editorOverviewRuler.border": "#0000",
-     
+
       // 1. Line Backgrounds: The overall background for the modified lines
-      "diffEditor.insertedLineBackground": "#24322444", // Subtle green for the whole line
-      "diffEditor.removedLineBackground": "#32242444",  // Subtle red for the whole line
+      // "diffEditor.insertedLineBackground": "#24322444", // Subtle green for the whole line
+      // "diffEditor.removedLineBackground": "#32242444", // Subtle red for the whole line
       // 2. Text Backgrounds: This highlights ONLY the exact new/modified words/characters
-      "diffEditor.insertedTextBackground": "#2e4d2ecc", // Stronger green block strictly on the changes
-      "diffEditor.removedTextBackground": "#4d2e2ecc",  // Stronger red block strictly on the changes
+      // "diffEditor.insertedTextBackground": "#2e4d2ecc", // Stronger green block strictly on the changes
+      // "diffEditor.removedTextBackground": "#4d2e2ecc",  // Stronger red block strictly on the changes
       // 3. Remove the explicit borders entirely so VS Code doesn't outline every text segment
-      "diffEditor.insertedTextBorder": null,
-      "diffEditor.removedTextBorder": null
+      // "diffEditor.insertedTextBorder": null,
+      // "diffEditor.removedTextBorder": null
+
+      // Make line backgrounds invisible (alpha = 00)
+      // "diffEditor.insertedLineBackground": "#00ff0000",  // green at 0% opacity
+      // "diffEditor.removedLineBackground": "#ff000000",   // red at 0% opacity
+      // Keep only the exact changed characters highlighted (strong opacity)
+      // "diffEditor.insertedTextBackground": "#2e4d2ecc",
+      // "diffEditor.removedTextBackground": "#4d2e2ecc",
+      // Remove borders around text segments
+      // "diffEditor.insertedTextBorder": "#00000000",
+      // "diffEditor.removedTextBorder": "#00000000"
+
+      "diffEditor.insertedLineBackground": "#00ff0000",
+      "diffEditor.removedLineBackground": "#ff000000",
+      "diffEditor.insertedTextBackground": "#2e4d2ecc",
+      "diffEditor.removedTextBackground": "#4d2e2ecc",
+      "diffEditor.insertedTextBorder": "#00000000",
+      "diffEditor.removedTextBorder": "#00000000",
+      "diffEditor.diagonalFill": "#88888822",
+      "diffEditorOverview.insertedForeground": "#2e8b57aa",
+      "diffEditorOverview.removedForeground": "#8b2e2eaa"
     },
     "[Aura Dark]": {
       "activityBar.background": "#110f17",
@@ -1909,7 +1878,7 @@
       "list.activeSelectionBackground": "#231739",
       "list.inactiveSelectionBackground": "#231739",
       "list.focusBackground": "#231739",
-      "list.hoverBackground": "#231739",
+      "list.hoverBackground": "#231739"
       // "terminalCursor.foreground": "#C45DFF",
     }
   },
@@ -1924,9 +1893,9 @@
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
-		"*.md": "default",
-		"git-rebase-todo": "gitlens.rebase"
-	},
+    "*.md": "default",
+    "git-rebase-todo": "gitlens.rebase"
+  },
   //   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.openMode": "doubleClick",
@@ -1956,7 +1925,8 @@
     {
       "comparison": "_.toLower(a.key).localeCompare(_.toLower(b.key)) || _.toLower(a.command).localeCompare(_.toLower(b.command)) || (_.toLower((a.args || '').toString()).localeCompare(_.toLower((b.args || '').toString()))) || _.toLower((a.when || '').toString()).localeCompare(_.toLower((b.when || '').toString()))",
       "description": "keybindings sort by key, command, args, when"
-    }, {
+    },
+    {
       "comparison": "_.toLower((a.command || '').replace(/^\\-/, '')).localeCompare(_.toLower((b.command || '').replace(/^\\-/, ''))) || _.toLower(a.key).localeCompare(_.toLower(b.key)) || (_.toLower((a.args || '').toString()).localeCompare(_.toLower((b.args || '').toString()))) || _.toLower((a.when || '').toString()).localeCompare(_.toLower((b.when || '').toString()))",
       "description": "keybindings sort by command (ignoring leading '-'), key, args, when"
     },
@@ -1968,7 +1938,7 @@
   "material-icon-theme.hidesExplorerArrows": true,
   "workbench.tips.enabled": false,
   "editor.lightbulb.enabled": "off",
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": "off",
   "editor.showFoldingControls": "never",
   "explorer.autoReveal": false,
   "scm.autoReveal": false,
@@ -1993,7 +1963,6 @@
   "fold.enableAutoFold": false,
   "githd.blameView.enabled": "disabled",
   "editor.formatOnType": false,
-  "diffEditor.ignoreTrimWhitespace": false,
   "lazygit-vscode.autoHideSideBar": true,
   "lazygit-vscode.autoMaximizeWindow": true,
   "terminal.integrated.mouseWheelZoom": true,
@@ -2132,18 +2101,12 @@
       "description": "Code review changes",
       "emoji": "👌",
       "standalone": true
-    },
+    }
   ],
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "find-it-faster.general.additionalSearchLocations": [
-
-
-    "C:\\Users\\hsayed\\AppData\\Local\\nvim"
-
-  ],
-  "diffEditor.renderSideBySide": false,
+  "find-it-faster.general.additionalSearchLocations": ["C:\\Users\\hsayed\\AppData\\Local\\nvim"],
   "window.newWindowProfile": "Default",
   "gitlens.views.scm.grouped.views": {
     "commits": false,
@@ -2197,13 +2160,9 @@
   },
   // "workbench.editor.limit.enabled": true,
   // "workbench.editor.limit.value": 3,
-  "editor.experimentalEditContextEnabled": true,
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 5,
-  "firefox.launchArgs": [
-    "-start-debugger-server",
-    "6000"
-  ],
+  "firefox.launchArgs": ["-start-debugger-server", "6000"],
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": true,
   "gitlens.ai.gitkraken.model": "gemini:gemini-2.5-flash",
@@ -2263,19 +2222,15 @@
   "bookmarks.keepBookmarksOnLineDelete": true,
   "json.schemas": [
     {
-      "fileMatch": [
-        "komorebi.json"
-      ],
+      "fileMatch": ["komorebi.json"],
       "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.json"
     },
     {
-      "fileMatch": [
-        "komorebi.bar.json"
-      ],
+      "fileMatch": ["komorebi.bar.json"],
       "url": "https://raw.githubusercontent.com/LGUG2Z/komorebi/refs/heads/master/schema.bar.json"
     },
     {
-      "fileMatch": [ "with-glazevm.zebar.json" ],
+      "fileMatch": ["with-glazevm.zebar.json"],
       "url": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/widget-schema.json"
     }
   ],
@@ -2322,7 +2277,7 @@
     "**/bin/**": true,
     "**/obj/**": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true,
+    "**/Thumbs.db": true
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -2395,24 +2350,23 @@
   //   "scm.diffDecorations": "none",
   "editor.detectIndentation": false,
   "editor.insertSpaces": false,
-  "editor.renderWhitespace": "none",
   "editor.renderLineHighlight": "none",
   "editor.occurrencesHighlight": "off",
   "editor.selectionHighlight": false,
   //   "editor.scrollbar.horizontal": "hidden",
   //   "editor.scrollbar.vertical": "hidden",
-  "editor.suggestOnTriggerCharacters": false,
-  "editor.snippetSuggestions": "top",
+  "editor.suggestOnTriggerCharacters": true,
+  // "tsimporter.disabled": true,
+  "javascript.suggest.autoImports": true,
+  "typescript.suggest.autoImports": true,
+  "editor.snippetSuggestions": "none",
+  "editor.suggest.showSnippets": false,
   "emmet.triggerExpansionOnTab": true,
   "update.mode": "none",
   "debug.console.acceptSuggestionOnEnter": "on",
   "debug.console.inputMode": "simple",
   "github.copilot.nextEditSuggestions.enabled": true,
-  "gitlens.gitCommands.skipConfirmations": [
-    "fetch:command",
-    "stash-push:command",
-    "launchpad:command"
-  ],
+  "gitlens.gitCommands.skipConfirmations": ["fetch:command", "stash-push:command", "launchpad:command"],
   "gitlens.ai.model": "gitkraken",
   "gitlens.ai.vscode.model": "copilot:claude-opus-4.5",
   "gitlens.advanced.messages": {
@@ -2442,7 +2396,7 @@
   "markdown.hover.enabled": false,
   "gitlens.graph.dimMergeCommits": true,
   "files.trimTrailingWhitespaceInRegexAndStrings": false,
-  "editor.codeActionsOnSave": { },
+  "editor.codeActionsOnSave": {},
   "files.trimTrailingWhitespace": false,
   "files.insertFinalNewline": false,
   "files.trimFinalNewlines": false,
@@ -2452,7 +2406,52 @@
   "nuget.includePrereleasePackageVersions": true,
   "github.copilot.selectedCompletionModel": "",
   "google-translate.secondLanguage": "en",
-  "security.allowedUNCHosts": [
-    "wsl.localhost"
-  ]
+  "security.allowedUNCHosts": ["wsl.localhost"],
+  "editor.inlineSuggest.enabled": false,
+  "omnisharp.useModernNet": true,
+  "git.autorefresh": true,
+  "git.diagnosticLimit": 10,
+  // "git.statusLimit": 100,
+  "git.pruneOnFetch": true,
+  "editor.formatOnPaste": true,
+  "claudeCode.allowDangerouslySkipPermissions": true,
+  "claudeCode.claudeProcessWrapper": "G:\\My Drive\\dotfiles\\.claude\\scripts\\claude-deepseek-wrapper\\claude-deepseek-wrapper.exe",
+  "claudeCode.preferredLocation": "sidebar",
+  "claudeCode.disableLoginPrompt": true,
+  "gitlens.views.remotes.branches.layout": "list",
+  "diffEditor.ignoreTrimWhitespace": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.diffAlgorithm": "advanced",
+  "diffEditor.renderSideBySide": false,
+  "diffEditor.renderSideBySideInlineBreakpoint": 900,
+  "diffEditor.hideUnchangedRegions.contextLineCount": 3,
+  "diffEditor.hideUnchangedRegions.minimumLineCount": 3,
+  "diffEditor.hideUnchangedRegions.revealLineCount": 20,
+  "diffEditor.renderIndicators": true,
+  "diffEditor.renderGutterMenu": true,
+  "diffEditor.codeLens": false,
+  "diffEditor.wordWrap": "inherit",
+  "diffEditor.maxComputationTime": 0,
+  "editor.renderWhitespace": "none",
+	"editor.minimap.enabled": false,
+  "editor.lineHeight": 1.6,
+  "scm.diffDecorations": "none",
+  "editor.experimentalEditContextEnabled": true,
+	"explorer.fileNesting.patterns": {
+		"*.ts": "${capture}.js",
+		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+		"*.jsx": "${capture}.js",
+		"*.tsx": "${capture}.ts",
+		"tsconfig.json": "tsconfig.*.json",
+		"package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+		"pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
+		"*.dart": "${capture}.g.dart",
+		"*.sqlite": "${capture}.${extname}-*",
+		"*.db": "${capture}.${extname}-*",
+		"*.sqlite3": "${capture}.${extname}-*",
+		"*.db3": "${capture}.${extname}-*",
+		"*.sdb": "${capture}.${extname}-*",
+		"*.s3db": "${capture}.${extname}-*"
+	}
 }

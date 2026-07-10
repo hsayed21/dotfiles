@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <find>
-	<lister opus_version_beta="0" opus_version_major="13" opus_version_minor="12">
+	<lister opus_version_beta="0" opus_version_major="13" opus_version_minor="18">
 		<collection>coll://Find Results</collection>
 		<filter desc="" name="">
 			<clause match="yes" type="name" wildcards="yes" />
@@ -48,7 +48,7 @@
 			<size_tounits>0</size_tounits>
 			<type />
 		</simple>
-		<indexed engine="1" query="startwith:WhatsApp|startwith:VID_|&quot;POS Print&quot;|&quot;My C#.NET RAW&quot;|&quot;POS Driver&quot;|PBBK|PB_BackOffice ext:zip;rar;bak;7z;mp4;mp3;ogg;pdf | folder:!path:recycle path:!Posbank_Projects path:!WindowsApps" />
+		<indexed engine="1" query="startwith:WhatsApp|startwith:VID_|&quot;POS Print&quot;|&quot;My C#.NET RAW&quot;|&quot;POS Driver&quot;|PBBK|PB_BackOffice ext:zip;rar;bak;7z;mp4;mp3;ogg;pdf | folder:!path:recycle path:!POSBANK path:!WindowsApps" />
 		<splitter>0.375924</splitter>
 	</lister>
 </find>
