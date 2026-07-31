@@ -1,525 +1,628 @@
 ---
-name: n8n-expression-syntax
-description: Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} syntax, accessing $json/$node variables, troubleshooting expression errors, mapping data between nodes, or referencing webhook data in workflows. Use this skill whenever configuring node fields that reference data from previous nodes — expressions are how n8n passes data between nodes, and getting the syntax wrong is the most common source of workflow errors.
+name: video-lecture-notes
+description: Analyze local or online programming and course videos using ClaudeTube MCP. Use when the user asks to transcribe a lecture, inspect visible code or technical screens, reconstruct examples, and generate concise, technically complete, Obsidian-ready Markdown notes for any programming language, framework, database, operating system, tool, platform, or technical subject.
 ---
 
-# n8n Expression Syntax
+# Technical Video Lecture Notes
 
-Expert guide for writing correct n8n expressions in workflows.
+Use the configured `claudetube` MCP server to reconstruct programming and technical lectures from local videos or supported online video URLs.
 
----
+This skill is technology-independent.
 
-## Expression Format
+It must work with subjects such as:
 
-All dynamic content in n8n uses **double curly braces**:
+- C, C++, C#, Java, Kotlin, Python, JavaScript, TypeScript, Go, Rust, PHP, Ruby, Swift, Dart, and other languages;
+- .NET, ASP.NET Core, Angular, React, Vue, Node.js, Spring, Django, Laravel, Flutter, and other frameworks;
+- SQL Server, PostgreSQL, MySQL, Oracle, MongoDB, Redis, and other databases;
+- Docker, Kubernetes, Git, Linux, Windows, cloud platforms, CI/CD, networking, cybersecurity, system administration, and DevOps;
+- architecture, algorithms, data structures, APIs, testing, debugging, design patterns, and software engineering;
+- any technical lecture containing explanations, code, commands, configuration, diagrams, slides, or software demonstrations.
 
-```
-{{expression}}
-```
+Do not assume the subject is Angular.
 
-**Examples**:
-```
-✅ {{$json.email}}
-✅ {{$json.body.name}}
-✅ {{$node["HTTP Request"].json.data}}
-❌ $json.email  (no braces - treated as literal text)
-❌ {$json.email}  (single braces - invalid)
-```
+Detect the actual language, framework, tool, platform, and technical context from the video evidence.
 
----
+## Main objective
 
-## Core Variables
+Reconstruct the complete lecture using three information sources:
 
-### $json - Current Node Output
+1. What the instructor says.
+2. What appears visually on screen.
+3. The chronological relationship between the explanation and the demonstrated work.
 
-Access data from the current node:
+The final output must contain:
 
-```javascript
-{{$json.fieldName}}
-{{$json['field with spaces']}}
-{{$json.nested.property}}
-{{$json.items[0].name}}
-```
+1. A complete timestamped transcript.
+2. Polished technical lecture notes.
+3. Visible code and technical artifacts.
+4. A timeline of topics and actions.
+5. Clearly documented uncertainties.
 
-### $node - Reference Other Nodes
+This is not transcript-only summarization.
 
-Access data from any previous node:
+This is not code-only extraction.
 
-```javascript
-{{$node["Node Name"].json.fieldName}}
-{{$node["HTTP Request"].json.data}}
-{{$node["Webhook"].json.body.email}}
-```
+## Supported inputs
 
-**Important**:
-- Node names **must** be in quotes
-- Node names are **case-sensitive**
-- Must match exact node name from workflow
+Accept:
 
-### $now - Current Timestamp
+- local video files;
+- YouTube URLs;
+- other video URLs supported by ClaudeTube.
 
-Access current date/time:
+For a local video:
 
-```javascript
-{{$now}}
-{{$now.toFormat('yyyy-MM-dd')}}
-{{$now.toFormat('HH:mm:ss')}}
-{{$now.plus({days: 7})}}
-```
+- verify that the file exists;
+- resolve it to an absolute path;
+- do not move, rename, or modify the original file;
+- save generated content in the location requested by the user.
 
-### $env - Environment Variables
+For an online video:
 
-Access environment variables:
+- verify that ClaudeTube can process the URL;
+- use the best available transcript and visual quality;
+- report access or download failures honestly.
 
-```javascript
-{{$env.API_KEY}}
-{{$env.DATABASE_URL}}
-```
+## Mandatory ClaudeTube workflow
 
-**Warning**: Some n8n instances have `N8N_BLOCK_ENV_ACCESS_IN_NODE` enabled, which blocks `$env` access entirely. If `$env` returns errors, use alternative approaches:
-- Store values in credentials instead
-- Use a Set node with manually entered values
-- Pass values through webhook query parameters
+Use the available ClaudeTube MCP tools to:
 
----
+1. Inspect the video metadata.
+2. Process the complete video.
+3. retrieve the full timestamped transcript.
+4. Detect scenes and important visual changes.
+5. Identify sections containing:
+   - source code;
+   - markup;
+   - stylesheets;
+   - queries;
+   - terminal commands;
+   - terminal output;
+   - configuration files;
+   - project structures;
+   - browser output;
+   - developer tools;
+   - desktop applications;
+   - database tools;
+   - API clients;
+   - logs;
+   - errors and stack traces;
+   - diagrams;
+   - charts;
+   - slides;
+   - tables;
+   - formulas;
+   - settings and user interfaces.
+6. Extract high-quality frames when text, code, commands, diagrams, or configuration must be read.
+7. Inspect adjacent frames when:
+   - the instructor is typing;
+   - the screen is scrolling;
+   - autocomplete obscures content;
+   - a tooltip or menu covers content;
+   - text is blurred;
+   - only part of a file is visible;
+   - the instructor changes a small section of code;
+   - terminal output appears briefly.
+8. Combine transcript context with visual evidence.
+9. Never rely only on captions.
+10. Never claim that visual content was captured unless relevant frames were actually inspected.
 
-## 🚨 CRITICAL: Webhook Data Structure
+## Layer 1 — Raw transcript
 
-**Most Common Mistake**: Webhook data is **NOT** at the root!
+Create a complete timestamped transcript representing what the instructor said.
 
-### Webhook Node Output Structure
+The transcript must:
 
-```javascript
+- preserve meaningful explanations;
+- preserve technical terminology;
+- preserve product, framework, API, library, class, method, file, command, and configuration names;
+- preserve important questions, warnings, and reasoning;
+- retain timestamps;
+- remove only clearly meaningless recognition artifacts;
+- correct obvious speech-recognition errors when strongly supported by context;
+- mark uncertain terminology instead of guessing.
+
+Do not rewrite the raw transcript as polished notes.
+
+Keep it as a separate reference file.
+
+## Layer 2 — Polished lecture notes
+
+Transform the transcript and visual evidence into structured Markdown suitable for Obsidian.
+
+The notes must:
+
+- preserve every meaningful technical detail;
+- avoid over-summarization;
+- remove greetings, filler speech, pauses, typing silence, and repetition that adds no new information;
+- preserve the instructor's teaching sequence;
+- keep explanations close to their related examples;
+- keep code under the concept it demonstrates;
+- explain what changed, why it changed, and what result it produced;
+- separate distinct lectures or topics clearly;
+- correct obvious transcription and formatting errors;
+- avoid unnecessary verbosity;
+- avoid generic textbook content that was not part of the lecture;
+- avoid repeating the same definition in multiple sections;
+- remain useful for revision months later.
+
+Every paragraph should provide technical value.
+
+The result should feel like carefully edited course notes, not a generic article.
+
+## Layer 3 — Code and technical artifacts
+
+Capture all meaningful visible technical content, including when applicable:
+
+- source code;
+- HTML or XML;
+- CSS, SCSS, or other styling languages;
+- SQL and database queries;
+- shell, Bash, PowerShell, CMD, or terminal commands;
+- JSON, YAML, TOML, XML, INI, environment variables, and configuration;
+- API requests and responses;
+- logs and stack traces;
+- compiler or runtime errors;
+- regular expressions;
+- file and project structures;
+- Git commands and diffs;
+- Dockerfiles and Compose files;
+- infrastructure definitions;
+- test cases;
+- browser output;
+- database result sets;
+- diagrams and data flows;
+- formulas and algorithms;
+- important UI settings or workflow steps.
+
+## Language and file detection
+
+Detect the correct language and file type from:
+
+- editor syntax;
+- file extensions;
+- editor tabs;
+- project trees;
+- imports;
+- package or dependency files;
+- commands;
+- framework conventions;
+- instructor speech;
+- surrounding visual context.
+
+Do not force code into a language-specific format without evidence.
+
+When the filename is visible or strongly supported, label the code with its filename.
+
+Example:
+
+````md
+### `UserService.cs`
+
+```csharp
+public sealed class UserService
 {
-  "headers": {...},
-  "params": {...},
-  "query": {...},
-  "body": {           // ⚠️ USER DATA IS HERE!
-    "name": "John",
-    "email": "john@example.com",
-    "message": "Hello"
-  }
 }
 ```
+````
 
-### Correct Webhook Data Access
+When the filename is unknown, use a descriptive label such as:
 
-```javascript
-❌ WRONG: {{$json.name}}
-❌ WRONG: {{$json.email}}
-
-✅ CORRECT: {{$json.body.name}}
-✅ CORRECT: {{$json.body.email}}
-✅ CORRECT: {{$json.body.message}}
+```md
+### Service implementation shown in the editor
 ```
 
-**Why**: Webhook node wraps incoming data under `.body` property to preserve headers, params, and query parameters.
+Do not invent filenames.
+
+## Code reconstruction rules
+
+Preserve the chronological sequence of code changes.
+
+Do not return only the final code when the teaching process is important.
+
+When possible, explain:
+
+1. The initial state.
+2. The change introduced.
+3. Why the change was made.
+4. The resulting behavior.
+5. Any error encountered.
+6. How the error was resolved.
+
+Reconstruct complete files only when enough visual evidence exists.
+
+Do not fabricate unseen imports, methods, classes, configuration, or business logic merely to produce a compilable project.
+
+## Technical correction rules
+
+Correct obvious transcription and visual-reading mistakes only when supported by:
+
+- nearby frames;
+- syntax rules;
+- imports;
+- visible filenames;
+- instructor speech;
+- surrounding code;
+- compiler or runtime diagnostics;
+- framework conventions.
+
+Common visual mistakes may include:
+
+- braces confused with parentheses;
+- `I`, `l`, and `1`;
+- `O` and `0`;
+- quotation marks;
+- angle brackets;
+- colons and semicolons;
+- generic type syntax;
+- command flags;
+- filenames and extensions;
+- uppercase and lowercase identifiers;
+- indentation;
+- dots, commas, and underscores.
+
+Do not silently rewrite the instructor's implementation into a preferred style.
+
+Do not modernize, refactor, optimize, or replace older code unless the user explicitly asks.
+
+When the lecture uses an older version, preserve its approach and add a version note only when useful.
+
+## Uncertainty handling
+
+Never guess when content is obscured, cropped, blurred, or missing.
+
+Use:
+
+```md
+> [!warning] Unclear from video
+> The exact value, identifier, command, or code fragment could not be verified from the available frames.
+```
+
+Record all unresolved items in `uncertainties.md`.
+
+Include:
+
+- timestamp;
+- affected file or screen;
+- unclear content;
+- reason it is unclear;
+- best supported interpretation, only when useful;
+- confidence level.
+
+## Lecture separation
+
+When a video contains multiple lectures or separate topics:
+
+- create one top-level `#` heading per lecture;
+- separate lectures with `---`;
+- preserve the original order;
+- keep examples with their correct lecture;
+- do not combine unrelated material.
+
+Example:
+
+```md
+# Dependency Injection Fundamentals
+
+...
 
 ---
 
-## Common Patterns
+# Service Lifetimes
 
-### Access Nested Fields
-
-```javascript
-// Simple nesting
-{{$json.user.email}}
-
-// Array access
-{{$json.data[0].name}}
-{{$json.items[0].id}}
-
-// Bracket notation for spaces
-{{$json['field name']}}
-{{$json['user data']['first name']}}
+...
 ```
 
-### Reference Other Nodes
+## Adaptive Markdown structure
 
-```javascript
-// Node without spaces
-{{$node["Set"].json.value}}
+Do not force one fixed structure onto every technical topic.
 
-// Node with spaces (common!)
-{{$node["HTTP Request"].json.data}}
-{{$node["Respond to Webhook"].json.message}}
+Choose sections based on the actual lecture.
 
-// Webhook node
-{{$node["Webhook"].json.body.email}}
+A concept-focused lecture may use:
+
+```md
+# Lecture title
+
+## Introduction and Context
+
+## Core Concepts
+
+## How It Works
+
+## Implementation
+
+## Common Pitfalls
+
+## Practical Applications
+
+## Key Takeaways
 ```
 
-### Combine Variables
+A coding demonstration may use:
 
-```javascript
-// Concatenation (automatic)
-Hello {{$json.body.name}}!
+```md
+# Lecture title
 
-// In URLs
-https://api.example.com/users/{{$json.body.user_id}}
+## Objective
 
-// In object properties
-{
-  "name": "={{$json.body.name}}",
-  "email": "={{$json.body.email}}"
-}
+## Initial Project State
+
+## Implementation Steps
+
+### Step 1 — Create the model
+
+### Step 2 — Add the service
+
+### Step 3 — Connect the UI
+
+## Errors and Fixes
+
+## Final Result
+
+## Key Takeaways
 ```
 
----
+A debugging lecture may use:
 
-## When NOT to Use Expressions
+```md
+# Lecture title
 
-### ❌ Code Nodes
+## Problem
 
-Code nodes use **direct JavaScript access**, NOT expressions!
+## Symptoms
 
-```javascript
-// ❌ WRONG in Code node
-const email = '={{$json.email}}';
-const name = '{{$json.body.name}}';
+## Investigation
 
-// ✅ CORRECT in Code node
-const email = $json.email;
-const name = $json.body.name;
+## Root Cause
 
-// Or using Code node API
-const email = $input.item.json.email;
-const allItems = $input.all();
+## Fix
+
+## Verification
+
+## Lessons Learned
 ```
 
-### ❌ Webhook Paths
+A tool or configuration lecture may use:
 
-```javascript
-// ❌ WRONG
-path: "{{$json.user_id}}/webhook"
+```md
+# Lecture title
 
-// ✅ CORRECT
-path: "user-webhook"  // Static paths only
+## Purpose
+
+## Prerequisites
+
+## Configuration Steps
+
+## Important Options
+
+## Verification
+
+## Common Problems
+
+## Key Takeaways
 ```
 
-### ❌ Credential Fields
+Do not create empty or artificial sections.
 
-```javascript
-// ❌ WRONG
-apiKey: "REDACTED_API_KEY"
+## Code-fence detection
 
-// ✅ CORRECT
-Use n8n credential system, not expressions
+Use the correct Markdown language identifier based on the detected content.
+
+Examples include:
+
+- `c`
+- `cpp`
+- `csharp`
+- `java`
+- `kotlin`
+- `python`
+- `javascript`
+- `typescript`
+- `html`
+- `css`
+- `scss`
+- `sql`
+- `json`
+- `yaml`
+- `xml`
+- `toml`
+- `bash`
+- `powershell`
+- `dockerfile`
+- `diff`
+- `text`
+
+Use `text` for plain terminal output, logs, or unknown formats.
+
+Do not place HTML, SQL, JSON, terminal output, or configuration inside an unrelated programming-language fence.
+
+## Diagrams and visual explanations
+
+When a meaningful diagram appears:
+
+- describe what it represents;
+- preserve labels and relationships;
+- explain the flow or structure;
+- include its timestamp;
+- save a screenshot when the output format supports screenshots.
+
+Do not describe decorative visuals.
+
+For architecture or flow diagrams, use Mermaid only when the relationships are clear enough to reconstruct accurately.
+
+Label Mermaid diagrams as reconstructions rather than original images.
+
+## Commands and outputs
+
+Keep commands separate from their output.
+
+Example:
+
+```bash
+dotnet build
 ```
 
----
-
-## Validation Rules
-
-### 1. Always Use {{}}
-
-Expressions **must** be wrapped in double curly braces.
-
-```javascript
-❌ $json.field
-✅ {{$json.field}}
+```text
+Build succeeded.
+0 Warning(s)
+0 Error(s)
 ```
 
-### 2. Use Quotes for Spaces and Special Characters
+Explain why the command was run and what the result proved.
 
-Field or node names with spaces, diacritics, or special characters require **bracket notation**:
+## Default output structure
 
-```javascript
-❌ {{$json.field name}}
-✅ {{$json['field name']}}
+Unless the user requests another structure, create:
 
-❌ {{$node.HTTP Request.json}}
-✅ {{$node["HTTP Request"].json}}
-
-// Bracket notation is mandatory for keys with special characters
-✅ {{$json['Gross Price w/o shipment']}}
-✅ {{$json['Cena brutto zł']}}
+```text
+<lesson-name>/
+├── lecture.md
+├── transcript.md
+├── timeline.md
+├── uncertainties.md
+├── screenshots/
+└── code/
 ```
 
-### 3. Match Exact Node Names
+Create additional files only when useful, such as:
 
-Node references are **case-sensitive**:
-
-```javascript
-❌ {{$node["http request"].json}}  // lowercase
-❌ {{$node["Http Request"].json}}  // wrong case
-✅ {{$node["HTTP Request"].json}}  // exact match
+```text
+concepts.md
+commands.md
+errors-and-fixes.md
+build-report.md
+diagrams.md
 ```
 
-### 4. No Nested {{}}
+Do not create empty files.
 
-Don't double-wrap expressions:
+## lecture.md
 
-```javascript
-❌ {{{$json.field}}}
-✅ {{$json.field}}
+This is the primary polished output.
+
+It must combine:
+
+- the instructor's meaningful explanation;
+- visible technical evidence;
+- code and commands;
+- implementation sequence;
+- mistakes and fixes;
+- important conclusions.
+
+It must be concise enough to revise easily but complete enough that the user does not need to replay the lecture to recover important information.
+
+## transcript.md
+
+Store the complete timestamped transcript.
+
+Preserve the spoken sequence.
+
+Do not mix polished editorial explanations into the transcript.
+
+## timeline.md
+
+Create a concise timeline table:
+
+```md
+| Time | Topic | File or Screen | Action |
+|---|---|---|---|
+| 00:00–03:15 | Introduction | Slides | Defines the problem |
+| 03:16–08:40 | Model creation | `User.cs` | Adds the data model |
+| 08:41–12:05 | Database query | SQL editor | Executes and explains the query |
 ```
 
----
+Include only meaningful transitions and actions.
 
-## Common Mistakes
+## screenshots/
 
-For complete error catalog with fixes, see [COMMON_MISTAKES.md](COMMON_MISTAKES.md)
+Save only useful screenshots, such as:
 
-### Quick Fixes
+- readable code states;
+- important diagrams;
+- significant errors;
+- configuration screens;
+- final output.
 
-| Mistake | Fix |
-|---------|-----|
-| `$json.field` | `{{$json.field}}` |
-| `{{$json.field name}}` | `{{$json['field name']}}` |
-| `{{$node.HTTP Request}}` | `{{$node["HTTP Request"]}}` |
-| `{{{$json.field}}}` | `{{$json.field}}` |
-| `{{$json.name}}` (webhook) | `{{$json.body.name}}` |
-| `'={{$json.email}}'` (Code node) | `$json.email` |
+Avoid saving hundreds of duplicate frames.
 
----
+Use descriptive filenames containing the timestamp and subject.
 
-## Working Examples
+## code/
 
-For real workflow examples, see [EXAMPLES.md](EXAMPLES.md)
+Create reconstructed code files only when sufficient evidence exists.
 
-### Example 1: Webhook to Slack
+Preserve folder structure when visible.
 
-**Webhook receives**:
-```json
-{
-  "body": {
-    "name": "John Doe",
-    "email": "john@example.com",
-    "message": "Hello!"
-  }
-}
-```
+Do not invent a complete project from isolated snippets.
 
-**In Slack node text field**:
-```
-New form submission!
+## Validation
 
-Name: {{$json.body.name}}
-Email: {{$json.body.email}}
-Message: {{$json.body.message}}
-```
+Use technology-appropriate validation only when enough project information exists.
 
-### Example 2: HTTP Request to Email
+Examples:
 
-**HTTP Request returns**:
-```json
-{
-  "data": {
-    "items": [
-      {"name": "Product 1", "price": 29.99}
-    ]
-  }
-}
-```
+- `.NET`: `dotnet build` or relevant test commands;
+- Node.js or TypeScript: package scripts, compiler, or framework build;
+- Python: syntax checks or tests;
+- Java: Maven or Gradle build;
+- C or C++: available compiler or build system;
+- SQL: parser or database execution only when a safe configured environment exists;
+- Docker: configuration validation;
+- configuration files: relevant linting or validation tools.
 
-**In Email node** (reference HTTP Request):
-```
-Product: {{$node["HTTP Request"].json.data.items[0].name}}
-Price: ${{$node["HTTP Request"].json.data.items[0].price}}
-```
+Before running commands:
 
-### Example 3: Format Timestamp
+- inspect the project;
+- identify the actual technology;
+- avoid destructive operations;
+- do not install large dependencies unless required and permitted;
+- do not claim successful validation when only visual inspection was performed.
 
-```javascript
-// Current date
-{{$now.toFormat('yyyy-MM-dd')}}
-// Result: 2025-10-20
+Validation is used to detect extraction errors.
 
-// Time
-{{$now.toFormat('HH:mm:ss')}}
-// Result: 14:30:45
+It is not permission to invent missing code.
 
-// Full datetime
-{{$now.toFormat('yyyy-MM-dd HH:mm')}}
-// Result: 2025-10-20 14:30
-```
+Document validation results and remaining failures.
 
----
+## Notes density
 
-## Data Type Handling
+Preserve all meaningful information, but remove noise.
 
-### Arrays
+Avoid:
 
-```javascript
-// First item
-{{$json.users[0].email}}
+- long introductions;
+- generic motivational language;
+- repeated conclusions;
+- excessive emojis;
+- unnecessary analogies;
+- explaining obvious syntax line by line;
+- unrelated background knowledge;
+- artificial headings;
+- empty sections;
+- repeated definitions.
 
-// Array length
-{{$json.users.length}}
+Use analogies only when the instructor used one or when it significantly improves understanding.
 
-// Last item
-{{$json.users[$json.users.length - 1].name}}
-```
+Every word should earn its place.
 
-### Objects
+## Final quality checklist
 
-```javascript
-// Dot notation (no spaces)
-{{$json.user.email}}
+Before completing the task, verify:
 
-// Bracket notation (with spaces or dynamic)
-{{$json['user data'].email}}
-```
-
-### Strings
-
-```javascript
-// Concatenation (automatic)
-Hello {{$json.name}}!
-
-// String methods
-{{$json.email.toLowerCase()}}
-{{$json.name.toUpperCase()}}
-```
-
-### Numbers
-
-```javascript
-// Direct use
-{{$json.price}}
-
-// Math operations
-{{$json.price * 1.1}}  // Add 10%
-{{$json.quantity + 5}}
-```
-
----
-
-## Advanced Patterns
-
-### Conditional Content
-
-```javascript
-// Ternary operator
-{{$json.status === 'active' ? 'Active User' : 'Inactive User'}}
-
-// Default values
-{{$json.email || 'no-email@example.com'}}
-```
-
-### Date Manipulation
-
-```javascript
-// Add days
-{{$now.plus({days: 7}).toFormat('yyyy-MM-dd')}}
-
-// Subtract hours
-{{$now.minus({hours: 24}).toISO()}}
-
-// Set specific date
-{{DateTime.fromISO('2025-12-25').toFormat('MMMM dd, yyyy')}}
-```
-
-### String Manipulation
-
-```javascript
-// Substring
-{{$json.email.substring(0, 5)}}
-
-// Replace
-{{$json.message.replace('old', 'new')}}
-
-// Split and join
-{{$json.tags.split(',').join(', ')}}
-```
-
----
-
-## Debugging Expressions
-
-### Test in Expression Editor
-
-1. Click field with expression
-2. Open expression editor (click "fx" icon)
-3. See live preview of result
-4. Check for errors highlighted in red
-
-### Common Error Messages
-
-**"Cannot read property 'X' of undefined"**
-→ Parent object doesn't exist
-→ Check your data path
-
-**"X is not a function"**
-→ Trying to call method on non-function
-→ Check variable type
-
-**Expression shows as literal text**
-→ Missing {{ }}
-→ Add curly braces
-
----
-
-## Expression Helpers
-
-### Available Methods
-
-**String**:
-- `.toLowerCase()`, `.toUpperCase()`
-- `.trim()`, `.replace()`, `.substring()`
-- `.split()`, `.includes()`
-
-**Array**:
-- `.length`, `.map()`, `.filter()`
-- `.find()`, `.join()`, `.slice()`
-
-**DateTime** (Luxon):
-- `.toFormat()`, `.toISO()`, `.toLocal()`
-- `.plus()`, `.minus()`, `.set()`
-
-**Number**:
-- `.toFixed()`, `.toString()`
-- Math operations: `+`, `-`, `*`, `/`, `%`
-
----
-
-## Best Practices
-
-### ✅ Do
-
-- Always use {{ }} for dynamic content
-- Use bracket notation for field names with spaces
-- Reference webhook data from `.body`
-- Use $node for data from other nodes
-- Test expressions in expression editor
-
-### ❌ Don't
-
-- Don't use expressions in Code nodes
-- Don't forget quotes around node names with spaces
-- Don't double-wrap with extra {{ }}
-- Don't assume webhook data is at root (it's under .body!)
-- Don't use expressions in webhook paths or credentials
-
----
-
-## Related Skills
-
-- **n8n MCP Tools Expert**: Learn how to validate expressions using MCP tools
-- **n8n Workflow Patterns**: See expressions in real workflow examples
-- **n8n Node Configuration**: Understand when expressions are needed
-
----
-
-## Summary
-
-**Essential Rules**:
-1. Wrap expressions in {{ }}
-2. Webhook data is under `.body`
-3. No {{ }} in Code nodes
-4. Quote node names with spaces
-5. Node names are case-sensitive
-
-**Most Common Mistakes**:
-- Missing {{ }} → Add braces
-- `{{$json.name}}` in webhooks → Use `{{$json.body.name}}`
-- `{{$json.email}}` in Code → Use `$json.email`
-- `{{$node.HTTP Request}}` → Use `{{$node["HTTP Request"]}}`
-
-For more details, see:
-- [COMMON_MISTAKES.md](COMMON_MISTAKES.md) - Complete error catalog
-- [EXAMPLES.md](EXAMPLES.md) - Real workflow examples
-
----
-
-**Need Help?** Reference the n8n expression documentation or use n8n-mcp validation tools to check your expressions.
+- The complete video was processed.
+- The full transcript was retrieved.
+- Meaningful visual scenes were inspected.
+- High-quality frames were used where needed.
+- Spoken and visual information were combined.
+- The technology was detected rather than assumed.
+- All meaningful technical details were preserved.
+- Filler and useless repetition were removed.
+- Code and commands appear under their related concepts.
+- Separate lectures remain separate.
+- Correct code-fence languages were used.
+- Errors and fixes were preserved.
+- Uncertainty was documented.
+- Hidden content was not invented.
+- The Markdown is suitable for Obsidian.
+- The output is concise, structured, and revision-friendly.
