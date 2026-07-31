@@ -1,0 +1,4 @@
+interface:
+  display_name: "Minimal Change Fix"
+  short_description: "Fix bugs with the smallest safe diff"
+  default_prompt: "Use $minimal-change-fix to resolve this issue with the smallest safe and focused change set."

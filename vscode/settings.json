@@ -54,7 +54,7 @@
   "[lua]": {
     "editor.defaultFormatter": "sumneko.lua",
     "editor.quickSuggestions": {
-      "strings": "off"
+      "strings": "inline"
     }
   },
   "[markdown]": {
@@ -229,9 +229,9 @@
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.overviewRulerBorder": false,
   "editor.quickSuggestions": {
-    "comments": "off",
-    "other": "on",
-    "strings": "off"
+    "comments": "inline",
+    "other": "off",
+    "strings": "inline"
   },
   "editor.quickSuggestionsDelay": 0,
   "editor.renderFinalNewline": "off",
@@ -2359,7 +2359,7 @@
   // "tsimporter.disabled": true,
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
-  "editor.snippetSuggestions": "none",
+  "editor.snippetSuggestions": "top",
   "editor.suggest.showSnippets": false,
   "emmet.triggerExpansionOnTab": true,
   "update.mode": "none",
@@ -2407,7 +2407,7 @@
   "github.copilot.selectedCompletionModel": "",
   "google-translate.secondLanguage": "en",
   "security.allowedUNCHosts": ["wsl.localhost"],
-  "editor.inlineSuggest.enabled": false,
+  "editor.inlineSuggest.enabled": true,
   "omnisharp.useModernNet": true,
   "git.autorefresh": true,
   "git.diagnosticLimit": 10,
@@ -2453,5 +2453,7 @@
 		"*.db3": "${capture}.${extname}-*",
 		"*.sdb": "${capture}.${extname}-*",
 		"*.s3db": "${capture}.${extname}-*"
-	}
+	},
+	"breadcrumbs.enabled": false
+
 }

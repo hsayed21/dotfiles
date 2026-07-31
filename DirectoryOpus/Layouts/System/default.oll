@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <lister_layout flags="1">
 	<lister virtual_desktop="{14E0410B-61D0-40CF-B674-93233F5A171D}">
-		<wp flags="2" ptmin="-32000,-32034,100" rc="1351,-24,2232,591,100" showcmd="3" />
-		<layout flags="0x103000001" view_mode="details,details" well_width="80,0" well_width_dpi="100" />
+		<wp flags="2" rc="1727,339,2683,656,100" showcmd="3" />
+		<layout flags="0x103000001" view_mode="details,details" well_width="128,0" well_width_dpi="100" />
 		<filedisplay>
-			<left buf_flags="0xc0020000" flags="1" name="">
-				<pathstring>D:\Current_User\Downloads</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="4" view_mode="details">
-					<field auto_size="yes" id="name" size="606" size_dpi="100" />
-					<field auto_size="yes" id="sizeauto" size="65" size_dpi="100" />
-					<field id="type" size="255" size_dpi="100" />
-					<field auto_size="yes" id="modified" size="133" size_dpi="100" sort="1" />
-					<field id="attr" size="52" size_dpi="100" />
+			<left buf_flags="0xd0020000" flags="0" name="">
+				<pathstring>C:\</pathstring>
+				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="4" view_mode="details">
+					<field auto_size="yes" id="name" size="267" size_dpi="100" />
+					<field id="type" size="80" size_dpi="100" />
+					<field auto_size="yes" id="sizeauto" size="66" size_dpi="100" sort="1" />
+					<field auto_size="yes" id="modified" size="133" size_dpi="100" />
+					<field auto_size="yes" id="ext" size="137" size_dpi="100" />
 				</format>
 				<curdir>
+					<3>
+						<pathstring>C:\</pathstring>
+					</3>
 					<4>
 						<pathstring>D:\Current_User\Downloads</pathstring>
 					</4>
@@ -21,87 +24,6 @@
 				<vars />
 			</left>
 		</filedisplay>
-		<tabs1 active="2">
-			<tab buf_flags="0xc0020000" flags="1" name="">
-				<pathstring>C:\Users\hsayed\Downloads</pathstring>
-				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="yes" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x4000000" v="4" view_mode="details">
-					<field collapse="yes" id="name" manual_resize="yes" size="572" size_dpi="100" />
-					<field auto_size="yes" id="modified" size="133" size_dpi="100" sort="1" />
-					<field id="type" size="80" size_dpi="100" />
-					<field auto_size="yes" id="sizerel" size="80" size_dpi="100" />
-					<field auto_size="yes" id="sizeauto" size="65" size_dpi="100" />
-					<field auto_size="yes" id="ext" size="53" size_dpi="100" />
-				</format>
-				<curdir>
-					<3>
-						<pathstring>C:\Users\hsayed\Downloads</pathstring>
-					</3>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0030000" flags="0" name="">
-				<pathstring>C:\Users\hsayed\Desktop</pathstring>
-				<pidl>?AAAAAAA=</pidl>
-				<tree>64</tree>
-				<format folderssortalpha="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" inheritcolumns="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="4" view_mode="details">
-					<field auto_size="yes" id="name" size="448" size_dpi="100" />
-					<field id="type" size="80" size_dpi="100" />
-					<field auto_size="yes" id="sizeauto" size="65" size_dpi="100" />
-					<field auto_size="yes" id="modified" size="133" size_dpi="100" sort="1" />
-					<field auto_size="yes" id="ext" size="51" size_dpi="100" />
-				</format>
-				<curdir />
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="1" name="">
-				<pathstring>D:\Current_User\Downloads</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" noremember="no" numericname="yes" sort="mixed" sortnewfiles="default" threshhold="25" type="0x10000000" v="4" view_mode="details">
-					<field auto_size="yes" id="name" size="606" size_dpi="100" />
-					<field auto_size="yes" id="sizeauto" size="65" size_dpi="100" />
-					<field id="type" size="255" size_dpi="100" />
-					<field auto_size="yes" id="modified" size="133" size_dpi="100" sort="1" />
-					<field id="attr" size="52" size_dpi="100" />
-				</format>
-				<curdir>
-					<4>
-						<pathstring>D:\Current_User\Downloads</pathstring>
-					</4>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>D:\Current_User\Downloads\2026-04-20 17-38-06</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Archives" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="4" view_mode="details">
-					<field auto_size="yes" id="name" size="211" size_dpi="100" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="58" size_dpi="100" />
-					<field id="type" size="161" size_dpi="100" />
-					<field auto_size="yes" id="modified" size="133" size_dpi="100" />
-					<field id="attr" size="52" size_dpi="100" />
-				</format>
-				<curdir>
-					<4>
-						<pathstring>D:\Current_User\Downloads\2026-04-20 17-38-06</pathstring>
-					</4>
-				</curdir>
-				<vars />
-			</tab>
-			<tab buf_flags="0xc0020000" flags="0" name="">
-				<pathstring>D:\Current_User</pathstring>
-				<format autosize="yes" getsizes="default" inherit_columns="yes" inherit_grouping="yes" inherit_hidefilter="yes" inherit_showfilter="yes" inherit_sorting="yes" inherit_view="yes" name="Archives" noremember="no" numericname="yes" sort="dirsfirst" sortnewfiles="default" threshhold="25" type="0x1000000" v="4" view_mode="details">
-					<field auto_size="yes" id="name" size="162" size_dpi="100" sort="1" />
-					<field auto_size="yes" id="sizeauto" size="58" size_dpi="100" />
-					<field id="type" size="164" size_dpi="100" />
-					<field auto_size="yes" id="modified" size="133" size_dpi="100" />
-					<field id="attr" size="52" size_dpi="100" />
-				</format>
-				<curdir>
-					<4>
-						<pathstring>D:\Current_User</pathstring>
-					</4>
-				</curdir>
-				<vars />
-			</tab>
-		</tabs1>
 		<toolbars flags="0">
 			<toolbar type="top">
 				<file>Menu.dop</file>

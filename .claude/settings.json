@@ -1,9 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "mcp__azureDevOps__get_*",
-      "mcp__azureDevOps__list_*",
-      "mcp__azureDevOps__search_*",
       "mcp__context7__*",
       "Bash(*)",
       "PowerShell(*)",
@@ -51,11 +48,11 @@
   },
   "model": "opus",
   "enableAllProjectMcpServers": true,
-  "enabledPlugins": {},
-  "extraKnownMarketplaces": {},
-  "skipDangerousModePermissionPrompt": true,
   "statusLine": {
     "type": "command",
     "command": "bash /c/Users/hsayed/.claude/statusline.sh"
-  }
+  },
+  "enabledPlugins": {},
+  "extraKnownMarketplaces": {},
+  "skipDangerousModePermissionPrompt": true
 }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clean Readable Code"
+  short_description: "Refactor code to stay concise and easy to follow"
+  default_prompt: "Use $write-clean-readable-code to simplify this code without over-engineering it."

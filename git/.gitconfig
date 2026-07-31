@@ -90,3 +90,6 @@
 	cmd = "code --wait --diff  "
 [alias]
 	add = "!f() { lock=\"$(git rev-parse --git-dir)/index.lock\"; if [ -f \"$lock\" ]; then rm -f \"$lock\"; fi; git add \"$@\"; }; f"
+[safe]
+	directory = C:\\Users\\hsayed\\AppData\\Local\\Pub\\Cache\\git\\cache\\pos_libs-78ea39b4dc5c17c8f9bb3c23bf45a1b56ab96a28
+	directory = *

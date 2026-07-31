@@ -166,6 +166,15 @@
                 "hidden": false,
                 "name": "Developer PowerShell for VS 18",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "commandline": "\"C:/Program Files/Git/bin/bash.exe\" -i -l",
+                "elevate": true,
+                "guid": "{3b939a39-d4ae-4bdd-b9a0-a2b02b4c7e2a}",
+                "hidden": false,
+                "icon": "C:/Program Files/Git/mingw64/share/git/git-for-windows.ico",
+                "name": "Git Bash (Copy)",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
