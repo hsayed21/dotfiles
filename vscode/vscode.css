@@ -1,0 +1,11 @@
+/* Added lines */
+.codicon-diff-insert:before {
+    color: #2ea043 !important;
+    font-weight: bolder;
+}
+
+/* Deleted lines */
+.codicon-diff-remove:before {
+    color: #f85149 !important;
+    font-weight: bolder;
+}

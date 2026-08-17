@@ -826,7 +826,8 @@
   "vscode-neovim.neovimInitVimPaths.darwin": "",
   "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\hsayed\\AppData\\Local\\nvim\\init.lua",
   "vscode-neovim.revealCursorScrollLine": true,
-  "vscode_custom_css.imports": ["file:///home/axlefublr/prog/dotfiles/stylus/vscode.css"],
+  "vscode_custom_css.imports": [
+		"file:///G:/My Drive/dotfiles/vscode/vscode.css"],
   "vscode_custom_css.statusbar": false,
   "vscord.app.name": "Visual Studio Code",
   "whichkey.bindings": [
@@ -2109,18 +2110,18 @@
   "find-it-faster.general.additionalSearchLocations": ["C:\\Users\\hsayed\\AppData\\Local\\nvim"],
   "window.newWindowProfile": "Default",
   "gitlens.views.scm.grouped.views": {
-    "commits": false,
-    "branches": false,
-    "remotes": false,
-    "stashes": false,
-    "tags": false,
-    "worktrees": false,
-    "contributors": false,
-    "fileHistory": false,
-    "repositories": false,
-    "searchAndCompare": false,
-    "launchpad": false
-  },
+		"commits": false,
+		"branches": false,
+		"remotes": false,
+		"stashes": false,
+		"tags": false,
+		"worktrees": false,
+		"contributors": false,
+		"fileHistory": true,
+		"repositories": false,
+		"searchAndCompare": false,
+		"launchpad": false
+	},
   "profileSelector.defaultProfile": "Default",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -2263,6 +2264,8 @@
   "chat.commandCenter.enabled": false,
   "projectManager.git.baseFolders": [
     "C:\\POSBANK\\Projects",
+		"D:\\_HS\\POSBANK\\Projects\\POS app",
+		"D:\\_HS\\POSBANK\\Projects\\POPs Restaurant 6.0.0.000",
     "G:\\My Drive\\dotfiles",
     "G:\\My Drive\\_MyAutohotkey",
     "C:\\MyRep\\my_workspace"
@@ -2455,5 +2458,6 @@
 		"*.s3db": "${capture}.${extname}-*"
 	},
 	"breadcrumbs.enabled": false
+
 
 }
