@@ -630,12 +630,13 @@
   },
   "extensions.ignoreRecommendations": true,
   "files.associations": {
-    "*.ahk": "ahk2",
-    "*.conf": "plaintext",
-    "*.json": "json",
-    "*.vim": "viml",
-    ".ideavimrc": "plaintext"
-  },
+		"*.ahk": "ahk2",
+		"*.conf": "plaintext",
+		"*.json": "json",
+		"*.vim": "viml",
+		".ideavimrc": "plaintext",
+		"*.ks": "ahk2"
+	},
   "files.defaultLanguage": "markdown",
   "files.eol": "\n",
   // Toggle excluded files
@@ -1894,9 +1895,9 @@
   "workbench.editor.tabCloseButton": "off",
   "workbench.editor.wrapTabs": true,
   "workbench.editorAssociations": {
-    "*.md": "default",
-    "git-rebase-todo": "gitlens.rebase"
-  },
+		"*.md": "default",
+		"git-rebase-todo": "gitlens.rebase"
+	},
   //   "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.openMode": "doubleClick",
@@ -2422,8 +2423,7 @@
   "claudeCode.preferredLocation": "sidebar",
   "claudeCode.disableLoginPrompt": true,
   "gitlens.views.remotes.branches.layout": "list",
-  "diffEditor.ignoreTrimWhitespace": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
+	"diffEditor.ignoreTrimWhitespace": true,
   "diffEditor.experimental.showMoves": true,
   "diffEditor.diffAlgorithm": "advanced",
   "diffEditor.renderSideBySide": false,
@@ -2457,7 +2457,10 @@
 		"*.sdb": "${capture}.${extname}-*",
 		"*.s3db": "${capture}.${extname}-*"
 	},
-	"breadcrumbs.enabled": false
+	"breadcrumbs.enabled": false,
+	"branchChanges.sortByStatus": true,
+	"AutoHotkey2.InterpreterPath": "c:\\Program Files\\Keysharp\\Keysharp.exe",
+	"AutoHotkey2.Syntaxes": "G:\\My Drive\\_MyAutohotkey\\Tools\\keysharp-syntaxes"
 
 
 }

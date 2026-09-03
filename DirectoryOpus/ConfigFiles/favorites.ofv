@@ -18,7 +18,7 @@
 			<folder>
 				<separator heading="Web App" />
 			</folder>
-			<path label="C:\POSBANK\Projects\POPs Cloud ERP">
+			<path label="D:\_HS\POSBANK\Projects\POPs Cloud ERP">
 				<dir>
 					<pathstring>C:\POSBANK\Projects\POPs Cloud ERP</pathstring>
 				</dir>
@@ -26,42 +26,42 @@
 			<folder>
 				<separator />
 			</folder>
-			<path label="POS app">
+			<path label="D:\_HS\POSBANK\Projects\POS app">
 				<dir>
 					<pathstring>D:\_HS\POSBANK\Projects\POS app</pathstring>
 					<pidl>?AAAAVQAfAC8AELem9RkAL0Q6XAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB0Gllelt/TSI1nFzO87ii6dyz79S8OFkqjgT5WDGi8g0oAMQAAAAAARFslGxAAX0hTADgACQAEAO++RFvVDfRcWScuAAAAY9EEAAAAAwAAAAAAAAAAAAAAAAAAAJ3XrgBfAEgAUwAAABIAVgAxAAAAAAD0XCEEEABQT1NCQU5LAEAACQAEAO++QlumqfRcOykuAAAA5CgMAAAAAQAAAAAAAAAAAAAAAAAAAAqllQBQAE8AUwBCAEEATgBLAAAAFgBaADEAAAAAAPRctgMQAFByb2plY3RzAABCAAkABADvvkJbqKn0XDwpLgAAADEpDAAAAAEAAAAAAAAAAAAAAAAAAAC4JMwAUAByAG8AagBlAGMAdABzAAAAGABWADEAAAAAAO9cfAkQAFBPUyBhcHAAQAAJAAQA777HXPVu81wnvi4AAAAZ/xYAAAABAAAAAAAAAAAAAAAAAAAARuWCAFAATwBTACAAYQBwAHAAAAAWAAAA</pidl>
 					<tree>64</tree>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\MenuTree-Git">
+			<path label="D:\_HS\POSBANK\Projects\MenuTree-Git">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\MenuTree-Git</pathstring>
+					<pathstring>D:\_HS\POSBANK\Projects\MenuTree-Git</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\MenuTree-Frontend">
+			<path label="D:\_HS\POSBANK\Projects\MenuTree-Frontend">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\MenuTree-Frontend</pathstring>
+					<pathstring>D:\_HS\POSBANK\Projects\MenuTree-Frontend</pathstring>
 				</dir>
 			</path>
 			<folder>
 				<separator />
 			</folder>
-			<path label="C:\POSBANK\Projects\POPs Cloud Git">
+			<path label="D:\_HS\POSBANK\Projects\POPs Cloud Git">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Cloud Git</pathstring>
+					<pathstring>D:\_HS\POSBANK\Projects\POPs Cloud Git</pathstring>
 				</dir>
 			</path>
 			<folder>
 				<separator heading="Desktop" />
 			</folder>
-			<path label="C:\POSBANK\Projects\POPs Restaurant 6.0.0.000">
+			<path label="D:\_HS\POSBANK\Projects\POPs Restaurant 6.0.0.000\POPsRestaurant\POPsRestaurant\bin\Debug">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Restaurant 6.0.0.000</pathstring>
+					<pathstring>D:\_HS\POSBANK\Projects\POPs Restaurant 6.0.0.000\POPsRestaurant\POPsRestaurant\bin\Debug</pathstring>
 				</dir>
 			</path>
-			<path label="C:\POSBANK\Projects\POPs Retail Git">
+			<path label="D:\_HS\POSBANK\Projects\POPs Retail Git">
 				<dir>
-					<pathstring>C:\POSBANK\Projects\POPs Retail Git</pathstring>
+					<pathstring>D:\_HS\POSBANK\Projects\POPs Retail Git</pathstring>
 				</dir>
 			</path>
 			<folder>
@@ -87,6 +87,11 @@
 			</path>
 		</folder>
 		<folder label="MyStaff">
+			<path label="D:\_HS\source">
+				<dir>
+					<pathstring>D:\_HS\source</pathstring>
+				</dir>
+			</path>
 			<path label="G:\My Drive\dotfiles">
 				<dir>
 					<pathstring>G:\My Drive\dotfiles</pathstring>

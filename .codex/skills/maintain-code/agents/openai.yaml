@@ -1,4 +1,0 @@
-interface:
-  display_name: "Maintain Code"
-  short_description: "Route fixes, refactors, and clear code changes"
-  default_prompt: "Use $maintain-code to make this code change with the correct scope and safeguards."

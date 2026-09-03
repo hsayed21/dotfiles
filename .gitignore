@@ -39,3 +39,4 @@ DirectoryOpus/ConfigFiles/evalcols.oxc
 DirectoryOpus/ConfigFiles/archives.oxc
 DirectoryOpus/ConfigFiles/evalfilegroups.xml
 .claude/scripts/.deepseek-token
+.codex/skills/.system/

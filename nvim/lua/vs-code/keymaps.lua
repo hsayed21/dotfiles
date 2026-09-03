@@ -184,6 +184,9 @@ local vscode_keymaps = {
   { "n", "<leader>gc", "gitSemanticCommit.semanticCommit", { desc = "[Git] Semantic Commits" } },
   { "n", "<leader>gl", "gitlens.showLaunchpad", { desc = "[Git] Show Launchpad" } },
   { "n", "<leader>gib", "gitlens.gitCommands.rebase", { desc = "[Git] Interactive Rebase" } },
+  { "n", "<leader>rr", "branchChanges.markReviewed", { desc = "[Branch Changes] Mark as Reviewed" } },
+  { "n", "<leader>re", "branchChanges.nextUnreviewed", { desc = "[Branch Changes] Next Unreviewed" } },
+  { "n", "<leader>rw", "branchChanges.previousUnreviewed", { desc = "[Branch Changes] Previous Unreviewed" } },
 
 
   --[Folding]--
