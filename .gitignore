@@ -40,3 +40,12 @@ DirectoryOpus/ConfigFiles/archives.oxc
 DirectoryOpus/ConfigFiles/evalfilegroups.xml
 .claude/scripts/.deepseek-token
 .codex/skills/.system/
+ShareX/Backup/
+ShareX/History.db
+ShareX/UploadersConfig.json
+ShareX/Logs/
+ShareX/Models/
+ShareX/Screenshots/
+ShareX/ImageEffects/
+*.json.temp
+

@@ -1856,6 +1856,10 @@
       "diffEditor.diagonalFill": "#88888822",
       "diffEditorOverview.insertedForeground": "#2e8b57aa",
       "diffEditorOverview.removedForeground": "#8b2e2eaa"
+      // "branchChanges.movedLineBackground": "#0d0d0d"
+      // "diffEditor.move.border": "#cccccc",
+      // "diffEditor.moveActive.border": "#ffffff",
+      // "branchChanges.movedLineBackground": "#bdbdbdbb"
     },
     "[Aura Dark]": {
       "activityBar.background": "#110f17",
@@ -2460,7 +2464,9 @@
 	"breadcrumbs.enabled": false,
 	"branchChanges.sortByStatus": true,
 	"AutoHotkey2.InterpreterPath": "c:\\Program Files\\Keysharp\\Keysharp.exe",
-	"AutoHotkey2.Syntaxes": "G:\\My Drive\\_MyAutohotkey\\Tools\\keysharp-syntaxes"
-
+	"AutoHotkey2.Syntaxes": "G:\\My Drive\\_MyAutohotkey\\Tools\\keysharp-syntaxes",
+	"branchChanges.listPathParts": 3,
+	"branchChanges.sortByChanges": true,
+	"branchChanges.highlightMovedLines": true
 
 }

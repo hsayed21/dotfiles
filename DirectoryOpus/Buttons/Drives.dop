@@ -52,5 +52,12 @@
 				<instruction>Download_Reuse</instruction>
 			</function>
 		</button>
+		<button backcol="none" display="label" label_pos="right" textcol="none">
+			<label>Checked</label>
+			<icon1>#status</icon1>
+			<function type="normal">
+				<instruction>Checked</instruction>
+			</function>
+		</button>
 	</buttons>
 </toolbar>

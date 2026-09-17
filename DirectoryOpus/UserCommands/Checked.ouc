@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<usercommand backcol="none" hide_from_menu="no" textcol="none">
+	<label>Checked</label>
+	<user_label>Checked</user_label>
+	<icon1>#status</icon1>
+	<function type="normal">
+		<instruction>Properties SETLABEL=Checked SETLABELTOGGLE</instruction>
+	</function>
+</usercommand>

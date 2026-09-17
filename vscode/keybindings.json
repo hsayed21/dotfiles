@@ -5750,5 +5750,9 @@
     {
       "key": "ctrl+shift+alt+p",
       "command": "workbench.action.closeAllGroups"
-    }
+		},
+		{
+			"key": "ctrl+c",
+			"command": "editor.action.clipboardCopyAction"
+		}
 ]

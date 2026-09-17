@@ -6,7 +6,7 @@
 	</categories>
 	<groups donedef="2">
 		<group bg="none" category="colors" fg="#0000ff" flags="0" icon="none" id="{A3B60A15-3008-40C5-B96B-615CF0005B25}" name="Blue" sel_bg="none" sel_fg="none" />
-		<group bg="none" category="status" fg="none" flags="0" icon="none" id="{C866FA3D-5199-49B9-9B68-68436795DC9B}" name="Checked" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-460" />
+		<group bg="none" category="status" fg="#139b36" flags="0" icon="none" id="{C866FA3D-5199-49B9-9B68-68436795DC9B}" name="Checked" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-460" />
 		<group bg="none" category="status" fg="none" flags="0" icon="none" id="{04C7CEE6-F91F-49A4-A007-3E7BC82B06FE}" name="Flagged" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-461" />
 		<group bg="none" category="colors" fg="#139b36" flags="0" icon="none" id="{DEA7AD56-705E-46E7-96EB-66FC16625A1C}" name="Green" sel_bg="none" sel_fg="none" />
 		<group bg="none" category="status" fg="none" flags="0" icon="none" id="{284E4FD5-DFCE-4403-95A9-52A86E827927}" name="Important" sel_bg="none" sel_fg="none" status_icon="/home/dopus.exe,-459" />

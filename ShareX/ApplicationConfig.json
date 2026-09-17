@@ -426,7 +426,7 @@
         "WindowWidth": 1280.0,
         "WindowHeight": 720.0,
         "ShowExitConfirmation": true,
-        "ZoomToFitOnOpen": false,
+        "ZoomToFitOnOpen": true,
         "QuickCrop": true,
         "AutoCloseEditorOnTask": true,
         "AutoCopyImageToClipboard": false,
@@ -785,9 +785,9 @@
   "TaskbarProgressEnabled": true,
   "UseWhiteShareXIcon": false,
   "RememberMainFormPosition": false,
-  "MainFormPosition": "1352, -154",
+  "MainFormPosition": "78, 78",
   "RememberMainFormSize": false,
-  "MainFormSize": "1920, 993",
+  "MainFormSize": "929, 633",
   "TrayLeftClickAction": "OpenMainWindow",
   "TrayLeftDoubleClickAction": "OpenMainWindow",
   "TrayMiddleClickAction": "ClipboardUploadWithContentViewer",
@@ -800,13 +800,13 @@
     "AccentColorHex": "#3E83F2",
     "UseSystemAccentColor": true
   },
-  "UseCustomScreenshotsPath": false,
-  "CustomScreenshotsPath": "",
+  "UseCustomScreenshotsPath": true,
+  "CustomScreenshotsPath": "D:\\Current_User\\ShareX_Screenshots",
   "SaveImageSubFolderPattern": "%y-%mo",
   "SaveImageSubFolderPatternWindow": "",
   "AutoCleanupBackupFiles": true,
   "AutoCleanupLogFiles": true,
-  "CleanupKeepFileCount": 10,
+  "CleanupKeepFileCount": 2,
   "ShowThumbnailTitle": true,
   "ThumbnailTitleLocation": "Top",
   "ThumbnailSize": "200, 150",
@@ -818,14 +818,6 @@
   "HistorySaveTasks": true,
   "HistoryCheckURL": false,
   "RecentTasks": [
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\pops_enterprise_teLTRwXqci.mp4",
-      "URL": null,
-      "ThumbnailURL": null,
-      "DeletionURL": null,
-      "ShortenedURL": null,
-      "Time": "2024-12-23T13:03:22.3058936Z"
-    },
     {
       "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\EXCEL_awjDrICk6n.mp4",
       "URL": null,
@@ -897,6 +889,14 @@
       "DeletionURL": null,
       "ShortenedURL": null,
       "Time": "2026-09-07T14:08:04.7438949Z"
+    },
+    {
+      "FilePath": "D:\\Current_User\\ShareX_Screenshots\\2026-09\\dopus_mdGj9JSdtD.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2026-09-07T17:34:56.3670367Z"
     }
   ],
   "RecentTasksSave": true,
@@ -961,7 +961,7 @@
   "AutoCaptureRepeatTime": 60.0,
   "AutoCaptureMinimizeToTray": true,
   "AutoCaptureWaitUpload": true,
-  "ScreenRecordRegion": "1360, -123, 1920, 992",
+  "ScreenRecordRegion": "1540, 294, 726, 358",
   "ActionsToolbarList": [
     "RectangleRegion",
     "PrintScreen",
