@@ -2444,7 +2444,8 @@
 	"editor.minimap.enabled": false,
   "editor.lineHeight": 1.6,
   "scm.diffDecorations": "none",
-  "editor.experimentalEditContextEnabled": true,
+  "editor.experimentalEditContextEnabled": false,
+  "editor.editContext": false,
 	"explorer.fileNesting.patterns": {
 		"*.ts": "${capture}.js",
 		"*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",

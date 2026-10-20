@@ -79,10 +79,21 @@ vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
 vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
 vim.opt.shellquote = ""
 vim.opt.shellxquote  = ""
+vim.opt.langmap = table.concat({
+  -- top row
+  "ضq", "صw", "ثe", "قr", "فt", "غy", "عu", "هi", "خo", "حp", "ج[", "د]",
+  -- home row
+  "شa", "سs", "يd", "بf", "لg", "اh", "تj", "نk", "مl", "ك\\;", "ط'",
+  -- bottom row
+  "ئz", "ءx", "ؤc", "رv", "ىn", "ةm", "و\\,", "ز.", "ظ/",
+  -- a few Shift combos (Arabic has no case, so these are the Shift-layer characters)
+  "أH", "إY", "آN",
+}, ",")
 
 -- map <leader> to space
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+require("common.utils.arabic_keymaps").enable()
 -- vim.g.camelcasemotion_key = "<leader>"
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 

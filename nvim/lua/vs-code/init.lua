@@ -14,6 +14,10 @@ local vscode_opts = {
   showcmd = false,
   -- VSCode handles clipboard, but keep this for consistency
   clipboard = "unnamedplus",
+  -- timeout=false plus Arabic plugin maps leaves nvim waiting forever on
+  -- prefix keys, which blocks vscode-neovim layout sync RPC.
+  timeout = true,
+  timeoutlen = 400,
 }
 
 for k, v in pairs(vscode_opts) do
@@ -35,3 +39,6 @@ require("lazy").setup({
   checker = { enabled = false },
   change_detection = { notify = false },
 })
+
+-- Patch vscode-neovim before it starts syncing visible editors.
+require("vs-code.sync_guards").apply()

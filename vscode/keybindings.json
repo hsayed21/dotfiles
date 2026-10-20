@@ -5754,5 +5754,15 @@
 		{
 			"key": "ctrl+c",
 			"command": "editor.action.clipboardCopyAction"
+		},
+		{
+			"key": "ctrl+alt+a",
+			"command": "branchChanges.markReviewed",
+			"when": "editorTextFocus || focusedView == 'branchChanges.files'"
+		},
+		{
+			"key": "ctrl+alt+r",
+			"command": "-branchChanges.markReviewed",
+			"when": "editorTextFocus || focusedView == 'branchChanges.files'"
 		}
 ]

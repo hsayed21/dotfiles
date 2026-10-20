@@ -785,4 +785,42 @@ return {
 			})
 		end,
 	},
+	-- Switch OS keyboard layout with Neovim mode.
+	-- vscode-neovim only binds English keys, so Arabic layout in normal mode
+	-- does nothing unless we switch back to English on InsertLeave.
+	{
+    "keaising/im-select.nvim",
+    lazy = false,
+    config = function()
+        -- Never run im-select.exe from Google Drive: vim.fn.system() there can
+        -- hang nvim's RPC and freeze vscode-neovim on "Syncing visible editors".
+        local data_dir = vim.fs.normalize(vim.fn.stdpath("data") .. "/bin")
+        local local_bin = vim.fs.normalize(data_dir .. "/im-select.exe")
+        local config_dir = vim.fn.resolve(vim.fn.stdpath("config"))
+        local bundled = vim.fs.normalize(
+          vim.fn.fnamemodify(config_dir, ":h") .. "/vscode/im-select.exe"
+        )
+        if vim.fn.filereadable(local_bin) == 0 and vim.fn.filereadable(bundled) == 1 then
+          vim.fn.mkdir(data_dir, "p")
+          vim.uv.fs_copyfile(bundled, local_bin)
+        end
+
+        local command = vim.fn.executable(local_bin) == 1 and local_bin
+          or vim.fn.exepath("im-select.exe")
+        if command == nil or command == "" then
+          command = "im-select.exe"
+        end
+
+        require("im_select").setup({
+          default_command = command,
+          -- Windows English (US). Arabic (Saudi) is 1025.
+          default_im_select = "1033",
+          set_default_events = { "InsertLeave", "CmdlineLeave" },
+          set_previous_events = { "InsertEnter" },
+          -- vim.wait(5000) on every mode switch blocks vscode-neovim RPC.
+          async_switch_im = true,
+          keep_quiet_on_no_binary = true,
+        })
+    end,
+	}
 }

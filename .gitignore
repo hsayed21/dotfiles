@@ -39,6 +39,7 @@ DirectoryOpus/ConfigFiles/evalcols.oxc
 DirectoryOpus/ConfigFiles/archives.oxc
 DirectoryOpus/ConfigFiles/evalfilegroups.xml
 .claude/scripts/.deepseek-token
+.codex/rules/default.rules
 .codex/skills/.system/
 ShareX/Backup/
 ShareX/History.db
@@ -48,4 +49,3 @@ ShareX/Models/
 ShareX/Screenshots/
 ShareX/ImageEffects/
 *.json.temp
-

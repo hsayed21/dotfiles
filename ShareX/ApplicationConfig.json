@@ -75,7 +75,11 @@
     "ImageSettings": {
       "ImageFormat": "PNG",
       "ImagePNGBitDepth": "Default",
+      "ImageBMPBitDepth": "Bit24",
+      "ImagePNGCompressionLevel": 1,
+      "ImagePNGFilter": "AllFilters",
       "ImageJPEGQuality": 90,
+      "ImageJPEGSubsampling": "Downsample420",
       "ImageGIFQuality": "Default",
       "ImageAutoUseJPEG": true,
       "ImageAutoUseJPEGSize": 2048,
@@ -160,32 +164,25 @@
       "HDRScreenshotColorCorrection": false,
       "CaptureCustomRegion": "0, 0, 0, 0",
       "CaptureCustomWindow": "",
-      "SurfaceOptions": {
-        "QuickCrop": true,
-        "MinimumSize": 5,
-        "RegionCaptureActionRightClick": "None",
+      "RegionCaptureOptions": {
+        "QuickCapture": true,
+        "DetectWindows": true,
+        "DetectControls": true,
+        "ActiveMonitorMode": false,
+        "BackgroundDimStrength": 20,
+        "RegionCaptureActionRightClick": "RemoveShapeCancelCapture",
         "RegionCaptureActionMiddleClick": "SwapToolType",
         "RegionCaptureActionX1Click": "CaptureFullscreen",
         "RegionCaptureActionX2Click": "CaptureActiveMonitor",
-        "DetectWindows": true,
-        "DetectControls": true,
-        "UseDimming": true,
-        "BackgroundDimStrength": 10,
+        "ShowInfo": true,
         "UseCustomInfoText": false,
         "CustomInfoText": "X: $x, Y: $y$nR: $r, G: $g, B: $b$nHex: $hex",
-        "ShowInfo": false,
         "ShowMagnifier": true,
         "UseSquareMagnifier": false,
-        "MagnifierPixelCount": 25,
-        "MagnifierPixelSize": 10,
-        "ShowCenterCrosshair": false,
-        "ShowCrosshair": false,
-        "InputDelay": 500,
-        "ActiveMonitorMode": false,
-        "ColorPickerOptions": {
-          "RecentColorsSelected": true
-        },
-        "ScreenColorPickerInfoText": ""
+        "MagnifierSize": 150,
+        "MagnifierPixelCount": 15,
+        "ShowCenterCrosshair": true,
+        "ShowScreenCrosshair": false
       },
       "FFmpegOptions": {
         "OverrideCLIPath": false,
@@ -219,12 +216,31 @@
         "Vorbis_QScale": 3,
         "MP3_QScale": 4
       },
+      "ScreenRecordUseNative": true,
+      "ScreenRecordShowBar": true,
+      "ScreenRecordSystemAudio": true,
+      "ScreenRecordSystemAudioDeviceId": "",
+      "ScreenRecordSystemAudioGain": 1.0,
+      "ScreenRecordMicrophone": false,
+      "ScreenRecordMicrophoneDeviceId": "",
+      "ScreenRecordMicrophoneGain": 1.0,
+      "ScreenRecordCamera": false,
+      "ScreenRecordCameraDeviceId": "",
+      "ScreenRecordCameraResolution": "Size1280x720",
+      "ScreenRecordCameraFPS": 30,
+      "ScreenRecordCameraPosition": "BottomRight",
+      "ScreenRecordCameraShape": "Rectangle",
+      "ScreenRecordCameraWidthPercent": 20,
+      "ScreenRecordCameraMargin": 20,
+      "ScreenRecordRequireHardwareEncoder": true,
+      "ScreenRecordVideoBitrate": 10000,
       "ScreenRecordFPS": 30,
       "GIFFPS": 15,
       "ScreenRecordShowCursor": true,
+      "ScreenRecordMouseHighlighter": false,
       "ScreenRecordShowTimer": true,
       "ScreenRecordShowButtonLabels": true,
-      "ScreenRecordAutoStart": true,
+      "ScreenRecordStartDelayEnabled": false,
       "ScreenRecordStartDelay": 0.0,
       "ScreenRecordFixedDuration": false,
       "ScreenRecordDuration": 3.0,
@@ -316,6 +332,9 @@
     ],
     "UseDefaultToolsSettings": true,
     "ToolsSettings": {
+      "ColorPickerOptions": {
+        "RecentColorsSelected": true
+      },
       "ScreenColorPickerOptions": {
         "Format": "$HEX",
         "FormatCtrl": "$r255, $g255, $b255",
@@ -338,6 +357,27 @@
         "BorderSize": 2,
         "BorderColor": "CornflowerBlue",
         "MinimizeSize": "100, 100"
+      },
+      "MouseHighlighterOptions": {
+        "AutoActivate": false,
+        "Mode": "Ripple",
+        "HighlightPrimaryClicks": true,
+        "PrimaryColor": "166, 54, 169, 225",
+        "ShowPrimaryReleaseCrosshairs": false,
+        "HighlightSecondaryClicks": true,
+        "SecondaryColor": "166, 89, 184, 106",
+        "ShowSecondaryReleaseCrosshairs": false,
+        "HighlightMiddleClicks": true,
+        "MiddleColor": "166, 242, 193, 78",
+        "ShowMiddleReleaseCrosshairs": false,
+        "AlwaysColor": "Transparent",
+        "Radius": 20,
+        "FadeDelay": 500,
+        "FadeDuration": 250,
+        "RippleSize": 60,
+        "RippleIntensity": 0.7,
+        "RippleDuration": 500,
+        "FollowCursorWhileHeld": true
       },
       "IndexerSettings": {
         "Output": "Html",
@@ -423,8 +463,8 @@
         "LastUsedAnnotationTool": "Arrow",
         "RememberWindowState": true,
         "IsWindowMaximized": false,
-        "WindowWidth": 1280.0,
-        "WindowHeight": 720.0,
+        "WindowWidth": 1242.0,
+        "WindowHeight": 693.0,
         "ShowExitConfirmation": true,
         "ZoomToFitOnOpen": true,
         "QuickCrop": true,
@@ -472,7 +512,7 @@
           {
             "Id": "Freehand",
             "BeginGroup": false,
-            "IsVisible": false,
+            "IsVisible": true,
             "Hotkey": "F"
           },
           {
@@ -588,7 +628,7 @@
         "TextBorderColorHex": "#FFF23C3C",
         "TextTextColorHex": "#FFFAFAFA",
         "TextThickness": 8,
-        "TextFontSize": 48.0,
+        "TextFontSize": 16.0,
         "TextFontFamily": "Segoe UI",
         "TextHorizontalAlignment": "Center",
         "TextBold": true,
@@ -718,6 +758,7 @@
     "WatchFolderList": []
   },
   "FirstTimeRunDate": "2023-10-24T09:08:36.3695569Z",
+  "ShowStartScreen": false,
   "FileUploadDefaultDirectory": "",
   "NameParserAutoIncrementNumber": 0,
   "QuickTaskPresets": [
@@ -785,9 +826,9 @@
   "TaskbarProgressEnabled": true,
   "UseWhiteShareXIcon": false,
   "RememberMainFormPosition": false,
-  "MainFormPosition": "78, 78",
+  "MainFormPosition": "130, 164",
   "RememberMainFormSize": false,
-  "MainFormSize": "929, 633",
+  "MainFormSize": "900, 673",
   "TrayLeftClickAction": "OpenMainWindow",
   "TrayLeftDoubleClickAction": "OpenMainWindow",
   "TrayMiddleClickAction": "ClipboardUploadWithContentViewer",
@@ -811,6 +852,7 @@
   "ThumbnailTitleLocation": "Top",
   "ThumbnailSize": "200, 150",
   "ThumbnailClickAction": "Default",
+  "HiddenTools": [],
   "ClipboardContentFormats": [],
   "UploadLimit": 5,
   "BufferSizePower": 5,
@@ -818,38 +860,6 @@
   "HistorySaveTasks": true,
   "HistoryCheckURL": false,
   "RecentTasks": [
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\EXCEL_awjDrICk6n.mp4",
-      "URL": null,
-      "ThumbnailURL": null,
-      "DeletionURL": null,
-      "ShortenedURL": null,
-      "Time": "2024-12-25T10:19:26.5177894Z"
-    },
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\POPsRestaurant_B6GllGTYgN.mp4",
-      "URL": null,
-      "ThumbnailURL": null,
-      "DeletionURL": null,
-      "ShortenedURL": null,
-      "Time": "2024-12-25T10:21:38.7730936Z"
-    },
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\ElevenClock_UQvQzBOLgH.mp4",
-      "URL": null,
-      "ThumbnailURL": null,
-      "DeletionURL": null,
-      "ShortenedURL": null,
-      "Time": "2024-12-25T11:03:28.90167Z"
-    },
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\chrome_wALZL7HHua.mp4",
-      "URL": null,
-      "ThumbnailURL": null,
-      "DeletionURL": null,
-      "ShortenedURL": null,
-      "Time": "2024-12-30T18:34:19.2629865Z"
-    },
     {
       "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\chrome_2YWJidOoKj.gif",
       "URL": null,
@@ -897,6 +907,38 @@
       "DeletionURL": null,
       "ShortenedURL": null,
       "Time": "2026-09-07T17:34:56.3670367Z"
+    },
+    {
+      "FilePath": "D:\\Current_User\\ShareX_Screenshots\\2026-09\\zen_ptxg7xI6TD.png",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2026-09-19T18:31:46.4637242Z"
+    },
+    {
+      "FilePath": "D:\\Current_User\\ShareX_Screenshots\\2026-09\\SketchUp_Rc7eL88Lwx.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2026-09-19T19:46:21.3819523Z"
+    },
+    {
+      "FilePath": "D:\\Current_User\\ShareX_Screenshots\\2026-09\\SketchUp_fywr7alhgM.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2026-09-19T19:51:53.8851113Z"
+    },
+    {
+      "FilePath": "D:\\Current_User\\ShareX_Screenshots\\2026-09\\SketchUp_7TVlCWpsr1.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2026-09-19T19:55:11.8250841Z"
     }
   ],
   "RecentTasksSave": true,
@@ -961,7 +1003,7 @@
   "AutoCaptureRepeatTime": 60.0,
   "AutoCaptureMinimizeToTray": true,
   "AutoCaptureWaitUpload": true,
-  "ScreenRecordRegion": "1540, 294, 726, 358",
+  "ScreenRecordRegion": "1360, -146, 1920, 1016",
   "ActionsToolbarList": [
     "RectangleRegion",
     "PrintScreen",
@@ -1025,5 +1067,5 @@
   "DropAlignment": "BottomRight",
   "DropOpacity": 100,
   "DropHoverOpacity": 255,
-  "ApplicationVersion": "21.0.0"
+  "ApplicationVersion": "22.0.0"
 }

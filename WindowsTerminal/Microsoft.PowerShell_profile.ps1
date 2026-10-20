@@ -2,7 +2,10 @@
 #                                Initial Commands                              #
 ################################################################################
 
-$isInteractiveConsole = [Environment]::UserInteractive -and $Host.Name -eq "ConsoleHost"
+# Safely check if stdout is redirected and a raw screen buffer exists
+$isInteractiveConsole = [Environment]::UserInteractive -and 
+                        $Host.Name -eq "ConsoleHost" -and 
+                        -not [Console]::IsOutputRedirected
 
 if ($isInteractiveConsole) {
     Clear-Host;
