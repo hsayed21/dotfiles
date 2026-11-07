@@ -3,7 +3,7 @@
     "Description": "",
     "Job": "None",
     "UseDefaultAfterCaptureJob": true,
-    "AfterCaptureJob": "ShowQuickTaskMenu, BeautifyImage, CopyImageToClipboard",
+    "AfterCaptureJob": "ShowQuickTaskMenu, BeautifyImage, AnnotateImage, CopyImageToClipboard",
     "UseDefaultAfterUploadJob": true,
     "AfterUploadJob": "CopyURLToClipboard",
     "UseDefaultDestinations": true,
@@ -81,6 +81,9 @@
       "ImageJPEGQuality": 90,
       "ImageJPEGSubsampling": "Downsample420",
       "ImageGIFQuality": "Default",
+      "ImageWebPQuality": 90,
+      "ImageWebPLossless": true,
+      "ImageWebPCompressionEffort": 100,
       "ImageAutoUseJPEG": true,
       "ImageAutoUseJPEGSize": 2048,
       "ImageAutoJPEGQuality": false,
@@ -166,10 +169,14 @@
       "CaptureCustomWindow": "",
       "RegionCaptureOptions": {
         "QuickCapture": true,
+        "MultiRegionMode": false,
         "DetectWindows": true,
         "DetectControls": true,
         "ActiveMonitorMode": false,
         "BackgroundDimStrength": 20,
+        "DimAllExceptSelection": false,
+        "ToolbarItems": [],
+        "CompactToolbar": false,
         "RegionCaptureActionRightClick": "RemoveShapeCancelCapture",
         "RegionCaptureActionMiddleClick": "SwapToolType",
         "RegionCaptureActionX1Click": "CaptureFullscreen",
@@ -182,7 +189,8 @@
         "MagnifierSize": 150,
         "MagnifierPixelCount": 15,
         "ShowCenterCrosshair": true,
-        "ShowScreenCrosshair": false
+        "ShowScreenCrosshair": false,
+        "ToolbarPosition": "0, 0"
       },
       "FFmpegOptions": {
         "OverrideCLIPath": false,
@@ -218,7 +226,7 @@
       },
       "ScreenRecordUseNative": true,
       "ScreenRecordShowBar": true,
-      "ScreenRecordSystemAudio": true,
+      "ScreenRecordSystemAudio": false,
       "ScreenRecordSystemAudioDeviceId": "",
       "ScreenRecordSystemAudioGain": 1.0,
       "ScreenRecordMicrophone": false,
@@ -460,9 +468,9 @@
         "AutoCopyResult": false
       },
       "ImageEditorOptions": {
-        "LastUsedAnnotationTool": "Arrow",
+        "LastUsedAnnotationTool": "Rectangle",
         "RememberWindowState": true,
-        "IsWindowMaximized": false,
+        "IsWindowMaximized": true,
         "WindowWidth": 1242.0,
         "WindowHeight": 693.0,
         "ShowExitConfirmation": true,
@@ -813,6 +821,11 @@
       "AfterUploadTasks": "None"
     },
     {
+      "Name": "",
+      "AfterCaptureTasks": "AnnotateImage",
+      "AfterUploadTasks": "None"
+    },
+    {
       "Name": null,
       "AfterCaptureTasks": "None",
       "AfterUploadTasks": "None"
@@ -826,9 +839,9 @@
   "TaskbarProgressEnabled": true,
   "UseWhiteShareXIcon": false,
   "RememberMainFormPosition": false,
-  "MainFormPosition": "130, 164",
+  "MainFormPosition": "156, 156",
   "RememberMainFormSize": false,
-  "MainFormSize": "900, 673",
+  "MainFormSize": "929, 516",
   "TrayLeftClickAction": "OpenMainWindow",
   "TrayLeftDoubleClickAction": "OpenMainWindow",
   "TrayMiddleClickAction": "ClipboardUploadWithContentViewer",
@@ -839,7 +852,8 @@
     "Theme": "Dark",
     "UseSystemTheme": true,
     "AccentColorHex": "#3E83F2",
-    "UseSystemAccentColor": true
+    "UseSystemAccentColor": true,
+    "IconPack": "Modern"
   },
   "UseCustomScreenshotsPath": true,
   "CustomScreenshotsPath": "D:\\Current_User\\ShareX_Screenshots",
@@ -860,14 +874,6 @@
   "HistorySaveTasks": true,
   "HistoryCheckURL": false,
   "RecentTasks": [
-    {
-      "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\chrome_2YWJidOoKj.gif",
-      "URL": null,
-      "ThumbnailURL": null,
-      "DeletionURL": null,
-      "ShortenedURL": null,
-      "Time": "2024-12-30T18:36:50.6751146Z"
-    },
     {
       "FilePath": "C:\\Users\\hsayed\\OneDrive\\Documents\\ShareX\\Screenshots\\2024-12\\BP3kpbqXam.mp4",
       "URL": null,
@@ -939,6 +945,14 @@
       "DeletionURL": null,
       "ShortenedURL": null,
       "Time": "2026-09-19T19:55:11.8250841Z"
+    },
+    {
+      "FilePath": "D:\\Current_User\\ShareX_Screenshots\\2026-10\\firefox_D2Jo34vqOr.mp4",
+      "URL": null,
+      "ThumbnailURL": null,
+      "DeletionURL": null,
+      "ShortenedURL": null,
+      "Time": "2026-10-26T13:14:00.6134721Z"
     }
   ],
   "RecentTasksSave": true,
@@ -1003,7 +1017,7 @@
   "AutoCaptureRepeatTime": 60.0,
   "AutoCaptureMinimizeToTray": true,
   "AutoCaptureWaitUpload": true,
-  "ScreenRecordRegion": "1360, -146, 1920, 1016",
+  "ScreenRecordRegion": "1360, -180, 1920, 1050",
   "ActionsToolbarList": [
     "RectangleRegion",
     "PrintScreen",
@@ -1017,6 +1031,7 @@
   "ActionsToolbarLockPosition": false,
   "ActionsToolbarStayTopMost": true,
   "RecentColors": [
+    "35, 33, 32",
     "Red",
     "240, 255, 0",
     "10, 240, 255, 0",
@@ -1067,5 +1082,5 @@
   "DropAlignment": "BottomRight",
   "DropOpacity": 100,
   "DropHoverOpacity": 255,
-  "ApplicationVersion": "22.0.0"
+  "ApplicationVersion": "22.3.0"
 }

@@ -1,0 +1,136 @@
+{
+  "HistoryStates": 50,
+  "GridSpacing": 64,
+  "GridSubdivisions": 4,
+  "GridColor": "#80808080",
+  "GuideColor": "#FF00C8FF",
+  "CheckerSize": 8,
+  "ShowRulers": true,
+  "ShowGrid": false,
+  "ShowGuides": true,
+  "ShowSelectionEdges": true,
+  "ShowSlices": true,
+  "ShowNotes": true,
+  "ShowCount": true,
+  "ShowPixelGrid": true,
+  "Snap": true,
+  "SnapToGuides": true,
+  "SnapToGrid": false,
+  "SnapToDocument": true,
+  "LockGuides": false,
+  "Foreground": "#000000",
+  "Background": "#FFFFFF",
+  "DefaultResample": "Bicubic",
+  "RecentFiles": [],
+  "RecentTiles": false,
+  "Swatches": [
+    "#000000",
+    "#404040",
+    "#808080",
+    "#C0C0C0",
+    "#FFFFFF",
+    "#FF0000",
+    "#FF8000",
+    "#FFFF00",
+    "#80FF00",
+    "#00FF00",
+    "#00FF80",
+    "#00FFFF",
+    "#0080FF",
+    "#0000FF",
+    "#8000FF",
+    "#FF00FF",
+    "#FF0080",
+    "#800000",
+    "#804000",
+    "#808000",
+    "#408000",
+    "#008000",
+    "#008040",
+    "#008080",
+    "#004080",
+    "#000080",
+    "#400080",
+    "#800080",
+    "#800040",
+    "#F4CCCC",
+    "#FCE5CD",
+    "#FFF2CC",
+    "#D9EAD3",
+    "#D0E0E3",
+    "#CFE2F3",
+    "#D9D2E9",
+    "#EAD1DC",
+    "#E06666",
+    "#F6B26B",
+    "#FFD966",
+    "#93C47D",
+    "#76A5AF",
+    "#6FA8DC",
+    "#8E7CC3",
+    "#C27BA0"
+  ],
+  "Shortcuts": {},
+  "Toolbar": [],
+  "HiddenTools": [],
+  "Panels": [
+    {
+      "Panels": [
+        "color",
+        "swatches"
+      ],
+      "Selected": "color",
+      "Collapsed": false,
+      "Height": 0.8488549618320611
+    },
+    {
+      "Panels": [
+        "properties",
+        "adjustments",
+        "brushes"
+      ],
+      "Selected": "properties",
+      "Collapsed": false,
+      "Height": 1.0137404580152671
+    },
+    {
+      "Panels": [
+        "layers",
+        "channels",
+        "paths"
+      ],
+      "Selected": "layers",
+      "Collapsed": false,
+      "Height": 1.2946564885496183
+    },
+    {
+      "Panels": [
+        "history",
+        "navigator",
+        "info"
+      ],
+      "Selected": "history",
+      "Collapsed": false,
+      "Height": 0.732824427480916
+    }
+  ],
+  "RightDockWidth": 300,
+  "RightDockVisible": true,
+  "ToolbarVisible": true,
+  "ToolbarTwoColumns": true,
+  "OptionsVisible": true,
+  "RememberWindowState": true,
+  "WindowState": {
+    "Location": {
+      "IsEmpty": true,
+      "X": 0,
+      "Y": 0
+    },
+    "Size": {
+      "IsEmpty": true,
+      "Width": 0,
+      "Height": 0
+    },
+    "IsMaximized": true
+  }
+}

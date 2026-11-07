@@ -46,13 +46,20 @@
       "PowerShell(git stash *)"
     ]
   },
-  "model": "opus",
+  "model": "opus[1m]",
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "enableAllProjectMcpServers": true,
   "statusLine": {
     "type": "command",
     "command": "bash /c/Users/hsayed/.claude/statusline.sh"
   },
-  "enabledPlugins": {},
+  "enabledPlugins": {
+    "postman@claude-plugins-official": true
+  },
   "extraKnownMarketplaces": {},
   "skipDangerousModePermissionPrompt": true
 }

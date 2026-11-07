@@ -747,7 +747,7 @@
                     {
                         "name": "MyVirtual",
                         "source_uuid": "256b2930-2b23-45f1-a62f-f41120501003",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
